@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AI-Powered Data Analytics Course | Skill Bridge</title>
+    <!-- Google Fonts + Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { overflow-x: hidden; background: #f8fafc; }
+        
+        .btn-primary-custom { background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%); transition: all 0.3s ease; }
+        .btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(26,111,140,0.4); }
+        .search-input:focus { width: 260px; outline: none; border-color: #1a6f8c; }
+        .footer-link { transition: color 0.2s ease; }
+        .footer-link:hover { color: #1a6f8c; }
+        
+        /* Course Detail Styles */
+        .breadcrumb a { transition: color 0.2s; }
+        .breadcrumb a:hover { color: #1a6f8c; }
+        .section-card { background: white; border-radius: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #eef2f6; }
+        .lecture-item { transition: background 0.2s; cursor: pointer; }
+        .lecture-item:hover { background: #f8fafc; }
+        .expand-icon { transition: transform 0.3s ease; }
+        .section-header.expanded .expand-icon { transform: rotate(180deg); }
+        .lecture-list { display: none; }
+        .section-header.expanded + .lecture-list { display: block; }
+        
+        @media (max-width: 768px) {
+            .course-info-grid { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="p-4 flex bg-gray-900 justify-between items-center fixed top-0 left-0 right-0 z-50 shadow-xl border-b border-gray-800">
+        <a href="index.html" class="flex gap-2.5 items-center group">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a6f8c] to-[#2c8eae] flex items-center justify-center text-white font-bold text-xl shadow-lg transition-transform group-hover:scale-105">SB</div>
+            <span class="text-2xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Skill Bridge</span>
+        </a>
+        <div class="hidden md:flex items-center bg-gray-800 rounded-full px-4 py-2 w-64 transition-all duration-300 focus-within:w-80 focus-within:bg-gray-700">
+            <i class="fa-solid fa-search text-gray-400 mr-2"></i>
+            <input type="text" placeholder="Search courses..." class="search-input bg-transparent text-white placeholder-gray-400 text-sm w-full focus:outline-none">
+        </div>
+        <div class="hidden md:flex gap-8">
+            <a href="index.html" class="font-semibold text-gray-300 hover:text-white transition">Home</a>
+            <a href="index.html#about" class="font-semibold text-gray-300 hover:text-white transition">About</a>
+            <a href="all-courses.html" class="font-semibold text-gray-300 hover:text-white transition">All Courses</a>
+            <a href="index.html#mentors" class="font-semibold text-gray-300 hover:text-white transition">Mentors</a>
+            <a href="index.html#founder" class="font-semibold text-gray-300 hover:text-white transition">Founder</a>
+            <a href="index.html#testimonials" class="font-semibold text-gray-300 hover:text-white transition">Reviews</a>
+        </div>
+        <div class="hidden md:flex gap-3">
+            <button class="bg-transparent border border-gray-600 text-gray-300 px-5 py-2 rounded-full text-sm font-semibold hover:border-[#1a6f8c] hover:text-white">Login</button>
+            <button class="btn-primary-custom text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-md">Enroll Now</button>
+        </div>
+        <button class="md:hidden p-2" id="menuBtn"><i class="fa-solid fa-bars text-white text-2xl"></i></button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
+        <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
+        <div class="flex items-center bg-gray-800 rounded-full px-4 py-3 mb-6">
+            <i class="fa-solid fa-search text-gray-400 mr-2"></i>
+            <input type="text" placeholder="Search courses..." class="bg-transparent text-white placeholder-gray-400 text-sm w-full focus:outline-none">
+        </div>
+        <div class="flex flex-col gap-5 text-xl">
+            <a href="index.html" class="font-semibold text-gray-300 py-3 border-b border-gray-800">Home</a>
+            <a href="index.html#about" class="font-semibold text-gray-300 py-3 border-b">About</a>
+            <a href="all-courses.html" class="font-semibold text-gray-300 py-3 border-b">All Courses</a>
+            <a href="index.html#mentors" class="font-semibold text-gray-300 py-3 border-b">Mentors</a>
+            <a href="index.html#founder" class="font-semibold text-gray-300 py-3 border-b">Founder</a>
+            <a href="index.html#testimonials" class="font-semibold text-gray-300 py-3 border-b">Reviews</a>
+            <div class="flex gap-4 mt-4">
+                <button class="flex-1 bg-transparent border border-gray-600 text-gray-300 py-3 rounded-full font-semibold">Login</button>
+                <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Course Content -->
+    <main class="pt-24 pb-12 px-4 md:px-8">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb mb-6 text-sm">
+                <a href="index.html" class="text-gray-500 hover:text-[#1a6f8c]">Home</a>
+                <span class="text-gray-400 mx-2">/</span>
+                <a href="all-courses.html" class="text-gray-500 hover:text-[#1a6f8c]">Courses</a>
+                <span class="text-gray-400 mx-2">/</span>
+                <span class="text-gray-800 font-medium">Ultimate Job-Ready AI-Powered Data Analytics Course</span>
+            </div>
+
+            <!-- Course Header -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                <div class="bg-gradient-to-r from-[#0a2b3e] to-[#1a6f8c] p-6 md:p-8 text-white">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full">Hot & New</span>
+                        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full">📊 Data Analytics</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold mb-4">Ultimate Job-Ready AI-Powered Data Analytics Course</h1>
+                    <p class="text-white/80 text-base md:text-lg mb-6 max-w-3xl">This is a to-the-point, Skill Bridge style AI-Powered Data Analytics course! This all-in-one Ultimate Job-Ready AI-Powered Data Analytics Course is designed for beginners and intermediate learners who want to master modern data analytics, leverage AI tools, and become industry-ready with hands-on practical projects.</p>
+                    
+                    <div class="flex flex-wrap items-center gap-6 text-sm">
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-user"></i><span>Created by <strong>Skill Bridge</strong></span></div>
+                        <div class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i><span>Last updated 5/5/2026</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-language"></i><span>Hindi / English</span></div>
+                    </div>
+                </div>
+                
+                <!-- Course Info Bar -->
+                <div class="p-6 border-b flex flex-wrap justify-between items-center gap-4 bg-gray-50">
+                    <div class="flex items-center gap-6">
+                        <div><span class="text-2xl font-bold text-gray-800">₹2599</span><span class="text-gray-400 line-through ml-2">₹3899</span><span class="text-green-600 text-sm ml-2">33% off</span></div>
+                        <div class="h-8 w-px bg-gray-300"></div>
+                        <div><i class="fa-regular fa-clock text-gray-500 mr-1"></i><span class="text-gray-600">32hr 52min total</span></div>
+                        <div><i class="fa-regular fa-file-lines text-gray-500 mr-1"></i><span class="text-gray-600">191 lectures</span></div>
+                    </div>
+                    <button class="bg-gradient-to-r from-[#0a2b3e] to-[#1a6f8c] text-white px-8 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all">Enroll Now <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Left Column - Main Content -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- What You'll Learn -->
+                    <div class="section-card p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-lightbulb text-[#1a6f8c]"></i> What you'll learn</h2>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-green-500"></i> Understand the complete Data Analytics workflow from data collection to insight generation</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-green-500"></i> Analyze and clean real-world datasets using Python, Pandas, and NumPy</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-green-500"></i> Query, manage, and transform databases with SQL like a professional analyst</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-green-500"></i> Build dashboards and interactive reports using Power BI & Tableau</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-green-500"></i> Leverage AI-powered tools to automate analysis, generate insights, and boost productivity</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-green-500"></i> Work with Excel for advanced reporting, automation, and analysis</div>
+                        </div>
+                    </div>
+
+                    <!-- Course Content - Accordion Sections -->
+                    <div class="section-card p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-rectangle-list text-[#1a6f8c]"></i> Course content</h2>
+                        <div class="text-sm text-gray-500 mb-4">11 sections • 191 lectures • 32hr 52min total length</div>
+                        
+                        <!-- Section 1 -->
+                        <div class="border rounded-xl mb-3 overflow-hidden">
+                            <div class="section-header flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-gray-100 transition">
+                                <div class="flex items-center gap-3"><i class="fa-solid fa-chevron-down expand-icon text-gray-400 transition-transform"></i><span class="font-semibold text-gray-800">Introduction to Data Analytics</span></div>
+                                <span class="text-sm text-gray-500">6 lectures • 42min</span>
+                            </div>
+                            <div class="lecture-list border-t bg-white">
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>What is Data Analytics?</span></div><span class="text-xs text-gray-400">8:15</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Types of Data: Structured vs Unstructured</span></div><span class="text-xs text-gray-400">6:20</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Data Analytics Lifecycle</span></div><span class="text-xs text-gray-400">7:30</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Tools Overview: Python, SQL, Excel, Power BI</span></div><span class="text-xs text-gray-400">10:15</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Setting Up Your Environment</span></div><span class="text-xs text-gray-400">5:40</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Course Roadmap & Expectations</span></div><span class="text-xs text-gray-400">4:20</span></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 2 -->
+                        <div class="border rounded-xl mb-3 overflow-hidden">
+                            <div class="section-header flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-gray-100 transition">
+                                <div class="flex items-center gap-3"><i class="fa-solid fa-chevron-down expand-icon text-gray-400 transition-transform"></i><span class="font-semibold text-gray-800">Basic Excel for Data Analytics</span></div>
+                                <span class="text-sm text-gray-500">23 lectures • 286min</span>
+                            </div>
+                            <div class="lecture-list border-t bg-white">
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Excel Interface & Navigation</span></div><span class="text-xs text-gray-400">12:00</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Data Entry & Formatting</span></div><span class="text-xs text-gray-400">15:30</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Formulas & Functions Basics</span></div><span class="text-xs text-gray-400">18:45</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Data Sorting & Filtering</span></div><span class="text-xs text-gray-400">10:20</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Pivot Tables Introduction</span></div><span class="text-xs text-gray-400">14:00</span></div>
+                                <div class="text-center p-3 text-gray-400 text-sm">+ 18 more lectures...</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 3 -->
+                        <div class="border rounded-xl mb-3 overflow-hidden">
+                            <div class="section-header flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-gray-100 transition">
+                                <div class="flex items-center gap-3"><i class="fa-solid fa-chevron-down expand-icon text-gray-400 transition-transform"></i><span class="font-semibold text-gray-800">Basic Python (AI-powered)</span></div>
+                                <span class="text-sm text-gray-500">30 lectures • 342min</span>
+                            </div>
+                            <div class="lecture-list border-t bg-white">
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Python Installation & Setup</span></div><span class="text-xs text-gray-400">8:30</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Variables & Data Types</span></div><span class="text-xs text-gray-400">12:15</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Lists, Tuples & Dictionaries</span></div><span class="text-xs text-gray-400">15:40</span></div>
+                                <div class="lecture-item flex justify-between items-center p-3 hover:bg-gray-50"><div class="flex items-center gap-3"><i class="fa-regular fa-play-circle text-gray-400"></i><span>Loops & Conditionals</span></div><span class="text-xs text-gray-400">13:20</span></div>
+                                <div class="text-center p-3 text-gray-400 text-sm">+ 26 more lectures...</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 4-11 Summary -->
+                        <div class="border rounded-xl mb-3 overflow-hidden">
+                            <div class="section-header flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-gray-100 transition">
+                                <div class="flex items-center gap-3"><i class="fa-solid fa-chevron-down expand-icon text-gray-400 transition-transform"></i><span class="font-semibold text-gray-800">SQL for Data Analytics</span></div>
+                                <span class="text-sm text-gray-500">30 lectures • 262min</span>
+                            </div>
+                            <div class="lecture-list border-t bg-white"><div class="p-4 text-center text-gray-400 text-sm">30 lectures covering SQL basics, joins, subqueries, window functions, and database design</div></div>
+                        </div>
+                        
+                        <div class="border rounded-xl mb-3 overflow-hidden">
+                            <div class="section-header flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-gray-100 transition">
+                                <div class="flex items-center gap-3"><i class="fa-solid fa-chevron-down expand-icon text-gray-400 transition-transform"></i><span class="font-semibold text-gray-800">Advanced Python</span></div>
+                                <span class="text-sm text-gray-500">13 lectures • 171min</span>
+                            </div>
+                            <div class="lecture-list border-t bg-white"><div class="p-4 text-center text-gray-400 text-sm">13 lectures covering NumPy, Pandas, Matplotlib, and data manipulation</div></div>
+                        </div>
+                        
+                        <div class="border rounded-xl mb-3 overflow-hidden">
+                            <div class="section-header flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-gray-100 transition">
+                                <div class="flex items-center gap-3"><i class="fa-solid fa-chevron-down expand-icon text-gray-400 transition-transform"></i><span class="font-semibold text-gray-800">AI Tools for Data Analysts - Make Coders Jealous</span></div>
+                                <span class="text-sm text-gray-500">6 lectures • 80min</span>
+                            </div>
+                            <div class="lecture-list border-t bg-white"><div class="p-4 text-center text-gray-400 text-sm">Master ChatGPT, Copilot, and AI-powered analytics tools</div></div>
+                        </div>
+                        
+                        <div class="text-center mt-3"><button class="text-[#1a6f8c] text-sm font-semibold hover:underline">Expand all sections <i class="fa-solid fa-chevron-down ml-1"></i></button></div>
+                    </div>
+
+                    <!-- Requirements -->
+                    <div class="section-card p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-list-check text-[#1a6f8c]"></i> Requirements</h2>
+                        <ul class="space-y-2 text-gray-600 text-sm">
+                            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-green-500"></i> No prior experience in data analytics is needed</li>
+                            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-green-500"></i> Basic computer skills and internet access</li>
+                            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-green-500"></i> Willingness to learn and solve real-world problems</li>
+                            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-green-500"></i> Curiosity and consistency; that's all you really need!</li>
+                            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-green-500"></i> Stable internet connection for accessing course content</li>
+                        </ul>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="section-card p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-file-lines text-[#1a6f8c]"></i> Description</h2>
+                        <p class="text-gray-600 text-sm leading-relaxed">This is a to-the-point, <strong>Skill Bridge</strong> style AI-Powered Data Analytics course! This all-in-one Ultimate Job-Ready AI-Powered Data Analytics Course is designed for beginners and intermediate learners who want to master modern data analytics, leverage AI tools, and become industry-ready with hands-on practical projects.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed mt-3">Throughout this comprehensive course, you'll learn everything from Excel basics to advanced Python programming, SQL database management, Power BI visualization, and cutting-edge AI tools that will make you a highly sought-after data analyst in today's job market.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column - Sidebar -->
+                <div class="space-y-6">
+                    <!-- This Course Includes Card -->
+                    <div class="section-card p-6 sticky top-24">
+                        <h3 class="font-bold text-gray-800 mb-4">This course includes:</h3>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li class="flex items-center gap-3"><i class="fa-regular fa-file-video text-[#1a6f8c] w-5"></i> 191 lectures</li>
+                            <li class="flex items-center gap-3"><i class="fa-regular fa-clock text-[#1a6f8c] w-5"></i> 32hr 52min total length</li>
+                            <li class="flex items-center gap-3"><i class="fa-regular fa-mobile-screen text-[#1a6f8c] w-5"></i> Access on mobile and desktop (2 Years)</li>
+                            <li class="flex items-center gap-3"><i class="fa-regular fa-certificate text-[#1a6f8c] w-5"></i> Certificate of completion</li>
+                            <li class="flex items-center gap-3"><i class="fa-regular fa-share-from-square text-[#1a6f8c] w-5"></i> Share with friends</li>
+                        </ul>
+                        <div class="mt-6 pt-4 border-t">
+                            <div class="text-center mb-3"><span class="text-3xl font-bold text-gray-800">₹2599</span><span class="text-gray-400 line-through ml-2">₹3899</span><span class="text-green-600 text-sm ml-2">33% off</span></div>
+                            <button class="w-full bg-gradient-to-r from-[#0a2b3e] to-[#1a6f8c] text-white py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all mb-3">Enroll Now</button>
+                            <p class="text-center text-xs text-gray-500">30-Day Money-Back Guarantee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-12 pb-6 px-6 mt-12">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1a6f8c] to-[#2c8eae] flex items-center justify-center text-white font-bold">SB</div>
+                        <span class="text-xl font-extrabold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Skill Bridge</span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">Elevate your skills! Seamlessly blend the worlds of technology & business together for a future full of endless possibilities.</p>
+                    <div class="mt-3 space-y-1 text-xs"><p><i class="fa-solid fa-phone-alt text-[#1a6f8c] mr-2"></i> +91 9513883111</p><p><i class="fa-solid fa-envelope text-[#1a6f8c] mr-2"></i> support@skillbridge.com</p><p><i class="fa-solid fa-location-dot text-[#1a6f8c] mr-2"></i> Brigade Signature Towers, Bengaluru</p></div>
+                </div>
+                <div><h3 class="text-white font-bold text-sm mb-3">Company</h3><ul class="space-y-1 text-xs"><li><a href="index.html" class="footer-link">Home</a></li><li><a href="index.html#about" class="footer-link">About us</a></li><li><a href="all-courses.html" class="footer-link">All Courses</a></li><li><a href="index.html#mentors" class="footer-link">Mentors</a></li></ul></div>
+                <div><h3 class="text-white font-bold text-sm mb-3">Categories</h3><ul class="space-y-1 text-xs"><li><a href="all-courses.html" class="footer-link">Software Development</a></li><li><a href="all-courses.html" class="footer-link">Data Science & Analytics</a></li><li><a href="all-courses.html" class="footer-link">Cloud & DevOps</a></li><li><a href="all-courses.html" class="footer-link">Digital Marketing</a></li></ul></div>
+                <div><h3 class="text-white font-bold text-sm mb-3">Follow Us</h3><div class="space-y-2"><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-linkedin text-base"></i> LinkedIn</a><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-youtube text-base text-red-500"></i> YouTube</a><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-telegram text-base text-blue-400"></i> Telegram</a><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-instagram text-base"></i> Instagram</a></div></div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500 text-xs"><p>© 2025 Skill Bridge. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn'), mobileMenu = document.getElementById('mobileMenu'), closeMenu = document.getElementById('closeMenu');
+        if (menuBtn) { menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden')); closeMenu.addEventListener('click', () => mobileMenu.classList.add('hidden')); }
+        
+        // Accordion functionality for course sections
+        const sectionHeaders = document.querySelectorAll('.section-header');
+        sectionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('expanded');
+            });
+        });
+        
+        // Expand all / Collapse all
+        const expandBtn = document.querySelector('.text-center .text-[#1a6f8c]');
+        if (expandBtn) {
+            let allExpanded = false;
+            expandBtn.addEventListener('click', () => {
+                sectionHeaders.forEach(header => {
+                    if (allExpanded) {
+                        header.classList.remove('expanded');
+                    } else {
+                        header.classList.add('expanded');
+                    }
+                });
+                allExpanded = !allExpanded;
+                expandBtn.innerHTML = allExpanded ? 'Collapse all sections <i class="fa-solid fa-chevron-up ml-1"></i>' : 'Expand all sections <i class="fa-solid fa-chevron-down ml-1"></i>';
+            });
+        }
+    </script>
+</body>
+</html>

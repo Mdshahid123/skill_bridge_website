@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Skill Bridge | All Courses</title>
+    <!-- Google Fonts + Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { overflow-x: hidden; background: #f8fafc; }
+        
+        .btn-primary-custom { background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%); transition: all 0.3s ease; }
+        .btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(26,111,140,0.4); }
+        .search-input:focus { width: 260px; outline: none; border-color: #1a6f8c; }
+        .footer-link { transition: color 0.2s ease; }
+        .footer-link:hover { color: #1a6f8c; }
+        
+        /* Course Card Styles */
+        .course-card { background: white; border-radius: 1.5rem; overflow: hidden; transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); box-shadow: 0 10px 30px -12px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); }
+        .course-card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15); border-color: rgba(26,111,140,0.2); }
+        .course-img-wrapper { position: relative; overflow: hidden; height: 220px; }
+        .course-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .course-card:hover .course-img-wrapper img { transform: scale(1.08); }
+        .course-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(10,43,62,0.3) 0%, rgba(26,111,140,0.5) 100%); opacity: 0; transition: opacity 0.4s; }
+        .course-card:hover .course-overlay { opacity: 1; }
+        .course-badge { position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, #f59e0b, #ef4444); padding: 5px 12px; border-radius: 30px; font-size: 0.7rem; font-weight: 700; color: white; z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .course-badge-popular { background: linear-gradient(135deg, #10b981, #059669); }
+        .view-course-btn { background: transparent; border: 2px solid #1a6f8c; color: #1a6f8c; padding: 8px 20px; border-radius: 40px; font-weight: 600; font-size: 0.85rem; transition: all 0.3s; cursor: pointer; display: inline-block; text-decoration: none; }
+        .view-course-btn:hover { background: #1a6f8c; color: white; transform: translateY(-2px); }
+        
+        /* Modal Styles */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .course-modal { background: white; border-radius: 2rem; max-width: 750px; width: 90%; max-height: 85vh; overflow-y: auto; padding: 2rem; position: relative; transform: scale(0.9); transition: transform 0.3s ease; }
+        .modal-overlay.active .course-modal { transform: scale(1); }
+        .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 1.8rem; cursor: pointer; color: #9ca3af; transition: color 0.2s; z-index: 10; }
+        .modal-close:hover { color: #ef4444; }
+        .enroll-modal-btn { background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%); color: white; padding: 0.75rem 1.8rem; border-radius: 2rem; font-weight: 600; transition: all 0.3s; display: inline-block; border: none; cursor: pointer; }
+        .enroll-modal-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(26,111,140,0.3); }
+        
+        .courses-header { background: linear-gradient(135deg, #0a2b3e 0%, #1a6f8c 100%); padding: 60px 0 40px; margin-top: 70px; }
+        .filter-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 20px; border-radius: 40px; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .filter-btn:hover, .filter-btn.active { background: white; color: #1a6f8c; border-color: white; }
+        
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+        
+        @media (max-width: 768px) { .courses-header { margin-top: 60px; padding: 40px 0 30px; } .filter-btn { padding: 6px 14px; font-size: 0.8rem; } .courses-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="p-4 flex bg-gray-900 justify-between items-center fixed top-0 left-0 right-0 z-50 shadow-xl border-b border-gray-800">
+        <a href="index.html" class="flex gap-2.5 items-center group">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a6f8c] to-[#2c8eae] flex items-center justify-center text-white font-bold text-xl shadow-lg transition-transform group-hover:scale-105">SB</div>
+            <span class="text-2xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Skill Bridge</span>
+        </a>
+        <div class="hidden md:flex items-center bg-gray-800 rounded-full px-4 py-2 w-64 transition-all duration-300 focus-within:w-80 focus-within:bg-gray-700">
+            <i class="fa-solid fa-search text-gray-400 mr-2"></i>
+            <input type="text" placeholder="Search courses..." id="searchCourseInput" class="search-input bg-transparent text-white placeholder-gray-400 text-sm w-full focus:outline-none">
+        </div>
+        <div class="hidden md:flex gap-8">
+            <a href="index.html" class="font-semibold text-gray-300 hover:text-white transition">Home</a>
+            <a href="index.html#about" class="font-semibold text-gray-300 hover:text-white transition">About</a>
+            <a href="#" class="font-semibold text-white transition border-b-2 border-[#1a6f8c]">All Courses</a>
+            <a href="index.html#mentors" class="font-semibold text-gray-300 hover:text-white transition">Mentors</a>
+            <a href="index.html#founder" class="font-semibold text-gray-300 hover:text-white transition">Founder</a>
+            <a href="index.html#testimonials" class="font-semibold text-gray-300 hover:text-white transition">Reviews</a>
+        </div>
+        <div class="hidden md:flex gap-3">
+            <button class="bg-transparent border border-gray-600 text-gray-300 px-5 py-2 rounded-full text-sm font-semibold hover:border-[#1a6f8c] hover:text-white">Login</button>
+            <button class="btn-primary-custom text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-md enroll-btn">Enroll Now</button>
+        </div>
+        <button class="md:hidden p-2" id="menuBtn"><i class="fa-solid fa-bars text-white text-2xl"></i></button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
+        <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
+        <div class="flex items-center bg-gray-800 rounded-full px-4 py-3 mb-6">
+            <i class="fa-solid fa-search text-gray-400 mr-2"></i>
+            <input type="text" placeholder="Search courses..." id="mobileSearchInput" class="bg-transparent text-white placeholder-gray-400 text-sm w-full focus:outline-none">
+        </div>
+        <div class="flex flex-col gap-5 text-xl">
+            <a href="index.html" class="font-semibold text-gray-300 py-3 border-b border-gray-800">Home</a>
+            <a href="index.html#about" class="font-semibold text-gray-300 py-3 border-b">About</a>
+            <a href="#" class="font-semibold text-white py-3 border-b border-[#1a6f8c]">All Courses</a>
+            <a href="index.html#mentors" class="font-semibold text-gray-300 py-3 border-b">Mentors</a>
+            <a href="index.html#founder" class="font-semibold text-gray-300 py-3 border-b">Founder</a>
+            <a href="index.html#testimonials" class="font-semibold text-gray-300 py-3 border-b">Reviews</a>
+            <div class="flex gap-4 mt-4">
+                <button class="flex-1 bg-transparent border border-gray-600 text-gray-300 py-3 rounded-full font-semibold">Login</button>
+                <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold enroll-btn">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enrollment Modal -->
+    <div id="enrollModal" class="modal-overlay">
+        <div class="course-modal" style="max-width: 500px;">
+            <div class="modal-close" id="closeEnrollModal">&times;</div>
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#0a2b3e] to-[#1a6f8c] flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-graduation-cap text-white text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800">Start Your Journey</h2>
+                <p class="text-gray-500 text-sm mt-1">Fill the form to get a free counseling session</p>
+            </div>
+            <form id="enrollmentForm" class="space-y-4">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label><input type="text" id="fullName" required class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#1a6f8c]" placeholder="Enter your full name"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label><input type="email" id="email" required class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#1a6f8c]" placeholder="you@example.com"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label><input type="tel" id="phone" required class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#1a6f8c]" placeholder="+91 98765 43210"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Interested Course</label><select id="courseSelect" class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#1a6f8c]"><option value="">Select a course</option><option>Full Stack Development</option><option>Data Science & AI</option><option>Cloud & DevOps</option><option>Mobile App Development</option><option>Cybersecurity</option><option>Digital Marketing</option><option>UI/UX Design</option><option>Blockchain Development</option></select></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label><textarea id="message" rows="3" class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:border-[#1a6f8c]" placeholder="Any specific questions?"></textarea></div>
+                <button type="submit" class="w-full bg-gradient-to-r from-[#0a2b3e] to-[#1a6f8c] text-white py-3 rounded-full font-semibold transition-all hover:opacity-90">Submit Application <i class="fa-solid fa-arrow-right ml-2"></i></button>
+            </form>
+            <p class="text-center text-xs text-gray-400 mt-4">We'll contact you within 24 hours. No spam, guaranteed.</p>
+        </div>
+    </div>
+
+    <!-- Course Detail Modal -->
+    <div id="courseDetailModal" class="modal-overlay">
+        <div class="course-modal">
+            <div class="modal-close" id="closeCourseModal">&times;</div>
+            <div id="courseModalContent"></div>
+        </div>
+    </div>
+
+    <!-- All Courses Page Header -->
+    <div class="courses-header">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white text-center mb-4">All Premium Courses</h1>
+            <p class="text-white/80 text-center max-w-2xl mx-auto mb-8">Explore our comprehensive collection of industry-ready courses taught by expert mentors</p>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-6">
+                <button class="filter-btn active" data-filter="all">All Courses</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="data">Data Science & AI</button>
+                <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+                <button class="filter-btn" data-filter="design">Design & Marketing</button>
+            </div>
+            
+            <!-- Results count -->
+            <p class="text-white/70 text-center text-sm" id="resultsCount">Showing 9 courses</p>
+        </div>
+    </div>
+
+    <!-- Courses Grid Section - STATIC HTML COURSES CARDS (No JavaScript needed for display) -->
+    <section class="py-16 px-6 md:px-12">
+        <div class="container mx-auto max-w-6xl">
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Course Card 1 - Full Stack Development -->
+                <div class="course-card group" data-category="development" data-name="Full Stack Development">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Full Stack Development">
+                        <div class="course-overlay"></div>
+                        <div class="course-badge course-badge-popular">🔥 Most Popular</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">12 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$499</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Full Stack Development</h3>
+                        <p class="text-gray-500 text-sm mb-4">Master MERN stack, Python, SQL, and deployment. Build real-world e-commerce applications with portfolio review.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Intermediate</span>
+                            <a href="/viewCourse" class="view-course-btn view-course-link" data-id="1">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 - Data Science & AI -->
+                <div class="course-card group" data-category="data" data-name="Data Science & AI">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Data Science & AI">
+                        <div class="course-overlay"></div>
+                        <div class="course-badge course-badge-popular">🔥 Trending</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">14 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$599</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Data Science & AI</h3>
+                        <p class="text-gray-500 text-sm mb-4">Learn Machine Learning, Deep Learning, NLP, Computer Vision, and LLMs. Work on real-world data projects.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Advanced</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="2">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 - Cloud & DevOps -->
+                <div class="course-card group" data-category="cloud" data-name="Cloud & DevOps">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" alt="Cloud & DevOps">
+                        <div class="course-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">10 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$549</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cloud & DevOps</h3>
+                        <p class="text-gray-500 text-sm mb-4">AWS, Docker, Kubernetes, CI/CD pipelines, Infrastructure as Code, and monitoring. Get certified.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Intermediate</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="3">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 4 - Mobile App Development -->
+                <div class="course-card group" data-category="development" data-name="Mobile App Development">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop" alt="Mobile App Development">
+                        <div class="course-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">12 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$549</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Mobile App Development</h3>
+                        <p class="text-gray-500 text-sm mb-4">Build native iOS apps with Swift and Android apps with Kotlin. Learn Firebase and publish to App Store.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Beginner</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="4">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 5 - Cybersecurity -->
+                <div class="course-card group" data-category="cloud" data-name="Cybersecurity">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" alt="Cybersecurity">
+                        <div class="course-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">10 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$649</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Cybersecurity</h3>
+                        <p class="text-gray-500 text-sm mb-4">Network security, ethical hacking, penetration testing, risk management, and compliance (CISSP aligned).</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Advanced</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="5">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 6 - Digital Marketing -->
+                <div class="course-card group" data-category="design" data-name="Digital Marketing">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Digital Marketing">
+                        <div class="course-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">8 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$399</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Digital Marketing</h3>
+                        <p class="text-gray-500 text-sm mb-4">SEO, Google Ads, Social Media Marketing, Content Strategy, Analytics, and certification prep.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Beginner</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="6">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 7 - UI/UX Design -->
+                <div class="course-card group" data-category="design" data-name="UI/UX Design">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop" alt="UI/UX Design">
+                        <div class="course-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">10 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$449</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">UI/UX Design</h3>
+                        <p class="text-gray-500 text-sm mb-4">Master Figma, Adobe XD, user research, wireframing, prototyping, and design thinking.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Beginner</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="7">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 8 - Blockchain Development -->
+                <div class="course-card group" data-category="development" data-name="Blockchain Development">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop" alt="Blockchain Development">
+                        <div class="course-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">12 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$699</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Blockchain Development</h3>
+                        <p class="text-gray-500 text-sm mb-4">Learn Solidity, Smart Contracts, Web3, Ethereum, and DeFi applications.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Advanced</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="8">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 9 - Artificial Intelligence -->
+                <div class="course-card group" data-category="data" data-name="Artificial Intelligence">
+                    <div class="course-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="Artificial Intelligence">
+                        <div class="course-overlay"></div>
+                        <div class="course-badge course-badge-popular">✨ New</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-600 rounded-full">16 weeks</span>
+                            <span class="text-sm font-bold text-[#1a6f8c]">$799</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Artificial Intelligence</h3>
+                        <p class="text-gray-500 text-sm mb-4">Advanced AI concepts including Reinforcement Learning, Generative AI, and Computer Vision.</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xs text-gray-400"><i class="fa-regular fa-signal"></i> Advanced</span>
+                            <a href="#" class="view-course-btn view-course-link" data-id="9">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No results message (hidden by default, shown when filter finds no matches) -->
+            <div id="noResults" class="text-center py-12 hidden">
+                <i class="fa-solid fa-search text-5xl text-gray-300 mb-4"></i>
+                <p class="text-gray-500 text-lg">No courses found matching your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-12 pb-6 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1a6f8c] to-[#2c8eae] flex items-center justify-center text-white font-bold">SB</div>
+                        <span class="text-xl font-extrabold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Skill Bridge</span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">Elevate your skills! Seamlessly blend the worlds of technology & business together for a future full of endless possibilities.</p>
+                    <div class="mt-3 space-y-1 text-xs"><p><i class="fa-solid fa-phone-alt text-[#1a6f8c] mr-2"></i> +91 9513883111</p><p><i class="fa-solid fa-envelope text-[#1a6f8c] mr-2"></i> support@skillbridge.com</p><p><i class="fa-solid fa-location-dot text-[#1a6f8c] mr-2"></i> Brigade Signature Towers, Bengaluru</p></div>
+                </div>
+                <div><h3 class="text-white font-bold text-sm mb-3">Company</h3><ul class="space-y-1 text-xs"><li><a href="index.html" class="footer-link">Home</a></li><li><a href="index.html#about" class="footer-link">About us</a></li><li href="#" class="footer-link">All Courses</a></li><li><a href="index.html#mentors" class="footer-link">Mentors</a></li></ul></div>
+                <div><h3 class="text-white font-bold text-sm mb-3">Categories</h3><ul class="space-y-1 text-xs"><li><a href="#" class="footer-link filter-cat-link" data-filter-cat="development">Software Development</a></li><li><a href="#" class="footer-link filter-cat-link" data-filter-cat="data">Data Science & Analytics</a></li><li><a href="#" class="footer-link filter-cat-link" data-filter-cat="cloud">Cloud & DevOps</a></li><li><a href="#" class="footer-link filter-cat-link" data-filter-cat="design">Digital Marketing</a></li></ul></div>
+                <div><h3 class="text-white font-bold text-sm mb-3">Follow Us</h3><div class="space-y-2"><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-linkedin text-base"></i> LinkedIn</a><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-youtube text-base text-red-500"></i> YouTube</a><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-telegram text-base text-blue-400"></i> Telegram</a><a href="#" class="flex items-center gap-2 footer-link text-xs"><i class="fa-brands fa-instagram text-base"></i> Instagram</a></div></div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500 text-xs"><p>© 2025 Skill Bridge. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
