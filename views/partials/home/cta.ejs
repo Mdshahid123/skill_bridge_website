@@ -1,0 +1,172 @@
+<!-- CTA SECTION - Need Help Style -->
+<section class="mt-12 mb-16 px-6 md:px-12 scroll-reveal">
+    <div class="help-split-card max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row">
+            <!-- Left Side - Person Illustration with Question Marks -->
+            <div class="person-illustration w-full md:w-5/12 p-6 md:p-8 flex flex-col items-center justify-center relative">
+                <div class="relative flex flex-col items-center w-full">
+                    <div class="relative inline-block">
+                        <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain" />
+                        <div class="absolute -top-8 -right-3 bg-white/80 backdrop-blur-sm p-1.5 rounded-full shadow-sm border border-teal-100 float-question">
+                            <span class="question-mark-big">?</span>
+                        </div>
+                        <div class="absolute -top-5 -left-5 bg-white/80 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 0.7s;">
+                            <span class="question-mark-small">?</span>
+                        </div>
+                        <div class="absolute -bottom-1 -left-6 bg-white/70 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100">
+                            <span class="text-xl font-bold text-teal-500 opacity-60">?</span>
+                        </div>
+                        <div class="absolute top-1 -right-6 bg-white/70 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 1.2s;">
+                            <span class="text-lg font-bold text-teal-500 opacity-50">?</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-lg font-semibold text-gray-800">Have questions? <span class="text-teal-500">We're here</span></h3>
+                        <p class="text-sm text-gray-500 max-w-[200px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
+                    </div>
+                    <div class="absolute bottom-4 right-4 opacity-5 text-6xl text-teal-500"><i class="fa-regular fa-circle-question"></i></div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Contact Form / CTA -->
+            <div class="w-full md:w-7/12 p-6 md:p-8 bg-white">
+                <div class="flex items-center gap-3 mb-5">
+                    <i class="fa-regular fa-headset text-teal-500 text-xl"></i>
+                    <h2 class="text-2xl font-bold text-gray-800">Talk to our <span class="text-teal-500">Counselor</span></h2>
+                </div>
+                
+                <form id="ctaHelpForm" class="space-y-3">
+                    <div>
+                        <label class="text-sm font-medium text-gray-700 block mb-1">Full name</label>
+                        <input type="text" placeholder="e.g. Alex Rivera" class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800" required />
+                    </div>
+                    <div>
+                        <label class="text-sm font-medium text-gray-700 block mb-1">Email address</label>
+                        <input type="email" placeholder="alex@example.com" class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800" required />
+                    </div>
+                    <div>
+                        <label class="text-sm font-medium text-gray-700 block mb-1">Phone number</label>
+                        <input type="tel" placeholder="+91 98765 43210" class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800" />
+                    </div>
+                    <div>
+                        <label class="text-sm font-medium text-gray-700 block mb-1">Message</label>
+                        <textarea rows="2" placeholder="I'm interested in... courses, scholarships, career guidance" class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800 resize-none bg-gray-50"></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn-primary w-full text-white font-medium py-2.5 rounded-xl flex items-center justify-center gap-2 transition hover:scale-105">
+                        <i class="fa-regular fa-paper-plane"></i> Request Callback
+                    </button>
+                    <p class="text-xs text-gray-400 text-center mt-2">We'll respond within 24 hours</p>
+                </form>
+                
+                <!-- Contact Info Divider -->
+                <div class="mt-5 pt-4 border-t border-gray-100">
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 text-xs text-gray-500">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-phone-alt text-teal-500"></i>
+                            <span>+91 9911466118</span>
+                        </div>
+                        <div class="hidden sm:block text-gray-300">|</div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-envelope text-teal-500"></i>
+                            <span>contact@skillbridgetech.in</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* ==================== CTA SECTION STYLES ==================== */
+    
+    /* Help Split Card */
+    .help-split-card {
+        background: #ffffff;
+        border-radius: 2rem;
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.10);
+        transition: box-shadow 0.2s;
+        overflow: hidden;
+    }
+    
+    .help-split-card:hover {
+        box-shadow: 0 28px 48px -12px rgba(26,111,140,0.2);
+    }
+    
+    /* Person Illustration Background */
+    .person-illustration {
+        background: linear-gradient(135deg, #e6f4f5, #d4eef2);
+    }
+    
+    /* Question Mark Styles */
+    .question-mark-big {
+        font-size: 4rem;
+        font-weight: 700;
+        background: linear-gradient(145deg, #0a2b3e, #1a6f8c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0.9;
+    }
+    
+    .question-mark-small {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(145deg, #1a6f8c, #5ba3bc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0.6;
+    }
+    
+    /* Floating Animation for Question Marks */
+    .float-question {
+        animation: floatQuestion 4s ease-in-out infinite;
+    }
+    
+    @keyframes floatQuestion {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(4deg); }
+    }
+    
+    /* Input Field Styles */
+    .input-field {
+        border: 1px solid #e5e7eb;
+        transition: all 0.15s;
+        background: #f9fafb;
+    }
+    
+    .input-field:focus {
+        border-color: #1a6f8c;
+        box-shadow: 0 0 0 4px rgba(26,111,140,0.12);
+        outline: none;
+        background: #ffffff;
+    }
+    
+    /* CTA Button Primary */
+    .cta-btn-primary {
+        background: linear-gradient(135deg, #0a2b3e, #1a6f8c);
+        transition: all 0.2s;
+        color: white;
+    }
+    
+    .cta-btn-primary:hover {
+        background: linear-gradient(135deg, #0a2b3e, #0066b3);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(26,111,140,0.3);
+    }
+</style>
+
+<script>
+    // Handle CTA form submission
+    (function() {
+        const ctaForm = document.getElementById('ctaHelpForm');
+        if (ctaForm) {
+            ctaForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('✅ Thank you! Our counselor will contact you soon.');
+                this.reset();
+            });
+        }
+    })();
+</script>

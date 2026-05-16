@@ -1,0 +1,504 @@
+* { 
+    font-family: 'Inter', sans-serif; 
+}
+body { 
+    overflow-x: hidden; 
+    scroll-behavior: smooth; 
+}
+.scroll-reveal { 
+    opacity: 0; 
+    transform: translateY(40px); 
+    transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1); 
+}
+.scroll-reveal.visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+.btn-primary-custom { 
+    background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%); 
+    transition: all 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+}
+.btn-primary-custom:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 15px 30px -10px rgba(26,111,140,0.4); 
+}
+
+/* Hero Section Styles */
+.hero-section { 
+    position: relative; 
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+}
+.bg-slideshow { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 0; 
+}
+.bg-slide { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out; 
+}
+.bg-slide.active { 
+    opacity: 1; 
+}
+
+/* FIXED: Image Dim Layer - Reduces background image opacity */
+.image-dim-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);  /* ← Increase this value (0-1) to make images darker */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Dark gradient overlay for text readability */
+.hero-section .gradient-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.2) 100%); 
+    z-index: 2;
+    pointer-events: none;
+}
+
+.slide-indicators { 
+    position: absolute; 
+    bottom: 25px; 
+    left: 0; 
+    right: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 12px; 
+    z-index: 15; 
+}
+.indicator-dot { 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; 
+    background-color: rgba(255,255,255,0.5); 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
+.indicator-dot.active { 
+    background-color: #1a6f8c; 
+    width: 28px; 
+    border-radius: 5px; 
+}
+
+/* Typing Animation */
+.typing-wrapper { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 2px; 
+}
+.typing-static { 
+    font-weight: 600; 
+    color: #ffffff; 
+    font-size: 1.25rem; 
+}
+.typing-dynamic-container { 
+    display: inline-flex; 
+    align-items: center; 
+    position: relative; 
+}
+.typing-text { 
+    font-weight: 700; 
+    color: #ffffff; 
+    font-size: 1.25rem; 
+    white-space: nowrap; 
+}
+.typing-cursor { 
+    display: inline-block; 
+    width: 3px; 
+    height: 1.5rem; 
+    background-color: #1a6f8c; 
+    margin-left: 2px; 
+    animation: cursorBlink 0.8s step-end infinite; 
+    vertical-align: middle; 
+}
+@keyframes cursorBlink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+@media (min-width: 768px) { 
+    .typing-static, .typing-text { font-size: 1.5rem; } 
+    .typing-cursor { height: 1.8rem; } 
+}
+
+/* Animated Gradient Text */
+@keyframes gradientShift { 
+    0% { background-position: 0% 50%; } 
+    25% { background-position: 50% 50%; } 
+    50% { background-position: 100% 50%; } 
+    75% { background-position: 50% 50%; } 
+    100% { background-position: 0% 50%; } 
+}
+.animated-gradient-text { 
+    background: linear-gradient(270deg, #ffffff, #e0e0e0, #ffffff, #e0e0e0, #ffffff); 
+    background-size: 300% 300%; 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    animation: gradientShift 5s ease infinite; 
+    display: inline-block; 
+}
+
+/* TRUST SECTION - SEAMLESS INFINITE SCROLLING */
+.trust-section { 
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); 
+    padding: 60px 0; 
+    overflow: hidden; 
+    position: relative;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Row 1 - Scrolls from RIGHT to LEFT (seamless loop) */
+.marquee-right-to-left {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.marquee-right-to-left .marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    animation: scrollRightToLeft 25s linear infinite;
+    width: max-content;
+}
+
+@keyframes scrollRightToLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Row 2 - Scrolls from LEFT to RIGHT (seamless loop) */
+.marquee-left-to-right {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.marquee-left-to-right .marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    animation: scrollLeftToRight 25s linear infinite;
+    width: max-content;
+}
+
+@keyframes scrollLeftToRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Pause on hover */
+.marquee-right-to-left:hover .marquee-track,
+.marquee-left-to-right:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* Logo Styles */
+.trust-logo { 
+    display: inline-flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    gap: 8px; 
+    background: white; 
+    padding: 12px 28px; 
+    border-radius: 60px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    transition: all 0.3s ease; 
+    border: 1px solid rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.trust-logo:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1); 
+    border-color: rgba(26,111,140,0.3); 
+}
+
+.trust-logo i { font-size: 1.8rem; }
+.trust-logo span { font-size: 0.75rem; font-weight: 600; color: #4b5563; margin-top: 5px; }
+
+/* Course Cards */
+.course-card-impressive { 
+    background: white; 
+    border-radius: 1.75rem; 
+    overflow: hidden; 
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); 
+    box-shadow: 0 10px 30px -12px rgba(0,0,0,0.08); 
+    border: 1px solid rgba(0,0,0,0.04); 
+}
+.course-card-impressive:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 12px 24px -10px rgba(0,0,0,0.12);
+}
+.course-img-wrapper { 
+    position: relative; 
+    overflow: hidden; 
+    height: 210px; 
+}
+.course-img-wrapper img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.4s ease-out; 
+}
+.course-card-impressive:hover .course-img-wrapper img { 
+    transform: scale(1.03); 
+}
+.course-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: linear-gradient(135deg, rgba(10,43,62,0.2) 0%, rgba(26,111,140,0.3) 100%); 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+.course-card-impressive:hover .course-overlay { 
+    opacity: 1; 
+}
+.course-badge-new { 
+    position: absolute; 
+    top: 16px; 
+    right: 16px; 
+    background: linear-gradient(135deg, #f59e0b, #ef4444); 
+    padding: 6px 14px; 
+    border-radius: 30px; 
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    color: white; 
+    z-index: 2; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+}
+
+/* Mentor Cards */
+.mentor-card { 
+    background: white; 
+    border-radius: 1.75rem; 
+    overflow: hidden; 
+    transition: all 0.35s ease; 
+    box-shadow: 0 10px 25px -12px rgba(0,0,0,0.08); 
+    border: 1px solid rgba(0,0,0,0.04); 
+}
+.mentor-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15); 
+    border-color: rgba(26,111,140,0.2); 
+}
+.mentor-img-top { 
+    width: 100%; 
+    height: 240px; 
+    object-fit: cover; 
+    object-position: top center; 
+    transition: transform 0.5s ease; 
+}
+.mentor-img-wrapper { 
+    overflow: hidden; 
+    background: linear-gradient(135deg, #eef2ff 0%, #fef9e6 100%); 
+}
+
+.section-underline { 
+    position: relative; 
+    display: inline-block; 
+}
+.section-underline:after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -12px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 60px; 
+    height: 3px; 
+    background: linear-gradient(90deg, #0a2b3e, #1a6f8c); 
+    border-radius: 3px; 
+}
+.search-input:focus { 
+    width: 220px; 
+    outline: none; 
+    border-color: #1a6f8c; 
+}
+.footer-link { 
+    transition: color 0.2s ease; 
+}
+.footer-link:hover { 
+    color: #1a6f8c; 
+}
+.hero-content-center { 
+    text-align: center; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    position: relative; 
+    z-index: 10;  /* Increased z-index to be above all overlays */
+}
+.hero-content-center h1, 
+.hero-content-center p, 
+.hero-content-center .text-gray-600, 
+.hero-content-center .text-gray-700 { 
+    color: white !important; 
+}
+.hero-content-center .border-t { 
+    border-color: rgba(255,255,255,0.2) !important; 
+}
+.hero-content-center .bg-white\/95 { 
+    background: rgba(0,0,0,0.7) !important; 
+    color: white !important; 
+    border-color: rgba(255,255,255,0.2) !important; 
+}
+.hero-content-center .bg-white\/70 { 
+    background: rgba(0,0,0,0.5) !important; 
+    color: white !important; 
+}
+.hero-content-center .text-gray-800 { 
+    color: white !important; 
+}
+
+/* Inquiry Modal Styles */
+.modal-overlay { 
+    position: fixed; 
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.85); 
+    backdrop-filter: blur(5px); 
+    z-index: 1000; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all 0.3s ease; 
+    overflow-y: auto; 
+    padding: 20px; 
+}
+.modal-overlay.active { 
+    opacity: 1; 
+    visibility: visible;
+}
+.inquiry-modal { 
+    background: white; 
+    border-radius: 2rem; 
+    max-width: 550px; 
+    width: 100%; 
+    max-height: 90vh; 
+    overflow-y: auto; 
+    padding: 2rem; 
+    position: relative; 
+    transform: scale(0.9); 
+    transition: transform 0.3s ease; 
+    margin: auto; 
+}
+.modal-overlay.active .inquiry-modal { 
+    transform: scale(1); 
+}
+.modal-close { 
+    position: sticky; 
+    top: 0; 
+    right: 0; 
+    float: right; 
+    font-size: 1.8rem; 
+    cursor: pointer; 
+    color: #9ca3af; 
+    transition: color 0.2s; 
+    z-index: 10; 
+    background: white; 
+    margin-bottom: 10px; 
+}
+.modal-close:hover { 
+    color: #ef4444; 
+}
+.form-input { 
+    width: 100%; 
+    padding: 0.75rem 1rem; 
+    border: 1px solid #e5e7eb; 
+    border-radius: 1rem; 
+    font-size: 0.95rem; 
+    transition: all 0.2s; 
+}
+.form-input:focus { 
+    outline: none; 
+    border-color: #1a6f8c; 
+    box-shadow: 0 0 0 3px rgba(26,111,140,0.1); 
+}
+.submit-inquiry-btn { 
+    background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%); 
+    color: white; 
+    padding: 0.875rem; 
+    border-radius: 2rem; 
+    font-weight: 600; 
+    width: 100%; 
+    transition: all 0.3s; 
+    cursor: pointer; 
+    border: none; 
+}
+.submit-inquiry-btn:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 10px 20px rgba(26,111,140,0.3); 
+}
+.inquiry-modal::-webkit-scrollbar { 
+    width: 6px; 
+}
+.inquiry-modal::-webkit-scrollbar-track { 
+    background: #f1f1f1; 
+    border-radius: 10px; 
+}
+.inquiry-modal::-webkit-scrollbar-thumb { 
+    background: #1a6f8c; 
+    border-radius: 10px; 
+}
+
+/* Tab Styles */
+.inquiry-tab {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.inquiry-tab.active {
+    background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%);
+    color: white;
+    border-color: transparent;
+}
+.inquiry-tab.active i {
+    color: white;
+}
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) { 
+    .trust-logo { padding: 8px 20px; } 
+    .trust-logo i { font-size: 1.2rem; } 
+    .trust-logo span { font-size: 0.6rem; }
+    .marquee-right-to-left .marquee-track,
+    .marquee-left-to-right .marquee-track { gap: 20px; }
+    .inquiry-modal { padding: 1.5rem; max-width: 95%; }
+}

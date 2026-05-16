@@ -1,0 +1,172 @@
+<!-- TRUST SECTION - AUTOMATIC SEAMLESS LOOP SCROLLING -->
+<div class="trust-section">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-10">
+            <span class="text-[#1a6f8c] font-bold uppercase tracking-wider text-sm">Our Students Placed At</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mt-2">Trusted by 500+ Leading Companies</h2>
+            <p class="text-gray-500 text-sm mt-2">Including top Indian & global tech companies</p>
+        </div>
+        
+        <!-- Row 1 - Scrolls Right to Left (Seamless Infinite Loop) -->
+        <div class="marquee-right-to-left">
+            <div class="marquee-track">
+                <!-- Global Tech Companies -->
+                <div class="trust-logo"><i class="fa-brands fa-google text-2xl text-blue-500"></i><span>Google</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-microsoft text-2xl text-blue-600"></i><span>Microsoft</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-amazon text-2xl text-orange-500"></i><span>Amazon</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-apple text-2xl text-gray-700"></i><span>Apple</span></div>
+                <!-- Indian IT Companies -->
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-red-600"></i><span>TCS</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-blue-600"></i><span>Infosys</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-green-600"></i><span>Wipro</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-purple-600"></i><span>HCL</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-orange-600"></i><span>Tech Mahindra</span></div>
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="trust-logo"><i class="fa-brands fa-google text-2xl text-blue-500"></i><span>Google</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-microsoft text-2xl text-blue-600"></i><span>Microsoft</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-amazon text-2xl text-orange-500"></i><span>Amazon</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-apple text-2xl text-gray-700"></i><span>Apple</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-red-600"></i><span>TCS</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-blue-600"></i><span>Infosys</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-green-600"></i><span>Wipro</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-purple-600"></i><span>HCL</span></div>
+            </div>
+        </div>
+        
+        <!-- Row 2 - Scrolls Left to Right (Seamless Infinite Loop) -->
+        <div class="marquee-left-to-right">
+            <div class="marquee-track">
+                <!-- More Global Tech Companies -->
+                <div class="trust-logo"><i class="fa-brands fa-meta text-2xl text-blue-800"></i><span>Meta</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-netflix text-2xl text-red-700"></i><span>Netflix</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-twitter text-2xl text-blue-400"></i><span>Twitter</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-linkedin text-2xl text-blue-700"></i><span>LinkedIn</span></div>
+                <!-- More Indian IT Companies -->
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-indigo-600"></i><span>Accenture</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-pink-600"></i><span>Capgemini</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-teal-600"></i><span>LTIMindtree</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-amber-600"></i><span>Cognizant</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-cyan-600"></i><span>IBM</span></div>
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="trust-logo"><i class="fa-brands fa-meta text-2xl text-blue-800"></i><span>Meta</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-netflix text-2xl text-red-700"></i><span>Netflix</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-twitter text-2xl text-blue-400"></i><span>Twitter</span></div>
+                <div class="trust-logo"><i class="fa-brands fa-linkedin text-2xl text-blue-700"></i><span>LinkedIn</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-indigo-600"></i><span>Accenture</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-pink-600"></i><span>Capgemini</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-teal-600"></i><span>LTIMindtree</span></div>
+                <div class="trust-logo"><i class="fa-solid fa-building text-2xl text-amber-600"></i><span>Cognizant</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* TRUST SECTION - SEAMLESS INFINITE SCROLLING */
+    .trust-section { 
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); 
+        padding: 60px 0; 
+        overflow: hidden; 
+        position: relative;
+    }
+    
+    /* Row 1 - Scrolls from RIGHT to LEFT (seamless loop) */
+    .marquee-right-to-left {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    
+    .marquee-right-to-left .marquee-track {
+        display: inline-flex;
+        align-items: center;
+        gap: 40px;
+        animation: scrollRightToLeft 25s linear infinite;
+        width: max-content;
+    }
+    
+    @keyframes scrollRightToLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    
+    /* Row 2 - Scrolls from LEFT to RIGHT (seamless loop) */
+    .marquee-left-to-right {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+    }
+    
+    .marquee-left-to-right .marquee-track {
+        display: inline-flex;
+        align-items: center;
+        gap: 40px;
+        animation: scrollLeftToRight 25s linear infinite;
+        width: max-content;
+    }
+    
+    @keyframes scrollLeftToRight {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    
+    /* Pause on hover */
+    .marquee-right-to-left:hover .marquee-track,
+    .marquee-left-to-right:hover .marquee-track {
+        animation-play-state: paused;
+    }
+    
+    /* Logo Styles */
+    .trust-logo { 
+        display: inline-flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center;
+        gap: 8px; 
+        background: white; 
+        padding: 12px 28px; 
+        border-radius: 60px; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        transition: all 0.3s ease; 
+        border: 1px solid rgba(0,0,0,0.05);
+        cursor: pointer;
+    }
+    
+    .trust-logo:hover { 
+        transform: translateY(-5px); 
+        box-shadow: 0 15px 25px rgba(0,0,0,0.1); 
+        border-color: rgba(26,111,140,0.3); 
+    }
+    
+    .trust-logo i { 
+        font-size: 1.8rem; 
+    }
+    
+    .trust-logo span { 
+        font-size: 0.75rem; 
+        font-weight: 600; 
+        color: #4b5563; 
+        margin-top: 5px; 
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .trust-section { padding: 40px 0; }
+        .trust-logo { padding: 8px 20px; }
+        .trust-logo i { font-size: 1.2rem; }
+        .trust-logo span { font-size: 0.6rem; }
+        .marquee-right-to-left .marquee-track,
+        .marquee-left-to-right .marquee-track { gap: 20px; }
+    }
+</style>

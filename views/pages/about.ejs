@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About Us | Skill Bridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/about.css">
+</head>
+<body class="bg-white">
+   <!-- nav bar -->
+    <%- include('../partials/common/navbar.ejs') %>
+    <nav class="fixed top-16 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg z-50">
+    <div class="container mx-auto px-6 h-10">
+        <div class="flex items-center justify-center py-2">
+        
+            <!-- Navigation Links -->
+            <div class="hidden md:flex gap-8">
+                <a href="#aboutSkillBridge" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">About SkillBridge</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">Founder</a>
+                <a href="#courses" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition"></a>
+                <a href="#trainer" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">Our Trainer</a>
+                <a href="#hiringPartner" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">Hiring Partner</a>
+                <a href="#universityPartner" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">University Partner</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
+        <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
+        <div class="flex items-center bg-gray-800 rounded-full px-4 py-3 mb-6">
+            <i class="fa-solid fa-search text-gray-400 mr-2"></i>
+            <input type="text" placeholder="Search courses..." class="bg-transparent text-white placeholder-gray-400 text-sm w-full focus:outline-none">
+        </div>
+        <div class="flex flex-col gap-5 text-xl">
+            <a href="/" class="font-semibold text-gray-300 py-3 border-b border-gray-800">Home</a>
+            <a href="/about" class="font-semibold text-white py-3 border-b border-[#1a6f8c]">About</a>
+            <a href="/courses" class="font-semibold text-gray-300 py-3 border-b">Courses</a>
+            <a href="/mentors" class="font-semibold text-gray-300 py-3 border-b">Mentors</a>
+            <a href="/contact" class="font-semibold text-gray-300 py-3 border-b">Contact</a>
+            <div class="flex gap-4 mt-4">
+                <button class="flex-1 bg-transparent border border-gray-600 text-gray-300 py-3 rounded-full font-semibold">Login</button>
+                <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- ==================== 1. HERO SECTION ==================== -->
+      
+
+        <!-- ==================== 2. OUR STORY SECTION ==================== -->
+        <%- include('../partials/about/storySection')  %>
+
+       <!-- ==================== 3. MISSION & VISION ==================== -->
+        <%- include('../partials/about/visionMission')  %>
+
+        <!-- ==================== 6. FOUNDER & LEADERSHIP ==================== -->
+    
+        <!-- ==================== 7. OUR MENTORS ==================== -->
+        <%- include('../partials/about/mentors')  %>
+        
+        <!-- ==================== 9. CERTIFICATIONS ==================== -->
+        <%- include('../partials/about/certifications')  %>
+        
+        <!-- ==================== 10. CORE VALUES ==================== -->
+        <%- include('../partials/about/coreValues')  %>
+        <!-- trust section -->
+        <%- include('../partials/about/trust')  %>
+
+<!-- ==================== UNIVERSITY PARTNERS SECTION ==================== -->
+        <%- include('../partials/about/universityPartner')  %>
+
+        <!-- ==================== 11. WHY CHOOSE US ==================== -->
+         <%- include('../partials/about/whyChooseus')  %>
+
+        <!-- ==================== 12. CALL TO ACTION ==================== -->
+       <%- include('../partials/about/callUs')  %>
+
+        <!-- Footer -->
+    
+        <%- include('../partials/common/footer')  %>
+
+        <script src="/about.js"></script>
+</body>
+</html>

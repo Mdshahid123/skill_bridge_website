@@ -1,0 +1,162 @@
+<div class="hero-glow pt-28 pb-16 relative overflow-hidden">
+    <!-- Brand Grid Pattern Layers -->
+    <div class="absolute inset-0 opacity-[0.08] brand-grid"></div>
+    <div class="absolute inset-0 opacity-[0.05] brand-grid-light"></div>
+    
+    <!-- Diagonal grid pattern for extra depth -->
+    <div class="absolute inset-0 opacity-[0.04]"
+        style="background-image: 
+            repeating-linear-gradient(45deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px),
+            repeating-linear-gradient(135deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px);">
+    </div>
+    
+    
+    <!-- Glowing orbs -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="breadcrumb text-sm mb-4">
+            <a href="/" class="text-teal-700/70 hover:text-teal-700">Home</a>
+            <span class="text-teal-700/40 mx-2">/</span>
+            <span class="text-teal-800 font-medium">Courses</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-3 glow-text">All Premium Courses</h1>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-8">Explore our comprehensive collection of industry-ready courses taught by expert mentors</p>
+        
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-3 mb-6">
+            <button class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-teal-600 text-white shadow-md" data-filter="all">All Courses</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="development">Web Development</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="data">Data Science</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="analyst">Data Analyst</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="dsa">DSA</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="placement">Placement Preparation</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="marketing">Digital Marketing</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="design">UI/UX Design</button>
+            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="cloud">Cloud & DevOps</button>
+        </div>
+        
+        <!-- Results count -->
+        <p class="text-gray-500 text-center text-sm" id="resultsCount">Showing 9 courses</p>
+    </div>
+</div>
+
+<style>
+    /* Brand Colors: #0a2b3e (dark navy), #1a6f8c (teal), #0066b3 (blue) */
+    .hero-glow {
+        background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-glow::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(26,111,140,0.12) 0%, rgba(0,102,179,0.06) 50%, transparent 70%);
+        animation: rotateGlow 20s linear infinite;
+    }
+    
+    @keyframes rotateGlow {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* Brand grid pattern */
+    .brand-grid {
+        background-image: 
+            repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px),
+            repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px);
+        background-size: 50px 50px;
+    }
+    
+    .brand-grid-light {
+        background-image: 
+            repeating-linear-gradient(90deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px),
+            repeating-linear-gradient(0deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px);
+    }
+    
+    /* Floating animation for decorative elements */
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(5deg); }
+    }
+    
+    .float-animation { animation: float 4s ease-in-out infinite; }
+    .float-delay-1 { animation-delay: 1s; }
+    .float-delay-2 { animation-delay: 2s; }
+    
+    .glow-text {
+        text-shadow: 0 0 20px rgba(26,111,140,0.3);
+    }
+    
+    /* Filter button active state */
+    .filter-btn.active {
+        background: linear-gradient(135deg, #1a6f8c, #0066b3);
+        color: white;
+        box-shadow: 0 4px 12px rgba(26,111,140,0.3);
+    }
+    
+    .filter-btn.active:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(26,111,140,0.4);
+    }
+    
+    .filter-btn:not(.active):hover {
+        transform: translateY(-2px);
+        background: white;
+        border-color: #1a6f8c;
+        color: #1a6f8c;
+    }
+</style>
+
+<script>
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const resultsCount = document.getElementById('resultsCount');
+        
+        // Sample course data - replace with your actual courses
+        let courses = [
+            { name: "Full Stack Web Development", category: "development" },
+            { name: "Frontend Development", category: "development" },
+            { name: "Data Science Mastery", category: "data" },
+            { name: "Data Analytics Pro", category: "analyst" },
+            { name: "DSA for Interviews", category: "dsa" },
+            { name: "Placement Preparation", category: "placement" },
+            { name: "Digital Marketing", category: "marketing" },
+            { name: "UI/UX Design", category: "design" },
+            { name: "Cloud & DevOps", category: "cloud" }
+        ];
+        
+        function updateResultsCount(category) {
+            let count;
+            if (category === 'all') {
+                count = courses.length;
+            } else {
+                count = courses.filter(course => course.category === category).length;
+            }
+            resultsCount.textContent = `Showing ${count} courses`;
+        }
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                updateResultsCount(filter);
+                
+                // Here you would add your course filtering logic
+                // For example: filterCourses(filter);
+            });
+        });
+    });
+</script>

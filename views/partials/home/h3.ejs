@@ -1,0 +1,96 @@
+<!-- Hero Section -->
+<div class="hero-section" style="position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+    
+    <!-- Background Slideshow -->
+    <div class="bg-slideshow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+        <!-- fist slide -->
+        <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop'); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 1; transition: opacity 1.5s ease-in-out;">
+        </div>
+      <!-- second slide -->
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&h=1080&fit=crop'); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out;">
+        </div>
+
+        <!-- third slide -->
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop'); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out;">
+        </div>
+    </div>
+    
+    <!-- THIS IS THE OPACITY LAYER - Change the '0.5' value to adjust background darkness -->
+    <!-- Lower value (0.2-0.4) = Brighter background | Higher value (0.6-0.8) = Darker background -->
+    <div class="opacity-layer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1; pointer-events: none;"></div>
+    
+    <!-- Gradient overlay for better text readability -->
+    <div class="gradient-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.15) 100%); z-index: 1; pointer-events: none;"></div>
+    
+    <div class="slide-indicators" style="position: absolute; bottom: 25px; left: 0; right: 0; display: flex; justify-content: center; gap: 12px; z-index: 15;">
+        <div class="indicator-dot active" data-slide="0" style="width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.5); cursor: pointer;"></div>
+        <div class="indicator-dot" data-slide="1" style="width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.5); cursor: pointer;"></div>
+        <div class="indicator-dot" data-slide="2" style="width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.5); cursor: pointer;"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 md:px-12 py-16 lg:py-20 relative" style="position: relative; z-index: 10;">
+        <div class="hero-content-center">
+            <div class="flex justify-center mb-6">
+                <div class="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-yellow-300 rounded-full px-5 py-2 shadow-lg">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                    </span>
+                    <span class="text-xs md:text-sm font-bold text-gray-800">New batch starting soon — Limited seats</span>
+                </div>
+            </div>
+
+            <h1 style="font-size:2.5rem;" class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">Build Your Tech Career <br> with <span class="animated-gradient-text">SkillBridge</span></h1>
+            
+            <div class="mt-5 flex flex-wrap items-center justify-center gap-2">
+                <div class="typing-wrapper">
+                    <span class="typing-static">Learn</span>
+                    <span class="mx-1"></span>
+                    <div class="typing-dynamic-container">
+                        <span style="color:white; font-weight:bolder; font-style: italic;" id="dynamic-word" class="typing-text"></span>
+                        <span id="dynamic-cursor" class="typing-cursor"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
+                <a href="/courses" class="btn-primary-custom text-white px-8 py-3.5 rounded-full font-bold text-base shadow-xl flex items-center justify-center gap-2 group">
+                    Enroll Now <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+                <button id="inquiryBtn" class="border-2 border-white/30 bg-white/10 backdrop-blur-sm px-8 py-3.5 rounded-full font-semibold text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-solid fa-file-signature text-lg"></i> Get Admission Inquiry
+                </button>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-6 mt-8 pt-5 border-t border-white/20">
+                <div class="flex items-center gap-2 text-white/80 text-xs md:text-sm font-medium">
+                    <i class="fa-regular fa-circle-check text-white text-base"></i><span>Job-ready curriculum</span>
+                </div>
+                <div class="flex items-center gap-2 text-white/80 text-xs md:text-sm font-medium">
+                    <i class="fa-regular fa-clock text-white text-base"></i><span>Flexible learning</span>
+                </div>
+                <div class="flex items-center gap-2 text-white/80 text-xs md:text-sm font-medium">
+                    <i class="fa-solid fa-laptop-code text-white text-base"></i><span>1:1 mentorship</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-5 mt-6 bg-black/40 backdrop-blur-sm rounded-xl p-3 border border-white/20 shadow-md justify-center max-w-md mx-auto">
+                <div class="flex -space-x-2">
+                    <img src="https://randomuser.me/api/portraits/men/11.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="">
+                    <img src="https://randomuser.me/api/portraits/women/22.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="">
+                    <img src="https://randomuser.me/api/portraits/men/33.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm" alt="">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#1a6f8c] to-[#2c8eae] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">500+</div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-white">Trusted by 5000+ students</p>
+                    <div class="flex items-center gap-0.5 mt-1">
+                        <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
+                        <span class="text-[10px] text-white/70 ml-1">4.98 (1.2k reviews)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,233 @@
+<!-- ==================== 1. HERO SECTION ==================== -->
+<section id="hero" class="relative overflow-hidden bg-white min-h-[calc(100vh-80px)] flex items-center">
+    <!-- Soft Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+
+    <!-- Very Light Square Bracket Pattern - Layer 1 (Subtle Cyan) -->
+    <div class="absolute inset-0 opacity-[0.04]"
+        style="background-image: 
+            repeating-linear-gradient(90deg, #0891b2 0px, #0891b2 1px, transparent 1px, transparent 50px),
+            repeating-linear-gradient(0deg, #0891b2 0px, #0891b2 1px, transparent 1px, transparent 50px);">
+    </div>
+
+    <!-- Very Light Square Bracket Pattern - Layer 2 (Subtle Dark Blue) -->
+    <div class="absolute inset-0 opacity-[0.03]"
+        style="background-image: 
+            repeating-linear-gradient(90deg, #0a2b3e 0px, #0a2b3e 1px, transparent 1px, transparent 100px),
+            repeating-linear-gradient(0deg, #0a2b3e 0px, #0a2b3e 1px, transparent 1px, transparent 100px);">
+    </div>
+
+    <!-- Subtle Glow Effects -->
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl"></div>
+
+    <div class="container mx-auto px-6 lg:px-12 relative z-10 py-8">
+
+        <!-- Top Badge -->
+        <div class="flex justify-center mb-4 mt-20">
+            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 shadow-sm">
+                <div class="w-7 h-7 rounded-full bg-cyan-100 flex items-center justify-center">
+                    <i class="fa-solid fa-briefcase text-cyan-600 text-xs"></i>
+                </div>
+                <div>
+                    <h4 class="text-gray-800 font-bold text-xs">100% Placement Assistance</h4>
+                    <p class="text-gray-500 text-[10px]">Guaranteed Career Support</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+            <!-- Left Content -->
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <!-- Small Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+                    <span class="text-cyan-700 text-xs font-medium tracking-wide">
+                        A Division of ASN Immigration
+                    </span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.2] tracking-tight mb-3">
+                    Bridging Skills with
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">
+                        Career Opportunities
+                    </span>
+                </h1>
+
+                <!-- Dynamic Typing -->
+                <div class="mt-2 mb-4 flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                    <div class="typing-wrapper">
+                        <span class="typing-static text-gray-700 text-sm">Learn</span>
+                        <span class="mx-1"></span>
+                        <div class="typing-dynamic-container">
+                            <span style="color:#0891b2; font-weight:bolder; font-style: italic; font-size:0.9rem;" id="dynamic-word" class="typing-text"></span>
+                            <span id="dynamic-cursor" class="typing-cursor" style="background-color:#0891b2; height:1.2rem;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mb-5">
+                    SkillBridge is the education division of ASN Immigration, offering IT skills, tech training, 
+                    corporate learning, and online degree programs from UGC-approved and NAAC A+ accredited universities.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
+                    <a href="/courses" class="group bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-2.5 rounded-xl font-bold shadow-md transition-all duration-300 hover:scale-105 text-sm text-center">
+                        <span class="flex items-center justify-center gap-2">
+                            Explore Courses
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition duration-300"></i>
+                        </span>
+                    </a>
+                    <button id="inquiryBtn" class="border border-gray-300 hover:border-cyan-500 bg-white hover:bg-cyan-50 text-gray-700 hover:text-cyan-700 px-6 py-2.5 rounded-xl font-semibold transition duration-300 text-sm text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-signature text-sm"></i>
+                        Get Admission Inquiry
+                    </button>
+                </div>
+
+                <!-- Stats with Live Counters -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-gray-900">
+                            <span class="counter" data-target="5000">0</span><span>+</span>
+                        </h3>
+                        <p class="text-gray-500 text-xs mt-0.5">Students Trained</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold text-gray-900">
+                            <span class="counter" data-target="30">0</span><span>+</span>
+                        </h3>
+                        <p class="text-gray-500 text-xs mt-0.5">Degree Programs</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold text-gray-900">
+                            <span class="counter" data-target="98">0</span><span>%</span>
+                        </h3>
+                        <p class="text-gray-500 text-xs mt-0.5">Placement Rate</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold text-gray-900">
+                            <span class="counter" data-target="75">0</span><span>+</span>
+                        </h3>
+                        <p class="text-gray-500 text-xs mt-0.5">Expert Mentors</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="lg:w-1/2 flex justify-center items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cyan-100/20 to-transparent rounded-full blur-xl"></div>
+                    <img src="/founder.png"
+                        alt="Skill Bridge"
+                        class="relative z-10 w-full max-w-[280px] lg:max-w-[350px] object-contain drop-shadow-lg"
+                        onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // ==================== DYNAMIC TYPING ANIMATION ====================
+    (function() {
+        const words = ["Web Development ", "Data Science ", "DSA ", "Data Analytics ", "Digital Marketing ", "Programming Languages "];
+        let wordIndex = 0, charIndex = 0, isDeleting = false, isWaiting = false;
+        const textElement = document.getElementById('dynamic-word');
+        
+        if (!textElement) return;
+        
+        function typeEffect() {
+            if (isWaiting) { 
+                setTimeout(typeEffect, 100); 
+                return; 
+            }
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                charIndex--;
+                textElement.textContent = currentWord.substring(0, charIndex);
+                if (charIndex === 0) { 
+                    isDeleting = false; 
+                    wordIndex = (wordIndex + 1) % words.length; 
+                    setTimeout(typeEffect, 300); 
+                    return; 
+                }
+            } else {
+                charIndex++;
+                textElement.textContent = currentWord.substring(0, charIndex);
+                if (charIndex === currentWord.length) { 
+                    isDeleting = true; 
+                    isWaiting = true; 
+                    setTimeout(() => { 
+                        isWaiting = false; 
+                        typeEffect(); 
+                    }, 2000); 
+                    return; 
+                }
+            }
+            setTimeout(typeEffect, isDeleting ? 40 : 80);
+        }
+        
+        setTimeout(typeEffect, 500);
+    })();
+
+    // ==================== LIVE COUNTER ANIMATION ====================
+    (function() {
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 40;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = Math.floor(target);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 25);
+        }
+        
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+        
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
+                    });
+                    observer.disconnect();
+                }
+            });
+        }, observerOptions);
+        
+        const statsContainer = document.querySelector('.grid-cols-2.sm\\:grid-cols-4');
+        if (statsContainer) {
+            observer.observe(statsContainer);
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
+                    });
+                }, 500);
+            });
+        }
+    })();
+</script>

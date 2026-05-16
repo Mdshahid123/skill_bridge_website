@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Skill Bridge | All Courses</title>
+    <!-- Google Fonts + Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/courses.css">
+<body>
+
+    <!-- nav bar -->
+
+    <%- include("../partials/common/navbar.ejs") %>
+
+    <!-- Mobile Menu -->
+     <%- include("../partials/common/mobileMenu.ejs") %>
+
+
+    <!-- Enrollment Modal -->
+     <%- include("../partials/courses/enrollmentModel.ejs") %>
+
+
+    <!-- hero section-->
+    
+  <%- include("../partials/courses/heroSection.ejs") %>
+
+    <!-- Courses Grid Section -->
+  <%- include("../partials/courses/coursesSection.ejs") %>
+
+    <!-- Footer -->
+   <%- include("../partials/common/footer.ejs") %>
+
+    <script src="/courses.js"></script>
+</body>
+</html>

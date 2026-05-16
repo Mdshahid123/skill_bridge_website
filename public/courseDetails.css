@@ -1,0 +1,28 @@
+   * { 
+            font-family: 'Inter', sans-serif; 
+        }
+        body { background: #f8fafc; }
+        .btn-primary-custom { background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%); transition: all 0.3s ease; }
+        .btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(26,111,140,0.4); }
+        .footer-link { transition: color 0.2s ease; }
+        .footer-link:hover { color: #1a6f8c; }
+        .course-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .course-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .breadcrumb a { transition: color 0.2s; }
+        .breadcrumb a:hover { color: #1a6f8c; }
+        .info-card { transition: all 0.3s ease; }
+        .info-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+         }

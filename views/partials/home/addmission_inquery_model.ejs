@@ -1,0 +1,228 @@
+<div id="inquiryModal" class="modal-overlay">
+    <div class="inquiry-modal">
+        <div class="modal-close" id="closeInquiryModal">&times;</div>
+        <div class="text-center mb-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#0a2b3e] to-[#1a6f8c] flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-file-pen text-white text-2xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800">Get Admission Inquiry</h2>
+            <p class="text-gray-500 text-sm mt-1">Fill the form and our counselor will contact you</p>
+        </div>
+        
+        <!-- Inquiry Type Tabs -->
+        <div class="flex gap-3 mb-6">
+            <button type="button" id="modalCoursesTab" class="inquiry-tab active flex-1 px-4 py-2.5 rounded-lg border-2 border-[#1a6f8c] text-[#1a6f8c] font-semibold text-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-laptop-code"></i> Courses Inquiry
+            </button>
+            <button type="button" id="modalDegreeTab" class="inquiry-tab flex-1 px-4 py-2.5 rounded-lg border-2 border-gray-300 text-gray-600 font-semibold text-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-graduation-cap"></i> Online Degree Program
+            </button>
+        </div>
+        
+        <form action="/submitEnquery" id="inquiryForm" class="space-y-4" method="POST">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" required class="form-input" placeholder="Enter your full name">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+91 98765 43210">
+            </div>
+            
+            <!-- Courses Options (Visible by default) -->
+            <div id="modalCourseOptions">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Interested Course *</label>
+                <select id="courseSelect" name="course" class="form-input">
+                    <option value="">Select a course</option>
+                    <option>Web Development</option>
+                    <option>Data Science & AI</option>
+                    <option>Cloud & DevOps</option>
+                    <option>Data Structures & Algorithms</option>
+                    <option>Cybersecurity</option>
+                    <option>Digital Marketing</option>
+                    <option>Mobile App Development</option>
+                    <option>UI/UX Design</option>
+                    <option>Blockchain Development</option>
+                </select>
+            </div>
+            
+            <!-- Degree Program Options (Hidden by default) -->
+            <div id="modalDegreeOptions" class="hidden">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Select Degree Program *</label>
+                <select id="degreeSelect" name="degree" class="form-input">
+                    <option value="">Select a degree program</option>
+                    <option>B.Tech in Computer Science</option>
+                    <option>BBA in Digital Business</option>
+                    <option>M.Sc in Artificial Intelligence</option>
+                    <option>M.Tech in Cybersecurity</option>
+                    <option>BCA (Bachelor of Computer Applications)</option>
+                    <option>MCA (Master of Computer Applications)</option>
+                </select>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Callback Time</label>
+                <select id="callbackTime" name="callbackTime" class="form-input">
+                    <option value="">Select time slot</option>
+                    <option>Morning (9 AM - 12 PM)</option>
+                    <option>Afternoon (12 PM - 3 PM)</option>
+                    <option>Evening (3 PM - 6 PM)</option>
+                    <option>Night (6 PM - 8 PM)</option>
+                </select>
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                <textarea id="message" name="message" rows="3" class="form-input" placeholder="Any specific questions?"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-inquiry-btn">Submit Inquiry <i class="fa-solid fa-paper-plane ml-2"></i></button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Modal styles - completely isolated, won't affect navbar */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        padding: 20px;
+    }
+    
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .modal-overlay .inquiry-modal {
+        background: white;
+        border-radius: 0.5rem;
+        max-width: 640px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 1.5rem;
+        position: relative;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .modal-overlay.active .inquiry-modal {
+        transform: scale(1);
+    }
+    
+    .modal-overlay .inquiry-modal::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    .modal-overlay .inquiry-modal::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    
+    .modal-overlay .inquiry-modal::-webkit-scrollbar-thumb {
+        background: #1a6f8c;
+        border-radius: 10px;
+    }
+    
+    .modal-overlay .modal-close {
+        position: sticky;
+        top: 0;
+        right: 0;
+        float: right;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #9ca3af;
+        transition: color 0.2s;
+        background: white;
+        margin-bottom: 0;
+        line-height: 1;
+        z-index: 10;
+    }
+    
+    .modal-overlay .modal-close:hover {
+        color: #ef4444;
+    }
+    
+    .modal-overlay .form-input {
+        width: 100%;
+        padding: 0.6rem 0.875rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        transition: all 0.2s;
+        background-color: #f9fafb;
+    }
+    
+    .modal-overlay .form-input:focus {
+        outline: none;
+        border-color: #1a6f8c;
+        box-shadow: 0 0 0 2px rgba(26, 111, 140, 0.1);
+        background-color: white;
+    }
+    
+    .modal-overlay .submit-inquiry-btn {
+        background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%);
+        color: white;
+        padding: 0.7rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: none;
+        width: 100%;
+    }
+    
+    .modal-overlay .submit-inquiry-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 15px rgba(26, 111, 140, 0.3);
+    }
+    
+    .modal-overlay .inquiry-tab {
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .modal-overlay .inquiry-tab.active {
+        background: linear-gradient(105deg, #0a2b3e 0%, #1a6f8c 100%);
+        color: white;
+        border-color: transparent;
+    }
+    
+    .modal-overlay .inquiry-tab.active i {
+        color: white;
+    }
+    
+    .modal-overlay .inquiry-tab:not(.active):hover {
+        border-color: #1a6f8c;
+        color: #1a6f8c;
+        background: rgba(26, 111, 140, 0.05);
+    }
+    
+    .modal-overlay .hidden {
+        display: none;
+    }
+    
+    .modal-overlay .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 1rem;
+    }
+</style>

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Course Details | Skill Bridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+        
+        /* Brand Colors: #0a2b3e (dark navy), #1a6f8c (teal), #0066b3 (blue) */
+        .btn-primary-custom { background: linear-gradient(135deg, #0a2b3e, #1a6f8c); transition: all 0.2s; color: white; }
+        .btn-primary-custom:hover { background: linear-gradient(135deg, #0a2b3e, #0066b3); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,111,140,0.3); }
+        
+        /* Glowing hero section - brand colors */
+        .hero-glow {
+            background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-glow::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(26,111,140,0.12) 0%, rgba(0,102,179,0.06) 50%, transparent 70%);
+            animation: rotateGlow 20s linear infinite;
+        }
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Brand grid pattern */
+        .brand-grid {
+            background-image: 
+                repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+        }
+        
+        .brand-grid-light {
+            background-image: 
+                repeating-linear-gradient(90deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px),
+                repeating-linear-gradient(0deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px);
+        }
+        
+        /* Floating animation for decorative elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        .float-animation { animation: float 4s ease-in-out infinite; }
+        .float-delay-1 { animation-delay: 1s; }
+        .float-delay-2 { animation-delay: 2s; }
+        
+        /* Shine effect on cards */
+        .shine-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(115deg, rgba(255,255,255,0) 10%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 90%);
+            transform: rotate(25deg);
+            animation: shine 8s infinite;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(25deg); }
+            20%, 100% { transform: translateX(100%) rotate(25deg); }
+        }
+        
+        .mentor-card { transition: all 0.3s; }
+        .mentor-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 30px -12px rgba(26,111,140,0.2); }
+        
+        .offering-card {
+            transition: all 0.3s ease;
+        }
+        .offering-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -12px rgba(26,111,140,0.15);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .certificate-badge { background: linear-gradient(145deg, #5ba3bc, #1a6f8c); }
+        .help-card { transition: all 0.2s; }
+        .help-card:hover { background: #e6f4f5; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        #videoModal { backdrop-filter: blur(8px); }
+        .lecture-item { cursor: pointer; }
+        .lecture-item:hover { background: #e6f4f5; }
+        
+        .glow-text {
+            text-shadow: 0 0 20px rgba(26,111,140,0.3);
+        }
+        
+        .help-split-card {
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.10);
+            transition: box-shadow 0.2s;
+            overflow: hidden;
+        }
+        .help-split-card:hover { box-shadow: 0 28px 48px -12px rgba(26,111,140,0.2); }
+        .person-illustration {
+            background: linear-gradient(135deg, #e6f4f5, #d4eef2);
+        }
+        .question-mark-big {
+            font-size: 5.5rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #0a2b3e, #1a6f8c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.9;
+        }
+        .question-mark-small {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #1a6f8c, #5ba3bc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.6;
+        }
+        .float-question {
+            animation: float 4s ease-in-out infinite;
+        }
+        .input-field {
+            border: 1px solid #e5e7eb;
+            transition: all 0.15s;
+            background: #f9fafb;
+        }
+        .input-field:focus {
+            border-color: #1a6f8c;
+            box-shadow: 0 0 0 4px rgba(26,111,140,0.12);
+            outline: none;
+            background: #ffffff;
+        }
+        .confused-person-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(26,111,140,0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        @media (max-width: 640px) {
+            .confused-person-img { width: 140px; height: 140px; }
+            .question-mark-big { font-size: 4rem; }
+        }
+        
+        .brand-accent {
+            border-left: 4px solid #1a6f8c;
+        }
+        
+        .project-dot {
+            transition: all 0.2s ease;
+        }
+        .project-dot.active {
+            background-color: #1a6f8c;
+            width: 24px;
+        }
+    </style>
+</head>
+<body>
+     
+    <%- include("../partials/common/navbar")  %>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
+        <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
+        <div class="flex items-center bg-gray-800 rounded-full px-4 py-3 mb-6">
+            <i class="fa-solid fa-search text-gray-400 mr-2"></i>
+            <input type="text" placeholder="Search courses..." class="bg-transparent text-white placeholder-gray-400 text-sm w-full focus:outline-none">
+        </div>
+        <div class="flex flex-col gap-5 text-xl">
+            <a href="/" class="font-semibold text-gray-300 py-3 border-b border-gray-800">Home</a>
+            <a href="/about" class="font-semibold text-gray-300 py-3 border-b">About</a>
+            <a href="/courses" class="font-semibold text-gray-300 py-3 border-b">Courses</a>
+            <a href="/contact" class="font-semibold text-gray-300 py-3 border-b">Contact</a>
+            <div class="flex gap-4 mt-4">
+                <button class="flex-1 bg-transparent border border-gray-600 text-gray-300 py-3 rounded-full font-semibold">Login</button>
+                <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Course Header - BRAND GLOWING HERO with GRID PATTERN -->
+        <div class="hero-glow pt-28 pb-16 relative overflow-hidden">
+            <!-- Brand Grid Pattern Layers -->
+            <div class="absolute inset-0 opacity-[0.08] brand-grid"></div>
+            <div class="absolute inset-0 opacity-[0.05] brand-grid-light"></div>
+            
+            <!-- Diagonal grid pattern for extra depth -->
+            <div class="absolute inset-0 opacity-[0.04]"
+                style="background-image: 
+                    repeating-linear-gradient(45deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px),
+                    repeating-linear-gradient(135deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px);">
+            </div>
+            
+            <!-- Floating decorative elements -->
+          
+            
+            <!-- Glowing orbs -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="breadcrumb text-sm mb-4">
+                    <a href="/" class="text-teal-700/70 hover:text-teal-700">Home</a>
+                    <span class="text-teal-700/40 mx-2">/</span>
+                    <a href="/courses" class="text-teal-700/70 hover:text-teal-700">Courses</a>
+                    <span class="text-teal-700/40 mx-2">/</span>
+                    <span class="text-teal-800 font-medium" id="courseBreadcrumb">Web Development</span>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-8 items-start">
+                    <div class="flex-1">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                            <span class="text-teal-600 text-xs font-semibold tracking-wide">Most Popular Course </span>
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 glow-text" id="courseTitle">
+                            Web Development with <span class="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Generative AI</span>
+                        </h1>
+                        <p class="text-gray-600 text-lg max-w-2xl" id="courseShortDesc">
+                            Master HTML, CSS, JavaScript, React, Node.js, MongoDB, and integrate Generative AI to build intelligent full-stack applications.
+                        </p>
+                        
+                        <!-- Stats badges -->
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
+                                <i class="fa-regular fa-star text-teal-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">4.9 ★ (2.5k+ ratings)</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
+                                <i class="fa-regular fa-user text-teal-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">15k+ students enrolled</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
+                                <i class="fa-regular fa-clock text-teal-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">Updated monthly</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating price card in hero -->
+                    <div class="bg-white/90 backdrop-blur-md rounded-2xl p-2 pb-4 shadow-2xl border border-teal-200">
+                        <img src="/shahid2.png" width="250px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Content -->
+        <div class="container mx-auto px-6 py-12 max-w-6xl">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Left Column -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- What You'll Learn -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-lightbulb text-teal-500"></i> What You'll Learn</h2>
+                        <div class="grid md:grid-cols-2 gap-3" id="whatYouLearn"></div>
+                    </div>
+
+                    <!-- Syllabus -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex justify-between items-center mb-4 flex-wrap gap-3">
+                            <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2"><i class="fa-regular fa-rectangle-list text-teal-500"></i> Course Content</h2>
+                            <button id="downloadBrochureBtn" class="flex items-center gap-2 text-sm font-medium text-teal-600 border border-teal-300 px-4 py-1.5 rounded-full hover:bg-teal-500 hover:text-white transition-all"><i class="fa-regular fa-file-pdf"></i>Download Brochure</button>
+                        </div>
+                        <div id="courseContent"></div>
+                    </div>
+
+                    <!-- Requirements -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-list-check text-teal-500"></i> Requirements</h2>
+                        <ul class="space-y-2" id="requirements"></ul>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-file-lines text-teal-500"></i> Description</h2>
+                        <p class="text-gray-600 leading-relaxed" id="fullDescription"></p>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar - sticky with brand accent -->
+                <div style="width: 450px;" class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-teal-100 sticky top-24">
+                        <div class="relative h-48 rounded-lg overflow-hidden mb-4">
+                            <img id="courseImage" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Course" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                            <span class="absolute bottom-2 left-2 bg-teal-500 text-white text-xs px-2 py-0.5 rounded-full">Bestseller</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2" id="sidebarTitle">Web Development with Generative AI</h3>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-3xl font-bold text-teal-600" id="coursePrice">₹5,999</span>
+                            <span class="text-sm text-gray-400 line-through" id="originalPrice">₹20,000</span>
+                            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full" id="discount">70% off</span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span id="courseDuration">6 Months</span></div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-signal w-5 text-teal-500"></i> <span id="courseLevel">Beginner to Job Ready</span></div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-certificate w-5 text-teal-500"></i> <span>Certificate of Completion</span></div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span>Lifetime Access</span></div>
+                        </div>
+                        <button class="w-full btn-primary-custom text-white py-3 rounded-xl font-semibold transition-all enroll-btn hover:scale-105">Enroll Now <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                        <p class="text-center text-xs text-gray-400 mt-3">Join 15,000+ successful students</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 1: EXCLUSIVE COURSE OFFERINGS ===== -->
+            <div class="mt-16">
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100 border border-teal-200 mb-4">
+                        <i class="fa-regular fa-star text-teal-500 text-sm"></i>
+                        <span class="text-teal-600 text-xs font-semibold tracking-wide">WHY CHOOSE US</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Exclusive Course Offerings</h2>
+                    <p class="text-gray-500 mt-3 max-w-2xl mx-auto">Industry-oriented curriculum designed to make you job-ready with comprehensive learning support</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-industry text-teal-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Industry-Oriented Curriculum</h3>
+                        <p class="text-gray-500 text-sm">Curriculum designed in collaboration with industry experts to meet current market demands.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-book-open text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Comprehensive Learning Content</h3>
+                        <p class="text-gray-500 text-sm">Video lectures, reading materials, quizzes, and hands-on coding exercises.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center mb-4">
+                            <i class="fa-regular fa-calendar-alt text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Weekend Live Sessions</h3>
+                        <p class="text-gray-500 text-sm">Interactive live classes every weekend with industry mentors and Q&A sessions.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-rose-100 to-rose-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-diagram-project text-rose-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Capstone Project</h3>
+                        <p class="text-gray-500 text-sm">Build real-world projects that showcase your skills to potential employers.</p>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-pen-ruler text-amber-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Practice Exercises</h3>
+                        <p class="text-gray-500 text-sm">Topic-wise coding challenges and practice problems to strengthen your concepts.</p>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-folder-open text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Assignments and Projects</h3>
+                        <p class="text-gray-500 text-sm">Regular assignments and mini-projects to apply what you've learned.</p>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-100 to-cyan-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-headset text-cyan-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Live Doubt Resolution Sessions</h3>
+                        <p class="text-gray-500 text-sm">Get your doubts resolved instantly during scheduled live doubt-clearing sessions.</p>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-chalkboard-user text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">SME Support Session</h3>
+                        <p class="text-gray-500 text-sm">Subject Matter Expert support for in-depth understanding of complex topics.</p>
+                    </div>
+                    <!-- Card 9 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center mb-4">
+                            <i class="fa-regular fa-certificate text-emerald-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Certification of Completion</h3>
+                        <p class="text-gray-500 text-sm">Earn a globally recognized certificate upon successful course completion.</p>
+                    </div>
+                    <!-- Card 10 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-bullhorn text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Career Guidance & Interview Preparation</h3>
+                        <p class="text-gray-500 text-sm">Resume building, mock interviews, and placement assistance to kickstart your career.</p>
+                    </div>
+                    <!-- Card 11 -->
+                    <div class="offering-card bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center mb-4">
+                            <i class="fa-regular fa-envelope text-sky-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Email Support</h3>
+                        <p class="text-gray-500 text-sm">24/7 email support to address your queries within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SECTION 2: STUDENT PROJECTS SHOWCASE ===== -->
+            <div class="mt-16">
+                <div class="text-center mb-12">
+                
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Projects</h2>
+                    <p class="text-gray-500 mt-3 max-w-2xl mx-auto">Real-world projects built by our students - from AI chatbots to full-stack applications</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md">
+                        <div class="relative h-40 bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center">
+                            <i class="fa-solid fa-house-chimney text-white text-5xl opacity-80"></i>
+                            <span class="absolute top-3 right-3 bg-black/50 backdrop-blur px-2 py-0.5 rounded-full text-[10px] text-white">Featured</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bold text-gray-800 text-lg">Airbnb Clone</h3>
+                                <div class="flex items-center gap-1 text-amber-500"><span class="text-xs font-semibold"></span></div>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-3">Property booking platform with maps, payments, reviews & host dashboard.</p>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Next.js</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Tailwind</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Node.js</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">MongoDB</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+    
+                                <div class="flex gap-2">
+                                    <button class="text-teal-600 text-xs font-medium hover:text-teal-700 transition">Demo →</button>
+                                    <button class="text-gray-500 text-xs hover:text-gray-700 transition">Code</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md">
+                        <div class="relative h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                            <span class="absolute top-3 right-3 bg-green-500/80 backdrop-blur px-2 py-0.5 rounded-full text-[10px] text-white">Real-time</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bold text-gray-800 text-lg">CodeCollab</h3>
+                                <div class="flex items-center gap-1 text-amber-500"><span class="text-xs font-semibold"></span></div>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-3">Live code editor with real-time collaboration, video chat & multiple languages.</p>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">React</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">WebRTC</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Socket.io</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Node.js</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                                <span class="text-[10px] text-gray-400"><i class="fa-regular fa-user mr-1"></i>Michael Chen</span>
+                                <div class="flex gap-2">
+                                    <button class="text-teal-600 text-xs font-medium hover:text-teal-700 transition">Demo →</button>
+                                    <button class="text-gray-500 text-xs hover:text-gray-700 transition">Code</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md">
+                        <div class="relative h-40 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fa-brands fa-instagram text-white text-5xl opacity-80"></i>
+                            <span class="absolute top-3 right-3 bg-orange-500/80 backdrop-blur px-2 py-0.5 rounded-full text-[10px] text-white">Trending</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bold text-gray-800 text-lg">InstaClone</h3>
+                                <div class="flex items-center gap-1 text-amber-500"><span class="text-xs font-semibold"></span></div>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-3">Social media app with posts, stories, messaging, likes, and notifications.</p>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">React Native</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Firebase</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Node.js</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">WebSocket</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                                <span class="text-[10px] text-gray-400"><i class="fa-regular fa-user mr-1"></i>Emily Rodriguez</span>
+                                <div class="flex gap-2">
+                                    <button class="text-teal-600 text-xs font-medium hover:text-teal-700 transition">Demo →</button>
+                                    <button class="text-gray-500 text-xs hover:text-gray-700 transition">Code</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md">
+                        <div class="relative h-40 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                            <i class="fa-solid fa-message text-white text-5xl opacity-80"></i>
+                            <span class="absolute top-3 right-3 bg-blue-500/80 backdrop-blur px-2 py-0.5 rounded-full text-[10px] text-white">GPT-Powered</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bold text-gray-800 text-lg">SmartChat AI</h3>
+                                <div class="flex items-center gap-1 text-amber-500"><span class="text-xs font-semibold"></span></div>
+                            </div>
+                            <p class="text-gray-500 text-xs mb-3">AI chatbot with memory, document upload, code generation & image analysis.</p>
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Next.js</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">OpenAI API</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">LangChain</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full">Pinecone</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                                <span class="text-[10px] text-gray-400"><i class="fa-regular fa-user mr-1"></i>Dr. Alex Kumar</span>
+                                <div class="flex gap-2">
+                                    <button class="text-teal-600 text-xs font-medium hover:text-teal-700 transition">Demo →</button>
+                                    <button class="text-gray-500 text-xs hover:text-gray-700 transition">Code</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+           
+         <!-- CERTIFICATE SECTION -->
+<div class="mt-[70px] mb-36">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="relative w-full lg:w-1/2">
+            <img src="/cc.png" alt="Certificate sample" class="w-full h-auto max-h-[280px] object-contain rounded-lg">
+            <div class="absolute top-3 right-3 bg-teal-500/80 backdrop-blur text-xs font-bold px-3 py-1 rounded-full text-white border border-teal-300">Sample</div>
+        </div>
+        <div class="flex-1 lg:w-1/2"> 
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3"><i class="fa-regular fa-certificate text-teal-500"></i> Course Certificate</h2>
+            <p class="text-gray-600 text-base leading-relaxed">Earn a verified certificate upon course completion. Showcase your skills to employers and get recognized globally.</p>
+            <div class="flex flex-wrap gap-4 mt-5">
+                <span class="flex items-center gap-2 text-sm text-gray-500"><i class="fa-regular fa-circle-check text-teal-500"></i> Shareable on LinkedIn</span>
+                <span class="flex items-center gap-2 text-sm text-gray-500"><i class="fa-regular fa-circle-check text-teal-500"></i> Verifiable & Secure</span>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-3">
+                <span class="bg-teal-100 text-teal-600 text-xs px-3 py-1.5 rounded-full">Industry Recognized</span>
+                <span class="bg-teal-100 text-teal-600 text-xs px-3 py-1.5 rounded-full">UGC Approved</span>
+                <span class="bg-teal-100 text-teal-600 text-xs px-3 py-1.5 rounded-full">Globally Accepted</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- NEED HELP SPLIT SECTION -->
+<div class="mt-12 help-split-card">
+    <div class="flex flex-col md:flex-row">
+        <div class="person-illustration w-full md:w-5/12 p-6 md:p-6 flex flex-col items-center justify-center relative">
+            <div class="relative flex flex-col items-center w-full">
+                <div class="relative inline-block">
+                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Confused person" class="w-full max-w-[260px] h-auto object-contain" />
+                    <div class="absolute -top-8 -right-3 bg-white/80 backdrop-blur-sm p-1.5 rounded-full shadow-sm border border-teal-100 float-question">
+                        <span class="question-mark-big text-4xl">?</span>
+                    </div>
+                    <div class="absolute -top-5 -left-5 bg-white/80 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 0.7s;">
+                        <span class="question-mark-small text-2xl">?</span>
+                    </div>
+                    <div class="absolute -bottom-1 -left-6 bg-white/70 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100">
+                        <span class="text-lg font-bold text-teal-500 opacity-60">?</span>
+                    </div>
+                    <div class="absolute top-1 -right-6 bg-white/70 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 1.2s;">
+                        <span class="text-base font-bold text-teal-500 opacity-50">?</span>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <h3 class="text-base font-semibold text-gray-800">We're here to help <span class="text-teal-500">❤️</span></h3>
+                    <p class="text-xs text-gray-500 max-w-[180px] mx-auto leading-relaxed">Got a question? Don't hesitate to reach out.</p>
+                </div>
+                <div class="absolute bottom-4 right-4 opacity-5 text-6xl text-teal-500"><i class="fa-regular fa-circle-question"></i></div>
+            </div>
+        </div>
+        <div class="w-full md:w-7/12 p-6 md:p-8 bg-white">
+            <div class="flex items-center gap-3 mb-5">
+                <i class="fa-regular fa-pen-to-square text-teal-500 text-xl"></i>
+                <h2 class="text-2xl font-bold text-gray-800">Need help? <span class="text-teal-500">Ask us anything</span></h2>
+            </div>
+            <form id="helpForm" class="space-y-3">
+                <div>
+                    <label class="text-sm font-medium text-gray-700 block mb-1">Full name</label>
+                    <input type="text" placeholder="e.g. Alex Rivera" class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800" required />
+                </div>
+                <div>
+                    <label class="text-sm font-medium text-gray-700 block mb-1">Email address</label>
+                    <input type="email" placeholder="alex@example.com" class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800" required />
+                </div>
+                <div>
+                    <label class="text-sm font-medium text-gray-700 block mb-1">Subject</label>
+                    <select class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800 bg-gray-50">
+                        <option>Course inquiry</option>
+                        <option>Brochure / syllabus</option>
+                        <option>Mentor support</option>
+                        <option>Certificate help</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-sm font-medium text-gray-700 block mb-1">Message</label>
+                    <textarea rows="2" placeholder="How can we assist you?" class="input-field w-full rounded-xl px-4 py-2.5 text-gray-800 resize-none bg-gray-50"></textarea>
+                </div>
+                <button type="submit" class="btn-primary-custom w-full text-white font-medium py-2.5 rounded-xl flex items-center justify-center gap-2 transition hover:scale-105">
+                    <i class="fa-regular fa-paper-plane"></i> Send message
+                </button>
+                <p class="text-xs text-gray-400 text-center mt-2">We'll respond within 24 hours</p>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</main>
+
+    <!-- Footer -->
+    <%- include("../partials/common/footer")  %>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black/90 z-[2000] hidden items-center justify-center p-4" style="backdrop-filter: blur(8px);">
+        <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl">
+            <button id="closeVideoModal" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <div class="aspect-video bg-gradient-to-br from-gray-900 to-black">
+                <iframe id="youtubeFrame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="p-4 bg-gray-900"><h3 id="videoTitle" class="text-white font-semibold text-lg">Lecture</h3><p id="videoSection" class="text-gray-400 text-sm mt-1">Section</p></div>
+        </div>
+    </div>
+<script>
+    const coursesData = {
+        1: {
+            id: 1, 
+            title: "Web Development with Generative AI", 
+            breadcrumb: "Web Development",
+            shortDesc: "Master HTML, CSS, JavaScript, React, Node.js, MongoDB, and integrate Generative AI to build intelligent full-stack applications.",
+            fullDescription: "This comprehensive Web Development course is designed to take you from beginner to professional full-stack developer with a special focus on integrating Generative AI. You'll learn front-end technologies like HTML, CSS, and JavaScript, then master modern frameworks like React. On the back-end, you'll dive into Node.js, Express, and MongoDB. What makes this course unique is the integration of Generative AI - you'll learn how to leverage AI APIs (like OpenAI GPT, Claude, etc.) to build intelligent applications that can generate content, answer questions, and enhance user experiences. By the end of this course, you'll be able to build and deploy complete AI-powered web applications.",
+            price: 5999, 
+            originalPrice: 20000, 
+            duration: "6 Months", 
+            level: "Beginner to Job Ready",
+            image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+            whatYouLearn: [
+                "Build responsive websites using HTML5, CSS3, and JavaScript",
+                "Master React.js for building dynamic user interfaces",
+                "Create RESTful APIs with Node.js and Express",
+                "Work with MongoDB and MySQL for database management",
+                "Integrate Generative AI into your web applications",
+                "Deploy applications to production using cloud platforms"
+            ],
+            syllabus: [
+                { 
+                    title: "HTML & CSS Fundamentals", 
+                    lectures: [
+                        "Introduction to Web Development",
+                        "Setting up Development Environment",
+                        "HTML Basics: Tags, Elements, Attributes",
+                        "HTML Forms and Input Types",
+                        "HTML5 Semantic Elements",
+                        "Introduction to CSS",
+                        "CSS Selectors and Properties",
+                        "CSS Box Model",
+                        "CSS Flexbox Layout",
+                        "CSS Grid Layout",
+                        "Responsive Design with Media Queries",
+                        "Building a Landing Page Project"
+                    ] 
+                },
+                { 
+                    title: "JavaScript Essentials", 
+                    lectures: [
+                        "JavaScript Introduction & Setup",
+                        "Variables, Data Types, and Operators",
+                        "Control Flow: If-Else, Switch",
+                        "Loops: For, While, Do-While",
+                        "Functions and Scope",
+                        "Arrays and Array Methods",
+                        "Objects and Object Methods",
+                        "DOM Manipulation",
+                        "Event Handling",
+                        "ES6 Features: Arrow Functions, Template Literals",
+                        "Promises and Async/Await",
+                        "Fetch API and AJAX"
+                    ] 
+                },
+                { 
+                    title: "React.js Mastery", 
+                    lectures: [
+                        "Introduction to React and Virtual DOM",
+                        "Setting up React Environment",
+                        "Components: Functional and Class Components",
+                        "JSX Syntax and Expressions",
+                        "Props and State Management",
+                        "Handling Events in React",
+                        "Hooks: useState, useEffect",
+                        "React Router for Navigation",
+                        "API Integration in React",
+                        "State Management with Context API",
+                        "Building a Complete React Application"
+                    ] 
+                },
+                { 
+                    title: "Node.js & Express", 
+                    lectures: [
+                        "Introduction to Node.js",
+                        "Node.js Modules and NPM",
+                        "HTTP Module and Creating Servers",
+                        "Introduction to Express.js",
+                        "Routing in Express",
+                        "Middleware Functions",
+                        "REST API Development",
+                        "Authentication with JWT",
+                        "Error Handling Middleware",
+                        "Building a Complete REST API Project"
+                    ] 
+                },
+                { 
+                    title: "Database Management", 
+                    lectures: [
+                        "Introduction to Databases",
+                        "SQL vs NoSQL",
+                        "MongoDB Setup and CRUD Operations",
+                        "Mongoose ODM",
+                        "Connecting Node.js with MongoDB",
+                        "Database Integration Project"
+                    ] 
+                },
+                { 
+                    title: "Generative AI Integration", 
+                    lectures: [
+                        "Introduction to Generative AI",
+                        "OpenAI API Integration",
+                        "Building AI-Powered Features",
+                        "Prompt Engineering Basics",
+                        "AI Chatbot Implementation",
+                        "Final Project: AI-Powered Web App"
+                    ] 
+                }
+            ],
+            requirements: [
+                "Basic computer knowledge",
+                "No prior programming experience required",
+                "A computer with internet connection (4GB+ RAM recommended)",
+                "Eagerness to learn and build projects"
+            ]
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const courseId = params.get('id') || '1';
+    const course = coursesData[courseId] || coursesData[1];
+
+    // Populate all fields
+    document.getElementById('courseBreadcrumb').textContent = course.breadcrumb;
+    document.getElementById('courseTitle').innerHTML = `Web Development with <span class="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Generative AI</span>`;
+    document.getElementById('courseShortDesc').textContent = course.shortDesc;
+    document.getElementById('fullDescription').textContent = course.fullDescription;
+    document.getElementById('sidebarTitle').textContent = course.title;
+    document.getElementById('coursePrice').textContent = `₹${course.price}`;
+    document.getElementById('originalPrice').textContent = `₹${course.originalPrice}`;
+    document.getElementById('courseDuration').textContent = course.duration;
+    document.getElementById('courseLevel').textContent = course.level;
+    document.getElementById('courseImage').src = course.image;
+    const discountPercent = Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100);
+    document.getElementById('discount').textContent = `${discountPercent}% off`;
+
+    // Populate What You'll Learn
+    const whatYouLearnContainer = document.getElementById('whatYouLearn');
+    if (whatYouLearnContainer && course.whatYouLearn) {
+        whatYouLearnContainer.innerHTML = course.whatYouLearn.map(item => 
+            `<div class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-teal-500"></i><span>${item}</span></div>`
+        ).join('');
+    }
+
+    // Populate Requirements
+    const requirementsContainer = document.getElementById('requirements');
+    if (requirementsContainer && course.requirements) {
+        requirementsContainer.innerHTML = course.requirements.map(req => 
+            `<li class="flex items-center gap-2 text-gray-600 text-sm"><i class="fa-regular fa-circle-check text-teal-500"></i><span>${req}</span></li>`
+        ).join('');
+    }
+
+    // Populate Syllabus/Course Content
+    const contentContainer = document.getElementById('courseContent');
+    if (contentContainer && course.syllabus) {
+        contentContainer.innerHTML = `
+            <div class="space-y-3">
+                ${course.syllabus.map((sec, idx) => `
+                    <div class="border rounded-xl overflow-hidden bg-white">
+                        <div class="flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-teal-50 transition-all duration-300 section-header" data-section="${idx}">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-regular fa-folder-open text-teal-500"></i>
+                                <span class="font-semibold text-gray-800">${sec.title}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs text-gray-500">${sec.lectures.length} lectures</span>
+                                <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                        <div class="lecture-list hidden border-t border-gray-100 bg-white">
+                            <div class="divide-y divide-gray-50">
+                                ${sec.lectures.map((lec, li) => `
+                                    <div class="lecture-item flex items-center gap-3 p-3 hover:bg-teal-50 transition-all duration-200 cursor-pointer group" 
+                                         data-lecture="${lec.replace(/"/g, '&quot;')}" 
+                                         data-section="${sec.title.replace(/"/g, '&quot;')}">
+                                        <i class="fa-regular fa-circle-play text-gray-400 text-base w-5 group-hover:text-teal-500 transition"></i>
+                                        <span class="text-sm text-gray-700 flex-1 group-hover:text-teal-600 transition">${lec}</span>
+                                        <span class="text-xs text-gray-400">${Math.floor(Math.random() * 30) + 5}:${Math.floor(Math.random() * 59).toString().padStart(2, '0')} min</span>
+                                        <i class="fa-brands fa-youtube text-gray-400 text-sm group-hover:text-red-500 transition"></i>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+                <div class="text-center mt-4">
+                    <button class="text-teal-600 text-sm font-semibold hover:underline expand-all-btn transition-all duration-300">
+                        <i class="fa-regular fa-rectangle-list mr-1"></i> Expand all sections
+                    </button>
+                </div>
+            </div>
+        `;
+
+        // Accordion functionality
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const lectureList = this.nextElementSibling;
+                const icon = this.querySelector('.fa-chevron-down');
+                lectureList.classList.toggle('hidden');
+                if (icon) {
+                    icon.style.transform = lectureList.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Expand/Collapse all functionality
+        let expanded = false;
+        const expandBtn = document.querySelector('.expand-all-btn');
+        if (expandBtn) {
+            expandBtn.addEventListener('click', function() {
+                const allLectureLists = document.querySelectorAll('.lecture-list');
+                const allIcons = document.querySelectorAll('.fa-chevron-down');
+                if (expanded) {
+                    allLectureLists.forEach(list => list.classList.add('hidden'));
+                    allIcons.forEach(icon => icon.style.transform = 'rotate(0deg)');
+                    this.innerHTML = '<i class="fa-regular fa-rectangle-list mr-1"></i> Expand all sections';
+                } else {
+                    allLectureLists.forEach(list => list.classList.remove('hidden'));
+                    allIcons.forEach(icon => icon.style.transform = 'rotate(180deg)');
+                    this.innerHTML = '<i class="fa-regular fa-rectangle-list mr-1"></i> Collapse all sections';
+                }
+                expanded = !expanded;
+            });
+        }
+    }
+
+    // Video Modal functionality
+    const videoMapping = { "default": "EVW4nj1jCy0" };
+    function getVideoId(title) { return videoMapping.default; }
+    
+    function openVideoModal(lecture, section) { 
+        const modal = document.getElementById('videoModal'); 
+        document.getElementById('videoTitle').textContent = lecture; 
+        document.getElementById('videoSection').textContent = section; 
+        document.getElementById('youtubeFrame').src = `https://www.youtube.com/embed/${getVideoId(lecture)}?autoplay=1&rel=0`; 
+        modal.classList.remove('hidden'); 
+        modal.style.display = 'flex'; 
+        document.body.style.overflow = 'hidden'; 
+    }
+    
+    function closeVideoModal() { 
+        const modal = document.getElementById('videoModal'); 
+        document.getElementById('youtubeFrame').src = ''; 
+        modal.classList.add('hidden'); 
+        modal.style.display = 'none'; 
+        document.body.style.overflow = ''; 
+    }
+    
+    // Attach video click handlers after content is loaded
+    setTimeout(() => {
+        document.querySelectorAll('.lecture-item').forEach(item => { 
+            item.addEventListener('click', () => openVideoModal(item.dataset.lecture, item.dataset.section)); 
+        });
+    }, 100);
+    
+    document.getElementById('closeVideoModal')?.addEventListener('click', closeVideoModal);
+    document.getElementById('videoModal')?.addEventListener('click', (e) => { if(e.target === e.currentTarget) closeVideoModal(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeVideoModal(); });
+    
+    // Other button handlers
+    document.getElementById('downloadBrochureBtn')?.addEventListener('click', () => alert('📄 Brochure download started (demo).'));
+    document.querySelectorAll('.enroll-btn').forEach(b => b.addEventListener('click', () => alert('🎓 Enrollment inquiry sent! We\'ll contact you soon.')));
+    
+    // Mobile menu handlers
+    document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
+    document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+    
+    // Help form submission
+    document.getElementById('helpForm')?.addEventListener('submit', function(e) { 
+        e.preventDefault(); 
+        alert('✅ Your message has been sent! We\'ll get back to you soon.'); 
+        this.reset(); 
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!-- Microsoft Style Navbar - Enhanced Interactive -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-200 transition-all duration-300" id="mainNav">
+    <div class="container mx-auto px-4 lg:px-6">
+        <div class="flex items-center justify-between h-14 lg:h-16">
+            
+            <!-- Skill Bridge Brand Logo - Enhanced Hover -->
+            <a href="/" class="flex flex-col items-start leading-none group">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0a2b3e] to-[#1a6f8c] flex items-center justify-center shadow-md group-hover:scale-105 group-hover:shadow-cyan-500/30 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                        <span class="text-white font-extrabold text-lg tracking-tight relative z-10">SB</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[24px] font-extrabold tracking-tight leading-none">
+                            <span class="text-[#0a2b3e] group-hover:text-[#1a6f8c] transition-colors duration-300">Skill</span>
+                            <span class="text-[#1a6f8c] group-hover:text-[#0a2b3e] transition-colors duration-300">Bridge</span>
+                        </span>
+                        <span class="text-[10px] uppercase tracking-[2px] text-gray-500 mt-1 group-hover:text-cyan-600 transition-colors duration-300">Build Skill, Forge Future</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links - Enhanced Hover Effects -->
+            <div class="hidden lg:flex items-center gap-1">
+                <a href="/" class="nav-link-enhanced px-3 py-2 text-gray-700 hover:text-[#0066b3] text-sm font-medium relative group">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="/about" class="nav-link-enhanced px-3 py-2 text-gray-700 hover:text-[#0066b3] text-sm font-medium relative group">
+                    About Us
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="/courses" class="nav-link-enhanced px-3 py-2 text-gray-700 hover:text-[#0066b3] text-sm font-medium relative group">
+                    Courses
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="/contact" class="nav-link-enhanced px-3 py-2 text-gray-700 hover:text-[#0066b3] text-sm font-medium relative group">
+                    Contact
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </div>
+
+            <!-- Desktop Right Section - Enhanced Search & Buttons -->
+            <div class="hidden lg:flex items-center gap-3">
+                <!-- Search Box - Enhanced -->
+                <div class="relative">
+                    <div class="flex items-center bg-gray-100 hover:bg-gray-200 rounded-md px-3 py-1.5 w-64 transition-all duration-300 cursor-pointer border border-transparent hover:border-gray-300 group">
+                        <i class="fa-solid fa-magnifying-glass text-gray-500 text-sm mr-2 transition-colors duration-300 group-hover:text-[#1a6f8c]"></i>
+                        <span class="text-gray-500 text-sm flex-1 transition-colors duration-300 group-hover:text-gray-700">Search courses...</span>
+                        <kbd class="text-xs text-gray-500 bg-white px-1.5 py-0.5 rounded shadow-sm transition-all duration-300 group-hover:bg-[#1a6f8c] group-hover:text-white">Ctrl+K</kbd>
+                    </div>
+                    
+                    <!-- Search Dropdown - Enhanced -->
+                    <div id="searchDropdown" class="absolute top-full left-0 mt-2 w-96 bg-white rounded-lg shadow-xl border border-gray-200 hidden z-[100] overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3]"></div>
+                        <div class="p-4">
+                            <div class="flex items-center bg-gray-50 rounded-md border border-gray-200 px-3 py-2.5 transition-all duration-300 focus-within:border-[#1a6f8c] focus-within:ring-2 focus-within:ring-[#1a6f8c]/20">
+                                <i class="fa-solid fa-magnifying-glass text-gray-400 mr-2"></i>
+                                <input type="text" id="searchInput" placeholder="Search courses..." class="flex-1 bg-transparent text-gray-700 text-sm focus:outline-none" autocomplete="off">
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-xs text-gray-500 font-semibold mb-2 flex items-center gap-2">
+                                    <i class="fa-regular fa-fire text-orange-500"></i>
+                                    <span>Popular searches</span>
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="pop-search px-3 py-1 bg-gray-100 hover:bg-gradient-to-r hover:from-[#1a6f8c] hover:to-[#0066b3] hover:text-white rounded-full text-xs cursor-pointer transition-all duration-300 hover:scale-105">Web Development</span>
+                                    <span class="pop-search px-3 py-1 bg-gray-100 hover:bg-gradient-to-r hover:from-[#1a6f8c] hover:to-[#0066b3] hover:text-white rounded-full text-xs cursor-pointer transition-all duration-300 hover:scale-105">Data Science</span>
+                                    <span class="pop-search px-3 py-1 bg-gray-100 hover:bg-gradient-to-r hover:from-[#1a6f8c] hover:to-[#0066b3] hover:text-white rounded-full text-xs cursor-pointer transition-all duration-300 hover:scale-105">Cloud Computing</span>
+                                    <span class="pop-search px-3 py-1 bg-gray-100 hover:bg-gradient-to-r hover:from-[#1a6f8c] hover:to-[#0066b3] hover:text-white rounded-full text-xs cursor-pointer transition-all duration-300 hover:scale-105">Cybersecurity</span>
+                                    <span class="pop-search px-3 py-1 bg-gray-100 hover:bg-gradient-to-r hover:from-[#1a6f8c] hover:to-[#0066b3] hover:text-white rounded-full text-xs cursor-pointer transition-all duration-300 hover:scale-105">DevOps</span>
+                                    <span class="pop-search px-3 py-1 bg-gray-100 hover:bg-gradient-to-r hover:from-[#1a6f8c] hover:to-[#0066b3] hover:text-white rounded-full text-xs cursor-pointer transition-all duration-300 hover:scale-105">Machine Learning</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Button - Enhanced -->
+                <button class="relative overflow-hidden px-4 py-1.5 text-gray-700 hover:text-[#0066b3] hover:bg-gray-100 rounded-md text-sm font-medium transition-all duration-300 group">
+                    <i class="fa-regular fa-user mr-1 group-hover:scale-110 transition-transform duration-300"></i> Login
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] group-hover:w-full transition-all duration-300"></span>
+                </button>
+                
+                <!-- Book Free Demo Button - Enhanced -->
+                <button class="relative overflow-hidden px-4 py-1.5 bg-[#0066b3] hover:bg-[#004d8c] text-white rounded-md text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 group">
+                    <span class="relative z-10 flex items-center gap-1">
+                        Book Free Demo
+                        <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                    <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-gradient-to-r from-white/20 to-transparent"></div>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button - Enhanced -->
+            <button id="menuBtn" class="lg:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-all duration-300 hover:scale-110">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Search Bar - Enhanced -->
+        <div class="lg:hidden py-3 border-t border-gray-100">
+            <div class="flex items-center bg-gray-100 rounded-md px-3 py-2 transition-all duration-300 focus-within:ring-2 focus-within:ring-[#1a6f8c]/30">
+                <i class="fa-solid fa-magnifying-glass text-gray-500 mr-2"></i>
+                <input type="text" id="mobileSearch" placeholder="Search courses..." class="flex-1 bg-transparent text-gray-700 text-sm focus:outline-none">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Panel - Enhanced -->
+    <div id="mobileMenuPanel" class="fixed inset-0 bg-white z-50 hidden flex-col">
+        <div class="flex justify-between items-center p-4 border-b">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0a2b3e] to-[#1a6f8c] flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">SB</span>
+                </div>
+                <span class="text-lg font-semibold">Skill<span class="text-[#1a6f8c]">Bridge</span></span>
+            </div>
+            <button id="closeMenuBtn" class="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-all duration-300 hover:rotate-90">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex-1 py-4">
+            <a href="/" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-all duration-300 hover:pl-6">Home</a>
+            <a href="/about" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-all duration-300 hover:pl-6">About Us</a>
+            <a href="/courses" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-all duration-300 hover:pl-6">Courses</a>
+            <a href="/contact" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-all duration-300 hover:pl-6">Contact</a>
+        </div>
+        <div class="p-4 border-t space-y-3">
+            <button class="w-full py-2 text-gray-700 hover:bg-gray-50 rounded-md transition-all duration-300 hover:pl-4 text-left">Login</button>
+            <button class="w-full py-2 bg-[#0066b3] text-white rounded-md transition-all duration-300 hover:bg-[#004d8c] hover:scale-105">Enroll Now</button>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // ===== SCROLL EFFECT - Navbar shadow enhancement =====
+        const navbar = document.getElementById('mainNav');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+        
+        // ===== SEARCH DROPDOWN =====
+        const searchContainer = document.querySelector('.relative .flex.items-center.bg-gray-100');
+        const searchDropdown = document.getElementById('searchDropdown');
+        const searchInput = document.getElementById('searchInput');
+        
+        if (searchContainer && searchDropdown) {
+            searchContainer.addEventListener('click', function(e) {
+                e.stopPropagation();
+                searchDropdown.classList.toggle('hidden');
+                if (!searchDropdown.classList.contains('hidden')) {
+                    setTimeout(function() {
+                        if (searchInput) searchInput.focus();
+                    }, 100);
+                }
+            });
+        }
+        
+        document.addEventListener('click', function(e) {
+            if (searchDropdown && !searchDropdown.contains(e.target) && searchContainer && !searchContainer.contains(e.target)) {
+                searchDropdown.classList.add('hidden');
+            }
+        });
+        
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        window.location.href = '/courses?search=' + encodeURIComponent(query);
+                    }
+                }
+            });
+        }
+        
+        const popSearches = document.querySelectorAll('.pop-search');
+        popSearches.forEach(function(tag) {
+            tag.addEventListener('click', function() {
+                const query = tag.textContent;
+                window.location.href = '/courses?search=' + encodeURIComponent(query);
+            });
+        });
+        
+        const mobileSearch = document.getElementById('mobileSearch');
+        if (mobileSearch) {
+            mobileSearch.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = mobileSearch.value.trim();
+                    if (query) {
+                        window.location.href = '/courses?search=' + encodeURIComponent(query);
+                    }
+                }
+            });
+        }
+        
+        // ===== MOBILE MENU =====
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        
+        if (menuBtn && mobileMenuPanel) {
+            menuBtn.addEventListener('click', function() {
+                mobileMenuPanel.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (closeMenuBtn && mobileMenuPanel) {
+            closeMenuBtn.addEventListener('click', function() {
+                mobileMenuPanel.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenuPanel ? mobileMenuPanel.querySelectorAll('a') : [];
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuPanel.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // ===== ACTIVE LINK HIGHLIGHTING =====
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link-enhanced');
+        
+        navLinks.forEach(function(link) {
+            const href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '/' && href === '/') || 
+                (currentPage.includes(href) && href !== '/' && href !== '#')) {
+                link.classList.add('text-[#0066b3]');
+                const underline = link.querySelector('span');
+                if (underline) underline.classList.add('w-full');
+            }
+        });
+        
+        // ===== KEYBOARD SHORTCUT (Ctrl+K) =====
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                if (searchContainer && searchDropdown) {
+                    searchDropdown.classList.remove('hidden');
+                    setTimeout(function() {
+                        if (searchInput) searchInput.focus();
+                    }, 100);
+                }
+            }
+        });
+        
+        // ===== HOVER SOUND EFFECT (Optional - just for visual feedback) =====
+        // Add ripple effect to buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 500);
+            });
+        });
+    });
+</script>
+
+<style>
+    /* Navbar Enhanced Styles */
+    .nav-link-enhanced {
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    /* Active link indicator */
+    .nav-link-enhanced .w-full {
+        width: 100%;
+        left: 0;
+        transform: translateX(0);
+    }
+    
+    /* Search box styles */
+    .relative .flex.items-center.bg-gray-100 {
+        transition: all 0.3s ease;
+    }
+    
+    /* Search dropdown animation */
+    #searchDropdown {
+        animation: fadeInUp 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Mobile menu animation */
+    #mobileMenuPanel {
+        animation: slideInRight 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    /* Ripple effect for buttons */
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(26,111,140,0.3);
+        transform: scale(0);
+        animation: ripple 0.5s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    button {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Navbar scroll transition */
+    #mainNav {
+        transition: all 0.3s ease;
+    }
+    
+    /* Hover scale effect for icons */
+    .fa-arrow-right {
+        transition: transform 0.3s ease;
+    }
+</style>

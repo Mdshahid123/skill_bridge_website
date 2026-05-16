@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Skill Bridge | Build Your Tech Career</title>
+    <link rel="stylesheet" href="/home.css">
+    <!-- Google Fonts + Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body class="bg-white">
+
+    <!-- nav bar -->
+    <%- include('../partials/common/navbar') %>
+    <!-- Mobile Menu -->
+    <%- include('../partials/common/mobileMenu') %>
+    <!-- Admission Inquiry Modal -->
+    
+    <main>
+        <!-- Hero Section -->
+         <%- include("../partials/home/heroSection") %>
+
+        <!-- trust section -->
+        <%- include("../partials/home/trustSection") %>
+        
+        <!-- Courses Section -->
+        <%- include("../partials/home/coursesSection") %>
+        <br>
+        
+        <!-- Mentors Section -->
+        <%- include("../partials/home/mentorSection") %>
+
+        <br>
+         
+  
+        <!-- Founder Section -->
+          <%- include("../partials/home/founderSection") %>
+          <br>
+          <br>
+          <br>
+       
+        <!-- Testimonials Section -->
+        <%- include("../partials/home/testinomialSection") %>
+
+        <!-- CTA Section -->
+        <%- include("../partials/home/cta") %>
+
+    </main>
+
+    <!-- Footer -->
+     <%- include("../partials/common/footer") %> 
+
+     <script src="/home.js"></script>
+
+</body>
+</html>

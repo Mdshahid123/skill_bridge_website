@@ -1,0 +1,174 @@
+<!-- ==================== 1. HERO SECTION ==================== -->
+<section id="hero" class="relative overflow-hidden bg-[#071c2b] pt-32 pb-20">
+    <!-- Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#071c2b] via-[#0d3447] to-[#176785]"></div>
+
+    <!-- Glow Effects -->
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-3xl"></div>
+
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-[0.04]"
+        style="background-image: linear-gradient(to right, white 1px, transparent 1px),
+               linear-gradient(to bottom, white 1px, transparent 1px);
+               background-size: 60px 60px;">
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-12 relative z-10">
+
+        <!-- Top Badge -->
+        <div class="flex justify-center mb-8">
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md">
+                <div class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                    <i class="fa-solid fa-briefcase text-cyan-300 text-sm"></i>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm">100% Placement Assistance</h4>
+                    <p class="text-white/60 text-xs">Guaranteed Career Support</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <!-- Left Content -->
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <!-- Small Badge -->
+                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md mb-6">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span class="text-white/90 text-sm font-medium tracking-wide">
+                        A Division of ASN Immigration
+                    </span>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.2] tracking-tight mb-5">
+                    Bridging Skills with
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">
+                        Career Opportunities
+                    </span>
+                </h1>
+
+                <!-- Description -->
+                <p class="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mb-8">
+                    SkillBridge is the education division of ASN Immigration, offering IT skills, tech training, 
+                    corporate learning, and online degree programs from UGC-approved and NAAC A+ accredited universities.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                    <a href="/courses" class="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl font-bold shadow-2xl transition-all duration-300 hover:scale-105 text-base text-center">
+                        <span class="flex items-center justify-center gap-2">
+                            Explore Courses
+                            <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition duration-300"></i>
+                        </span>
+                    </a>
+                    <a href="/contact" class="border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white px-8 py-3 rounded-xl font-semibold transition duration-300 text-base text-center">
+                        <span class="flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-circle-play"></i>
+                            Contact Us
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Stats with Live Counters -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                    <div>
+                        <h3 class="text-3xl font-extrabold text-white">
+                            <span class="counter" data-target="5000">0</span><span>+</span>
+                        </h3>
+                        <p class="text-white/60 text-sm mt-1">Students Trained</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-extrabold text-white">
+                            <span class="counter" data-target="30">0</span><span>+</span>
+                        </h3>
+                        <p class="text-white/60 text-sm mt-1">Degree Programs</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-extrabold text-white">
+                            <span class="counter" data-target="98">0</span><span>%</span>
+                        </h3>
+                        <p class="text-white/60 text-sm mt-1">Placement Rate</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-extrabold text-white">
+                            <span class="counter" data-target="75">0</span><span>+</span>
+                        </h3>
+                        <p class="text-white/60 text-sm mt-1">Expert Mentors</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="lg:w-1/2 flex justify-center items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent rounded-full blur-2xl"></div>
+                    <img src="founder.png"
+                        alt="Skill Bridge Founder"
+                        class="relative z-10 w-full max-w-[380px] lg:max-w-[450px] object-contain drop-shadow-2xl"
+                        onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg'">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // ==================== LIVE COUNTER ANIMATION ====================
+    (function() {
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 60;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = Math.floor(target);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 33);
+        }
+        
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+        
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
+                    });
+                    observer.disconnect();
+                }
+            });
+        }, observerOptions);
+        
+        const statsContainer = document.querySelector('.grid-cols-2.sm\\:grid-cols-4');
+        if (statsContainer) {
+            observer.observe(statsContainer);
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        if (!isNaN(target)) {
+                            animateCounter(counter, target);
+                        }
+                    });
+                }, 500);
+            });
+        }
+    })();
+</script>
