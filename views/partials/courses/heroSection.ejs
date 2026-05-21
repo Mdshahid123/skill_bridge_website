@@ -1,21 +1,15 @@
-<div class="hero-glow pt-28 pb-16 relative overflow-hidden">
-    <!-- Brand Grid Pattern Layers -->
-    <div class="absolute inset-0 opacity-[0.08] brand-grid"></div>
-    <div class="absolute inset-0 opacity-[0.05] brand-grid-light"></div>
-    
-    <!-- Diagonal grid pattern for extra depth -->
-    <div class="absolute inset-0 opacity-[0.04]"
+<div class="hero-glow pt-28 pb-16 relative overflow-visible">
+    <div class="absolute inset-0 opacity-[0.08] brand-grid pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-[0.05] brand-grid-light pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
         style="background-image: 
             repeating-linear-gradient(45deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px),
             repeating-linear-gradient(135deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px);">
     </div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
     
-    
-    <!-- Glowing orbs -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
-    
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto px-6 relative z-20">
         <div class="breadcrumb text-sm mb-4">
             <a href="/" class="text-teal-700/70 hover:text-teal-700">Home</a>
             <span class="text-teal-700/40 mx-2">/</span>
@@ -25,138 +19,95 @@
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-3 glow-text">All Premium Courses</h1>
         <p class="text-gray-600 text-center max-w-2xl mx-auto mb-8">Explore our comprehensive collection of industry-ready courses taught by expert mentors</p>
         
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 mb-6">
-            <button class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-teal-600 text-white shadow-md" data-filter="all">All Courses</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="development">Web Development</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="data">Data Science</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="analyst">Data Analyst</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="dsa">DSA</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="placement">Placement Preparation</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="marketing">Digital Marketing</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="design">UI/UX Design</button>
-            <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-white/80 text-gray-700 hover:bg-teal-50 hover:text-teal-600 border border-gray-200" data-filter="cloud">Cloud & DevOps</button>
+        <div class="max-w-3xl mx-auto mb-6">
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <!-- Search Bar -->
+                <div class="relative flex-1 max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    <input type="text" id="courseSearchInput" placeholder="Search courses by name, category, or skill..." 
+                           class="w-full pl-11 pr-4 py-3 rounded-full border border-gray-200 bg-white/80 backdrop-blur-sm focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all text-gray-700 text-sm">
+                </div>
+                
+                <!-- Category Dropdown -->
+                <div class="relative" style="z-index: 100;">
+                    <button id="categoryDropdownBtn" class="flex items-center gap-2 px-5 py-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700 text-sm font-medium hover:border-teal-500 hover:text-teal-600 transition-all">
+                        <i class="fa-solid fa-filter text-teal-500"></i>
+                        <span id="selectedCategoryText">All Categories</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    
+                    <div id="categoryDropdownMenu" class="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 hidden overflow-y-auto" style="z-index: 1000; max-height: 400px;">
+                        <div class="p-2">
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="all">
+                                <i class="fa-regular fa-circle-dot text-teal-500 text-base w-5"></i>
+                                <span>All Categories</span>
+                            </div>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="development">
+                                <i class="fa-brands fa-react text-teal-500 text-base w-5"></i>
+                                <span>Web Development</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="data">
+                                <i class="fa-solid fa-chart-line text-teal-500 text-base w-5"></i>
+                                <span>Data Science</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="analyst">
+                                <i class="fa-solid fa-table text-teal-500 text-base w-5"></i>
+                                <span>Data Analyst</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="dsa">
+                                <i class="fa-solid fa-diagram-project text-teal-500 text-base w-5"></i>
+                                <span>DSA</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="placement">
+                                <i class="fa-solid fa-briefcase text-teal-500 text-base w-5"></i>
+                                <span>Placement Preparation</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="programming">
+                                <i class="fa-solid fa-code text-teal-500 text-base w-5"></i>
+                                <span>Programming Languages</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="cloud">
+                                <i class="fa-solid fa-cloud-arrow-up text-teal-500 text-base w-5"></i>
+                                <span>Cloud & DevOps</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="cyber">
+                                <i class="fa-solid fa-shield-haltered text-teal-500 text-base w-5"></i>
+                                <span>Cybersecurity</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="ai">
+                                <i class="fa-solid fa-robot text-teal-500 text-base w-5"></i>
+                                <span>Artificial Intelligence</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="marketing">
+                                <i class="fa-solid fa-chart-simple text-teal-500 text-base w-5"></i>
+                                <span>Digital Marketing</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="design">
+                                <i class="fa-solid fa-pen-ruler text-teal-500 text-base w-5"></i>
+                                <span>UI/UX Design</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="mobile">
+                                <i class="fa-brands fa-android text-teal-500 text-base w-5"></i>
+                                <span>Mobile Development</span>
+                            </div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="blockchain">
+                                <i class="fa-solid fa-link text-teal-500 text-base w-5"></i>
+                                <span>Blockchain</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="resetFiltersBtn" class="px-5 py-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-sm font-medium transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right text-xs"></i>
+                    Reset
+                </button>
+            </div>
+            
+            <div id="activeFiltersContainer" class="flex flex-wrap gap-2 justify-center mt-4 min-h-[32px]"></div>
         </div>
         
-        <!-- Results count -->
-        <p class="text-gray-500 text-center text-sm" id="resultsCount">Showing 9 courses</p>
+        <p class="text-gray-500 text-center text-sm" id="resultsCount">Showing 0 courses</p>
     </div>
 </div>
-
-<style>
-    /* Brand Colors: #0a2b3e (dark navy), #1a6f8c (teal), #0066b3 (blue) */
-    .hero-glow {
-        background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .hero-glow::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(26,111,140,0.12) 0%, rgba(0,102,179,0.06) 50%, transparent 70%);
-        animation: rotateGlow 20s linear infinite;
-    }
-    
-    @keyframes rotateGlow {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    /* Brand grid pattern */
-    .brand-grid {
-        background-image: 
-            repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px),
-            repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px);
-        background-size: 50px 50px;
-    }
-    
-    .brand-grid-light {
-        background-image: 
-            repeating-linear-gradient(90deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px),
-            repeating-linear-gradient(0deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px);
-    }
-    
-    /* Floating animation for decorative elements */
-    @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-10px) rotate(5deg); }
-    }
-    
-    .float-animation { animation: float 4s ease-in-out infinite; }
-    .float-delay-1 { animation-delay: 1s; }
-    .float-delay-2 { animation-delay: 2s; }
-    
-    .glow-text {
-        text-shadow: 0 0 20px rgba(26,111,140,0.3);
-    }
-    
-    /* Filter button active state */
-    .filter-btn.active {
-        background: linear-gradient(135deg, #1a6f8c, #0066b3);
-        color: white;
-        box-shadow: 0 4px 12px rgba(26,111,140,0.3);
-    }
-    
-    .filter-btn.active:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(26,111,140,0.4);
-    }
-    
-    .filter-btn:not(.active):hover {
-        transform: translateY(-2px);
-        background: white;
-        border-color: #1a6f8c;
-        color: #1a6f8c;
-    }
-</style>
-
-<script>
-    // Filter functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const resultsCount = document.getElementById('resultsCount');
-        
-        // Sample course data - replace with your actual courses
-        let courses = [
-            { name: "Full Stack Web Development", category: "development" },
-            { name: "Frontend Development", category: "development" },
-            { name: "Data Science Mastery", category: "data" },
-            { name: "Data Analytics Pro", category: "analyst" },
-            { name: "DSA for Interviews", category: "dsa" },
-            { name: "Placement Preparation", category: "placement" },
-            { name: "Digital Marketing", category: "marketing" },
-            { name: "UI/UX Design", category: "design" },
-            { name: "Cloud & DevOps", category: "cloud" }
-        ];
-        
-        function updateResultsCount(category) {
-            let count;
-            if (category === 'all') {
-                count = courses.length;
-            } else {
-                count = courses.filter(course => course.category === category).length;
-            }
-            resultsCount.textContent = `Showing ${count} courses`;
-        }
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                updateResultsCount(filter);
-                
-                // Here you would add your course filtering logic
-                // For example: filterCourses(filter);
-            });
-        });
-    });
-</script>

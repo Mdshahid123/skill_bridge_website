@@ -1,0 +1,32 @@
+<div id="paymentModal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);">
+        <div class="relative max-w-md w-full bg-white rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up">
+            <button id="closePaymentModal" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center transition-all hover:scale-110">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="bg-gradient-to-r from-teal-600 to-blue-600 px-6 py-4">
+                <div class="flex items-center gap-3"><i class="fa-solid fa-lock text-white text-xl"></i><h3 class="text-white font-bold text-xl">Secure Payment</h3></div>
+                <p class="text-white/80 text-sm mt-1">Complete your enrollment securely</p>
+            </div>
+            <div class="p-6">
+                <div class="bg-gray-50 rounded-xl p-4 mb-5">
+                    <h4 class="font-bold text-gray-800 mb-2">Course Details</h4>
+                    <div class="flex justify-between text-sm mb-1"><span class="text-gray-600" id="paymentCourseName">Web Development with Gen AI</span><span class="font-semibold text-teal-600" id="paymentCoursePrice">₹5,999</span></div>
+                    <div class="border-t border-gray-200 my-2 pt-2"><div class="flex justify-between font-bold"><span>Total Amount</span><span class="text-teal-600" id="paymentTotalAmount">₹5,999</span></div></div>
+                </div>
+                <div class="mb-5"><label class="block text-sm font-semibold text-gray-700 mb-3">Select Payment Method</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="payment-method-btn active p-3 rounded-xl border-2 border-teal-500 bg-teal-50 transition-all" data-method="card"><i class="fa-regular fa-credit-card text-teal-600 text-xl block mb-1"></i><span class="text-xs font-medium">Card</span></button>
+                        <button class="payment-method-btn p-3 rounded-xl border-2 border-gray-200 hover:border-teal-300 transition-all" data-method="upi"><i class="fa-brands fa-google-pay text-xl block mb-1"></i><span class="text-xs font-medium">UPI</span></button>
+                        <button class="payment-method-btn p-3 rounded-xl border-2 border-gray-200 hover:border-teal-300 transition-all" data-method="netbanking"><i class="fa-solid fa-building-columns text-xl block mb-1"></i><span class="text-xs font-medium">Net Banking</span></button>
+                    </div>
+                </div>
+                <form id="paymentForm" class="space-y-4">
+                    <div id="cardFields"><div><label class="text-xs font-medium text-gray-700 block mb-1">Card Number</label><input type="text" placeholder="1234 5678 9012 3456" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"></div><div class="grid grid-cols-2 gap-3 mt-3"><div><label class="text-xs font-medium text-gray-700 block mb-1">Expiry Date</label><input type="text" placeholder="MM/YY" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"></div><div><label class="text-xs font-medium text-gray-700 block mb-1">CVV</label><input type="password" placeholder="123" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"></div></div></div>
+                    <div id="upiFields" class="hidden"><input type="text" placeholder="Enter UPI ID (example@okhdfcbank)" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"></div>
+                    <div id="netbankingFields" class="hidden"><select class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"><option value="">Select Bank</option><option>SBI</option><option>HDFC Bank</option><option>ICICI Bank</option><option>Axis Bank</option></select></div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white py-3 rounded-xl font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2 mt-4"><i class="fa-solid fa-lock"></i> Pay <span id="payAmount">₹5,999</span></button>
+                </form>
+                <p class="text-center text-[10px] text-gray-400 mt-4">Test Card: 4242 4242 4242 4242 | Any future expiry | Any CVV</p>
+            </div>
+        </div>
+    </div>

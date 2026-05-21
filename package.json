@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "v24.14.0"
+  },
   "name": "skill_bridge",
   "version": "1.0.0",
   "description": "",
@@ -13,8 +16,11 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "mongoose": "^9.6.2",
+    "multer": "^2.1.1",
     "node": "^24.15.0",
     "nodemailer": "^8.0.7"
   },

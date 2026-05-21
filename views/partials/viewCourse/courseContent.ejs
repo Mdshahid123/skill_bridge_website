@@ -1,0 +1,52 @@
+ <div class="container mx-auto px-6 py-12 max-w-6xl">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Left Column -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-lightbulb text-teal-500"></i> What You'll Learn</h2>
+                        <div class="grid md:grid-cols-2 gap-3" id="whatYouLearn"></div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex justify-between items-center mb-4 flex-wrap gap-3">
+                            <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2"><i class="fa-regular fa-rectangle-list text-teal-500"></i> Course Content</h2>
+                            <button id="downloadBrochureBtn" class="flex items-center gap-2 text-sm font-medium text-teal-600 border border-teal-300 px-4 py-1.5 rounded-full hover:bg-teal-500 hover:text-white transition-all"><i class="fa-regular fa-file-pdf"></i>Download Brochure</button>
+                        </div>
+                        <div id="courseContent"></div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-list-check text-teal-500"></i> Requirements</h2>
+                        <ul class="space-y-2" id="requirements"></ul>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-file-lines text-teal-500"></i> Description</h2>
+                        <p class="text-gray-600 leading-relaxed" id="fullDescription"></p>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div style="width: 450px;" class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-teal-100 sticky top-24">
+                        <div class="relative h-48 rounded-lg overflow-hidden mb-4">
+                            <img id="courseImage" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Course" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2" id="sidebarTitle">Web Development with Generative AI</h3>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-3xl font-bold text-teal-600" id="coursePrice">₹5,999</span>
+                            <span class="text-sm text-gray-400 line-through" id="originalPrice">₹20,000</span>
+                            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full" id="discount">70% off</span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span id="courseDuration">6 Months</span></div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-signal w-5 text-teal-500"></i> <span id="courseLevel">Beginner to Job Ready</span></div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-certificate w-5 text-teal-500"></i> <span>Certificate of Completion</span></div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span>Lifetime Access</span></div>
+                        </div>
+                        <button class="w-full btn-primary-custom text-white py-3 rounded-xl font-semibold transition-all enroll-btn hover:scale-105">Enroll Now <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                        <p class="text-center text-xs text-gray-400 mt-3">Join 15,000+ successful students</p>
+                    </div>
+                </div>
+            </div>

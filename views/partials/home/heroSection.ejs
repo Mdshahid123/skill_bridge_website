@@ -137,53 +137,49 @@
                     </div>
                 </div>
             </div>
+
+          <!-- RIGHT SIDE - CONFUSED PERSON WITH FLOATING ANIMATION -->
+<div class="flex-1 flex flex-col items-center justify-center">
+    <!-- Confused Person Card -->
+    <div class="relative w-full max-w-md mx-auto">
+        <!-- Glow behind person -->
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        
+        <!-- Confused Person Image with Up/Down Animation -->
+        <div class="relative animate-float-person">
+            <div class="absolute -top-10 -right-5 w-16 h-16 bg-cyan-500/30 rounded-full blur-2xl animate-ping-slow"></div>
+            <div class="absolute -bottom-40 -left-12 w-16 h-16 bg-purple-500/30 rounded-full blur-2xl animate-pulse-glow" style="animation-delay: 1s;"></div>
             
-            <!-- RIGHT SIDE - CONFUSED PERSON WITH FLOATING ANIMATION -->
-            <div class="flex-1 flex flex-col items-center justify-center">
-                <!-- Confused Person Card -->
-                <div class="relative w-full max-w-md mx-auto">
-                    <!-- Glow behind person -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
-                    
-                    <!-- Confused Person Image with Up/Down Animation -->
-                    <div class="relative animate-float-person">
-                        <div class="absolute -top-10 -right-5 w-16 h-16 bg-cyan-500/30 rounded-full blur-2xl animate-ping-slow"></div>
-                        <div class="absolute -bottom-10 -left-5 w-16 h-16 bg-purple-500/30 rounded-full blur-2xl animate-pulse-glow" style="animation-delay: 1s;"></div>
-                        
-                        <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Confused person" class="w-full max-w-[320px] h-auto mx-auto relative z-10" />
-                        
-                        <!-- Floating Question Marks -->
-                        <div class="absolute -top-8 -right-2 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg animate-float-question">
-                            <span class="text-4xl font-bold text-cyan-400">?</span>
-                        </div>
-                        <div class="absolute -top-5 -left-2 bg-white/20 backdrop-blur-sm p-1.5 rounded-full shadow-lg animate-float-question-delay">
-                            <span class="text-2xl font-bold text-cyan-400">?</span>
-                        </div>
-                        <div class="absolute -bottom-3 -right-8 bg-white/20 backdrop-blur-sm p-1 rounded-full shadow-lg animate-float-question-delay2">
-                            <span class="text-xl font-bold text-cyan-400">?</span>
-                        </div>
-                        <div class="absolute top-10 -right-6 bg-white/20 backdrop-blur-sm p-1 rounded-full shadow-lg animate-float-question">
-                            <span class="text-lg font-bold text-cyan-400">?</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Text below confused person -->
-                    <div class="text-center mt-6">
-                        <h3 class="text-xl font-semibold text-white">Have questions? <span class="text-cyan-400">We're here</span></h3>
-                        <p class="text-sm text-gray-300 max-w-[250px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
-                    </div>
-                    
-                    <!-- Get Admission Inquiry Button Below Person -->
-                    <div class="mt-6">
-                        <button id="inquiryBtn" class="ml-[110px] w-half group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105 text-base text-center flex items-center justify-center gap-2">
-                            <i class="fa-regular fa-paper-plane text-base"></i>
-                            Get Admission Inquiry
-                            <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-gradient-to-r from-white/20 to-transparent"></div>
-                        </button>
-                        <p class="text-center text-xs text-gray-400 mt-3">Join 15,000+ successful students</p>
-                    </div>
-                </div>
+            <!-- Question Marks Directly Above Head -->
+            <div class="absolute -top-14 left-[180px] transform -translate-x-1/2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg animate-float-question">
+                <span class="text-4xl font-bold text-cyan-400">?</span>
             </div>
+            
+            <div class="absolute -top-8 left-[230px] transform -translate-x-1/2 -translate-x-12 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg animate-float-question-delay">
+                <span class="text-3xl font-bold text-cyan-400">?</span>
+            </div>
+            
+           
+            <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Confused person" class="w-full max-w-[320px] h-auto mx-auto relative z-10" />
+        </div>
+        
+        <!-- Text below confused person -->
+        <div class="text-center mt-6">
+            <h3 class="text-xl font-semibold text-white">Have questions? <span class="text-cyan-400">We're here</span></h3>
+            <p class="text-sm text-gray-300 max-w-[250px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
+        </div>
+        
+        <!-- Get Admission Inquiry Button Below Person -->
+        <div class="mt-6">
+            <button id="inquiryBtn" class="w-half ml-[110px] group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105 text-base text-center flex items-center justify-center gap-2">
+                <i class="fa-regular fa-paper-plane text-base"></i>
+                Get Admission Inquiry
+                <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-gradient-to-r from-white/20 to-transparent"></div>
+            </button>
+            <p class="text-center text-xs text-gray-400 mt-3">Join 15,000+ successful students</p>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </section>
@@ -201,7 +197,7 @@
                 <div class="relative">
                     <div class="absolute -top-10 -right-5 w-20 h-20 bg-cyan-500/30 rounded-full blur-2xl animate-pulse"></div>
                     <div class="absolute -bottom-10 -left-5 w-20 h-20 bg-purple-500/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
-                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain relative z-10 animate-float-slow" />
+                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain relative z-10 " />
                     <div class="absolute -top-8 -right-3 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg">
                         <span class="text-4xl font-bold text-cyan-400">?</span>
                     </div>
@@ -353,7 +349,7 @@
     /* Confused Person Floating Animation (Up/Down) */
     @keyframes float-person {
         0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
+        50% { transform: translateY(-3px); }
     }
     .animate-float-person {
         animation: float-person 3s ease-in-out infinite;
@@ -362,7 +358,7 @@
     /* Floating Question Marks */
     @keyframes float-question {
         0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-10px) rotate(10deg); }
+        50% { transform: translateY(-20px) rotate(10deg); }
     }
     .animate-float-question {
         animation: float-question 2.5s ease-in-out infinite;

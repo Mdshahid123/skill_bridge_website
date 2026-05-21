@@ -1,18 +1,28 @@
 const sendInquiryEmail = require('../utils/sendEmails');
-const path = require("path")
+const courseModel=require("../models/coursesModel")
+const path = require("path");
+const coursesModel = require('../models/coursesModel');
 
-// show home page
+//show home page
 function showHomePage(req, res) {
     res.render("pages/home")
 }
 
+
 // show courses - FIXED
-function showCourses(req, res) {  // ✅ Changed from (res,res) to (req,res)
-    res.render("pages/courses")
+// Controller - keep as registerCourses
+function showCourses(req, res) {  
+    courseModel.find().then((registerCourses) => {
+        res.render("pages/courses", { registerCourses: registerCourses });
+    }).catch((error) => {
+        console.log(error);
+        res.render("pages/courses", { registerCourses: [] });
+    });
 }
 
 // view courses
 function viewCourses(req, res) {
+    
     // You can add logic here later
     res.render("pages/viewCourse")  // Optional: render a view
 }

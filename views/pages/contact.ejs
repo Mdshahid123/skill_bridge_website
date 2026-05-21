@@ -142,8 +142,8 @@
         </div>
     </div>
 
-  <!-- Contact Hero Section - With Compact Right Side Inquiry Form -->
-<section class="hero-glow pt-20 pb-12 relative overflow-hidden h-[680px]">
+  <!-- Contact Hero Section - Balanced Height -->
+<section class="hero-glow pt-16 pb-10 relative overflow-hidden">
     <!-- Brand Grid Pattern Layers -->
     <div class="absolute inset-0 opacity-[0.08] brand-grid"></div>
     <div class="absolute inset-0 opacity-[0.05] brand-grid-light"></div>
@@ -156,68 +156,69 @@
     </div>
     
     <!-- Glowing orbs -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
+    <div class="absolute top-0 right-0 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-56 h-56 bg-blue-400/20 rounded-full blur-3xl"></div>
     
     <div class="container mx-auto px-6 relative z-10">
-        <div class="breadcrumb text-sm mb-3">
+        <div class="breadcrumb text-sm mb-3 mt-4">
             <a href="/" class="text-teal-700/70 hover:text-teal-700">Home</a>
             <span class="text-teal-700/40 mx-2">/</span>
             <span class="text-teal-800 font-medium">Contact Us</span>
         </div>
         
-        <div class="flex flex-col lg:flex-row gap-8 items-center">
+        <div class="flex flex-col lg:flex-row gap-6 items-center">
             <!-- Left Side - Text Content -->
             <div class="flex-1 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-3">
-                    <i class="fa-solid fa-headset text-teal-500 text-sm"></i>
-                    <span class="text-teal-600 text-xs font-semibold tracking-wide">24/7 Support Available</span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-2">
+                    <i class="fa-solid fa-headset text-teal-500 text-xs"></i>
+                    <span class="text-teal-600 text-[11px] font-semibold tracking-wide">24/7 Support Available</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 glow-text">Get in Touch</h1>
-                <p class="text-gray-600 text-base max-w-2xl mx-auto lg:mx-0">Have questions about our courses or degree programs? Our team is here to help you every step of the way.</p>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-2 glow-text">Get in Touch</h1>
+                <p class="text-gray-600 text-sm max-w-md mx-auto lg:mx-0">Have questions about our courses or degree programs? Our team is here to help.</p>
             </div>
             
             <!-- Right Side - Compact Inquiry Form Card -->
-            <div class="flex-1 max-w-md w-full">
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+            <div class="flex-1 max-w-sm w-full">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
                     <!-- Compact Form Header -->
-                    <div class="bg-gradient-to-r from-teal-600 to-blue-600 px-5 py-3">
-                        <h3 class="text-white font-bold text-lg flex items-center gap-2">
+                    <div class="bg-gradient-to-r from-teal-600 to-blue-600 px-4 py-2.5">
+                        <h3 class="text-white font-bold text-base flex items-center gap-2">
+                            <i class="fa-regular fa-pen-to-square text-sm"></i>
                             Quick Inquiry
                         </h3>
-                        <p class="text-white/75 text-xs mt-0.5">Fill the form - we'll respond within 24 hours</p>
+                        <p class="text-white/75 text-[11px] mt-0.5">Fill the form - we'll respond within 24 hours</p>
                     </div>
                     
                     <!-- Compact Tabs -->
                     <div class="flex border-b border-gray-200">
-                        <button id="heroCoursesTab" class="hero-tab active flex-1 py-2 text-center font-semibold text-xs transition-all duration-300 relative">
-                            <i class="fa-solid fa-laptop-code mr-1 text-xs"></i> Courses
+                        <button id="heroCoursesTab" class="hero-tab active flex-1 py-1.5 text-center font-semibold text-[11px] transition-all duration-300 relative">
+                            <i class="fa-solid fa-laptop-code mr-1 text-[10px]"></i> Courses
                             <span class="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 scale-x-100 transition-transform"></span>
                         </button>
-                        <button id="heroDegreeTab" class="hero-tab flex-1 py-2 text-center font-semibold text-xs text-gray-500 hover:text-gray-700 transition-all duration-300 relative">
-                            <i class="fa-solid fa-graduation-cap mr-1 text-xs"></i> Online Degree
+                        <button id="heroDegreeTab" class="hero-tab flex-1 py-1.5 text-center font-semibold text-[11px] text-gray-500 hover:text-gray-700 transition-all duration-300 relative">
+                            <i class="fa-solid fa-graduation-cap mr-1 text-[10px]"></i> Online Degree
                             <span class="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 scale-x-0 transition-transform"></span>
                         </button>
                     </div>
                     
                     <!-- Compact Form Body -->
-                    <div class="p-4">
-                        <form id="heroContactForm" class="space-y-3">
+                    <div class="p-3">
+                        <form id="heroContactForm" class="space-y-2">
                             <div>
-                                <input type="text" id="heroFullName" placeholder="Full Name" required class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
+                                <input type="text" id="heroFullName" placeholder="Full Name" required class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
                             </div>
                             
                             <div>
-                                <input type="email" id="heroEmail" placeholder="Email Address" required class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
+                                <input type="email" id="heroEmail" placeholder="Email Address" required class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
                             </div>
                             
                             <div>
-                                <input type="tel" id="heroPhone" placeholder="Phone Number" required class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
+                                <input type="tel" id="heroPhone" placeholder="Phone Number" required class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
                             </div>
                             
                             <!-- Courses Selection (Visible by default) -->
                             <div id="heroCourseOptions">
-                                <select id="heroCourseSelect" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
+                                <select id="heroCourseSelect" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
                                     <option value="">Select a course</option>
                                     <option>Web Development</option>
                                     <option>Data Science & AI</option>
@@ -229,7 +230,7 @@
                             
                             <!-- Degree Options (Hidden by default) -->
                             <div id="heroDegreeOptions" class="hidden">
-                                <select id="heroDegreeSelect" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
+                                <select id="heroDegreeSelect" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
                                     <option value="">Select a degree</option>
                                     <option>B.Tech in CS</option>
                                     <option>BCA</option>
@@ -239,12 +240,12 @@
                             </div>
                             
                             <div>
-                                <textarea id="heroMessage" rows="2" class="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white resize-none" placeholder="Your message..."></textarea>
+                                <textarea id="heroMessage" rows="1" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white resize-none" placeholder="Your message..."></textarea>
                             </div>
                             
-                            <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white py-2 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
+                            <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
                                 Submit Inquiry
-                                <i class="fa-solid fa-paper-plane text-xs group-hover:translate-x-1 transition-transform"></i>
+                                <i class="fa-solid fa-paper-plane text-[10px] group-hover:translate-x-1 transition-transform"></i>
                             </button>
                         </form>
                     </div>
@@ -254,6 +255,86 @@
     </div>
 </section>
 
+<style>
+    /* Hero Tab Styles */
+    .hero-tab {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .hero-tab.active {
+        color: #0f5c6e;
+        font-weight: 700;
+    }
+    
+    .hero-tab.active span {
+        transform: scaleX(1);
+    }
+    
+    .hero-tab span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #14b8a6, #3b82f6);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .hero-tab.active span {
+        transform: scaleX(1);
+    }
+    
+    /* Form Input Focus Effect */
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+    }
+    
+    /* Glow text */
+    .glow-text {
+        text-shadow: 0 0 20px rgba(26,111,140,0.2);
+    }
+</style>
+
+<script>
+    // Tab Switching Logic for Hero Form
+    (function() {
+        const coursesTab = document.getElementById('heroCoursesTab');
+        const degreeTab = document.getElementById('heroDegreeTab');
+        const courseOptions = document.getElementById('heroCourseOptions');
+        const degreeOptions = document.getElementById('heroDegreeOptions');
+        
+        if (coursesTab && degreeTab) {
+            coursesTab.addEventListener('click', function() {
+                coursesTab.classList.add('active');
+                degreeTab.classList.remove('active');
+                courseOptions.classList.remove('hidden');
+                degreeOptions.classList.add('hidden');
+            });
+            
+            degreeTab.addEventListener('click', function() {
+                degreeTab.classList.add('active');
+                coursesTab.classList.remove('active');
+                degreeOptions.classList.remove('hidden');
+                courseOptions.classList.add('hidden');
+            });
+        }
+        
+        // Form Submission
+        const heroForm = document.getElementById('heroContactForm');
+        if (heroForm) {
+            heroForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const isCourseInquiry = !courseOptions.classList.contains('hidden');
+                const inquiryType = isCourseInquiry ? 'Courses' : 'Online Degree Program';
+                alert(`✅ Thank you for your ${inquiryType} inquiry! Our counselor will contact you soon.`);
+                heroForm.reset();
+            });
+        }
+    })();
+</script>
 <style>
     /* Hero Tab Styles */
     .hero-tab {

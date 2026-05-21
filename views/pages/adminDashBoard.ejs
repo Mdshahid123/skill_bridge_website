@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add New Course | Skill Bridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .step {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .step.active {
+            background: linear-gradient(135deg, #1a6f8c, #0066b3);
+            color: white;
+            border-color: transparent;
+        }
+        .step.completed {
+            background: #10b981;
+            color: white;
+            border-color: transparent;
+        }
+        .step.completed .step-number {
+            background: white;
+            color: #10b981;
+        }
+        .form-step {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .form-step.active-step {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        .section-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .lecture-item {
+            transition: all 0.2s ease;
+        }
+        .lecture-item:hover {
+            background: #f8fafc;
+            border-color: #1a6f8c;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .remove-file, .remove-instructor-image {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        .project-item {
+            transition: all 0.2s ease;
+        }
+        .project-item:hover {
+            background: #f8fafc;
+            border-color: #1a6f8c;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Admin Navbar -->
+<nav class="bg-white shadow-md border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0a2b3e] to-[#1a6f8c] flex items-center justify-center">
+                    <span class="text-white font-extrabold text-lg">SB</span>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold">Admin<span class="text-[#1a6f8c]">Panel</span></span>
+                    <p class="text-xs text-gray-500">Add New Course</p>
+                </div>
+            </div>
+            <a href="/admin/courses" class="text-gray-600 hover:text-gray-800">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Courses
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="pt-28 pb-12 px-6">
+    <div class="container mx-auto max-w-4xl">
+        
+        <!-- Progress Steps -->
+        <div class="mb-10">
+            <div class="flex items-center justify-between">
+                <!-- Step 1 -->
+                <div class="step active flex items-center gap-3 px-4 py-2 rounded-full border-2 border-teal-500 bg-teal-50 cursor-pointer" data-step="1">
+                    <div class="step-number w-6 h-6 rounded-full bg-teal-500 text-white flex items-center justify-center text-xs font-bold">1</div>
+                    <span class="text-sm font-semibold text-teal-700">Basic Info</span>
+                </div>
+                <div class="flex-1 h-0.5 bg-gray-200 mx-2 step-line"></div>
+                
+                <!-- Step 2 -->
+                <div class="step flex items-center gap-3 px-4 py-2 rounded-full border-2 border-gray-200 bg-white cursor-pointer" data-step="2">
+                    <div class="step-number w-6 h-6 rounded-full bg-gray-300 text-white flex items-center justify-center text-xs font-bold">2</div>
+                    <span class="text-sm font-semibold text-gray-500">Details & Pricing</span>
+                </div>
+                <div class="flex-1 h-0.5 bg-gray-200 mx-2 step-line"></div>
+                
+                <!-- Step 3 -->
+                <div class="step flex items-center gap-3 px-4 py-2 rounded-full border-2 border-gray-200 bg-white cursor-pointer" data-step="3">
+                    <div class="step-number w-6 h-6 rounded-full bg-gray-300 text-white flex items-center justify-center text-xs font-bold">3</div>
+                    <span class="text-sm font-semibold text-gray-500">What You'll Learn</span>
+                </div>
+                <div class="flex-1 h-0.5 bg-gray-200 mx-2 step-line"></div>
+                
+                <!-- Step 4 -->
+                <div class="step flex items-center gap-3 px-4 py-2 rounded-full border-2 border-gray-200 bg-white cursor-pointer" data-step="4">
+                    <div class="step-number w-6 h-6 rounded-full bg-gray-300 text-white flex items-center justify-center text-xs font-bold">4</div>
+                    <span class="text-sm font-semibold text-gray-500">Course Content</span>
+                </div>
+                <div class="flex-1 h-0.5 bg-gray-200 mx-2 step-line"></div>
+                
+                <!-- Step 5 -->
+                <div class="step flex items-center gap-3 px-4 py-2 rounded-full border-2 border-gray-200 bg-white cursor-pointer" data-step="5">
+                    <div class="step-number w-6 h-6 rounded-full bg-gray-300 text-white flex items-center justify-center text-xs font-bold">5</div>
+                    <span class="text-sm font-semibold text-gray-500">Instructor & Projects</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form -->
+        <form id="courseForm" action="/storeCourses" method="POST"  enctype="multipart/form-data" class="bg-white rounded-2xl shadow-lg p-8">
+            
+            <!-- Step 1: Basic Information -->
+            <div id="step1" class="form-step active-step">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Tell us about your course</h2>
+                    <p class="text-gray-500">Start with the basic details of your course</p>
+                </div>
+                
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Course Name *</label>
+                        <input type="text" name="courseName" id="courseName" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="e.g., Full Stack Web Development">
+                        <div class="error-message" id="error-courseName">Course name is required</div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Category *</label>
+                        <select id="courseCategory" name="category" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all">
+                            <option value="">Select Category</option>
+                            <option value="development">Web Development</option>
+                            <option value="data">Data Science</option>
+                            <option value="analyst">Data Analyst</option>
+                            <option value="dsa">DSA</option>
+                            <option value="cloud">Cloud & DevOps</option>
+                            <option value="marketing">Digital Marketing</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="programming">Programming Languages</option>
+                        </select>
+                        <div class="error-message" id="error-category">Please select a category</div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Course Image *</label>
+                        <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-teal-500 transition-all" id="imageUploadArea">
+                            <input type="file" name="courseImage" id="courseImage" accept="image/*" class="hidden" required>
+                            <i class="fa-solid fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-500 text-sm">Click or drag image to upload</p>
+                            <p class="text-xs text-gray-400 mt-1">Recommended: 600x400 pixels, JPG or PNG</p>
+                        </div>
+                        <div id="imagePreview" class="mt-3 hidden">
+                            <div class="relative inline-block">
+                                <img id="previewImg" src="" alt="Preview" class="w-32 h-32 object-cover rounded-lg border">
+                                <button type="button" class="remove-file" onclick="removeImage()">✕</button>
+                            </div>
+                        </div>
+                        <div class="error-message" id="error-image">Please upload a course image</div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Course Description *</label>
+                        <textarea id="courseDescription" name="description" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="Write a comprehensive description of your course..."></textarea>
+                        <div class="error-message" id="error-description">Description is required</div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end mt-8">
+                    <button type="button" class="next-step px-6 py-3 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all">
+                        Continue <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Details & Pricing -->
+            <div id="step2" class="form-step">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Set your pricing</h2>
+                    <p class="text-gray-500">Define the course level, duration, and pricing</p>
+                </div>
+                
+                <div class="space-y-5">
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Course Level *</label>
+                            <select id="courseLevel" name="level" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all">
+                                <option value="">Select Level</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Expert">Expert</option>
+                            </select>
+                            <div class="error-message" id="error-level">Please select course level</div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Duration *</label>
+                            <input type="text" name="duration" id="courseDuration" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="e.g., 6 Months">
+                            <div class="error-message" id="error-duration">Duration is required</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Price (₹) *</label>
+                            <input type="number" name="price" id="coursePrice" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="5999">
+                            <div class="error-message" id="error-price">Price is required</div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Original Price (₹) *</label>
+                            <input type="number" name="originalPrice" id="courseOriginalPrice" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="20000">
+                            <div class="error-message" id="error-originalPrice">Original price is required</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-tag text-teal-600"></i>
+                            <span class="text-sm font-semibold text-gray-700">Discount Preview</span>
+                        </div>
+                        <p class="text-sm text-gray-600">Students will see: <span class="font-bold text-teal-600">₹<span id="discountPreview">0</span></span> (saving <span id="savingPreview">0</span>%)</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between mt-8">
+                    <button type="button" class="prev-step px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                    </button>
+                    <button type="button" class="next-step px-6 py-3 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all">
+                        Continue <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 3: What You'll Learn & Requirements -->
+            <div id="step3" class="form-step">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">What students will learn</h2>
+                    <p class="text-gray-500">List the key takeaways and requirements</p>
+                </div>
+                
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">What You'll Learn *</label>
+                        <textarea id="courseWhatYouLearn" name="whatYouLearn" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="Build responsive websites, Master React.js, Create RESTful APIs, Work with MongoDB"></textarea>
+                        <p class="text-xs text-gray-400 mt-1">Separate each point with a comma</p>
+                        <div class="error-message" id="error-whatYouLearn">At least one learning point is required</div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Requirements *</label>
+                        <textarea id="courseRequirements" name="requirements" rows="2" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="Basic computer knowledge, No prior programming experience required"></textarea>
+                        <div class="error-message" id="error-requirements">At least one requirement is needed</div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between mt-8">
+                    <button type="button" class="prev-step px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                    </button>
+                    <button type="button" class="next-step px-6 py-3 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all">
+                        Continue <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Course Content (Syllabus & Lectures) -->
+            <div id="step4" class="form-step">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Build your curriculum</h2>
+                    <p class="text-gray-500">Add Modules and lectures to create your course structure</p>
+                </div>
+                
+                <div class="space-y-5">
+                    <div id="syllabusContainer">
+                        <!-- Modules will be added dynamically -->
+                    </div>
+                    
+                    <button type="button" id="addSectionBtn" class="w-full py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-600 hover:border-teal-500 hover:text-teal-600 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Add Module
+                    </button>
+                    
+                    <div class="bg-gray-50 p-4 rounded-xl text-center">
+                        <p class="text-xs text-gray-500">Tip: First 2 lectures will be free preview for students</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between mt-8">
+                    <button type="button" class="prev-step px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                    </button>
+                    <button type="button" class="next-step px-6 py-3 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all">
+                        Continue <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 5: Instructor Information & Projects -->
+            <div id="step5" class="form-step">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Instructor & Projects</h2>
+                    <p class="text-gray-500">Tell students about the instructor and showcase projects</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Instructor Section -->
+                    <div class="border border-gray-200 rounded-xl p-5">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-chalkboard-user text-teal-500"></i> Instructor Information
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Instructor Name *</label>
+                                <input type="text" name="instructorName" id="instructorName" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="e.g., Dr. Sarah Chen">
+                                <div class="error-message" id="error-instructorName">Instructor name is required</div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Instructor Profile Picture *</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center hover:border-teal-500 transition-all" id="instructorImageUploadArea">
+                                    <input type="file" name="instructorImage" id="instructorImage" accept="image/*" class="hidden" required>
+                                    <i class="fa-solid fa-user-circle text-4xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-500 text-sm">Click or drag image to upload</p>
+                                    <p class="text-xs text-gray-400 mt-1">Recommended: 200x200 pixels, JPG or PNG</p>
+                                </div>
+                                <div id="instructorImagePreview" class="mt-3 hidden">
+                                    <div class="relative inline-block">
+                                        <img id="instructorPreviewImg" src="" alt="Instructor Preview" class="w-24 h-24 rounded-full object-cover border">
+                                        <button type="button" class="remove-instructor-image" onclick="removeInstructorImage()">✕</button>
+                                    </div>
+                                </div>
+                                <div class="error-message" id="error-instructorImage">Please upload instructor profile picture</div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Instructor Bio *</label>
+                                <textarea name="instructorBio" id="instructorBio" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" placeholder="Write about the instructor's experience, expertise, and achievements..."></textarea>
+                                <div class="error-message" id="error-instructorBio">Instructor bio is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projects Section -->
+                    <div class="border border-gray-200 rounded-xl p-5">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-diagram-project text-teal-500"></i> Student Projects
+                        </h3>
+                        <p class="text-sm text-gray-500 mb-4">Add projects that students will build during this course</p>
+                        
+                        <div id="projectsContainer">
+                            <!-- Projects will be added dynamically -->
+                        </div>
+                        
+                        <button type="button" id="addProjectBtn" class="w-full py-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-teal-500 hover:text-teal-600 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Add Project
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between mt-8">
+                    <button type="button" class="prev-step px-6 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                    </button>
+                    <button type="submit" class="px-8 py-3 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white rounded-xl font-semibold transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-check-circle"></i> Create Course
+                    </button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</main>
+
+<script>
+    let sectionCounter = 0;
+    let lectureCounters = {};
+    let uploadedImage = null;
+    let uploadedInstructorImage = null;
+    let projectCounter = 0;
+    
+    // Image Upload Handling for Course Image
+    const imageUploadArea = document.getElementById('imageUploadArea');
+    const imageInput = document.getElementById('courseImage');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    
+    imageUploadArea.addEventListener('click', () => imageInput.click());
+    
+    imageUploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        imageUploadArea.classList.add('border-teal-500', 'bg-teal-50');
+    });
+    
+    imageUploadArea.addEventListener('dragleave', () => {
+        imageUploadArea.classList.remove('border-teal-500', 'bg-teal-50');
+    });
+    
+    imageUploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        imageUploadArea.classList.remove('border-teal-500', 'bg-teal-50');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            handleImageFile(file);
+        }
+    });
+    
+    imageInput.addEventListener('change', (e) => {
+        if (e.target.files[0]) {
+            handleImageFile(e.target.files[0]);
+        }
+    });
+    
+    function handleImageFile(file) {
+        uploadedImage = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            imagePreview.classList.remove('hidden');
+            imageUploadArea.classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+    }
+    
+    function removeImage() {
+        uploadedImage = null;
+        imageInput.value = '';
+        imagePreview.classList.add('hidden');
+        imageUploadArea.classList.remove('hidden');
+        previewImg.src = '';
+    }
+    
+    // Instructor Image Upload Handling
+    const instructorImageUploadArea = document.getElementById('instructorImageUploadArea');
+    const instructorImageInput = document.getElementById('instructorImage');
+    const instructorImagePreview = document.getElementById('instructorImagePreview');
+    const instructorPreviewImg = document.getElementById('instructorPreviewImg');
+    
+    instructorImageUploadArea.addEventListener('click', () => instructorImageInput.click());
+    
+    instructorImageUploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        instructorImageUploadArea.classList.add('border-teal-500', 'bg-teal-50');
+    });
+    
+    instructorImageUploadArea.addEventListener('dragleave', () => {
+        instructorImageUploadArea.classList.remove('border-teal-500', 'bg-teal-50');
+    });
+    
+    instructorImageUploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        instructorImageUploadArea.classList.remove('border-teal-500', 'bg-teal-50');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            handleInstructorImageFile(file);
+        }
+    });
+    
+    instructorImageInput.addEventListener('change', (e) => {
+        if (e.target.files[0]) {
+            handleInstructorImageFile(e.target.files[0]);
+        }
+    });
+    
+    function handleInstructorImageFile(file) {
+        uploadedInstructorImage = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            instructorPreviewImg.src = e.target.result;
+            instructorImagePreview.classList.remove('hidden');
+            instructorImageUploadArea.classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+    }
+    
+    function removeInstructorImage() {
+        uploadedInstructorImage = null;
+        instructorImageInput.value = '';
+        instructorImagePreview.classList.add('hidden');
+        instructorImageUploadArea.classList.remove('hidden');
+        instructorPreviewImg.src = '';
+    }
+    
+    // Discount Preview
+    const priceInput = document.getElementById('coursePrice');
+    const originalPriceInput = document.getElementById('courseOriginalPrice');
+    const discountPreview = document.getElementById('discountPreview');
+    const savingPreview = document.getElementById('savingPreview');
+    
+    function updateDiscountPreview() {
+        const price = parseFloat(priceInput?.value) || 0;
+        const originalPrice = parseFloat(originalPriceInput?.value) || 0;
+        if (originalPrice > 0 && price > 0) {
+            discountPreview.textContent = price;
+            const discount = Math.round(((originalPrice - price) / originalPrice) * 100);
+            savingPreview.textContent = discount;
+        }
+    }
+    
+    priceInput?.addEventListener('input', updateDiscountPreview);
+    originalPriceInput?.addEventListener('input', updateDiscountPreview);
+    
+    // Step Validation Functions
+    function validateStep1() {
+        let isValid = true;
+        
+        const courseName = document.getElementById('courseName').value.trim();
+        if (!courseName) {
+            document.getElementById('error-courseName').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-courseName').classList.remove('show');
+        }
+        
+        const category = document.getElementById('courseCategory').value;
+        if (!category) {
+            document.getElementById('error-category').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-category').classList.remove('show');
+        }
+        
+        if (!uploadedImage) {
+            document.getElementById('error-image').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-image').classList.remove('show');
+        }
+        
+        const description = document.getElementById('courseDescription').value.trim();
+        if (!description) {
+            document.getElementById('error-description').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-description').classList.remove('show');
+        }
+        
+        return isValid;
+    }
+    
+    function validateStep2() {
+        let isValid = true;
+        
+        const level = document.getElementById('courseLevel').value;
+        if (!level) {
+            document.getElementById('error-level').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-level').classList.remove('show');
+        }
+        
+        const duration = document.getElementById('courseDuration').value.trim();
+        if (!duration) {
+            document.getElementById('error-duration').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-duration').classList.remove('show');
+        }
+        
+        const price = document.getElementById('coursePrice').value;
+        if (!price || price <= 0) {
+            document.getElementById('error-price').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-price').classList.remove('show');
+        }
+        
+        const originalPrice = document.getElementById('courseOriginalPrice').value;
+        if (!originalPrice || originalPrice <= 0) {
+            document.getElementById('error-originalPrice').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-originalPrice').classList.remove('show');
+        }
+        
+        return isValid;
+    }
+    
+    function validateStep3() {
+        let isValid = true;
+        
+        const whatYouLearn = document.getElementById('courseWhatYouLearn').value.trim();
+        if (!whatYouLearn) {
+            document.getElementById('error-whatYouLearn').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-whatYouLearn').classList.remove('show');
+        }
+        
+        const requirements = document.getElementById('courseRequirements').value.trim();
+        if (!requirements) {
+            document.getElementById('error-requirements').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-requirements').classList.remove('show');
+        }
+        
+        return isValid;
+    }
+    
+    function validateStep5() {
+        let isValid = true;
+        
+        const instructorName = document.getElementById('instructorName').value.trim();
+        if (!instructorName) {
+            document.getElementById('error-instructorName').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-instructorName').classList.remove('show');
+        }
+        
+        if (!uploadedInstructorImage) {
+            document.getElementById('error-instructorImage').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-instructorImage').classList.remove('show');
+        }
+        
+        const instructorBio = document.getElementById('instructorBio').value.trim();
+        if (!instructorBio) {
+            document.getElementById('error-instructorBio').classList.add('show');
+            isValid = false;
+        } else {
+            document.getElementById('error-instructorBio').classList.remove('show');
+        }
+        
+        return isValid;
+    }
+    
+    // Add Section Function
+    function addSection() {
+        sectionCounter++;
+        lectureCounters[sectionCounter] = 0;
+        
+        const sectionHtml = `
+            <div class="section-card border border-gray-200 rounded-xl p-4 mb-4 bg-white" data-section-id="${sectionCounter}">
+                <div class="flex justify-between items-center mb-3">
+                    <h4 class="font-semibold text-gray-800">Module ${sectionCounter}</h4>
+                    <button type="button" class="remove-section text-red-500 hover:text-red-700 text-sm" data-section="${sectionCounter}">
+                        <i class="fa-regular fa-trash-can"></i> Remove
+                    </button>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Module Title *</label>
+                    <input type="text" name="sections[${sectionCounter}][title]" placeholder="e.g., HTML Fundamentals" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:border-teal-500" required>
+                </div>
+                
+                <div class="lectures-area">
+                    <h5 class="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-play text-teal-500"></i> Lectures
+                    </h5>
+                    <div id="lectures-${sectionCounter}" class="space-y-2"></div>
+                    <button type="button" class="add-lecture-btn text-sm text-teal-600 hover:text-teal-700 mt-2 flex items-center gap-1" data-section="${sectionCounter}">
+                        <i class="fa-solid fa-plus"></i> Add Lecture
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('syllabusContainer').insertAdjacentHTML('beforeend', sectionHtml);
+        
+        document.querySelector(`.remove-section[data-section="${sectionCounter}"]`).addEventListener('click', function() {
+            this.closest('.section-card').remove();
+        });
+        
+        document.querySelector(`.add-lecture-btn[data-section="${sectionCounter}"]`).addEventListener('click', function() {
+            addLecture(sectionCounter);
+        });
+    }
+    
+    // Add Lecture Function
+    function addLecture(sectionId) {
+        lectureCounters[sectionId]++;
+        const lectureId = lectureCounters[sectionId];
+        
+        const lectureHtml = `
+            <div class="lecture-item border border-gray-200 rounded-lg p-3 bg-gray-50" data-lecture-id="${lectureId}">
+                <div class="flex justify-between gap-3">
+                    <div class="flex-1 space-y-2">
+                        <input type="text" name="sections[${sectionId}][lectures][${lectureId}][title]" placeholder="Lecture Title" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" required>
+                        
+                        <div class="video-upload-area border-2 border-dashed border-gray-300 rounded-lg p-3 text-center hover:border-teal-500 transition-all cursor-pointer" data-section="${sectionId}" data-lecture="${lectureId}">
+                            <input type="file" name="sections[${sectionId}][lectures][${lectureId}][videoFile]" accept="video/*" class="hidden video-input">
+                            <i class="fa-solid fa-video text-gray-400"></i>
+                            <span class="text-xs text-gray-500 ml-1">Upload video file (MP4, WebM)</span>
+                        </div>
+                        <div class="video-preview hidden" data-section="${sectionId}" data-lecture="${lectureId}">
+                            <div class="flex items-center gap-2 text-sm text-green-600">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span class="video-filename"></span>
+                                <button type="button" class="remove-video text-red-500 ml-2">✕</button>
+                            </div>
+                        </div>
+                        
+                        <input type="text" name="sections[${sectionId}][lectures][${lectureId}][duration]" placeholder="Duration (e.g., 15:30)" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm">
+                        
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" name="sections[${sectionId}][lectures][${lectureId}][isFree]" value="true" class="rounded">
+                            <span class="text-sm text-gray-600">Make this lecture free (preview)</span>
+                        </label>
+                    </div>
+                    <button type="button" class="remove-lecture text-red-500 hover:text-red-700">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.getElementById(`lectures-${sectionId}`).insertAdjacentHTML('beforeend', lectureHtml);
+        
+        const lectureItem = document.querySelector(`#lectures-${sectionId} .lecture-item:last-child`);
+        const uploadArea = lectureItem.querySelector('.video-upload-area');
+        const videoInput = lectureItem.querySelector('.video-input');
+        const videoPreview = lectureItem.querySelector('.video-preview');
+        
+        uploadArea.addEventListener('click', () => videoInput.click());
+        
+        videoInput.addEventListener('change', (e) => {
+            if (e.target.files[0]) {
+                const file = e.target.files[0];
+                const fileName = file.name;
+                lectureItem.querySelector('.video-filename').textContent = fileName;
+                videoPreview.classList.remove('hidden');
+                uploadArea.classList.add('hidden');
+            }
+        });
+        
+        lectureItem.querySelector('.remove-video')?.addEventListener('click', () => {
+            videoInput.value = '';
+            videoPreview.classList.add('hidden');
+            uploadArea.classList.remove('hidden');
+        });
+        
+        lectureItem.querySelector('.remove-lecture').addEventListener('click', function() {
+            this.closest('.lecture-item').remove();
+        });
+    }
+    
+    // Add Project Function
+    function addProject() {
+        projectCounter++;
+        
+        const projectHtml = `
+            <div class="project-item border border-gray-200 rounded-lg p-4 mb-3 bg-white" data-project-id="${projectCounter}">
+                <div class="flex justify-between items-center mb-3">
+                    <h5 class="font-semibold text-gray-700">Project ${projectCounter}</h5>
+                    <button type="button" class="remove-project text-red-500 hover:text-red-700 text-sm">
+                        <i class="fa-regular fa-trash-can"></i> Remove
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <input type="text" name="projects[${projectCounter}][title]" placeholder="Project Title (e.g., E-commerce Website)" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" required>
+                    <textarea name="projects[${projectCounter}][description]" rows="2" placeholder="Project Description - what students will build and learn" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" required></textarea>
+                    <input type="url" name="projects[${projectCounter}][url]" placeholder="Project URL (GitHub or Live Demo) - Optional" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm">
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('projectsContainer').insertAdjacentHTML('beforeend', projectHtml);
+        
+        document.querySelector(`.project-item[data-project-id="${projectCounter}"] .remove-project`).addEventListener('click', function() {
+            this.closest('.project-item').remove();
+        });
+    }
+    
+    document.getElementById('addSectionBtn').addEventListener('click', addSection);
+    document.getElementById('addProjectBtn').addEventListener('click', addProject);
+    
+    // Step Navigation with Validation
+    let currentStep = 1;
+    const totalSteps = 5;
+    
+    function updateSteps() {
+        for (let i = 1; i <= totalSteps; i++) {
+            const step = document.querySelector(`.step[data-step="${i}"]`);
+            const formStep = document.getElementById(`step${i}`);
+            
+            if (i < currentStep) {
+                step.classList.add('completed');
+                step.classList.remove('active');
+                step.querySelector('.step-number').innerHTML = '<i class="fa-solid fa-check text-xs"></i>';
+            } else if (i === currentStep) {
+                step.classList.add('active');
+                step.classList.remove('completed');
+                step.querySelector('.step-number').innerHTML = i;
+            } else {
+                step.classList.remove('active', 'completed');
+                step.querySelector('.step-number').innerHTML = i;
+            }
+            
+            if (formStep) {
+                if (i === currentStep) {
+                    formStep.classList.add('active-step');
+                } else {
+                    formStep.classList.remove('active-step');
+                }
+            }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    document.querySelectorAll('.next-step').forEach(btn => {
+        btn.addEventListener('click', () => {
+            let isValid = true;
+            if (currentStep === 1) isValid = validateStep1();
+            else if (currentStep === 2) isValid = validateStep2();
+            else if (currentStep === 3) isValid = validateStep3();
+            else if (currentStep === 4) isValid = true; // Step 4 validation is optional
+            else if (currentStep === 5) isValid = validateStep5();
+            
+            if (isValid && currentStep < totalSteps) {
+                currentStep++;
+                updateSteps();
+            } else if (!isValid) {
+                alert('Please fill all required fields before continuing');
+            }
+        });
+    });
+    
+    document.querySelectorAll('.prev-step').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateSteps();
+            }
+        });
+    });
+    
+    // Form Submit - Validate all steps
+    document.getElementById('courseForm').addEventListener('submit', (e) => {
+        if (!validateStep1() || !validateStep2() || !validateStep3() || !validateStep5()) {
+            e.preventDefault();
+            alert('Please complete all required fields before submitting');
+            currentStep = 1;
+            updateSteps();
+        }
+    });
+    
+    updateSteps();
+</script>
+
+</body>
+</html>

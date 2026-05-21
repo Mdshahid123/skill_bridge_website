@@ -1,265 +1,116 @@
-<section class="py-16 px-6 md:px-12">
-    <div class="container mx-auto max-w-6xl">
-        <div class="courses-grid" id="coursesGrid">
+<!-- courses.ejs - Course Cards Section -->
+<section class="py-12 px-6 md:px-12 bg-white">
+    <div class="container mx-auto max-w-7xl">
+        <!-- Courses Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- ==================== PROGRAMMING LANGUAGE COURSES ==================== -->
+            <% if (registerCourses && registerCourses.length > 0) { %>
+                <% registerCourses.forEach(course => { %>
+                    <div class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <!-- Course Image -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="<%= course.image %>" alt="<%= course.courseName %>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        </div>
+                        
+                        <!-- Course Content -->
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-1"><%= course.courseName %></h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2"><%= course.description %></p>
+                            
+                            <!-- Features Badges -->
+                            <div class="flex flex-wrap gap-1.5 mb-3">
+                                <span class="feature-badge inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[10px]">
+                                    <i class="fa-solid fa-briefcase text-[8px]"></i> Assured Placement
+                                </span>
+                                <span class="feature-badge inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px]">
+                                    <i class="fa-solid fa-chart-line text-[8px]"></i> Live Projects
+                                </span>
+                                <span class="feature-badge inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 text-[10px]">
+                                    <i class="fa-regular fa-certificate text-[8px]"></i> Certificate
+                                </span>
+                            </div>
+                            
+                            <!-- Course Meta Info -->
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-2 text-xs text-gray-500">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <span><%= course.duration %> Months</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500">
+                                    <i class="fa-regular fa-user"></i>
+                                    <span><%= Math.floor(Math.random() * 5000) + 500 %>+ students</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Price Section -->
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-2xl font-bold text-teal-600">₹<%= course.price %></span>
+                                    <span class="text-xs text-gray-400 line-through ml-2">₹<%= course.originalPrice %></span>
+                                    <span class="text-xs text-green-600 ml-2"><%= Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100) %>% off</span>
+                                </div>
+                                <span class="text-xs bg-gray-100 px-2 py-1 rounded-full"><%= course.level %></span>
+                            </div>
+                            
+                            <!-- Buttons -->
+                            <div class="flex gap-2">
+                                <a href="/viewCourse/<%= course._id %>" class="flex-1 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105">
+                                    View Details
+                                </a>
+                                <button onclick="downloadBrochure('<%= course.courseName %>')" class="px-3 py-2 border border-teal-500 text-teal-600 rounded-lg hover:bg-teal-500 hover:text-white transition-all duration-300">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <!-- No Courses Found -->
+                <div class="col-span-3 text-center py-12">
+                    <i class="fa-regular fa-folder-open text-6xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">No courses found</h3>
+                    <p class="text-gray-500">Check back later for new courses</p>
+                </div>
+            <% } %>
             
-            <!-- Course: C Programming -->
-            <div class="course-card group" data-category="development" data-name="C Programming">
-                <div class="course-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1580894732931-6e6c6a1a0c3d?w=600&h=400&fit=crop" alt="C Programming">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge course-badge-new">✨ Beginner Friendly</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">8 weeks</span>
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-green-100 text-green-700 rounded-full">Foundation</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">C Programming Mastery</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master C programming from basics to advanced: pointers, memory management, data structures, and algorithms.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
-                        <div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/31.jpg" class="w-6 h-6 rounded-full border-2 border-white"><img src="https://randomuser.me/api/portraits/women/32.jpg" class="w-6 h-6 rounded-full border-2 border-white"></div><span class="text-xs text-gray-500">3.5k+ enrolled</span></div>
-                        <span class="text-sm font-bold text-[#1a6f8c]">$299</span>
-                    </div>
-                    <a href="/viewCourse?id=18" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="18">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: C++ Programming -->
-            <div class="course-card group" data-category="development" data-name="C++ Programming">
-                <div class="course-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1580894732931-6e6c6a1a0c3d?w=600&h=400&fit=crop" alt="C++ Programming">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge course-badge-popular">🔥 Most Popular</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full">10 weeks</span>
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-orange-100 text-orange-700 rounded-full">OOP Focus</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">C++ Programming Mastery</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master C++: OOP, STL, Templates, Memory Management, and Competitive Programming.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/33.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/34.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">4.2k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$349</span></div>
-                    <a href="/viewCourse?id=19" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="19">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Java Programming -->
-            <div class="course-card group" data-category="development" data-name="Java Programming">
-                <div class="course-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Java Programming">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge course-badge-new">🔥 High Demand</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-red-100 text-red-700 rounded-full">12 weeks</span>
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded-full">Job Ready</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Java Programming Mastery</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master Java: OOP, Collections, Multithreading, JDBC, Spring Boot, and Backend Development.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/35.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/36.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">5.1k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$399</span></div>
-                    <a href="/viewCourse?id=20" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="20">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: JavaScript Programming -->
-            <div class="course-card group" data-category="development" data-name="JavaScript Programming">
-                <div class="course-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=600&h=400&fit=crop" alt="JavaScript">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge course-badge-popular">⚡ Most Popular</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded-full">10 weeks</span>
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">Modern JS</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">JavaScript Mastery</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master JavaScript: ES6+, Async/Await, Promises, DOM Manipulation, Fetch API, and Modern JS Features.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/37.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/38.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">6.8k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$349</span></div>
-                    <a href="/viewCourse?id=21" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="21">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Python Programming -->
-            <div class="course-card group" data-category="data" data-name="Python Programming">
-                <div class="course-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1526379095098-7f29c9f7a6c3?w=600&h=400&fit=crop" alt="Python">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge course-badge-new">🐍 Beginner Friendly</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">10 weeks</span>
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-green-100 text-green-700 rounded-full">Versatile</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Python Programming Mastery</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master Python: Data Types, Functions, OOP, File Handling, Modules, and Libraries (NumPy, Pandas).</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/39.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/40.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">7.2k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$349</span></div>
-                    <a href="/viewCourse?id=22" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="22">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- ==================== PREVIOUS COURSES (Keeping all existing) ==================== -->
-            
-            <!-- Course: Web Development with Gen AI -->
-            <div class="course-card group" data-category="development" data-name="Web Development">
-                <div class="course-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Web Development">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge course-badge-popular">🔥 Most Popular</div>
-                </div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">14 weeks</span>
-                        <span class="text-xs font-semibold px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full">Gen AI</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Web Development with Gen AI</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master HTML, CSS, JavaScript, React, Node.js, MongoDB, and integrate Generative AI APIs.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/1.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/men/2.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">2.5k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$499</span></div>
-                    <a href="/viewCourse?id=1" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="1">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Frontend Development -->
-            <div class="course-card group" data-category="development" data-name="Frontend Development">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop" alt="Frontend"><div class="course-overlay"></div><div class="course-badge course-badge-new">✨ Beginner Friendly</div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">10 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-pink-100 text-pink-700 rounded-full">React Focus</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Frontend Development</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master HTML, CSS, JavaScript, React, Tailwind CSS, and modern frontend frameworks.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/11.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">1.8k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$399</span></div>
-                    <a href="/viewCourse?id=10" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="10">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Backend Development -->
-            <div class="course-card group" data-category="development" data-name="Backend Development">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop" alt="Backend"><div class="course-overlay"></div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-green-100 text-green-700 rounded-full">12 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-700 rounded-full">API Development</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Backend Development</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master Node.js, Express, Python, Django, REST APIs, and database management.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/13.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/14.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">1.5k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$449</span></div>
-                    <a href="/viewCourse?id=11" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="11">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: SDE Preparation (Web Development Track) -->
-            <div class="course-card group" data-category="development" data-name="SDE Preparation Web">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1516116216624-53e697cbe3f4?w=600&h=400&fit=crop" alt="SDE Prep"><div class="course-overlay"></div><div class="course-badge course-badge-popular">🔥 Most Popular</div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-red-100 text-red-700 rounded-full">16 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-orange-100 text-orange-700 rounded-full">Placement Focus</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">SDE Preparation (Web Dev Track)</h3>
-                    <p class="text-gray-500 text-sm mb-4">Complete DSA, System Design, Web Development, Mock Interviews, and Placement Preparation.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/15.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/16.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">3k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$699</span></div>
-                    <a href="/viewCourse?id=12" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="12">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Data Science & AI -->
-            <div class="course-card group" data-category="data" data-name="Data Science & AI">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Data Science"><div class="course-overlay"></div><div class="course-badge course-badge-popular">🔥 Trending</div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full">16 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-green-100 text-green-700 rounded-full">AI/ML Focus</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Science & AI</h3>
-                    <p class="text-gray-500 text-sm mb-4">Learn Python, Machine Learning, Deep Learning, NLP, Computer Vision, and LLMs.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/3.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/2.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">2k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$599</span></div>
-                    <a href="/viewCourse?id=2" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="2">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Data Analyst -->
-            <div class="course-card group" data-category="data" data-name="Data Analyst">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Data Analyst"><div class="course-overlay"></div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-teal-100 text-teal-700 rounded-full">12 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-700 rounded-full">Job Ready</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Analyst</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master Excel, SQL, Python, Pandas, NumPy, Power BI, Tableau, and Data Visualization.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/women/19.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/men/20.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">2.2k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$449</span></div>
-                    <a href="/viewCourse?id=14" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="14">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Complete Excel Mastery -->
-            <div class="course-card group" data-category="data" data-name="Complete Excel">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1543286386-713bdd548da7?w=600&h=400&fit=crop" alt="Excel"><div class="course-overlay"></div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-green-100 text-green-700 rounded-full">6 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded-full">Beginner Friendly</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Complete Excel Mastery</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master Excel from basics to advanced: Formulas, Pivot Tables, Charts, Macros, VBA, and Data Analysis.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/21.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/22.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">5k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$299</span></div>
-                    <a href="/viewCourse?id=15" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="15">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Complete SQL Mastery -->
-            <div class="course-card group" data-category="data" data-name="Complete SQL">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1544383835-bda2bc66a5c2?w=600&h=400&fit=crop" alt="SQL"><div class="course-overlay"></div><div class="course-badge course-badge-new">🔥 High Demand</div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">6 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-green-100 text-green-700 rounded-full">Database Expert</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Complete SQL Mastery</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master SQL: SELECT, Joins, Subqueries, Window Functions, Stored Procedures, and Database Design.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/25.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/26.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">4.5k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$349</span></div>
-                    <a href="/viewCourse?id=17" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="17">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Cloud & DevOps -->
-            <div class="course-card group" data-category="cloud" data-name="Cloud & DevOps">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" alt="Cloud"><div class="course-overlay"></div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-700 rounded-full">12 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">AWS Certified</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cloud & DevOps</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master AWS, Docker, Kubernetes, CI/CD pipelines, Infrastructure as Code, Terraform.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/4.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">1.2k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$549</span></div>
-                    <a href="/viewCourse?id=3" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="3">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Digital Marketing -->
-            <div class="course-card group" data-category="design" data-name="Digital Marketing">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Digital Marketing"><div class="course-overlay"></div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded-full">10 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-green-100 text-green-700 rounded-full">Certification</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Digital Marketing</h3>
-                    <p class="text-gray-500 text-sm mb-4">SEO, Google Ads, Social Media Marketing, Content Strategy, Analytics, Email Marketing.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/women/4.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">1.8k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$399</span></div>
-                    <a href="/viewCourse?id=6" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="6">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: UI/UX Design -->
-            <div class="course-card group" data-category="design" data-name="UI/UX Design">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop" alt="UI/UX"><div class="course-overlay"></div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-pink-100 text-pink-700 rounded-full">12 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">Portfolio</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">UI/UX Design</h3>
-                    <p class="text-gray-500 text-sm mb-4">Master Figma, Adobe XD, user research, wireframing, prototyping, design thinking.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/women/5.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">1.3k+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$449</span></div>
-                    <a href="/viewCourse?id=7" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="7">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <!-- Course: Artificial Intelligence -->
-            <div class="course-card group" data-category="data" data-name="Artificial Intelligence">
-                <div class="course-img-wrapper"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="AI"><div class="course-overlay"></div><div class="course-badge course-badge-new">✨ New</div></div>
-                <div class="p-5">
-                    <div class="flex items-center gap-2 mb-3"><span class="text-xs font-semibold px-2 py-0.5 bg-violet-100 text-violet-700 rounded-full">20 weeks</span><span class="text-xs font-semibold px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">Advanced</span></div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Artificial Intelligence</h3>
-                    <p class="text-gray-500 text-sm mb-4">Advanced AI: Reinforcement Learning, Generative AI, Computer Vision, LLMs, and AI Agents.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t"><div class="flex items-center gap-2"><div class="flex -space-x-1"><img src="https://randomuser.me/api/portraits/men/8.jpg" class="w-6 h-6 rounded-full"><img src="https://randomuser.me/api/portraits/women/6.jpg" class="w-6 h-6 rounded-full"></div><span class="text-xs text-gray-500">900+ enrolled</span></div><span class="text-sm font-bold text-[#1a6f8c]">$799</span></div>
-                    <a href="/viewCourse?id=9" class="view-course-btn w-full mt-4 text-center block view-course-link" data-id="9">View Course <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- No results message -->
-        <div id="noResults" class="text-center py-12 hidden">
-            <i class="fa-solid fa-search text-5xl text-gray-300 mb-4"></i>
-            <p class="text-gray-500 text-lg">No courses found matching your search.</p>
         </div>
     </div>
 </section>
+
+<style>
+    /* Line clamp utility */
+    .line-clamp-1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    /* Course card transition */
+    .course-card {
+        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    
+    /* Feature badges */
+    .feature-badge {
+        transition: all 0.2s ease;
+    }
+    .feature-badge:hover {
+        transform: translateY(-1px);
+    }
+</style>
+
+<script>
+    // Download brochure function
+    function downloadBrochure(courseName) {
+        alert(`📄 Downloading brochure for "${courseName}"\n\nBrochure will be available shortly.`);
+        // In production: window.open(`/brochures/${courseName}.pdf`, '_blank');
+    }
+</script>
