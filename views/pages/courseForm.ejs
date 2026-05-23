@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= course ? 'Edit Course' : 'Add New Course' %> | Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        .module-card { transition: all 0.3s ease; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.25rem; margin-bottom: 1.25rem; background: white; }
+        .lecture-item { transition: all 0.2s ease; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1rem; margin-bottom: 0.75rem; background: #fafafa; }
+        .video-upload-area { border: 2px dashed #d1d5db; border-radius: 0.75rem; padding: 0.75rem; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .video-upload-area:hover { border-color: #1a6f8c; background: #f0fdfa; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<nav class="bg-white shadow-md border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0a2b3e] to-[#1a6f8c] flex items-center justify-center">
+                    <span class="text-white font-extrabold text-lg">SB</span>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold">Admin<span class="text-[#1a6f8c]">Panel</span></span>
+                    <p class="text-xs text-gray-500"><%= course ? 'Edit Course' : 'Create New Course' %></p>
+                </div>
+            </div>
+            <a href="/admin/courses" class="text-gray-600 hover:text-gray-800">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Courses
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="pt-28 pb-12 px-6">
+    <div class="container mx-auto max-w-5xl">
+        <form id="courseForm" method="POST" enctype="multipart/form-data" class="bg-white rounded-2xl shadow-lg p-8">
+            <input type="hidden" name="_id" value="<%= course ? course._id : '' %>">
+            <input type="hidden" name="existingModules" id="existingModules" value='<%= course ? JSON.stringify(course.syllabus) : '[]' %>'>
+
+            <!-- Basic Info Section -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Basic Information</h2>
+                <div class="grid md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Course Name *</label>
+                        <input type="text" name="courseName" value="<%= course ? course.courseName : '' %>" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Category *</label>
+                        <select name="category" required class="w-full px-4 py-3 border border-gray-300 rounded-xl">
+                            <option value="">Select</option>
+                            <option value="development" <%= course && course.category === 'development' ? 'selected' : '' %>>Web Development</option>
+                            <option value="data" <%= course && course.category === 'data' ? 'selected' : '' %>>Data Science</option>
+                            <option value="cloud" <%= course && course.category === 'cloud' ? 'selected' : '' %>>Cloud & DevOps</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Course Image *</label>
+                    <div id="imageUploadArea" class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-teal-500 cursor-pointer">
+                        <input type="file" name="courseImage" id="courseImage" accept="image/*" class="hidden">
+                        <i class="fa-solid fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-gray-500 text-sm">Click or drag to upload new image</p>
+                    </div>
+                    <div id="imagePreview" class="mt-3 <%= course && course.image ? '' : 'hidden' %>">
+                        <img src="<%= course ? course.image : '' %>" id="previewImg" class="w-32 h-32 object-cover rounded-lg border">
+                        <button type="button" onclick="removeImage()" class="text-red-500 text-sm mt-1">Remove</button>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Short Description *</label>
+                    <textarea name="courseDescription" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded-xl"><%= course ? course.courseDescription : '' %></textarea>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Long Description *</label>
+                    <textarea name="longDescription" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-xl"><%= course ? course.longDescription : '' %></textarea>
+                </div>
+            </div>
+
+            <!-- Pricing & Level -->
+            <div class="mb-8 border-t pt-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Pricing & Level</h2>
+                <div class="grid md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Course Level *</label>
+                        <select name="level" required class="w-full px-4 py-3 border border-gray-300 rounded-xl">
+                            <option value="Beginner" <%= course && course.level === 'Beginner' ? 'selected' : '' %>>Beginner</option>
+                            <option value="Intermediate" <%= course && course.level === 'Intermediate' ? 'selected' : '' %>>Intermediate</option>
+                            <option value="Advanced" <%= course && course.level === 'Advanced' ? 'selected' : '' %>>Advanced</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Duration (Months) *</label>
+                        <input type="text" name="duration" value="<%= course ? course.duration : '' %>" required class="w-full px-4 py-3 border border-gray-300 rounded-xl" placeholder="e.g., 6 Months">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Price (₹) *</label>
+                        <input type="number" name="price" value="<%= course ? course.price : '' %>" required class="w-full px-4 py-3 border border-gray-300 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Original Price (₹) *</label>
+                        <input type="number" name="originalPrice" value="<%= course ? course.originalPrice : '' %>" required class="w-full px-4 py-3 border border-gray-300 rounded-xl">
+                    </div>
+                </div>
+            </div>
+
+            <!-- What You'll Learn & Requirements -->
+            <div class="mb-8 border-t pt-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Learning Outcomes</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">What You'll Learn (comma separated)</label>
+                        <textarea name="whatYouLearn" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-xl"><%= course && course.whatYouLearn ? course.whatYouLearn.join(', ') : '' %></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Requirements (comma separated)</label>
+                        <textarea name="requirements" rows="2" class="w-full px-4 py-3 border border-gray-300 rounded-xl"><%= course && course.requirements ? course.requirements.join(', ') : '' %></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Content (Modules & Lectures) - INCREMENTAL SUPPORT -->
+            <div class="mb-8 border-t pt-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Course Curriculum</h2>
+                <p class="text-sm text-gray-500 mb-4">You can add modules and lectures incrementally. Save the course and come back later to add more.</p>
+                <div id="syllabusContainer"></div>
+                <button type="button" id="addModuleBtn" class="mt-3 w-full py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-600 hover:border-teal-500 hover:text-teal-600 transition-all">
+                    <i class="fa-solid fa-plus mr-2"></i> Add New Module
+                </button>
+            </div>
+
+            <!-- Instructor Info -->
+            <div class="mb-8 border-t pt-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Instructor</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Instructor Name *</label>
+                        <input type="text" name="instructorName" value="<%= course && course.instructor ? course.instructor.name : '' %>" required class="w-full px-4 py-3 border border-gray-300 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Instructor Profile Picture</label>
+                        <div id="instructorImageArea" class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center cursor-pointer hover:border-teal-500">
+                            <input type="file" name="instructorImage" id="instructorImage" accept="image/*" class="hidden">
+                            <i class="fa-solid fa-user-circle text-4xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-500 text-sm">Upload new image</p>
+                        </div>
+                        <div id="instructorImagePreview" class="mt-3 <%= course && course.instructor && course.instructor.profilePicture ? '' : 'hidden' %>">
+                            <img src="<%= course && course.instructor ? course.instructor.profilePicture : '' %>" id="instructorPreviewImg" class="w-24 h-24 rounded-full object-cover border">
+                            <button type="button" onclick="removeInstructorImage()" class="text-red-500 text-sm mt-1">Remove</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Instructor Bio *</label>
+                        <textarea name="instructorBio" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded-xl"><%= course && course.instructor ? course.instructor.bio : '' %></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="mb-8 border-t pt-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Projects</h2>
+                <div id="projectsContainer"></div>
+                <button type="button" id="addProjectBtn" class="mt-3 w-full py-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-teal-500 hover:text-teal-600">
+                    <i class="fa-solid fa-plus mr-2"></i> Add Project
+                </button>
+            </div>
+
+            <!-- Publish Status -->
+            <div class="flex items-center gap-3 mb-6">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" name="isPublished" value="true" <%= course && course.isPublished ? 'checked' : '' %>>
+                    <span class="text-sm font-medium text-gray-700">Publish course (visible to students)</span>
+                </label>
+            </div>
+
+            <div class="flex gap-3">
+                <button type="submit" class="flex-1 bg-gradient-to-r from-teal-500 to-blue-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                    <i class="fa-solid fa-save mr-2"></i> Save Course (Draft or Publish)
+                </button>
+                <a href="/admin/courses" class="px-6 py-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50">Cancel</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+    let moduleCounter = 0;
+    let lectureCounters = {};
+    let existingModules = JSON.parse(document.getElementById('existingModules').value || '[]');
+    let projectCounter = 0;
+    let existingProjects = <%= course && course.projects ? JSON.stringify(course.projects) : '[]' %>;
+
+    // Image handlers (same as before)
+    const imageUploadArea = document.getElementById('imageUploadArea');
+    const imageInput = document.getElementById('courseImage');
+    imageUploadArea.onclick = () => imageInput.click();
+    imageInput.onchange = (e) => {
+        if (e.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                document.getElementById('previewImg').src = ev.target.result;
+                document.getElementById('imagePreview').classList.remove('hidden');
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    };
+    window.removeImage = () => {
+        imageInput.value = '';
+        document.getElementById('imagePreview').classList.add('hidden');
+    };
+
+    const instructorArea = document.getElementById('instructorImageArea');
+    const instructorInput = document.getElementById('instructorImage');
+    instructorArea.onclick = () => instructorInput.click();
+    instructorInput.onchange = (e) => {
+        if (e.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                document.getElementById('instructorPreviewImg').src = ev.target.result;
+                document.getElementById('instructorImagePreview').classList.remove('hidden');
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    };
+    window.removeInstructorImage = () => {
+        instructorInput.value = '';
+        document.getElementById('instructorImagePreview').classList.add('hidden');
+    };
+
+    function addLecture(moduleId) {
+        lectureCounters[moduleId] = (lectureCounters[moduleId] || 0) + 1;
+        const lectureId = lectureCounters[moduleId];
+        const lectureHtml = `
+            <div class="lecture-item" data-lecture-id="${lectureId}">
+                <div class="flex justify-between gap-3">
+                    <div class="flex-1 space-y-2">
+                        <input type="text" name="modules[${moduleId}][lectures][${lectureId}][lectureTitle]" placeholder="Lecture Title" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm">
+                        <div class="video-upload-area" data-module="${moduleId}" data-lecture="${lectureId}">
+                            <input type="file" name="modules[${moduleId}][lectures][${lectureId}][videoFile]" accept="video/*" class="hidden video-input">
+                            <i class="fa-solid fa-video text-gray-400"></i>
+                            <span class="text-xs text-gray-500">Upload video (MP4)</span>
+                        </div>
+                        <div class="video-preview hidden">
+                            <span class="text-sm text-green-600 video-filename"></span>
+                            <button type="button" class="remove-video text-red-500 ml-2">✕</button>
+                        </div>
+                        <input type="text" name="modules[${moduleId}][lectures][${lectureId}][videoDuration]" placeholder="Duration (e.g., 15:30)" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm">
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" name="modules[${moduleId}][lectures][${lectureId}][isFree]" value="true">
+                            <span class="text-sm text-gray-600">Free preview</span>
+                        </label>
+                    </div>
+                    <button type="button" class="remove-lecture text-red-500"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </div>
+        `;
+        const lecturesContainer = document.getElementById(`lectures-${moduleId}`);
+        lecturesContainer.insertAdjacentHTML('beforeend', lectureHtml);
+        attachLectureEvents(lecturesContainer.lastElementChild, moduleId, lectureId);
+    }
+
+    function attachLectureEvents(lectureDiv, moduleId, lectureId) {
+        const uploadArea = lectureDiv.querySelector('.video-upload-area');
+        const videoInput = lectureDiv.querySelector('.video-input');
+        const videoPreview = lectureDiv.querySelector('.video-preview');
+        uploadArea.onclick = () => videoInput.click();
+        videoInput.onchange = (e) => {
+            if (e.target.files[0]) {
+                lectureDiv.querySelector('.video-filename').textContent = e.target.files[0].name;
+                videoPreview.classList.remove('hidden');
+                uploadArea.classList.add('hidden');
+            }
+        };
+        lectureDiv.querySelector('.remove-video')?.addEventListener('click', () => {
+            videoInput.value = '';
+            videoPreview.classList.add('hidden');
+            uploadArea.classList.remove('hidden');
+        });
+        lectureDiv.querySelector('.remove-lecture').onclick = () => lectureDiv.remove();
+    }
+
+    function addModule(moduleData = null) {
+        moduleCounter++;
+        lectureCounters[moduleCounter] = 0;
+        const moduleHtml = `
+            <div class="module-card" data-module-id="${moduleCounter}">
+                <div class="flex justify-between items-center mb-3">
+                    <h4 class="font-semibold text-gray-800">Module ${moduleCounter}</h4>
+                    <button type="button" class="remove-module text-red-500 text-sm"><i class="fa-regular fa-trash-can"></i> Remove Module</button>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="modules[${moduleCounter}][moduleTitle]" placeholder="Module Title" value="${moduleData ? moduleData.moduleTitle : ''}" class="w-full px-3 py-2 border border-gray-200 rounded-lg">
+                </div>
+                <div id="lectures-${moduleCounter}" class="space-y-2"></div>
+                <button type="button" class="add-lecture-btn text-teal-600 text-sm mt-2"><i class="fa-solid fa-plus"></i> Add Lecture</button>
+            </div>
+        `;
+        document.getElementById('syllabusContainer').insertAdjacentHTML('beforeend', moduleHtml);
+        const moduleDiv = document.querySelector(`.module-card[data-module-id="${moduleCounter}"]`);
+        moduleDiv.querySelector('.remove-module').onclick = () => moduleDiv.remove();
+        moduleDiv.querySelector('.add-lecture-btn').onclick = () => addLecture(moduleCounter);
+        
+        if (moduleData && moduleData.lectures) {
+            moduleData.lectures.forEach(lecture => {
+                const lectureId = ++lectureCounters[moduleCounter];
+                const existingLectureHtml = `
+                    <div class="lecture-item" data-lecture-id="${lectureId}">
+                        <div class="flex justify-between gap-3">
+                            <div class="flex-1 space-y-2">
+                                <input type="text" name="modules[${moduleCounter}][lectures][${lectureId}][lectureTitle]" value="${lecture.lectureTitle || ''}" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm">
+                                <div class="video-upload-area" data-module="${moduleCounter}" data-lecture="${lectureId}">
+                                    <input type="file" name="modules[${moduleCounter}][lectures][${lectureId}][videoFile]" accept="video/*" class="hidden video-input">
+                                    <i class="fa-solid fa-video text-gray-400"></i>
+                                    <span class="text-xs text-gray-500">Upload new video (leave if unchanged)</span>
+                                </div>
+                                <div class="video-preview ${lecture.videoUrl ? '' : 'hidden'}">
+                                    <span class="text-sm text-green-600">${lecture.videoUrl ? 'Video uploaded' : ''}</span>
+                                    <button type="button" class="remove-video text-red-500 ml-2">✕</button>
+                                </div>
+                                <input type="text" name="modules[${moduleCounter}][lectures][${lectureId}][videoDuration]" value="${lecture.videoDuration || ''}" placeholder="Duration" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm">
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" name="modules[${moduleCounter}][lectures][${lectureId}][isFree]" value="true" ${lecture.isFree ? 'checked' : ''}>
+                                    <span class="text-sm text-gray-600">Free preview</span>
+                                </label>
+                                <input type="hidden" name="modules[${moduleCounter}][lectures][${lectureId}][existingVideoUrl]" value="${lecture.videoUrl || ''}">
+                            </div>
+                            <button type="button" class="remove-lecture text-red-500"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                `;
+                document.getElementById(`lectures-${moduleCounter}`).insertAdjacentHTML('beforeend', existingLectureHtml);
+                attachLectureEvents(document.getElementById(`lectures-${moduleCounter}`).lastElementChild, moduleCounter, lectureId);
+            });
+        }
+    }
+
+    function addProject(projectData = null) {
+        projectCounter++;
+        const projectHtml = `
+            <div class="project-item border border-gray-200 rounded-lg p-4 mb-3" data-project-id="${projectCounter}">
+                <div class="flex justify-between items-center mb-3">
+                    <h5 class="font-semibold">Project ${projectCounter}</h5>
+                    <button type="button" class="remove-project text-red-500 text-sm"><i class="fa-regular fa-trash-can"></i> Remove</button>
+                </div>
+                <div class="space-y-2">
+                    <input type="text" name="projects[${projectCounter}][projectTitle]" value="${projectData ? projectData.projectTitle : ''}" placeholder="Project Title" class="w-full px-3 py-2 border border-gray-200 rounded-lg">
+                    <textarea name="projects[${projectCounter}][projectDescription]" rows="2" placeholder="Project Description" class="w-full px-3 py-2 border border-gray-200 rounded-lg">${projectData ? projectData.projectDescription : ''}</textarea>
+                    <input type="text" name="projects[${projectCounter}][projectUrl]" value="${projectData ? projectData.projectUrl : ''}" placeholder="Project URL (optional)" class="w-full px-3 py-2 border border-gray-200 rounded-lg">
+                </div>
+            </div>
+        `;
+        document.getElementById('projectsContainer').insertAdjacentHTML('beforeend', projectHtml);
+        document.querySelector(`.project-item[data-project-id="${projectCounter}"] .remove-project`).onclick = function() {
+            this.closest('.project-item').remove();
+        };
+    }
+
+    // Load existing modules
+    if (existingModules.length) {
+        existingModules.forEach(module => {
+            addModule(module);
+        });
+    } else {
+        addModule();
+    }
+    
+    // Load existing projects
+    if (existingProjects.length) {
+        existingProjects.forEach(proj => {
+            addProject(proj);
+        });
+    }
+
+    document.getElementById('addModuleBtn').onclick = () => addModule();
+    document.getElementById('addProjectBtn').onclick = () => addProject();
+</script>
+</body>
+</html>

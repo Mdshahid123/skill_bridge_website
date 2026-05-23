@@ -8,7 +8,7 @@
         </div>
     </div>
     
-    <!-- ====== PULSING GLOW ORBS (VERY VISIBLE) ====== -->
+    <!-- ====== PULSING GLOW ORBS ====== -->
     <div class="absolute inset-0">
         <div class="absolute top-20 left-[10%] w-80 h-80 bg-cyan-500/30 rounded-full blur-3xl animate-ping-slow"></div>
         <div class="absolute bottom-20 right-[10%] w-96 h-96 bg-blue-500/30 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 1s;"></div>
@@ -16,25 +16,20 @@
         <div class="absolute top-40 right-[20%] w-60 h-60 bg-teal-400/25 rounded-full blur-3xl animate-bounce-slow"></div>
     </div>
      
-    <!-- ====== MOVING GRID LINES (DYNAMIC) ====== -->
+    <!-- ====== MOVING GRID LINES ====== -->
     <div class="absolute inset-0 opacity-[0.12] animate-grid-move"
         style="background-image: 
             repeating-linear-gradient(90deg, #22d3ee 0px, #22d3ee 2px, transparent 2px, transparent 60px),
             repeating-linear-gradient(0deg, #22d3ee 0px, #22d3ee 2px, transparent 2px, transparent 60px);">
     </div>
     
-    <!-- ====== SECOND MOVING GRID (OPPOSITE DIRECTION) ====== -->
+    <!-- ====== SECOND MOVING GRID ====== -->
     <div class="absolute inset-0 opacity-[0.08] animate-grid-move-reverse"
         style="background-image: 
             repeating-linear-gradient(90deg, #facc15 0px, #facc15 1px, transparent 1px, transparent 100px),
             repeating-linear-gradient(0deg, #facc15 0px, #facc15 1px, transparent 1px, transparent 100px);">
     </div>
     
-    <!-- ====== DIAGONAL SCANNING LINE ====== -->
-    <!-- <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-[-100%] w-[200%] h-[200%] bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent rotate-45 animate-scan"></div>
-    </div>
-     -->
     <!-- ====== FLOATING PARTICLES ====== -->
     <div class="absolute inset-0 overflow-hidden">
         <div class="particle particle-1"></div>
@@ -47,7 +42,6 @@
         <div class="particle particle-8"></div>
     </div>
    
-    
     <!-- ====== GLOWING BORDER EFFECTS ====== -->
     <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div class="absolute top-10 left-10 w-40 h-40 border-l-2 border-t-2 border-cyan-400/50 rounded-tl-2xl animate-border-glow"></div>
@@ -84,14 +78,14 @@
                 </div>
 
                 <!-- Heading with Gradient Animation -->
-                <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.2] tracking-tight mb-5 animate-fade-up">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-6xl font-extrabold text-white leading-[1.2] tracking-tight mb-5 animate-fade-up">
                     Bridging Skills with
-                    <span class=" text-4xl bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
+                    <span class="text-4xl bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
                         Career Opportunities
                     </span>
                 </h1>
 
-                <!-- Dynamic Typing -->
+                <!-- Dynamic Typing - NO BLINKING CURSOR -->
                 <div class="mt-5 mb-6 flex flex-wrap items-center justify-center lg:justify-start gap-2 animate-fade-up">
                     <div class="typing-wrapper">
                         <span class="typing-static text-gray-300 text-2xl md:text-3xl font-semibold">Learn</span>
@@ -138,40 +132,34 @@
                 </div>
             </div>
 
-          <!-- RIGHT SIDE - CONFUSED PERSON WITH FLOATING ANIMATION -->
-<div class="flex-1 flex flex-col items-center justify-center">
-    <!-- Confused Person Card -->
+            <!-- RIGHT SIDE - CONFUSED PERSON WITH FLOATING ANIMATION -->
+<div class="flex-1 flex flex-col items-center justify-center w-full">
     <div class="relative w-full max-w-md mx-auto">
-        <!-- Glow behind person -->
         <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
         
-        <!-- Confused Person Image with Up/Down Animation -->
         <div class="relative animate-float-person">
             <div class="absolute -top-10 -right-5 w-16 h-16 bg-cyan-500/30 rounded-full blur-2xl animate-ping-slow"></div>
             <div class="absolute -bottom-40 -left-12 w-16 h-16 bg-purple-500/30 rounded-full blur-2xl animate-pulse-glow" style="animation-delay: 1s;"></div>
             
-            <!-- Question Marks Directly Above Head -->
+            <!-- Question Marks -->
             <div class="absolute -top-14 left-[180px] transform -translate-x-1/2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg animate-float-question">
                 <span class="text-4xl font-bold text-cyan-400">?</span>
             </div>
-            
             <div class="absolute -top-8 left-[230px] transform -translate-x-1/2 -translate-x-12 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg animate-float-question-delay">
                 <span class="text-3xl font-bold text-cyan-400">?</span>
             </div>
             
-           
             <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Confused person" class="w-full max-w-[320px] h-auto mx-auto relative z-10" />
         </div>
         
-        <!-- Text below confused person -->
         <div class="text-center mt-6">
             <h3 class="text-xl font-semibold text-white">Have questions? <span class="text-cyan-400">We're here</span></h3>
             <p class="text-sm text-gray-300 max-w-[250px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
         </div>
         
-        <!-- Get Admission Inquiry Button Below Person -->
-        <div class="mt-6">
-            <button id="inquiryBtn" class="w-half ml-[110px] group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105 text-base text-center flex items-center justify-center gap-2">
+        <!-- Button section - centered on all devices -->
+        <div class="mt-6 text-center">
+            <button id="inquiryBtn" class="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105 text-base inline-flex items-center justify-center gap-2">
                 <i class="fa-regular fa-paper-plane text-base"></i>
                 Get Admission Inquiry
                 <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-gradient-to-r from-white/20 to-transparent"></div>
@@ -180,7 +168,8 @@
         </div>
     </div>
 </div>
-        </div>
+
+         
     </div>
 </section>
 
@@ -192,12 +181,11 @@
         </button>
         
         <div class="flex flex-col md:flex-row">
-            <!-- Left Side - Confused Person -->
             <div class="w-full md:w-5/12 p-8 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 flex flex-col items-center justify-center">
                 <div class="relative">
                     <div class="absolute -top-10 -right-5 w-20 h-20 bg-cyan-500/30 rounded-full blur-2xl animate-pulse"></div>
                     <div class="absolute -bottom-10 -left-5 w-20 h-20 bg-purple-500/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
-                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain relative z-10 " />
+                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain relative z-10" />
                     <div class="absolute -top-8 -right-3 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg">
                         <span class="text-4xl font-bold text-cyan-400">?</span>
                     </div>
@@ -211,7 +199,6 @@
                 </div>
             </div>
             
-            <!-- Right Side - Form -->
             <div class="w-full md:w-7/12 p-8">
                 <div class="flex items-center gap-3 mb-5">
                     <i class="fa-regular fa-pen-to-square text-cyan-400 text-2xl animate-pulse"></i>
@@ -219,8 +206,9 @@
                 </div>
                 <p class="text-gray-300 text-sm mb-5">Fill out the form below. Our counselor will contact you within 24 hours.</p>
                 
+                <!-- Tab buttons – no hardcoded active class -->
                 <div class="flex gap-3 mb-6">
-                    <button id="modalCoursesTab" class="modal-tab active flex-1 px-4 py-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500 text-cyan-400 font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:scale-105">
+                    <button id="modalCoursesTab" class="modal-tab flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:bg-cyan-500/10 hover:border-cyan-500">
                         <i class="fa-solid fa-laptop-code"></i> Courses
                     </button>
                     <button id="modalDegreeTab" class="modal-tab flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:bg-cyan-500/10 hover:border-cyan-500">
@@ -267,9 +255,8 @@
 </div>
 
 <style>
-    /* ========== BOLD VISIBLE ANIMATIONS ========== */
+    /* ========== ANIMATIONS ========== */
     
-    /* Spinning Background */
     @keyframes spin-slow {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
@@ -278,7 +265,6 @@
         animation: spin-slow 15s linear infinite;
     }
     
-    /* Pulse Glow */
     @keyframes pulse-glow {
         0%, 100% { opacity: 0.15; transform: scale(1); }
         50% { opacity: 0.4; transform: scale(1.1); }
@@ -287,7 +273,6 @@
         animation: pulse-glow 3s ease-in-out infinite;
     }
     
-    /* Ping Slow */
     @keyframes ping-slow {
         0%, 100% { opacity: 0.2; transform: scale(1); }
         50% { opacity: 0.6; transform: scale(1.2); }
@@ -296,7 +281,6 @@
         animation: ping-slow 2s ease-in-out infinite;
     }
     
-    /* Bounce Slow */
     @keyframes bounce-slow {
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-20px); }
@@ -305,7 +289,6 @@
         animation: bounce-slow 3s ease-in-out infinite;
     }
     
-    /* Moving Grids */
     @keyframes grid-move {
         0% { background-position: 0 0; }
         100% { background-position: 60px 0; }
@@ -322,43 +305,17 @@
         animation: grid-move-reverse 15s linear infinite;
     }
     
-    /* Scanning Line */
-    @keyframes scan {
-        0% { transform: translateX(-100%) rotate(45deg); }
-        100% { transform: translateX(100%) rotate(45deg); }
-    }
-    .animate-scan {
-        animation: scan 8s linear infinite;
-    }
-    
-    /* Floating Icons */
-    @keyframes float-big {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(8deg); }
-    }
-    .animate-float-big {
-        animation: float-big 4s ease-in-out infinite;
-    }
-    .animate-float-big-delay {
-        animation: float-big 5s ease-in-out infinite 1s;
-    }
-    .animate-float-big-delay2 {
-        animation: float-big 4.5s ease-in-out infinite 2s;
-    }
-    
-    /* Confused Person Floating Animation (Up/Down) */
     @keyframes float-person {
         0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-3px); }
+        50% { transform: translateY(-8px); }
     }
     .animate-float-person {
         animation: float-person 3s ease-in-out infinite;
     }
     
-    /* Floating Question Marks */
     @keyframes float-question {
         0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(10deg); }
+        50% { transform: translateY(-12px) rotate(6deg); }
     }
     .animate-float-question {
         animation: float-question 2.5s ease-in-out infinite;
@@ -366,11 +323,7 @@
     .animate-float-question-delay {
         animation: float-question 3s ease-in-out infinite 0.8s;
     }
-    .animate-float-question-delay2 {
-        animation: float-question 2.8s ease-in-out infinite 1.5s;
-    }
     
-    /* Border Glow */
     @keyframes border-glow {
         0%, 100% { border-color: rgba(34,211,238,0.3); box-shadow: 0 0 10px rgba(34,211,238,0); }
         50% { border-color: rgba(34,211,238,1); box-shadow: 0 0 30px rgba(34,211,238,0.5); }
@@ -382,7 +335,6 @@
         animation: border-glow 2.5s ease-in-out infinite 1s;
     }
     
-    /* Fade Up Animation */
     @keyframes fade-up {
         from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
@@ -391,7 +343,6 @@
         animation: fade-up 0.6s ease-out forwards;
     }
     
-    /* Slide Down */
     @keyframes slide-down {
         from { opacity: 0; transform: translateY(-30px); }
         to { opacity: 1; transform: translateY(0); }
@@ -400,7 +351,6 @@
         animation: slide-down 0.5s ease-out forwards;
     }
     
-    /* Gradient X Animation */
     @keyframes gradient-x {
         0%, 100% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
@@ -410,7 +360,6 @@
         animation: gradient-x 3s ease-in-out infinite;
     }
     
-    /* Pulse Ring */
     @keyframes pulse-ring {
         0%, 100% { opacity: 1; transform: scale(1); }
         50% { opacity: 0.5; transform: scale(1.3); }
@@ -442,18 +391,49 @@
         75% { transform: translateY(-15px) translateX(20px); opacity: 0.8; }
     }
     
-    /* Conic Gradient */
     .bg-gradient-conic {
         background: conic-gradient(from 0deg, #06b6d4, #3b82f6, #8b5cf6, #06b6d4);
     }
     
-    /* Typing Animation */
-    .typing-wrapper { display: inline-flex; align-items: center; gap: 4px; }
-    .typing-static { color: #e5e7eb; }
-    .typing-dynamic-container { display: inline-flex; align-items: center; position: relative; }
-    .typing-text { color: #22d3ee; font-weight: 700; white-space: nowrap; }
-    .typing-cursor { display: inline-block; width: 3px; height: 2rem; background-color: #22d3ee; animation: cursorBlink 0.8s step-end infinite; vertical-align: middle; }
-    @keyframes cursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    /* Typing Animation - NO BLINKING CURSOR */
+    .typing-wrapper {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: transparent;
+    }
+    
+    .typing-static {
+        color: #e5e7eb;
+        font-weight: 600;
+    }
+    
+    .typing-dynamic-container {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        min-width: 220px;
+    }
+    
+    .typing-text {
+        color: #22d3ee;
+        font-weight: 700;
+        white-space: nowrap;
+        display: inline-block;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Cursor - NO BLINKING, just a static line */
+    .typing-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 2rem;
+        background-color: #22d3ee;
+        vertical-align: middle;
+        margin-left: 2px;
+        border-radius: 1px;
+        opacity: 1;
+    }
     
     /* Modal Pop */
     @keyframes modal-pop {
@@ -462,10 +442,6 @@
     }
     .animate-modal-pop {
         animation: modal-pop 0.3s ease-out forwards;
-    }
-    
-    .animate-float-slow {
-        animation: float-person 3s ease-in-out infinite;
     }
     
     .modal-tab {
@@ -480,76 +456,39 @@
     .counter {
         display: inline-block;
     }
-
-    /* Remove or comment out the cursor styles */
-.typing-cursor {
-    display: none;
-}
-
-.typing-cursor {
-    display: inline-block;
-    width: 3px;
-    height: 2rem;
-    background-color: #22d3ee;
-    vertical-align: middle;
-    animation: none; /* Remove blinking animation */
-}
 </style>
 
 <script>
-    // ==================== DYNAMIC TYPING ANIMATION (NO BLINKING) ====================
-(function() {
-    const words = ["Web Development ", "Data Science ", "DSA ", "Data Analytics ", "Digital Marketing ", "Programming Languages "];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let timeoutId = null;
-    const textElement = document.getElementById('dynamic-word');
-    
-    if (!textElement) return;
-    
-    function clearTypingTimeout() {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-            timeoutId = null;
-        }
-    }
-    
-    function typeEffect() {
-        clearTypingTimeout();
+    // ==================== DYNAMIC TYPING ANIMATION ====================
+    (function() {
+        const words = ["Web Development ", "Data Science ", "DSA ", "Data Analytics ", "Digital Marketing ", "Programming Languages "];
+        let wordIndex = 0, charIndex = 0, isDeleting = false, isWaiting = false, timeoutId = null;
+        const textElement = document.getElementById('dynamic-word');
+        if (!textElement) return;
         
-        const currentWord = words[wordIndex];
+        function clearTypingTimeout() { if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; } }
         
-        if (isDeleting) {
-            charIndex--;
-            textElement.textContent = currentWord.substring(0, charIndex);
-            
-            if (charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                timeoutId = setTimeout(typeEffect, 500);
+        function typeEffect() {
+            clearTypingTimeout();
+            if (isWaiting) {
+                timeoutId = setTimeout(() => { isWaiting = false; typeEffect(); }, 200);
                 return;
             }
-        } else {
-            charIndex++;
-            textElement.textContent = currentWord.substring(0, charIndex);
-            
-            if (charIndex === currentWord.length) {
-                isDeleting = true;
-                timeoutId = setTimeout(typeEffect, 1500);
-                return;
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                if (charIndex > 0) { charIndex--; textElement.textContent = currentWord.substring(0, charIndex); }
+                if (charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; isWaiting = true; timeoutId = setTimeout(typeEffect, 800); return; }
+            } else {
+                if (charIndex < currentWord.length) { charIndex++; textElement.textContent = currentWord.substring(0, charIndex); }
+                if (charIndex === currentWord.length) { isDeleting = true; isWaiting = true; timeoutId = setTimeout(typeEffect, 2000); return; }
             }
+            const speed = isDeleting ? 35 : 65;
+            timeoutId = setTimeout(typeEffect, speed);
         }
-        
-        const speed = isDeleting ? 30 : 60;
-        timeoutId = setTimeout(typeEffect, speed);
-    }
-    
-    // Start the typing animation after a short delay
-    setTimeout(typeEffect, 500);
-})();
+        setTimeout(typeEffect, 300);
+    })();
 
-    // Counter Animation
+    // ==================== COUNTER ANIMATION ====================
     (function() {
         function animateCounter(element, target) {
             let current = 0;
@@ -562,7 +501,7 @@
                 } else {
                     element.textContent = Math.floor(current);
                 }
-            }, 25);
+            }, 20);
         }
         
         const counters = document.querySelectorAll('.counter');
@@ -584,50 +523,77 @@
         if (statsContainer) observer.observe(statsContainer);
     })();
 
-    // Modal Logic
-    (function() {
-        const inquiryBtn = document.getElementById('inquiryBtn');
-        const modal = document.getElementById('admissionModal');
-        const closeBtn = document.getElementById('closeModalBtn');
+    // ==================== MODAL LOGIC – ONLY ONE TAB HIGHLIGHTED FIXED ====================
+    document.addEventListener('DOMContentLoaded', function() {
         const coursesTab = document.getElementById('modalCoursesTab');
         const degreeTab = document.getElementById('modalDegreeTab');
         const courseOptions = document.getElementById('modalCourseOptions');
         const degreeOptions = document.getElementById('modalDegreeOptions');
+        const inquiryBtn = document.getElementById('inquiryBtn');
+        const modal = document.getElementById('admissionModal');
+        const closeBtn = document.getElementById('closeModalBtn');
         const form = document.getElementById('admissionForm');
         
-        if (coursesTab && degreeTab) {
-            coursesTab.onclick = () => {
-                coursesTab.classList.add('active');
-                degreeTab.classList.remove('active');
-                courseOptions.classList.remove('hidden');
-                degreeOptions.classList.add('hidden');
-            };
-            degreeTab.onclick = () => {
-                degreeTab.classList.add('active');
-                coursesTab.classList.remove('active');
-                degreeOptions.classList.remove('hidden');
-                courseOptions.classList.add('hidden');
-            };
+        if (!coursesTab || !degreeTab) return;
+        
+        // Function to activate a tab and deactivate the other
+        function activateTab(tabToActivate, showElement, hideElement) {
+            // Remove active class from both
+            coursesTab.classList.remove('active');
+            degreeTab.classList.remove('active');
+            // Add active class to the selected tab
+            tabToActivate.classList.add('active');
+            // Show/hide respective options
+            showElement.classList.remove('hidden');
+            hideElement.classList.add('hidden');
         }
         
+        // Tab click handlers
+        coursesTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            activateTab(coursesTab, courseOptions, degreeOptions);
+        });
+        
+        degreeTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            activateTab(degreeTab, degreeOptions, courseOptions);
+        });
+        
+        // Reset to courses tab when modal opens
+        function resetToCourses() {
+            activateTab(coursesTab, courseOptions, degreeOptions);
+        }
+        
+        // Open modal
         if (inquiryBtn && modal) {
-            inquiryBtn.onclick = (e) => {
+            inquiryBtn.addEventListener('click', function(e) {
                 e.preventDefault();
+                resetToCourses();
                 modal.classList.remove('hidden');
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-            };
+            });
         }
         
-        const closeModal = () => {
+        // Close modal
+        function closeModal() {
             modal.classList.add('hidden');
             modal.style.display = 'none';
             document.body.style.overflow = '';
-        };
+        }
         
-        if (closeBtn) closeBtn.onclick = closeModal;
-        if (modal) modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-        if (form) form.onsubmit = (e) => { e.preventDefault(); alert('✅ Thank you! Our counselor will contact you soon.'); form.reset(); closeModal(); };
-        document.onkeydown = (e) => { if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal(); };
-    })();
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('✅ Thank you! Our counselor will contact you soon.');
+                form.reset();
+                closeModal();
+            });
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal();
+        });
+    });
 </script>

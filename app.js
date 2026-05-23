@@ -19,6 +19,10 @@ app.use(express.json())//for parsing json data sent in request body and make it 
 // middleware 1:serving a static files(css,js,images) from the public folder
 app.use(express.static("public"))//it also validate the requested file path 
 
+
+// Serve static files
+app.use('/uploads', express.static('uploads'));
+
 // middleware 2:matching the reuqested routes in studentroutes otherwise call the next
 app.use(studentRoutes)
 

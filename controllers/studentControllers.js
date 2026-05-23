@@ -1,7 +1,6 @@
 const sendInquiryEmail = require('../utils/sendEmails');
 const courseModel=require("../models/coursesModel")
 const path = require("path");
-const coursesModel = require('../models/coursesModel');
 
 //show home page
 function showHomePage(req, res) {
@@ -9,8 +8,9 @@ function showHomePage(req, res) {
 }
 
 
-// show courses - FIXED
-// Controller - keep as registerCourses
+//show courses - FIXED
+
+//Controller - keep as registerCourses
 function showCourses(req, res) {  
     courseModel.find().then((registerCourses) => {
         res.render("pages/courses", { registerCourses: registerCourses });
@@ -20,11 +20,21 @@ function showCourses(req, res) {
     });
 }
 
-// view courses
-function viewCourses(req, res) {
-    
-    // You can add logic here later
-    res.render("pages/viewCourse")  // Optional: render a view
+// view course details
+async function viewCourseDetails(req, res) {
+    console.log(req.params)
+    try {
+        const courseId = req.params.courseId;
+        const course = await  courseModel.findById(courseId);
+        
+        if (!course) {
+            return res.status(404).send('Course not found');
+        }
+     res.render('pages/viewCourse', { course });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error loading course');
+    }
 }
 
 // show about page
@@ -32,9 +42,13 @@ function showAboutPage(req, res) {
     res.render("pages/about")
 }
 
+// show contact page
 function showContactPage(req, res) {
     res.render("pages/contact")
 }
+
+
+// store enquery form
 
 function storeEnqueryForm(req, res) {
     console.log("Received form data:", req.body);
@@ -61,6 +75,8 @@ function storeEnqueryForm(req, res) {
        
 }
 
+// get enquery form
+
 function getEnqueryForm(req, res) {
     const filePath = path.join(__dirname, "../views/", "enqueryForm.html") 
     res.sendFile(filePath, (error) => {
@@ -70,12 +86,45 @@ function getEnqueryForm(req, res) {
     })
 }
 
+
+/**
+ * API endpoint to search courses by name or description
+ * Query param: q (search keyword)
+ * Returns array of matching courses (limited fields)
+ */
+const searchCoursesAPI = async (req, res) => {
+    try {
+        const { q } = req.query;
+        if (!q || q.trim() === '') {
+            return res.json([]);
+        }
+        
+        const searchTerm = q.trim();
+        // Case-insensitive regex search on courseName and courseDescription
+        const regex = new RegExp(searchTerm, 'i');
+        
+        const courses = await courseModel.find({
+            $or: [
+                { courseName: regex },
+                { courseDescription: regex },
+                { longDescription: regex }
+            ]
+        }).select('_id courseName courseDescription image price originalPrice').limit(10);
+        
+        res.json(courses);
+    } catch (error) {
+        console.error('Search error:', error);
+        res.status(500).json({ error: 'Failed to search courses' });
+    }
+};
+
 module.exports = {
+    viewCourseDetails,
     showHomePage,
     showCourses,
-    viewCourses,
     storeEnqueryForm,
     getEnqueryForm,
     showAboutPage,
-    showContactPage
+    showContactPage,
+    searchCoursesAPI
 }

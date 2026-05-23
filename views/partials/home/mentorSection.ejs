@@ -1,124 +1,113 @@
-<!-- Courses Section -->
-<section id="courses" class="py-16 px-6 md:px-12 bg-gradient-to-b from-gray-50 to-white scroll-reveal">
-    <div class="container mx-auto max-w-6xl text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 section-underline pb-2">Our Teams</h2>
-        
-        <!-- Initial 3 Courses (Visible by default) -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10" id="initialCourses">
-            <!-- Course 1 - Web Development -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="/gayetery.png" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge-new text-[10px] px-2 py-1 top-2 right-2">Popular</div>
+<!-- ==================== MENTOR SECTION – FIXED IMAGE CONTAINMENT ==================== -->
+<section id="mentors" class="py-16 px-6 md:px-12 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center mb-4">
+                <span class="w-12 h-px bg-gradient-to-r from-transparent to-teal-500"></span>
+                <span class="mx-3 text-teal-600 text-sm font-bold tracking-wider uppercase">Expert Mentors</span>
+                <span class="w-12 h-px bg-gradient-to-l from-transparent to-teal-500"></span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Meet Our <span class="text-teal-600">Industry Experts</span></h2>
+            <p class="text-gray-500 mt-3 max-w-2xl mx-auto">Learn from the best – experienced professionals passionate about teaching.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+            <!-- Mentor 1 - Shahid -->
+            <div class="mentor-card group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="relative w-full h-64 overflow-hidden">
+                    <img src="/shahid2.png" alt="Mohammad Shahid" 
+                         class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Web Development</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn HTML, CSS, JavaScript and modern frameworks like React, Angular, and Vue.js to build responsive websites and dynamic web applications.</p>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Mohammad Shahid</h3>
+                    <p class="text-teal-600 text-sm font-semibold mb-2">Lead Web Development Mentor</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-regular fa-clock"></i> 5+ Years</span>
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-solid fa-users"></i> 100+ Students</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Full-stack developer specializing in React, Node.js, and cloud architecture.</p>
                 </div>
             </div>
-            
-            <!-- Course 2 - Data Science & AI -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="shahid2.png" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
+
+            <!-- Mentor 2 - Safakat -->
+            <div class="mentor-card group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="relative w-full h-64 overflow-hidden">
+                    <img src="safakat.png" alt="Safakat Alia" 
+                         class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Science & AI</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Master Machine Learning, Deep Learning, NLP, Computer Vision, and Generative AI to solve complex real-world problems with data-driven solutions.</p>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Safakat Alia</h3>
+                    <p class="text-teal-600 text-sm font-semibold mb-2">AI & Data Science Mentor</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-regular fa-clock"></i> 6+ Years</span>
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-solid fa-briefcase"></i> Ex-Microsoft</span>
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-solid fa-users"></i> 2000+ Students</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Expert in Machine Learning, Deep Learning, and NLP. Published multiple papers.</p>
                 </div>
             </div>
-            
-            <!-- Course 3 - Data Analytics -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="safakat.png" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
+
+            <!-- Mentor 3 - Abhishek -->
+            <div class="mentor-card group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="relative w-full h-64 overflow-hidden">
+                    <img src="abhishek.png" alt="Abhishek Kumar" 
+                         class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Analytics</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Master Excel, SQL, Python, Power BI, and Tableau to analyze data, create dashboards, and drive business decisions with actionable insights.</p>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Abhishek Kumar</h3>
+                    <p class="text-teal-600 text-sm font-semibold mb-2">Digital Marketing Expert</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-regular fa-clock"></i> 7+ Years</span>
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-solid fa-briefcase"></i> Ex-Amazon</span>
+                        <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"><i class="fa-solid fa-users"></i> 6000+ Students</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Specializes in digital marketing, SEO, SEM, and social media strategies.</p>
                 </div>
             </div>
         </div>
-        
-        <!-- Hidden Courses (Visible after clicking View All) -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 " id="moreCourses">
-            <!-- Course 4 - Data Structures & Algorithms -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="/abhishek.png" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Structures & Algorithms</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Master Arrays, Linked Lists, Trees, Graphs, Dynamic Programming, and essential algorithms to crack coding interviews at top tech companies.</p>
-                </div>
-            </div>
-            
-            <!-- Course 5 - Cloud & DevOps -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cloud & DevOps</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn AWS, Docker, Kubernetes, Jenkins, and CI/CD pipelines to automate infrastructure, deploy scalable applications, and master DevOps practices.</p>
-                </div>
-            </div>
-            
-            <!-- Course 6 - Cybersecurity -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cybersecurity</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn ethical hacking, penetration testing, network security, cryptography, and risk management to protect digital assets and infrastructure.</p>
-                </div>
-            </div>
+
+        <div class="text-center mt-12">
+            <button class="view-all-mentors inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-105">
+                View All Mentors <i class="fa-solid fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 </section>
 
 <style>
-    /* Course Card Styles - Reduced Displacement */
-    .course-card-impressive {
+    .mentor-card {
         transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         will-change: transform;
+        overflow: hidden;
     }
-    
-    .course-card-impressive:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.12);
+    .mentor-card:hover {
+        box-shadow: 0 20px 30px -12px rgba(26,111,140,0.15);
     }
-    
-    /* Image hover effect - subtle zoom */
-    .course-img-wrapper img {
-        transition: transform 0.4s ease-out;
+    .mentor-card .relative {
+        overflow: hidden;
     }
-    
-    .course-card-impressive:hover .course-img-wrapper img {
-        transform: scale(1.03);
+    .mentor-card .relative img {
+        transition: transform 0.5s ease-out;
     }
-    
-    /* Overlay effect - subtle */
-    .course-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(10,43,62,0.2) 0%, rgba(26,111,140,0.3) 100%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
+    .mentor-card p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
-    
-    .course-card-impressive:hover .course-overlay {
-        opacity: 1;
+    @media (max-width: 768px) {
+        .mentor-card .relative {
+            height: 240px !important;
+        }
     }
 </style>
 
+<script>
+    document.querySelector('.view-all-mentors')?.addEventListener('click', function() {
+        alert('Redirecting to full mentors list...');
+        // window.location.href = '/mentors';
+    });
+</script>

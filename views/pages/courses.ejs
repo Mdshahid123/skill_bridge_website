@@ -7,28 +7,548 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="/courses.css">
+    <style>
+        /* ========== GLOBAL RESET & SCROLL FIX ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            background-color: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ========== HERO SECTION – FLOWING LIGHT WAVE (no rotating glow) ========== */
+        .hero-glow {
+            background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* Flowing light wave animation – replaces the old rotateGlow */
+        .hero-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(26,111,140,0.1), 
+                rgba(0,102,179,0.15), 
+                rgba(26,111,140,0.1), 
+                transparent
+            );
+            animation: lightWave 10s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes lightWave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        /* Grid patterns (kept for texture) */
+        .brand-grid {
+            background-image: 
+                repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+        }
+
+        .brand-grid-light {
+            background-image: 
+                repeating-linear-gradient(90deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px),
+                repeating-linear-gradient(0deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(26,111,140,0.3);
+        }
+
+        /* ========== COURSE CARD STYLES ========== */
+        .course-card {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            overflow: hidden;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(26,111,140,0.15);
+        }
+
+        .line-clamp-1 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ========== FEATURE BADGE – LARGER FONT ========== */
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f0fdf4;
+            color: #166534;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .feature-badge:hover {
+            transform: translateY(-1px);
+            background: #dcfce7;
+        }
+        .feature-badge i {
+            font-size: 11px;
+        }
+
+        /* ========== DROPDOWN & FILTERS ========== */
+        #categoryDropdownMenu {
+            animation: dropdownFade 0.2s ease-out;
+        }
+        @keyframes dropdownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .category-option {
+            transition: all 0.2s ease;
+        }
+        .category-option:hover {
+            background-color: #e6f4f5;
+            transform: translateX(4px);
+        }
+        .filter-tag {
+            animation: tagPop 0.2s ease-out;
+        }
+        @keyframes tagPop {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ========== MODAL ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .course-modal {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            max-width: 90%;
+            width: 500px;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* ========== RESPONSIVE UTILITIES ========== */
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .px-6 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .md\:px-12 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            #categoryDropdownMenu {
+                width: calc(100vw - 2rem);
+                max-width: 320px;
+                left: 1rem;
+                right: 1rem;
+            }
+            .feature-badge {
+                font-size: 11px;
+                padding: 3px 10px;
+            }
+            .feature-badge i {
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  
-  <!-- nav bar -->
-  <%- include("../partials/common/navbar")  %>
 
-<!-- Hero Section -->
-<%- include("../partials/courses/heroSection.ejs")%>
+<!-- nav bar -->
+<%- include("../partials/common/navbar") %>
+
+<!-- Hero Section (Flowing Light Wave – no rotating glow) -->
+<div class="hero-glow pt-28 pb-16 relative">
+    <!-- Background grid layers (kept as before) -->
+    <div class="absolute inset-0 opacity-[0.08] brand-grid pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-[0.05] brand-grid-light pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style="background-image: 
+            repeating-linear-gradient(45deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px),
+            repeating-linear-gradient(135deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px);">
+    </div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
+    
+    <div class="container mx-auto px-6 relative z-20">
+        <div class="breadcrumb text-sm mb-4">
+            <a href="/" class="text-teal-700/70 hover:text-teal-700">Home</a>
+            <span class="text-teal-700/40 mx-2">/</span>
+            <span class="text-teal-800 font-medium">Courses</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-3 glow-text">All Premium Courses</h1>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-8">Explore our comprehensive collection of industry-ready courses taught by expert mentors</p>
+        
+        <div class="max-w-3xl mx-auto mb-6">
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <!-- Search bar -->
+                <div class="relative flex-1 max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    <input type="text" id="courseSearchInput" placeholder="Search courses by name, category, or skill..." class="w-full pl-11 pr-4 py-3 rounded-full border border-gray-200 bg-white/80 backdrop-blur-sm focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all text-gray-700 text-sm">
+                </div>
+                
+                <!-- Category dropdown -->
+                <div class="relative" style="z-index: 100;">
+                    <button id="categoryDropdownBtn" class="flex items-center gap-2 px-5 py-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700 text-sm font-medium hover:border-teal-500 hover:text-teal-600 transition-all">
+                        <i class="fa-solid fa-filter text-teal-500"></i>
+                        <span id="selectedCategoryText">All Categories</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="categoryDropdownMenu" class="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 hidden overflow-y-auto" style="z-index: 1000; max-height: 400px;">
+                        <div class="p-2">
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="all"><i class="fa-regular fa-circle-dot text-teal-500 text-base w-5"></i><span>All Categories</span></div>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="development"><i class="fa-brands fa-react text-teal-500 text-base w-5"></i><span>Web Development</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="data"><i class="fa-solid fa-chart-line text-teal-500 text-base w-5"></i><span>Data Science</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="analyst"><i class="fa-solid fa-table text-teal-500 text-base w-5"></i><span>Data Analyst</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="dsa"><i class="fa-solid fa-diagram-project text-teal-500 text-base w-5"></i><span>DSA</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="placement"><i class="fa-solid fa-briefcase text-teal-500 text-base w-5"></i><span>Placement Preparation</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="programming"><i class="fa-solid fa-code text-teal-500 text-base w-5"></i><span>Programming Languages</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="cloud"><i class="fa-solid fa-cloud-arrow-up text-teal-500 text-base w-5"></i><span>Cloud & DevOps</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="cyber"><i class="fa-solid fa-shield-haltered text-teal-500 text-base w-5"></i><span>Cybersecurity</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="ai"><i class="fa-solid fa-robot text-teal-500 text-base w-5"></i><span>Artificial Intelligence</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="marketing"><i class="fa-solid fa-chart-simple text-teal-500 text-base w-5"></i><span>Digital Marketing</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="design"><i class="fa-solid fa-pen-ruler text-teal-500 text-base w-5"></i><span>UI/UX Design</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="mobile"><i class="fa-brands fa-android text-teal-500 text-base w-5"></i><span>Mobile Development</span></div>
+                            <div class="category-option px-4 py-2.5 rounded-lg cursor-pointer hover:bg-teal-50 transition-all text-sm text-gray-700 flex items-center gap-3" data-category="blockchain"><i class="fa-solid fa-link text-teal-500 text-base w-5"></i><span>Blockchain</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="resetFiltersBtn" class="px-5 py-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-sm font-medium transition-all flex items-center gap-2"><i class="fa-solid fa-rotate-right text-xs"></i> Reset</button>
+            </div>
+            <div id="activeFiltersContainer" class="flex flex-wrap gap-2 justify-center mt-4 min-h-[32px]"></div>
+        </div>
+        <p class="text-gray-500 text-center text-sm" id="resultsCount">Showing 0 courses</p>
+    </div>
+</div>
 
 <!-- Courses Grid Section -->
-<%- include("../partials/courses/coursesSection.ejs", { registerCourses: registerCourses }) %>
+<section class="py-12 px-6 md:px-12 bg-white">
+    <div class="container  max-w-5xl">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="coursesGridContainer">
+            <!-- Courses will be dynamically loaded here -->
+        </div>
+        <div id="noResultsMessage" class="text-center py-12 hidden">
+            <i class="fa-regular fa-folder-open text-6xl text-gray-300 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-700 mb-2">No courses found</h3>
+            <p class="text-gray-500">Try adjusting your search or filter criteria</p>
+            <button id="clearAllFiltersBtn" class="mt-4 px-6 py-2 bg-teal-500 text-white rounded-full text-sm font-semibold hover:bg-teal-600 transition-all">Clear all filters</button>
+        </div>
+    </div>
+</section>
 
+<!-- Enrollment Modal -->
+<div id="enrollModal" class="modal-overlay">
+    <div class="course-modal" style="max-width: 500px;">
+        <div class="modal-close" id="closeEnrollModal">&times;</div>
+        <div class="text-center mb-6">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#1a1a2e] to-[#0f3460] flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-graduation-cap text-white text-xl"></i>
+            </div>
+            <h2 class="text-xl font-bold text-gray-800">Start Your Journey</h2>
+            <p class="text-gray-500 text-xs mt-1">Fill the form to get a free counseling session</p>
+        </div>
+        <form id="enrollmentForm" class="space-y-3">
+            <div><label class="block text-xs font-medium text-gray-700 mb-1">Full Name *</label><input type="text" id="fullName" required class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1a6f8c]" placeholder="Enter your full name"></div>
+            <div><label class="block text-xs font-medium text-gray-700 mb-1">Email Address *</label><input type="email" id="email" required class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1a6f8c]" placeholder="you@example.com"></div>
+            <div><label class="block text-xs font-medium text-gray-700 mb-1">Phone Number *</label><input type="tel" id="phone" required class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1a6f8c]" placeholder="+91 98765 43210"></div>
+            <div><label class="block text-xs font-medium text-gray-700 mb-1">Interested Course</label><select id="courseSelect" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1a6f8c]"><option value="">Select a course</option><option>Web Development</option><option>Data Science & AI</option><option>Cloud & DevOps</option><option>Data Structures & Algorithms</option><option>Cybersecurity</option><option>Digital Marketing</option><option>UI/UX Design</option><option>Blockchain Development</option></select></div>
+            <div><label class="block text-xs font-medium text-gray-700 mb-1">Message (Optional)</label><textarea id="message" rows="2" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1a6f8c]" placeholder="Any specific questions?"></textarea></div>
+            <button type="submit" class="w-full bg-gradient-to-r from-[#1a1a2e] to-[#0f3460] text-white py-2.5 rounded-lg font-semibold text-sm transition-all hover:opacity-90">Submit Application <i class="fa-solid fa-arrow-right ml-2"></i></button>
+        </form>
+        <p class="text-center text-[10px] text-gray-400 mt-3">We'll contact you within 24 hours. No spam, guaranteed.</p>
+    </div>
+</div>
 
-<!-- enrollment model -->
-<%- include("../partials/courses/enrollmentModel.ejs")%>
+<%- include("../partials/common/footer") %>
 
- <!-- footer section -->
+<script>
+    // ==================== SERVER-PASSED COURSES DATA ====================
+    const allCourses = <%- JSON.stringify(registerCourses) %> || [];
+    let currentCategory = "all";
+    let currentSearchTerm = "";
 
- <%- include("../partials/common/footer") %> 
+    // Category mapping
+    const categoryNames = {
+        all: "All Categories",
+        development: "Web Development",
+        data: "Data Science",
+        analyst: "Data Analyst",
+        dsa: "DSA",
+        placement: "Placement Preparation",
+        marketing: "Digital Marketing",
+        design: "UI/UX Design",
+        cloud: "Cloud & DevOps",
+        programming: "Programming Languages",
+        cyber: "Cybersecurity",
+        ai: "Artificial Intelligence",
+        mobile: "Mobile Development",
+        blockchain: "Blockchain"
+    };
 
+    // DOM elements
+    const searchInput = document.getElementById('courseSearchInput');
+    const dropdownBtn = document.getElementById('categoryDropdownBtn');
+    const dropdownMenu = document.getElementById('categoryDropdownMenu');
+    const selectedCategoryText = document.getElementById('selectedCategoryText');
+    const resetBtn = document.getElementById('resetFiltersBtn');
+    const resultsCount = document.getElementById('resultsCount');
+    const activeFiltersContainer = document.getElementById('activeFiltersContainer');
+    const coursesGridContainer = document.getElementById('coursesGridContainer');
+    const noResultsMessage = document.getElementById('noResultsMessage');
+    const clearAllFiltersBtn = document.getElementById('clearAllFiltersBtn');
 
+    // Helper: calculate discount %
+    function calculateDiscount(price, originalPrice) {
+        if (!originalPrice || originalPrice <= price) return 0;
+        return Math.round(((originalPrice - price) / originalPrice) * 100);
+    }
+
+    // Render courses
+    function renderCourses() {
+        let filtered = [...allCourses];
+        if (currentCategory !== "all") {
+            filtered = filtered.filter(c => c.category === currentCategory);
+        }
+        if (currentSearchTerm.trim()) {
+            const term = currentSearchTerm.toLowerCase();
+            filtered = filtered.filter(c =>
+                (c.courseName?.toLowerCase().includes(term)) ||
+                (categoryNames[c.category]?.toLowerCase().includes(term)) ||
+                (c.level?.toLowerCase().includes(term)) ||
+                (c.courseDescription?.toLowerCase().includes(term))
+            );
+        }
+        resultsCount.textContent = `Showing ${filtered.length} courses`;
+        if (filtered.length === 0) {
+            coursesGridContainer.innerHTML = '';
+            noResultsMessage.classList.remove('hidden');
+            return;
+        }
+        noResultsMessage.classList.add('hidden');
+        coursesGridContainer.innerHTML = filtered.map(c => `
+            <div class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="${c.image || 'https://via.placeholder.com/600x400?text=No+Image'}" alt="${escapeHtml(c.courseName)}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    <div class="absolute top-3 left-3"></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-1">${escapeHtml(c.courseName)}</h3>
+                    <p class="text-gray-500 text-sm mb-3 line-clamp-2">${escapeHtml(c.courseDescription || c.description || 'No description available')}</p>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="feature-badge"><i class="fa-solid fa-briefcase"></i> Assured Placement</span>
+                        <span class="feature-badge"><i class="fa-solid fa-chart-line"></i> Live Projects</span>
+                        <span class="feature-badge"><i class="fa-regular fa-certificate"></i> Certificate</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fa-regular fa-clock"></i> ${c.duration || 'N/A'} Months</div>
+                        <div class="flex items-center gap-2 text-xs text-gray-500"><i class="fa-regular fa-user"></i> ${Math.floor(Math.random() * 5000) + 500}+ students</div>
+                    </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div><span class="text-2xl font-bold text-teal-600">₹${c.price}</span><span class="text-xs text-gray-400 line-through ml-2">₹${c.originalPrice}</span><span class="text-xs text-green-600 ml-2">${calculateDiscount(c.price, c.originalPrice)}% off</span></div>
+                        <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">${c.level || 'Beginner'}</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="/viewCourse/${c._id}" class="flex-1 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all hover:scale-105">View Details</a>
+                        <!-- Download Brochure button with text -->
+                        <button onclick="downloadBrochure('${escapeHtml(c.courseName)}')" class="px-3 py-2 border border-teal-500 text-teal-600 rounded-lg hover:bg-teal-500 hover:text-white transition-all flex items-center gap-2 text-sm font-medium whitespace-nowrap">
+                            <i class="fa-regular fa-file-pdf"></i> Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Update active filters display
+    function updateActiveFilters() {
+        activeFiltersContainer.innerHTML = "";
+        if (currentCategory !== "all") {
+            const tag = document.createElement('div');
+            tag.className = "filter-tag inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-medium";
+            tag.innerHTML = `<i class="fa-regular fa-filter-circle-xmark text-teal-500 text-[10px]"></i> Category: ${categoryNames[currentCategory]} <button class="remove-category-filter ml-1 w-3 h-3 rounded-full hover:bg-teal-200 flex items-center justify-center transition-all"><i class="fa-solid fa-xmark text-[8px]"></i></button>`;
+            tag.querySelector('.remove-category-filter').onclick = () => {
+                currentCategory = "all";
+                selectedCategoryText.textContent = "All Categories";
+                updateActiveFilters();
+                renderCourses();
+            };
+            activeFiltersContainer.appendChild(tag);
+        }
+        if (currentSearchTerm.trim()) {
+            const tag = document.createElement('div');
+            tag.className = "filter-tag inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-medium";
+            tag.innerHTML = `<i class="fa-regular fa-filter-circle-xmark text-teal-500 text-[10px]"></i> Search: "${currentSearchTerm.length > 15 ? currentSearchTerm.substring(0,15)+'...' : currentSearchTerm}" <button class="remove-search-filter ml-1 w-3 h-3 rounded-full hover:bg-teal-200 flex items-center justify-center transition-all"><i class="fa-solid fa-xmark text-[8px]"></i></button>`;
+            tag.querySelector('.remove-search-filter').onclick = () => {
+                searchInput.value = "";
+                currentSearchTerm = "";
+                updateActiveFilters();
+                renderCourses();
+            };
+            activeFiltersContainer.appendChild(tag);
+        }
+        if (currentCategory === "all" && !currentSearchTerm.trim()) {
+            const noFiltersDiv = document.createElement('div');
+            noFiltersDiv.className = "text-xs text-gray-400";
+            noFiltersDiv.innerHTML = '<i class="fa-regular fa-sliders-up mr-1"></i> No active filters';
+            activeFiltersContainer.appendChild(noFiltersDiv);
+        }
+    }
+
+    // Dropdown toggle
+    dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('hidden');
+        const chevron = dropdownBtn.querySelector('.fa-chevron-down');
+        chevron.style.transform = dropdownMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+    document.addEventListener('click', (e) => {
+        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+            const chevron = dropdownBtn.querySelector('.fa-chevron-down');
+            chevron.style.transform = 'rotate(0deg)';
+        }
+    });
+
+    // Category selection
+    document.querySelectorAll('.category-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+            const category = opt.dataset.category;
+            const displayName = opt.querySelector('span:last-child')?.textContent || categoryNames[category];
+            currentCategory = category;
+            selectedCategoryText.textContent = displayName;
+            dropdownMenu.classList.add('hidden');
+            updateActiveFilters();
+            renderCourses();
+        });
+    });
+
+    // Search
+    searchInput.addEventListener('input', (e) => {
+        currentSearchTerm = e.target.value;
+        updateActiveFilters();
+        renderCourses();
+    });
+
+    // Reset filters
+    resetBtn.addEventListener('click', () => {
+        currentCategory = "all";
+        currentSearchTerm = "";
+        searchInput.value = "";
+        selectedCategoryText.textContent = "All Categories";
+        updateActiveFilters();
+        renderCourses();
+    });
+
+    if (clearAllFiltersBtn) {
+        clearAllFiltersBtn.addEventListener('click', () => {
+            currentCategory = "all";
+            currentSearchTerm = "";
+            searchInput.value = "";
+            selectedCategoryText.textContent = "All Categories";
+            updateActiveFilters();
+            renderCourses();
+        });
+    }
+
+    // Download brochure (global)
+    window.downloadBrochure = function(courseName) {
+        alert(`📄 Downloading brochure for "${courseName}"\n\nBrochure will be available shortly.`);
+    };
+
+    // Enrollment modal
+    const enrollModal = document.getElementById('enrollModal');
+    const closeEnrollModal = document.getElementById('closeEnrollModal');
+    const enrollmentForm = document.getElementById('enrollmentForm');
+    if (enrollModal) {
+        window.openEnrollModal = function() { enrollModal.style.display = 'flex'; };
+        closeEnrollModal.onclick = () => enrollModal.style.display = 'none';
+        enrollModal.onclick = (e) => { if (e.target === enrollModal) enrollModal.style.display = 'none'; };
+        enrollmentForm.onsubmit = (e) => {
+            e.preventDefault();
+            alert('✅ Thank you! Our counselor will contact you soon.');
+            enrollmentForm.reset();
+            enrollModal.style.display = 'none';
+        };
+    }
+
+    // Escape HTML
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
+    }
+
+    // Initial render
+    renderCourses();
+    updateActiveFilters();
+</script>
 </body>
 </html>

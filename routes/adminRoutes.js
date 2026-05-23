@@ -1,12 +1,29 @@
-const express=require("express")
-const {showAdminLogin,adminDashboard,storeCourses}=require("../controllers/adminControllers")
-const upload = require('../middleware/upload');  // Import multer middleware
-adminRoutes=express.Router()
-// ✅ Apply multer middleware to this specific route
+const express = require("express");
+const adminRoutes = express.Router();
+const upload = require("../middleware/upload");
+const {
+    showAdminLogin,
+    adminDashboard,
+    storeCourses,
+    getApiAllCourses,
+    deleteApiCourse,
+    getEditCourseForm,
+    updateCourse,
+    getAddCourseForm
+} = require("../controllers/adminControllers");
+
+// Existing routes
+adminRoutes.get("/adminLogin", showAdminLogin);
+adminRoutes.get("/admin/courses", adminDashboard);
 adminRoutes.post("/storeCourses", upload.any(), storeCourses);
 
-// Other routes without file upload
-adminRoutes.get("/adminLogin",showAdminLogin)
-adminRoutes.get("/admin/courses",adminDashboard)
+// API routes (AJAX)
+adminRoutes.get("/api/admin/courses", getApiAllCourses);
+adminRoutes.delete("/api/admin/courses/:id", deleteApiCourse);
 
-module.exports=adminRoutes
+// Form routes
+adminRoutes.get("/admin/courses/add", getAddCourseForm);
+adminRoutes.get("/admin/courses/edit/:id", getEditCourseForm);
+adminRoutes.post("/admin/courses/update/:id", upload.any(), updateCourse);
+
+module.exports = adminRoutes;

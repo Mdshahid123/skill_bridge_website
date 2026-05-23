@@ -1,73 +1,117 @@
-<!-- CTA SECTION - Need Help Style (Compact) -->
+<!-- CTA SECTION - with Course & Degree Tabs (Compact, Bolder Text, Larger Person) -->
 <section class="mt-12 mb-16 px-6 md:px-12 scroll-reveal">
     <div class="help-split-card max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row">
-            <!-- Left Side - Person Illustration with Question Marks -->
-            <div class="person-illustration w-full md:w-5/12 p-5 md:p-6 flex flex-col items-center justify-center relative">
+            <!-- Left Side - Person Illustration with Question Marks Above Head -->
+            <div class="person-illustration w-full md:w-5/12 p-6 md:p-8 flex flex-col items-center justify-center relative">
                 <div class="relative flex flex-col items-center w-full">
                     <div class="relative inline-block">
-                        <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[200px] h-auto object-contain" />
-                        <div class="absolute -top-6 -right-2 bg-white/80 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100 float-question">
-                            <span class="question-mark-big text-3xl">?</span>
+                        <!-- Larger Person Image -->
+                        <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain" />
+                        
+                        <!-- Question Marks directly above the head -->
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-sm border border-teal-100 float-question z-10">
+                            <span class="text-4xl font-extrabold text-teal-600">?</span>
                         </div>
-                        <div class="absolute -top-4 -left-4 bg-white/80 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 0.7s;">
-                            <span class="question-mark-small text-2xl">?</span>
+                        <div class="absolute -top-6 left-[40%] transform -translate-x-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-sm border border-teal-100 float-question-delay z-10">
+                            <span class="text-2xl font-extrabold text-teal-500">?</span>
                         </div>
-                        <div class="absolute -bottom-1 -left-5 bg-white/70 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100">
-                            <span class="text-base font-bold text-teal-500 opacity-60">?</span>
-                        </div>
-                        <div class="absolute top-1 -right-5 bg-white/70 backdrop-blur-sm p-1 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 1.2s;">
-                            <span class="text-sm font-bold text-teal-500 opacity-50">?</span>
+                        <div class="absolute -top-2 left-[65%] transform -translate-x-1/2 bg-white/80 backdrop-blur-sm p-1.5 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 1s;">
+                            <span class="text-xl font-extrabold text-teal-500">?</span>
                         </div>
                     </div>
-                    <div class="mt-3 text-center">
-                        <h3 class="text-base font-semibold text-gray-800">Have questions? <span class="text-teal-500">We're here</span></h3>
-                        <p class="text-xs text-gray-500 max-w-[180px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
+                    
+                    <!-- Support Text - Bolder -->
+                    <div class="mt-5 text-center">
+                        <h3 class="text-lg font-extrabold text-gray-800">Have questions? <span class="text-teal-600">We're here</span></h3>
+                        <p class="text-sm font-medium text-gray-600 max-w-[200px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
                     </div>
-                    <div class="absolute bottom-3 right-3 opacity-5 text-5xl text-teal-500"><i class="fa-regular fa-circle-question"></i></div>
+                    
+                    <!-- Decorative background icon -->
+                    <div class="absolute bottom-4 right-4 opacity-10 text-6xl text-teal-500"><i class="fa-regular fa-circle-question"></i></div>
                 </div>
             </div>
             
-            <!-- Right Side - Contact Form / CTA -->
-            <div class="w-full md:w-7/12 p-5 md:p-6 bg-white">
-                <div class="flex items-center gap-2 mb-4">
-                    <i class="fa-regular fa-headset text-teal-500 text-lg"></i>
-                    <h2 class="text-xl font-bold text-gray-800">Talk to our <span class="text-teal-500">Counselor</span></h2>
+            <!-- Right Side - Contact Form with Tabs (Bolder Text) -->
+            <div class="w-full md:w-7/12 p-6 md:p-8 bg-white">
+                <div class="flex items-center gap-2 mb-5">
+                    <i class="fa-regular fa-headset text-teal-600 text-xl"></i>
+                    <h2 class="text-2xl font-extrabold text-gray-800">Talk to our <span class="text-teal-600">Counselor</span></h2>
                 </div>
                 
-                <form id="ctaHelpForm" class="space-y-2.5">
-                    <div>
-                        <label class="text-xs font-medium text-gray-700 block mb-1">Full name</label>
-                        <input type="text" placeholder="e.g. Alex Rivera" class="input-field w-full rounded-lg px-3 py-2 text-sm text-gray-800" required />
-                    </div>
-                    <div>
-                        <label class="text-xs font-medium text-gray-700 block mb-1">Email address</label>
-                        <input type="email" placeholder="alex@example.com" class="input-field w-full rounded-lg px-3 py-2 text-sm text-gray-800" required />
-                    </div>
-                    <div>
-                        <label class="text-xs font-medium text-gray-700 block mb-1">Phone number</label>
-                        <input type="tel" placeholder="+91 98765 43210" class="input-field w-full rounded-lg px-3 py-2 text-sm text-gray-800" />
-                    </div>
-                    <div>
-                        <label class="text-xs font-medium text-gray-700 block mb-1">Message</label>
-                        <textarea rows="1" placeholder="I'm interested in... courses, scholarships, career guidance" class="input-field w-full rounded-lg px-3 py-2 text-sm text-gray-800 resize-none bg-gray-50"></textarea>
-                    </div>
-                    <button type="submit" class="cta-btn-primary w-full text-white font-medium py-2 rounded-lg text-sm flex items-center justify-center gap-2 transition hover:scale-105">
-                        <i class="fa-regular fa-paper-plane text-xs"></i> Request Callback
+                <!-- Tabs (Course / Degree) -->
+                <div class="flex gap-3 mb-5">
+                    <button id="ctaCoursesTab" class="cta-tab flex-1 px-4 py-2 rounded-lg bg-white border-2 border-gray-200 text-gray-700 font-bold text-sm transition-all hover:bg-teal-50 hover:border-teal-300">
+                        <i class="fa-solid fa-laptop-code mr-2"></i> Course Inquiry
                     </button>
-                    <p class="text-[10px] text-gray-400 text-center mt-1">We'll respond within 24 hours</p>
+                    <button id="ctaDegreeTab" class="cta-tab flex-1 px-4 py-2 rounded-lg bg-white border-2 border-gray-200 text-gray-700 font-bold text-sm transition-all hover:bg-teal-50 hover:border-teal-300">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i> Degree Program
+                    </button>
+                </div>
+                
+                <form id="ctaHelpForm" class="space-y-3">
+                    <div>
+                        <label class="text-sm font-bold text-gray-700 block mb-1">Full name *</label>
+                        <input type="text" name="fullName" placeholder="e.g. Alex Rivera" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required />
+                    </div>
+                    <div>
+                        <label class="text-sm font-bold text-gray-700 block mb-1">Email address *</label>
+                        <input type="email" name="email" placeholder="alex@example.com" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required />
+                    </div>
+                    <div>
+                        <label class="text-sm font-bold text-gray-700 block mb-1">Phone number</label>
+                        <input type="tel" name="phone" placeholder="+91 98765 43210" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" />
+                    </div>
+                    
+                    <!-- Course Selection Dropdown (shown by default) -->
+                    <div id="ctaCourseOptions">
+                        <label class="text-sm font-bold text-gray-700 block mb-1">Interested Course *</label>
+                        <select name="courseInterest" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                            <option value="">Select a course</option>
+                            <option>Web Development</option>
+                            <option>Data Science & AI</option>
+                            <option>Cloud & DevOps</option>
+                            <option>Data Structures & Algorithms</option>
+                            <option>Cybersecurity</option>
+                            <option>Digital Marketing</option>
+                            <option>UI/UX Design</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Degree Program Dropdown (hidden by default) -->
+                    <div id="ctaDegreeOptions" class="hidden">
+                        <label class="text-sm font-bold text-gray-700 block mb-1">Interested Degree Program *</label>
+                        <select name="degreeInterest" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                            <option value="">Select a degree program</option>
+                            <option>B.Tech in Computer Science</option>
+                            <option>BCA (Bachelor of Computer Applications)</option>
+                            <option>MCA (Master of Computer Applications)</option>
+                            <option>M.Sc in Artificial Intelligence</option>
+                            <option>MBA in Technology Management</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="text-sm font-bold text-gray-700 block mb-1">Message</label>
+                        <textarea name="message" rows="2" placeholder="I'm interested in... courses, scholarships, career guidance" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800 resize-none"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-btn-primary w-full text-white font-extrabold py-2.5 rounded-lg text-base flex items-center justify-center gap-2 transition hover:scale-105">
+                        <i class="fa-regular fa-paper-plane text-sm"></i> Request Callback
+                    </button>
+                    <p class="text-xs font-medium text-gray-500 text-center mt-2">We'll respond within 24 hours</p>
                 </form>
                 
                 <!-- Contact Info Divider -->
-                <div class="mt-4 pt-3 border-t border-gray-100">
-                    <div class="flex flex-col sm:flex-row justify-center gap-3 text-[11px] text-gray-500">
-                        <div class="flex items-center justify-center gap-1.5">
-                            <i class="fas fa-phone-alt text-teal-500 text-xs"></i>
+                <div class="mt-5 pt-4 border-t border-gray-200">
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 text-xs font-semibold text-gray-600">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-phone-alt text-teal-600 text-sm"></i>
                             <span>+91 9911466118</span>
                         </div>
                         <div class="hidden sm:block text-gray-300">|</div>
-                        <div class="flex items-center justify-center gap-1.5">
-                            <i class="fas fa-envelope text-teal-500 text-xs"></i>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-envelope text-teal-600 text-sm"></i>
                             <span>contact@skillbridgetech.in</span>
                         </div>
                     </div>
@@ -78,9 +122,8 @@
 </section>
 
 <style>
-    /* ==================== CTA SECTION STYLES ==================== */
+    /* ==================== CTA SECTION STYLES (Updated) ==================== */
     
-    /* Help Split Card */
     .help-split-card {
         background: #ffffff;
         border-radius: 1.5rem;
@@ -88,7 +131,6 @@
         transition: box-shadow 0.2s;
         overflow: hidden;
     }
-    
     .help-split-card:hover {
         box-shadow: 0 20px 40px -12px rgba(26,111,140,0.2);
     }
@@ -98,44 +140,12 @@
         background: linear-gradient(135deg, #e6f4f5, #d4eef2);
     }
     
-    /* Question Mark Styles */
-    .question-mark-big {
-        font-size: 3rem;
-        font-weight: 700;
-        background: linear-gradient(145deg, #0a2b3e, #1a6f8c);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        opacity: 0.9;
-    }
-    
-    .question-mark-small {
-        font-size: 2rem;
-        font-weight: 700;
-        background: linear-gradient(145deg, #1a6f8c, #5ba3bc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        opacity: 0.6;
-    }
-    
-    /* Floating Animation for Question Marks */
-    .float-question {
-        animation: floatQuestion 4s ease-in-out infinite;
-    }
-    
-    @keyframes floatQuestion {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-6px) rotate(3deg); }
-    }
-    
-    /* Input Field Styles */
+    /* Input Field Styles - Bolder focus */
     .input-field {
-        border: 1px solid #e5e7eb;
+        border: 1px solid #e2e8f0;
         transition: all 0.15s;
         background: #f9fafb;
     }
-    
     .input-field:focus {
         border-color: #1a6f8c;
         box-shadow: 0 0 0 3px rgba(26,111,140,0.12);
@@ -143,29 +153,95 @@
         background: #ffffff;
     }
     
-    /* CTA Button Primary */
+    /* CTA Button - Bolder gradient */
     .cta-btn-primary {
         background: linear-gradient(135deg, #0a2b3e, #1a6f8c);
         transition: all 0.2s;
         color: white;
     }
-    
     .cta-btn-primary:hover {
         background: linear-gradient(135deg, #0a2b3e, #0066b3);
         transform: translateY(-2px);
         box-shadow: 0 6px 15px rgba(26,111,140,0.3);
     }
+    
+    /* Active Tab Style - Thicker border, bolder */
+    .cta-tab.active {
+        background: linear-gradient(135deg, #0a2b3e, #1a6f8c);
+        color: white !important;
+        border-color: #1a6f8c !important;
+        box-shadow: 0 2px 8px rgba(26,111,140,0.25);
+    }
+    .cta-tab {
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    /* Question Mark Floating Animations */
+    .float-question {
+        animation: floatQuestion 3s ease-in-out infinite;
+    }
+    .float-question-delay {
+        animation: floatQuestion 3.5s ease-in-out infinite 0.5s;
+    }
+    @keyframes floatQuestion {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(4deg); }
+    }
+    
+    /* Ensure text is not too light anywhere */
+    .person-illustration h3,
+    .person-illustration p {
+        font-weight: 600;
+    }
 </style>
 
 <script>
-    // Handle CTA form submission
     (function() {
+        // Tab switching logic
+        const coursesTab = document.getElementById('ctaCoursesTab');
+        const degreeTab = document.getElementById('ctaDegreeTab');
+        const courseOptions = document.getElementById('ctaCourseOptions');
+        const degreeOptions = document.getElementById('ctaDegreeOptions');
+        
+        function removeActiveFromTabs() {
+            coursesTab.classList.remove('active');
+            degreeTab.classList.remove('active');
+        }
+        
+        function setActiveTab(tab, showElement, hideElement) {
+            removeActiveFromTabs();
+            tab.classList.add('active');
+            showElement.classList.remove('hidden');
+            hideElement.classList.add('hidden');
+        }
+        
+        if (coursesTab && degreeTab) {
+            // Initially set Courses as active
+            setActiveTab(coursesTab, courseOptions, degreeOptions);
+            
+            coursesTab.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveTab(coursesTab, courseOptions, degreeOptions);
+            });
+            
+            degreeTab.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveTab(degreeTab, degreeOptions, courseOptions);
+            });
+        }
+        
+        // Form submission
         const ctaForm = document.getElementById('ctaHelpForm');
         if (ctaForm) {
             ctaForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('✅ Thank you! Our counselor will contact you soon.');
-                this.reset();
+                const isCourseActive = coursesTab.classList.contains('active');
+                const interestType = isCourseActive ? 'Course' : 'Degree Program';
+                alert(`✅ Thank you! Our counselor will contact you soon regarding your ${interestType} interest.`);
+                ctaForm.reset();
+                // Reset to default tab (Course)
+                setActiveTab(coursesTab, courseOptions, degreeOptions);
             });
         }
     })();
