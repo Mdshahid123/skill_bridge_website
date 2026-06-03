@@ -1,4 +1,4 @@
-<!-- ==================== HERO SECTION - WITH CONFUSED PERSON ON RIGHT SIDE ==================== -->
+<!-- ==================== HERO SECTION - PERSON STATIC, QUESTION MARKS MOVING ==================== -->
 <section id="hero" class="relative overflow-hidden min-h-screen flex items-center bg-black">
     
     <!-- ====== ANIMATED BACKGROUND WAVES ====== -->
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <!-- Main Content - Left Side Text, Right Side Confused Person -->
+        <!-- Main Content - Left Side Text, Right Side Confused Person (Static) -->
         <div class="flex flex-col lg:flex-row gap-12 items-center">
             
             <!-- LEFT SIDE - CONTENT -->
@@ -132,131 +132,149 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE - CONFUSED PERSON WITH FLOATING ANIMATION -->
-<div class="flex-1 flex flex-col items-center justify-center w-full">
-    <div class="relative w-full max-w-md mx-auto">
-        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
-        
-        <div class="relative animate-float-person">
-            <div class="absolute -top-10 -right-5 w-16 h-16 bg-cyan-500/30 rounded-full blur-2xl animate-ping-slow"></div>
-            <div class="absolute -bottom-40 -left-12 w-16 h-16 bg-purple-500/30 rounded-full blur-2xl animate-pulse-glow" style="animation-delay: 1s;"></div>
-            
-            <!-- Question Marks -->
-            <div class="absolute -top-14 left-[180px] transform -translate-x-1/2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg animate-float-question">
-                <span class="text-4xl font-bold text-cyan-400">?</span>
+            <!-- RIGHT SIDE - STATIC PERSON, MOVING QUESTION MARKS ABOVE HEAD -->
+            <div class="flex-1 flex flex-col items-center justify-center w-full">
+                <div class="relative w-full max-w-md mx-auto">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
+                    
+                    <!-- Person container: static, no translation -->
+                    <div class="relative">
+                        <div class="absolute -top-10 -right-5 w-16 h-16 bg-cyan-500/30 rounded-full blur-2xl animate-ping-slow"></div>
+                        <div class="absolute -bottom-40 -left-12 w-16 h-16 bg-purple-500/30 rounded-full blur-2xl animate-pulse-glow" style="animation-delay: 1s;"></div>
+                        
+                        <!-- Question Marks - Positioned directly above head, moving up & down -->
+                        <div class="absolute -top-20 left-1/2 transform -translate-x-1/2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg animate-question-move">
+                            <span class="text-4xl font-bold text-cyan-400">?</span>
+                        </div>
+                        <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 translate-x-12 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg animate-question-move-delay">
+                            <span class="text-3xl font-bold text-cyan-400">?</span>
+                        </div>
+                        
+                        <!-- Static Person Image -->
+                        <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Confused person" class="w-full max-w-[320px] h-auto mx-auto relative z-10" />
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <h3 class="text-xl font-semibold text-white">Have questions? <span class="text-cyan-400">We're here</span></h3>
+                        <p class="text-sm text-gray-300 max-w-[250px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
+                    </div>
+                    
+                    <!-- Button section - centered on all devices -->
+                    <div class="mt-6 text-center">
+                        <button id="inquiryBtn" class="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105 text-base inline-flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-paper-plane text-base"></i>
+                            Get Admission Inquiry
+                            <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-gradient-to-r from-white/20 to-transparent"></div>
+                        </button>
+                        <p class="text-center text-xs text-gray-400 mt-3">Join 15,000+ successful students</p>
+                    </div>
+                </div>
             </div>
-            <div class="absolute -top-8 left-[230px] transform -translate-x-1/2 -translate-x-12 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg animate-float-question-delay">
-                <span class="text-3xl font-bold text-cyan-400">?</span>
-            </div>
-            
-            <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Confused person" class="w-full max-w-[320px] h-auto mx-auto relative z-10" />
         </div>
-        
-        <div class="text-center mt-6">
-            <h3 class="text-xl font-semibold text-white">Have questions? <span class="text-cyan-400">We're here</span></h3>
-            <p class="text-sm text-gray-300 max-w-[250px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
-        </div>
-        
-        <!-- Button section - centered on all devices -->
-        <div class="mt-6 text-center">
-            <button id="inquiryBtn" class="group relative overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-xl font-bold shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105 text-base inline-flex items-center justify-center gap-2">
-                <i class="fa-regular fa-paper-plane text-base"></i>
-                Get Admission Inquiry
-                <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-gradient-to-r from-white/20 to-transparent"></div>
-            </button>
-            <p class="text-center text-xs text-gray-400 mt-3">Join 15,000+ successful students</p>
-        </div>
-    </div>
-</div>
-
-         
     </div>
 </section>
 
-<!-- Admission Inquiry Modal -->
-<div id="admissionModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);">
-    <div class="relative max-w-4xl w-full bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl animate-modal-pop">
-        <button id="closeModalBtn" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all hover:scale-110">
-            <i class="fa-solid fa-xmark text-xl"></i>
+<!-- Admission Inquiry Modal - Fully Responsive (same as before) -->
+<div id="admissionModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-4" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);">
+    <div class="relative w-full max-w-5xl bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl animate-modal-pop max-h-[95vh] overflow-y-auto sm:overflow-visible">
+        <button id="closeModalBtn" class="absolute top-3 right-3 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all hover:scale-110">
+            <i class="fa-solid fa-xmark text-lg sm:text-xl"></i>
         </button>
         
         <div class="flex flex-col md:flex-row">
-            <div class="w-full md:w-5/12 p-8 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 flex flex-col items-center justify-center">
-                <div class="relative">
-                    <div class="absolute -top-10 -right-5 w-20 h-20 bg-cyan-500/30 rounded-full blur-2xl animate-pulse"></div>
-                    <div class="absolute -bottom-10 -left-5 w-20 h-20 bg-purple-500/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
-                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain relative z-10" />
-                    <div class="absolute -top-8 -right-3 bg-white/20 backdrop-blur-sm p-2 rounded-full shadow-lg">
-                        <span class="text-4xl font-bold text-cyan-400">?</span>
+            <!-- Left Side - Illustration -->
+            <div class="w-full md:w-5/12 p-5 sm:p-8 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 flex flex-col items-center justify-center">
+                <div class="relative w-full max-w-[200px] sm:max-w-[260px] mx-auto">
+                    <div class="absolute -top-8 -right-4 w-16 h-16 bg-cyan-500/30 rounded-full blur-2xl animate-pulse"></div>
+                    <div class="absolute -bottom-8 -left-4 w-16 h-16 bg-purple-500/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
+                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full h-auto object-contain relative z-10" />
+                    <div class="absolute -top-6 -right-2 bg-white/20 backdrop-blur-sm p-1.5 sm:p-2 rounded-full shadow-lg">
+                        <span class="text-2xl sm:text-4xl font-bold text-cyan-400">?</span>
                     </div>
-                    <div class="absolute -top-5 -left-5 bg-white/20 backdrop-blur-sm p-1.5 rounded-full shadow-lg" style="animation-delay: 0.7s;">
-                        <span class="text-2xl font-bold text-cyan-400">?</span>
+                    <div class="absolute -top-4 -left-3 bg-white/20 backdrop-blur-sm p-1 sm:p-1.5 rounded-full shadow-lg" style="animation-delay: 0.7s;">
+                        <span class="text-xl sm:text-2xl font-bold text-cyan-400">?</span>
                     </div>
                 </div>
-                <div class="mt-6 text-center">
-                    <h3 class="text-xl font-semibold text-white">Have questions? <span class="text-cyan-400">We're here</span></h3>
-                    <p class="text-sm text-gray-300 max-w-[200px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
+                <div class="mt-4 sm:mt-6 text-center">
+                    <h3 class="text-base sm:text-xl font-semibold text-white">Have questions? <span class="text-cyan-400">We're here</span></h3>
+                    <p class="text-xs sm:text-sm text-gray-300 max-w-[180px] sm:max-w-[200px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
                 </div>
             </div>
             
-            <div class="w-full md:w-7/12 p-8">
-                <div class="flex items-center gap-3 mb-5">
-                    <i class="fa-regular fa-pen-to-square text-cyan-400 text-2xl animate-pulse"></i>
-                    <h2 class="text-2xl font-bold text-white">Admission <span class="text-cyan-400">Inquiry</span></h2>
+            <!-- Right Side - Form -->
+            <div class="w-full md:w-7/12 p-5 sm:p-8">
+                <div class="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
+                    <i class="fa-regular fa-pen-to-square text-cyan-400 text-xl sm:text-2xl animate-pulse"></i>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white">Admission <span class="text-cyan-400">Inquiry</span></h2>
                 </div>
-                <p class="text-gray-300 text-sm mb-5">Fill out the form below. Our counselor will contact you within 24 hours.</p>
+                <p class="text-gray-300 text-xs sm:text-sm mb-4 sm:mb-5">Fill out the form below. Our counselor will contact you within 24 hours.</p>
                 
-                <!-- Tab buttons – no hardcoded active class -->
-                <div class="flex gap-3 mb-6">
-                    <button id="modalCoursesTab" class="modal-tab flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:bg-cyan-500/10 hover:border-cyan-500">
-                        <i class="fa-solid fa-laptop-code"></i> Courses
+                <div class="flex gap-2 sm:gap-3 mb-5 sm:mb-6">
+                    <button id="modalCoursesTab" class="modal-tab flex-1 px-3 sm:px-4 py-2 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 transition-all hover:bg-cyan-500/10 hover:border-cyan-500">
+                        <i class="fa-solid fa-laptop-code text-xs sm:text-sm"></i> Courses
                     </button>
-                    <button id="modalDegreeTab" class="modal-tab flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:bg-cyan-500/10 hover:border-cyan-500">
-                        <i class="fa-solid fa-graduation-cap"></i> Degree Program
+                    <button id="modalDegreeTab" class="modal-tab flex-1 px-3 sm:px-4 py-2 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 transition-all hover:bg-cyan-500/10 hover:border-cyan-500">
+                        <i class="fa-solid fa-graduation-cap text-xs sm:text-sm"></i> Degree Program
                     </button>
                 </div>
                 
-                <form id="admissionForm" class="space-y-4">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input type="text" placeholder="Full Name" required class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all">
-                        <input type="email" placeholder="Email Address" required class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all">
-                    </div>
-                    <input type="tel" placeholder="Phone Number" required class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all">
-                    
-                    <div id="modalCourseOptions">
-                        <select id="modalCourseSelect" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all">
-                            <option value="" class="bg-gray-800">Select a course</option>
-                            <option class="bg-gray-800">Web Development</option>
-                            <option class="bg-gray-800">Data Science & AI</option>
-                            <option class="bg-gray-800">Cloud & DevOps</option>
-                            <option class="bg-gray-800">Data Structures & Algorithms</option>
-                        </select>
-                    </div>
-                    
-                    <div id="modalDegreeOptions" class="hidden">
-                        <select id="modalDegreeSelect" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all">
-                            <option value="" class="bg-gray-800">Select a degree program</option>
-                            <option class="bg-gray-800">B.Tech in Computer Science</option>
-                            <option class="bg-gray-800">BCA</option>
-                            <option class="bg-gray-800">MCA</option>
-                            <option class="bg-gray-800">M.Sc in Artificial Intelligence</option>
-                        </select>
-                    </div>
-                    
-                    <textarea rows="2" placeholder="Your Message" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all resize-none"></textarea>
-                    
-                    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-3 rounded-xl font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2 group">
-                        Submit Inquiry <i class="fa-solid fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </form>
+               <form action="/submitEnquery" method="POST" id="admissionForm" class="space-y-3 sm:space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        <input type="text" id="fullName" name="name" placeholder="Full Name" required 
+               class="w-full px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm sm:text-base">
+        <input type="email" id="email" name="email" placeholder="Email Address" required 
+               class="w-full px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm sm:text-base">
+    </div>
+    <input type="tel" id="phone" name="phoneNumber" placeholder="Phone Number" required 
+           class="w-full px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm sm:text-base">
+    
+    <div id="modalCourseOptions">
+        <select id="modalCourseSelect" name="course" class="w-full px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm sm:text-base">
+            <option value="" disabled selected>Select a course</option>
+            <option>Web Development</option>
+            <option>Data Science & AI</option>
+            <option>Data Analytics</option>
+            <option>Digital Marketing</option>
+            <option>Programming Language</option>
+            <option>UI/UX Design</option>
+            <option>Data Structures & Algorithms</option>
+            <option>Placement Training</option>
+        </select>
+    </div>
+    
+    <div id="modalDegreeOptions" class="hidden">
+        <select id="modalDegreeSelect" name="course" class="w-full px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm sm:text-base">
+            <option value="" disabled selected>Select a Online degree program</option>
+            <option>MBA</option>
+            <option>MCA</option>
+            <option>M.Sc</option>
+            <option>M.Sc</option>
+            <option>M.Com</option>
+            <option>M.Ed & Ed.D</option>
+            <option>PGDM</option>
+            <option>BCA</option>
+             <option>B.Sc</option>
+             <option>BBA</option>
+             <option>BA</option>
+             <option>BA</option>
+
+        </select>
+    </div>
+    
+    <textarea id="message" name="message" rows="2" placeholder="I'm interested in...courses, online degrees, career guidance" required
+              class="w-full px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all resize-none text-sm sm:text-base"></textarea>
+    
+    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2.5 sm:py-3 rounded-xl font-semibold transition-all hover:scale-[1.02] sm:hover:scale-105 flex items-center justify-center gap-2 group text-sm sm:text-base">
+        Submit Inquiry <i class="fa-solid fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
+    </button>
+</form>
             </div>
         </div>
     </div>
 </div>
 
 <style>
-    /* ========== ANIMATIONS ========== */
-    
+    /* ========== ANIMATIONS (unchanged except for question marks) ========== */
     @keyframes spin-slow {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
@@ -305,25 +323,6 @@
         animation: grid-move-reverse 15s linear infinite;
     }
     
-    @keyframes float-person {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-8px); }
-    }
-    .animate-float-person {
-        animation: float-person 3s ease-in-out infinite;
-    }
-    
-    @keyframes float-question {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-12px) rotate(6deg); }
-    }
-    .animate-float-question {
-        animation: float-question 2.5s ease-in-out infinite;
-    }
-    .animate-float-question-delay {
-        animation: float-question 3s ease-in-out infinite 0.8s;
-    }
-    
     @keyframes border-glow {
         0%, 100% { border-color: rgba(34,211,238,0.3); box-shadow: 0 0 10px rgba(34,211,238,0); }
         50% { border-color: rgba(34,211,238,1); box-shadow: 0 0 30px rgba(34,211,238,0.5); }
@@ -368,7 +367,23 @@
         animation: pulse-ring 1.5s ease-in-out infinite;
     }
     
-    /* Particles */
+    /* New animation for question marks: translate up and down */
+    @keyframes question-move {
+        0%, 100% { transform: translate(-50%, 0px); }
+        50% { transform: translate(-50%, -10px); }
+    }
+    .animate-question-move {
+        animation: question-move 2s ease-in-out infinite;
+    }
+    @keyframes question-move-delay {
+        0%, 100% { transform: translate(calc(-50% + 48px), 0px); }
+        50% { transform: translate(calc(-50% + 48px), -8px); }
+    }
+    .animate-question-move-delay {
+        animation: question-move-delay 2.2s ease-in-out infinite 0.3s;
+    }
+    
+    /* Particles (unchanged) */
     .particle {
         position: absolute;
         background: rgba(34,211,238,0.6);
@@ -402,19 +417,16 @@
         gap: 4px;
         background: transparent;
     }
-    
     .typing-static {
         color: #e5e7eb;
         font-weight: 600;
     }
-    
     .typing-dynamic-container {
         display: inline-flex;
         align-items: center;
         position: relative;
         min-width: 220px;
     }
-    
     .typing-text {
         color: #22d3ee;
         font-weight: 700;
@@ -422,8 +434,6 @@
         display: inline-block;
         letter-spacing: 0.5px;
     }
-    
-    /* Cursor - NO BLINKING, just a static line */
     .typing-cursor {
         display: inline-block;
         width: 2px;
@@ -453,15 +463,41 @@
         color: #22d3ee;
     }
     
-    .counter {
-        display: inline-block;
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+        .typing-dynamic-container {
+            min-width: 180px;
+        }
+        .typing-text, .typing-static {
+            font-size: 1.3rem;
+        }
+        .typing-cursor {
+            height: 1.5rem;
+        }
+        #admissionModal .rounded-2xl {
+            border-radius: 1rem;
+        }
+        .animate-question-move, .animate-question-move-delay {
+            animation-duration: 1.5s;
+        }
+    }
+    @media (max-width: 380px) {
+        .modal-tab span:last-child {
+            display: none;
+        }
+        .modal-tab i {
+            margin-right: 0;
+        }
+        .modal-tab {
+            justify-content: center;
+        }
     }
 </style>
 
 <script>
     // ==================== DYNAMIC TYPING ANIMATION ====================
     (function() {
-        const words = ["Web Development ", "Data Science ", "DSA ", "Data Analytics ", "Digital Marketing ", "Programming Languages "];
+        const words = ["Web Development ", "Data Science ", "DSA ", "Data Analytics ", "Digital Marketing ", "Programming Languages ","UI/UX Design ", "Placement Training "];
         let wordIndex = 0, charIndex = 0, isDeleting = false, isWaiting = false, timeoutId = null;
         const textElement = document.getElementById('dynamic-word');
         if (!textElement) return;
@@ -523,7 +559,7 @@
         if (statsContainer) observer.observe(statsContainer);
     })();
 
-    // ==================== MODAL LOGIC – ONLY ONE TAB HIGHLIGHTED FIXED ====================
+    // ==================== MODAL LOGIC ====================
     document.addEventListener('DOMContentLoaded', function() {
         const coursesTab = document.getElementById('modalCoursesTab');
         const degreeTab = document.getElementById('modalDegreeTab');
@@ -532,23 +568,18 @@
         const inquiryBtn = document.getElementById('inquiryBtn');
         const modal = document.getElementById('admissionModal');
         const closeBtn = document.getElementById('closeModalBtn');
-        const form = document.getElementById('admissionForm');
+        const admissionForm = document.getElementById('admissionForm');
         
         if (!coursesTab || !degreeTab) return;
         
-        // Function to activate a tab and deactivate the other
         function activateTab(tabToActivate, showElement, hideElement) {
-            // Remove active class from both
             coursesTab.classList.remove('active');
             degreeTab.classList.remove('active');
-            // Add active class to the selected tab
             tabToActivate.classList.add('active');
-            // Show/hide respective options
             showElement.classList.remove('hidden');
             hideElement.classList.add('hidden');
         }
         
-        // Tab click handlers
         coursesTab.addEventListener('click', function(e) {
             e.preventDefault();
             activateTab(coursesTab, courseOptions, degreeOptions);
@@ -559,12 +590,10 @@
             activateTab(degreeTab, degreeOptions, courseOptions);
         });
         
-        // Reset to courses tab when modal opens
         function resetToCourses() {
             activateTab(coursesTab, courseOptions, degreeOptions);
         }
         
-        // Open modal
         if (inquiryBtn && modal) {
             inquiryBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -575,7 +604,6 @@
             });
         }
         
-        // Close modal
         function closeModal() {
             modal.classList.add('hidden');
             modal.style.display = 'none';
@@ -584,16 +612,89 @@
         
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('✅ Thank you! Our counselor will contact you soon.');
-                form.reset();
-                closeModal();
-            });
+
+// Admission form submission with frontend validation
+if (admissionForm) {
+    admissionForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get values
+        const name = document.getElementById('fullName')?.value.trim();
+        const email = document.getElementById('email')?.value.trim();
+        const phone = document.getElementById('phone')?.value.trim();
+        const message = document.getElementById('message')?.value.trim();
+        
+        //Determine which tab is active and get the selected course/degree
+        const isCourseTab = document.getElementById('modalCoursesTab')?.classList.contains('active');
+        let courseValue = '';
+        if (isCourseTab) {
+            const courseSelect = document.getElementById('modalCourseSelect');
+            courseValue = courseSelect?.value;
+        } else {
+            const degreeSelect = document.getElementById('modalDegreeSelect');
+            courseValue = degreeSelect?.value;
         }
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal();
-        });
+        
+      
+        // Prepare payload for backend (field names exactly as expected)
+        const payload = {
+            name: name,
+            email: email,
+            phoneNumber:phone,
+            course: courseValue,
+            message: message || ''
+        };
+
+        //Disable submit button
+        const submitBtn = admissionForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+        
+        try {
+            const response = await fetch('/submitEnquery', {  // Your endpoint
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            console.log(response)
+            const result = await response.json();
+            console.log('Submission response:', result);
+            
+            if (response.ok) {
+
+                //   Status 200–299 – success
+                //    Status text (e.g., OK)
+
+                alert('✅ Inquiry sent! You will receive a confirmation email shortly.');
+                admissionForm.reset();
+                //Reset selects to default placeholder
+                document.getElementById('modalCourseSelect').value = '';
+                document.getElementById('modalDegreeSelect').value = '';
+                closeModal();  // close the modal
+            } else {
+
+             //   Status 400, 404, 500, etc. – failure
+             //   Status text (e.g., Bad Request, Not Found(500 Internal Server Error))
+                alert('❌ ' + (result.error || 'Submission failed. Please try again.'));
+            }
+
+
+     }catch(err){
+       console.error('Submission error:', err);
+       alert('❌ something went wrong. Please try again later.');
+        }finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
     });
+}
+
+
+document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeModal();
+    });
+});
+
+
 </script>

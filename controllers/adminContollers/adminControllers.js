@@ -1,13 +1,12 @@
-const courseModel = require("../models/coursesModel");
+const courseModel = require("../../models/coursesModel");
+const Admin = require('../../models/adminModel');
+const bcrypt = require('bcryptjs');
 const fs = require("fs");
 const path = require("path");
 
-// ==================== EXISTING CONTROLLERS ====================
-
-// Show admin login page
-function showAdminLogin(req, res) {
-    console.log("i am admin login");
-    res.render("pages/adminLogin");
+// Show admin dashboard 
+function adminDashboard(req, res) {
+    res.render("pages/admin/adminDashoard");
 }
 
 // Store a new course (creation)
@@ -58,7 +57,7 @@ function storeCourses(req, res) {
                                 const videoFieldName = `modules[${i}][lectures][${j}][videoFile]`;
                                 const videoFile = req.files?.find(f => f.fieldname === videoFieldName);
                                 const videoUrl = videoFile ? "/" + videoFile.path.replace(/\\/g, "/") : "";
-                                
+
                                 lectures.push({
                                     lectureTitle: lecture.lectureTitle,
                                     videoUrl: videoUrl,
@@ -149,10 +148,6 @@ function storeCourses(req, res) {
     }
 }
 
-// Show admin dashboard (list all courses)
-function adminDashboard(req, res) {
-    res.render("pages/adminDashboard");
-}
 
 // ==================== NEW CONTROLLERS FOR COURSE MANAGEMENT ====================
 
@@ -287,7 +282,7 @@ const updateCourse = async (req, res) => {
 
         // --- Process syllabus (modules & lectures) ---
         let processedSyllabus = [];
-        
+
         if (modules && typeof modules === "object") {
             // modules sent as an object with numeric keys (from dynamic form)
             const moduleKeys = Object.keys(modules).filter(k => !isNaN(parseInt(k)));
@@ -299,7 +294,7 @@ const updateCourse = async (req, res) => {
                     for (const lKey of lectureKeys) {
                         const lecture = module.lectures[lKey];
                         let videoUrl = lecture.existingVideoUrl || "";
-                        
+
                         // Check for new video upload
                         const videoFieldName = `modules[${key}][lectures][${lKey}][videoFile]`;
                         const videoFile = req.files?.find(f => f.fieldname === videoFieldName);
@@ -310,7 +305,7 @@ const updateCourse = async (req, res) => {
                             }
                             videoUrl = saveUploadedFile(videoFile);
                         }
-                        
+
                         lecturesArray.push({
                             lectureTitle: lecture.lectureTitle,
                             videoUrl: videoUrl,
@@ -386,7 +381,6 @@ const updateCourse = async (req, res) => {
 
 // ==================== EXPORT ALL CONTROLLERS ====================
 module.exports = {
-    showAdminLogin,
     adminDashboard,
     storeCourses,
     getApiAllCourses,

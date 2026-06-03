@@ -1,0 +1,28 @@
+What Browser Receives ??
+
+->Browser DOES NOT receive session data.
+->it receive only cookies (Session ID + Signature)
+
+
+let's suppoase 
+secret = "mysecretkey"
+sessionId = "abc123"
+
+Server internally creates signature:
+
+signature = hash(sessionId + secret)
+
+Now server sends sessionId and signature to browser as cookies:
+Set-Cookie: sessionId=abc123; HttpOnly; Secure
+Set-Cookie: signature=x7Adk91; HttpOnly; Secure
+
+
+
+When browser makes subsequent requests, it sends these cookies back to the server:
+Cookie: sessionId=abc123; signature=x7Adk91
+Server receives the sessionId and signature, then it verifies the signature using the secret key:
+expectedSignature = hash(sessionId + secret)
+if (signature === expectedSignature) {
+    // Signature is valid, retrieve session data using sessionId
+    sessionData = getSessionData(sessionId)
+}

@@ -2,14 +2,11 @@
 <section class="mt-12 mb-16 px-6 md:px-12 scroll-reveal">
     <div class="help-split-card max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row">
-            <!-- Left Side - Person Illustration with Question Marks Above Head -->
+            <!-- Left Side - Person Illustration -->
             <div class="person-illustration w-full md:w-5/12 p-6 md:p-8 flex flex-col items-center justify-center relative">
                 <div class="relative flex flex-col items-center w-full">
                     <div class="relative inline-block">
-                        <!-- Larger Person Image -->
                         <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain" />
-                        
-                        <!-- Question Marks directly above the head -->
                         <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-sm border border-teal-100 float-question z-10">
                             <span class="text-4xl font-extrabold text-teal-600">?</span>
                         </div>
@@ -20,26 +17,21 @@
                             <span class="text-xl font-extrabold text-teal-500">?</span>
                         </div>
                     </div>
-                    
-                    <!-- Support Text - Bolder -->
                     <div class="mt-5 text-center">
                         <h3 class="text-lg font-extrabold text-gray-800">Have questions? <span class="text-teal-600">We're here</span></h3>
                         <p class="text-sm font-medium text-gray-600 max-w-[200px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
                     </div>
-                    
-                    <!-- Decorative background icon -->
                     <div class="absolute bottom-4 right-4 opacity-10 text-6xl text-teal-500"><i class="fa-regular fa-circle-question"></i></div>
                 </div>
             </div>
             
-            <!-- Right Side - Contact Form with Tabs (Bolder Text) -->
+            <!-- Right Side - Contact Form with Tabs -->
             <div class="w-full md:w-7/12 p-6 md:p-8 bg-white">
                 <div class="flex items-center gap-2 mb-5">
                     <i class="fa-regular fa-headset text-teal-600 text-xl"></i>
                     <h2 class="text-2xl font-extrabold text-gray-800">Talk to our <span class="text-teal-600">Counselor</span></h2>
                 </div>
                 
-                <!-- Tabs (Course / Degree) -->
                 <div class="flex gap-3 mb-5">
                     <button id="ctaCoursesTab" class="cta-tab flex-1 px-4 py-2 rounded-lg bg-white border-2 border-gray-200 text-gray-700 font-bold text-sm transition-all hover:bg-teal-50 hover:border-teal-300">
                         <i class="fa-solid fa-laptop-code mr-2"></i> Course Inquiry
@@ -50,24 +42,33 @@
                 </div>
                 
                 <form id="ctaHelpForm" class="space-y-3">
+                    <!-- Name -->
+                    <input id="ctaFullName" type="text" name="name" placeholder="e.g. Rahul Kumar" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required>
+                    
+                    <!-- Email -->
+                    <input id="ctaEmail" type="email" name="email" placeholder="rahul@example.com" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required>
+                    
+                    <!-- Phone Number -->
+                    <input id="ctaPhoneNumber" type="tel" name="phoneNumber" placeholder="+91 98765 43210" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required>
+                    
+                    <!-- NEW: Preferred Callback Time (dropdown) -->
                     <div>
-                        <label class="text-sm font-bold text-gray-700 block mb-1">Full name *</label>
-                        <input type="text" name="fullName" placeholder="e.g. Alex Rivera" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required />
-                    </div>
-                    <div>
-                        <label class="text-sm font-bold text-gray-700 block mb-1">Email address *</label>
-                        <input type="email" name="email" placeholder="alex@example.com" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required />
-                    </div>
-                    <div>
-                        <label class="text-sm font-bold text-gray-700 block mb-1">Phone number</label>
-                        <input type="tel" name="phone" placeholder="+91 98765 43210" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" />
+                        <label class="text-sm font-bold text-gray-700 block mb-1">Preferred Callback Time (optional)</label>
+                        <select id="ctaCallbackTime" name="callbackTime" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                            <option value="" selected>Select a time slot</option>
+                            <option>Morning (9 AM - 12 PM)</option>
+                            <option>Afternoon (12 PM - 3 PM)</option>
+                            <option>Evening (3 PM - 6 PM)</option>
+                            <option>Late Evening (6 PM - 8 PM)</option>
+                            <option>Anytime</option>
+                        </select>
                     </div>
                     
-                    <!-- Course Selection Dropdown (shown by default) -->
+                    <!-- Course Options (default visible) -->
                     <div id="ctaCourseOptions">
                         <label class="text-sm font-bold text-gray-700 block mb-1">Interested Course *</label>
-                        <select name="courseInterest" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
-                            <option value="">Select a course</option>
+                        <select id="ctaCourseSelect" name="course" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                            <option value="" disabled selected>Select a course</option>
                             <option>Web Development</option>
                             <option>Data Science & AI</option>
                             <option>Cloud & DevOps</option>
@@ -78,11 +79,11 @@
                         </select>
                     </div>
                     
-                    <!-- Degree Program Dropdown (hidden by default) -->
+                    <!-- Degree Options (hidden by default) -->
                     <div id="ctaDegreeOptions" class="hidden">
                         <label class="text-sm font-bold text-gray-700 block mb-1">Interested Degree Program *</label>
-                        <select name="degreeInterest" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
-                            <option value="">Select a degree program</option>
+                        <select id="ctaDegreeSelect" name="degree" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                            <option value="" disabled selected>Select a degree program</option>
                             <option>B.Tech in Computer Science</option>
                             <option>BCA (Bachelor of Computer Applications)</option>
                             <option>MCA (Master of Computer Applications)</option>
@@ -91,28 +92,25 @@
                         </select>
                     </div>
                     
-                    <div>
-                        <label class="text-sm font-bold text-gray-700 block mb-1">Message</label>
-                        <textarea name="message" rows="2" placeholder="I'm interested in... courses, scholarships, career guidance" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800 resize-none"></textarea>
-                    </div>
+                    <!-- Message -->
+                    <textarea id="ctaMessage" name="message" rows="2" placeholder="I'm interested in... courses, online degrees, career guidance" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800 resize-none"></textarea>
                     
                     <button type="submit" class="cta-btn-primary w-full text-white font-extrabold py-2.5 rounded-lg text-base flex items-center justify-center gap-2 transition hover:scale-105">
                         <i class="fa-regular fa-paper-plane text-sm"></i> Request Callback
                     </button>
-                    <p class="text-xs font-medium text-gray-500 text-center mt-2">We'll respond within 24 hours</p>
+                    <p class="text-md font-medium text-gray-500 text-center mt-2">We'll respond within 24 hours</p>
                 </form>
                 
-                <!-- Contact Info Divider -->
                 <div class="mt-5 pt-4 border-t border-gray-200">
                     <div class="flex flex-col sm:flex-row justify-center gap-4 text-xs font-semibold text-gray-600">
                         <div class="flex items-center justify-center gap-2">
-                            <i class="fas fa-phone-alt text-teal-600 text-sm"></i>
-                            <span>+91 9911466118</span>
+                            <i class="fas fa-phone-alt text-teal-600 text-xl"></i>
+                            <span class="text-xl">+91 9911466118</span>
                         </div>
                         <div class="hidden sm:block text-gray-300">|</div>
                         <div class="flex items-center justify-center gap-2">
-                            <i class="fas fa-envelope text-teal-600 text-sm"></i>
-                            <span>contact@skillbridgetech.in</span>
+                            <i class="fas fa-envelope text-teal-600 text-xl"></i>
+                            <span class="text-xl">contact@skillbridgetech.in</span>
                         </div>
                     </div>
                 </div>
@@ -122,8 +120,7 @@
 </section>
 
 <style>
-    /* ==================== CTA SECTION STYLES (Updated) ==================== */
-    
+    /* ==================== CTA SECTION STYLES ==================== */
     .help-split-card {
         background: #ffffff;
         border-radius: 1.5rem;
@@ -134,13 +131,9 @@
     .help-split-card:hover {
         box-shadow: 0 20px 40px -12px rgba(26,111,140,0.2);
     }
-    
-    /* Person Illustration Background */
     .person-illustration {
         background: linear-gradient(135deg, #e6f4f5, #d4eef2);
     }
-    
-    /* Input Field Styles - Bolder focus */
     .input-field {
         border: 1px solid #e2e8f0;
         transition: all 0.15s;
@@ -152,8 +145,6 @@
         outline: none;
         background: #ffffff;
     }
-    
-    /* CTA Button - Bolder gradient */
     .cta-btn-primary {
         background: linear-gradient(135deg, #0a2b3e, #1a6f8c);
         transition: all 0.2s;
@@ -164,8 +155,6 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 15px rgba(26,111,140,0.3);
     }
-    
-    /* Active Tab Style - Thicker border, bolder */
     .cta-tab.active {
         background: linear-gradient(135deg, #0a2b3e, #1a6f8c);
         color: white !important;
@@ -176,8 +165,6 @@
         cursor: pointer;
         transition: all 0.2s;
     }
-    
-    /* Question Mark Floating Animations */
     .float-question {
         animation: floatQuestion 3s ease-in-out infinite;
     }
@@ -188,8 +175,6 @@
         0%, 100% { transform: translateY(0px) rotate(0deg); }
         50% { transform: translateY(-8px) rotate(4deg); }
     }
-    
-    /* Ensure text is not too light anywhere */
     .person-illustration h3,
     .person-illustration p {
         font-weight: 600;
@@ -198,51 +183,122 @@
 
 <script>
     (function() {
-        // Tab switching logic
-        const coursesTab = document.getElementById('ctaCoursesTab');
-        const degreeTab = document.getElementById('ctaDegreeTab');
-        const courseOptions = document.getElementById('ctaCourseOptions');
-        const degreeOptions = document.getElementById('ctaDegreeOptions');
-        
-        function removeActiveFromTabs() {
-            coursesTab.classList.remove('active');
-            degreeTab.classList.remove('active');
-        }
-        
-        function setActiveTab(tab, showElement, hideElement) {
-            removeActiveFromTabs();
-            tab.classList.add('active');
-            showElement.classList.remove('hidden');
-            hideElement.classList.add('hidden');
-        }
-        
-        if (coursesTab && degreeTab) {
-            // Initially set Courses as active
-            setActiveTab(coursesTab, courseOptions, degreeOptions);
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const coursesTab = document.getElementById('ctaCoursesTab');
+            const degreeTab = document.getElementById('ctaDegreeTab');
+            const courseOptions = document.getElementById('ctaCourseOptions');
+            const degreeOptions = document.getElementById('ctaDegreeOptions');
+            const courseSelect = document.getElementById('ctaCourseSelect');
+            const degreeSelect = document.getElementById('ctaDegreeSelect');
             
-            coursesTab.addEventListener('click', function(e) {
-                e.preventDefault();
-                setActiveTab(coursesTab, courseOptions, degreeOptions);
-            });
+            function removeActiveFromTabs() {
+                coursesTab?.classList.remove('active');
+                degreeTab?.classList.remove('active');
+            }
             
-            degreeTab.addEventListener('click', function(e) {
-                e.preventDefault();
-                setActiveTab(degreeTab, degreeOptions, courseOptions);
-            });
-        }
-        
-        // Form submission
-        const ctaForm = document.getElementById('ctaHelpForm');
-        if (ctaForm) {
-            ctaForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const isCourseActive = coursesTab.classList.contains('active');
-                const interestType = isCourseActive ? 'Course' : 'Degree Program';
-                alert(`✅ Thank you! Our counselor will contact you soon regarding your ${interestType} interest.`);
-                ctaForm.reset();
-                // Reset to default tab (Course)
+            function setActiveTab(tab, showElement, hideElement) {
+                removeActiveFromTabs();
+                tab.classList.add('active');
+                showElement.classList.remove('hidden');
+                hideElement.classList.add('hidden');
+            }
+            
+            if (coursesTab && degreeTab) {
                 setActiveTab(coursesTab, courseOptions, degreeOptions);
-            });
-        }
+                coursesTab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setActiveTab(coursesTab, courseOptions, degreeOptions);
+                });
+                degreeTab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setActiveTab(degreeTab, degreeOptions, courseOptions);
+                });
+            }
+            
+            // Form submission
+            const ctaForm = document.getElementById('ctaHelpForm');
+            if (ctaForm) {
+                ctaForm.removeEventListener('submit', ctaForm._handler);
+                ctaForm._handler = async function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('ctaFullName')?.value.trim() || '';
+                    const email = document.getElementById('ctaEmail')?.value.trim() || '';
+                    const phone = document.getElementById('ctaPhoneNumber')?.value.trim() || '';
+                    const callbackTime = document.getElementById('ctaCallbackTime')?.value || '';
+                    const message = document.getElementById('ctaMessage')?.value.trim() || '';
+                    
+                    const isCourseActive = coursesTab.classList.contains('active');
+                    let selectedProgram = '';
+                    if (isCourseActive) {
+                        selectedProgram = courseSelect ? courseSelect.value : '';
+                    } else {
+                        selectedProgram = degreeSelect ? degreeSelect.value : '';
+                    }
+                    
+                    // Validation
+                    let errorMsg = '';
+                    if (!name) errorMsg = 'Please enter your full name.';
+                    else if (!email) errorMsg = 'Please enter your email address.';
+                    else if (!phone) errorMsg = 'Please enter your phone number.';
+                    else if (!selectedProgram) errorMsg = isCourseActive ? 'Please select a course.' : 'Please select a degree program.';
+                    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errorMsg = 'Please enter a valid email address.';
+                    else if (!/^\d{10}$/.test(phone)) errorMsg = 'Phone number must be exactly 10 digits.';
+                    
+                    if (errorMsg) {
+                        alert(errorMsg);
+                        return;
+                    }
+                    
+                    const payload = {
+                        name,
+                        email,
+                        phoneNumber: phone,
+                        course: selectedProgram,
+                        callbackTime,   // new field
+                        message
+                    };
+                    
+                    const submitBtn = ctaForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+                    
+                    try {
+                        const response = await fetch('/submitEnquery', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        let result;
+                        const contentType = response.headers.get('content-type');
+                        if (contentType && contentType.includes('application/json')) {
+                            result = await response.json();
+                        } else {
+                            const text = await response.text();
+                            result = { error: text || 'Unknown error' };
+                        }
+                        if (response.ok) {
+                            alert('✅ Inquiry sent! You will receive a confirmation email shortly.');
+                            ctaForm.reset();
+                            if (courseSelect) courseSelect.value = '';
+                            if (degreeSelect) degreeSelect.value = '';
+                            document.getElementById('ctaCallbackTime').value = ''; // reset callback time
+                            setActiveTab(coursesTab, courseOptions, degreeOptions);
+                        } else {
+                            alert('❌ ' + (result.error || 'Submission failed.'));
+                        }
+                    } catch (err) {
+                        console.error(err);
+                        alert('❌ Network error. Please try again.');
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }
+                };
+                ctaForm.addEventListener('submit', ctaForm._handler);
+            }
+        });
     })();
 </script>

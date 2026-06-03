@@ -11,28 +11,7 @@
 </head>
 <body class="bg-white">
    <!-- nav bar -->
-    <%- include('../partials/common/navbar.ejs') %>
-    <nav class="fixed top-16 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg z-50">
-    <div class="container mx-auto px-6 h-10">
-        <div class="flex items-center justify-center py-2">
-        
-            <!-- Navigation Links -->
-            <div class="hidden md:flex gap-8">
-                <a href="#aboutSkillBridge" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">About SkillBridge</a>
-                <a href="#about" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">Founder</a>
-                <a href="#courses" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition"></a>
-                <a href="#trainer" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">Our Trainer</a>
-                <a href="#hiringPartner" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">Hiring Partner</a>
-                <a href="#universityPartner" class="nav-link text-gray-700 hover:text-cyan-600 font-medium transition">University Partner</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </div>
-</nav>
+    <%- include('../../partials/common/navbar.ejs') %>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
@@ -60,36 +39,36 @@
       
 
         <!-- ==================== 2. OUR STORY SECTION ==================== -->
-        <%- include('../partials/about/storySection')  %>
+        <%- include('../../partials/about/storySection')  %>
 
        <!-- ==================== 3. MISSION & VISION ==================== -->
-        <%- include('../partials/about/visionMission')  %>
+        <%- include('../../partials/about/visionMission')  %>
 
         <!-- ==================== 6. FOUNDER & LEADERSHIP ==================== -->
     
         <!-- ==================== 7. OUR MENTORS ==================== -->
-        <%- include('../partials/about/mentors')  %>
+        <%- include('../../partials/about/mentors')  %>
         
         <!-- ==================== 9. CERTIFICATIONS ==================== -->
-        <%- include('../partials/about/certifications')  %>
+        <%- include('../../partials/about/certifications')  %>
         
         <!-- ==================== 10. CORE VALUES ==================== -->
-        <%- include('../partials/about/coreValues')  %>
+        <%- include('../../partials/about/coreValues')  %>
         <!-- trust section -->
-        <%- include('../partials/about/trust')  %>
+        <%- include('../../partials/about/trust')  %>
 
 <!-- ==================== UNIVERSITY PARTNERS SECTION ==================== -->
-        <%- include('../partials/about/universityPartner')  %>
+        <%- include('../../partials/about/universityPartner')  %>
 
         <!-- ==================== 11. WHY CHOOSE US ==================== -->
-         <%- include('../partials/about/whyChooseus')  %>
+         <%- include('../../partials/about/whyChooseus')  %>
 
         <!-- ==================== 12. CALL TO ACTION ==================== -->
-       <%- include('../partials/about/callUs')  %>
+       <%- include('../../partials/about/callUs')  %>
 
         <!-- Footer -->
     
-        <%- include('../partials/common/footer')  %>
+        <%- include('../../partials/common/footer')  %>
 
         <script src="/about.js"></script>
 </body>

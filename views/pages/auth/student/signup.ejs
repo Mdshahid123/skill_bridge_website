@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sign Up | Skill Bridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 10% 30%, #eef9fc 0%, #cfe8ed 100%);
+        }
+        .input-field:focus {
+            box-shadow: 0 0 0 4px rgba(26, 111, 140, 0.12);
+        }
+        .btn-primary {
+            background: linear-gradient(105deg, #0a2b3e 0%, #146b87 100%);
+            transition: all 0.25s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(105deg, #0e3c54 0%, #0f5e78 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px -12px rgba(20, 107, 135, 0.4);
+        }
+        .error-shake {
+            animation: shake 0.3s ease-in-out 0s 2;
+        }
+        @keyframes shake {
+            0%,100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+        .custom-checkbox:checked {
+            background-color: #1a6f8c;
+            border-color: #1a6f8c;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 md:p-6">
+
+<div class="w-full max-w-lg">
+    <!-- Brand header -->
+    <div class="text-center mb-5">
+        <div class="inline-flex items-center gap-2.5 bg-white/60 backdrop-blur-sm px-5 py-2 rounded-full shadow-sm border border-white/40">
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0a2b3e] to-[#1a6f8c] flex items-center justify-center shadow-sm">
+                <span class="text-white font-black text-xs">SB</span>
+            </div>
+            <span class="text-gray-800 font-black text-xl tracking-tight">Skill<span class="text-teal-700">Bridge</span></span>
+        </div>
+    </div>
+
+    <!-- Sign Up Card -->
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transition-all">
+        <div class="h-1 bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-500"></div>
+
+        <div class="p-5 md:p-7">
+            <div class="mb-5 text-center">
+                <h2 class="text-2xl font-bold text-gray-800 tracking-tight">Create an account</h2>
+                <p class="text-gray-500 text-sm mt-1">Start your learning journey today</p>
+            </div>
+
+            <form action="/submitSignup" method="POST" id="signupForm" novalidate>
+                <!-- First & Last Name row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <div class="relative">
+                            <i class="fa-regular fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="text" name="firstName" id="firstName" required
+                                   placeholder="First name"
+                                   value="<%= locals.oldData && oldData.firstName ? oldData.firstName : '' %>"
+                                   class="input-field w-full pl-9 pr-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 bg-gray-50 focus:bg-white transition">
+                        </div>
+                        <div class="error-container text-xs text-red-500 mt-1 min-h-[20px]" id="error-firstName"></div>
+                    </div>
+                    <div>
+                        <div class="relative">
+                            <i class="fa-regular fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="text" name="lastName" id="lastName" required
+                                   placeholder="Last name"
+                                   value="<%= locals.oldData && oldData.lastName ? oldData.lastName : '' %>"
+                                   class="input-field w-full pl-9 pr-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 bg-gray-50 focus:bg-white transition">
+                        </div>
+                        <div class="error-container text-xs text-red-500 mt-1 min-h-[20px]" id="error-lastName"></div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <div class="relative">
+                        <i class="fa-regular fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                        <input type="email" name="email" id="email" required
+                               placeholder="Email address"
+                               value="<%= locals.oldData && oldData.email ? oldData.email : '' %>"
+                               class="input-field w-full pl-9 pr-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 bg-gray-50 focus:bg-white transition">
+                    </div>
+                    <div class="error-container text-xs text-red-500 mt-1 min-h-[20px]" id="error-email"></div>
+                </div>
+
+                <!-- Phone (optional) -->
+                <div class="mb-4">
+                    <div class="relative">
+                        <i class="fa-solid fa-phone absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                        <input type="tel" name="phone" id="phone"
+                               placeholder="Phone number (optional)"
+                               value="<%= locals.oldData && oldData.phone ? oldData.phone : '' %>"
+                               class="input-field w-full pl-9 pr-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 bg-gray-50 focus:bg-white transition">
+                    </div>
+                    <div class="error-container text-xs text-red-500 mt-1 min-h-[16px]" id="error-phone"></div>
+                </div>
+
+                <!-- Password & Confirm row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="password" name="password" id="password" required
+                                   placeholder="Password"
+                                   class="input-field w-full pl-9 pr-9 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 bg-gray-50 focus:bg-white transition">
+                            <button type="button" id="togglePassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-teal-600">
+                                <i class="fa-regular fa-eye-slash text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="error-container text-xs text-red-500 mt-1 min-h-[20px]" id="error-password"></div>
+                    </div>
+                    <div>
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required
+                                   placeholder="Confirm password"
+                                   class="input-field w-full pl-9 pr-9 py-2.5 text-sm border border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 bg-gray-50 focus:bg-white transition">
+                            <button type="button" id="toggleConfirmPassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-teal-600">
+                                <i class="fa-regular fa-eye-slash text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="error-container text-xs text-red-500 mt-1 min-h-[20px]" id="error-confirmPassword"></div>
+                    </div>
+                </div>
+
+                <!-- Terms -->
+                <div class="flex items-start gap-2.5 my-5">
+                    <input type="checkbox" id="termsCheckbox" name="terms" value="accepted"
+                           class="custom-checkbox w-4 h-4 mt-0.5 rounded border-gray-300 text-teal-600 focus:ring-teal-500">
+                    <label for="termsCheckbox" class="text-sm text-gray-600 leading-tight">
+                        I agree to the <a href="#" class="text-teal-600 hover:underline font-medium">Terms of Service</a> and <a href="#" class="text-teal-600 hover:underline font-medium">Privacy Policy</a>
+                    </label>
+                </div>
+                <div class="error-container text-xs text-red-500 -mt-3 mb-3 min-h-[20px]" id="error-terms"></div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn-primary w-full text-white font-semibold py-2.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg">
+                    <i class="fa-regular fa-paper-plane text-sm"></i>
+                    <span>Create account</span>
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200"></div>
+                </div>
+                <div class="relative flex justify-center text-xs">
+                    <span class="px-3 bg-white text-gray-400">or continue with</span>
+                </div>
+            </div>
+
+            <!-- Social signup -->
+            <div class="grid grid-cols-2 gap-3">
+                <button class="flex items-center justify-center gap-2 py-2 border border-gray-200 rounded-xl hover:bg-gray-50 transition bg-white shadow-sm">
+                    <i class="fa-brands fa-google text-red-500 text-sm"></i>
+                    <span class="text-sm font-medium text-gray-700">Google</span>
+                </button>
+                <button class="flex items-center justify-center gap-2 py-2 border border-gray-200 rounded-xl hover:bg-gray-50 transition bg-white shadow-sm">
+                    <i class="fa-brands fa-github text-gray-800 text-sm"></i>
+                    <span class="text-sm font-medium text-gray-700">GitHub</span>
+                </button>
+            </div>
+
+            <!-- Login link -->
+            <p class="text-center text-sm text-gray-500 mt-6">
+                Already have an account?
+                <a href="/login" class="text-teal-700 font-semibold hover:underline">Sign in →</a>
+            </p>
+        </div>
+    </div>
+
+    <p class="text-center text-xs text-gray-500 mt-5 flex items-center justify-center gap-1">
+        <i class="fa-regular fa-shield-haltered"></i> Secure & encrypted — your data stays private
+    </p>
+</div>
+
+<script>
+
+    // -------------------- SAFE EJS DATA INJECTION --------------------
+    // Instead of complex escaping, we inject JSON-serialized strings.
+    // Note: 'error' and 'oldData' are passed from Express res.render.
+    const serverError = <%- typeof error !== 'undefined' ? JSON.stringify(error) : 'null' %>;
+    const oldFormData = <%- typeof oldData !== 'undefined' ? JSON.stringify(oldData) : 'null' %>;
+
+    // Populate form fields if oldData exists (server-side validation repopulation)
+    if (oldFormData) {
+        if (oldFormData.firstName) document.getElementById('firstName').value = oldFormData.firstName;
+        if (oldFormData.lastName) document.getElementById('lastName').value = oldFormData.lastName;
+        if (oldFormData.email) document.getElementById('email').value = oldFormData.email;
+        if (oldFormData.phone) document.getElementById('phone').value = oldFormData.phone;
+        // Do not populate password/confirm fields for security
+    }
+
+    // Helper: set inline error under a specific field
+    function setFieldError(fieldId, message) {
+        const errorSpan = document.getElementById(`error-${fieldId}`);
+        if (errorSpan) errorSpan.innerHTML = message || '';
+        const inputEl = document.getElementById(fieldId);
+        if (inputEl) {
+            if (message) {
+                inputEl.classList.add('border-red-400', 'bg-red-50');
+                inputEl.classList.remove('border-gray-200');
+                inputEl.classList.add('error-shake');
+                setTimeout(() => inputEl.classList.remove('error-shake'), 500);
+            } else {
+                inputEl.classList.remove('border-red-400', 'bg-red-50');
+                inputEl.classList.add('border-gray-200', 'bg-gray-50');
+            }
+        }
+    }
+
+    //Map server error to appropriate field
+    if (serverError && typeof serverError === 'string' && serverError.length > 0) {
+        const errLower = serverError.toLowerCase();
+        if (errLower.includes('email') || errLower.includes('already registered') || errLower.includes('exists')) {
+            setFieldError('email', serverError);
+        } else if (errLower.includes('password') || errLower.includes('match')) {
+            setFieldError('confirmPassword', serverError);
+        } else if (errLower.includes('first name')) {
+            setFieldError('firstName', serverError);
+        } else if (errLower.includes('last name')) {
+            setFieldError('lastName', serverError);
+        } else if (errLower.includes('term')) {
+            document.getElementById('error-terms').innerHTML = serverError;
+            document.getElementById('termsCheckbox').classList.add('border-red-400');
+        } else {
+            setFieldError('email', serverError);
+        }
+    }
+
+    // ---------- Client-side validation functions ----------
+    function validateFirstName() {
+        const val = document.getElementById('firstName').value.trim();
+        return val === '' ? 'First name is required' : '';
+    }
+    function validateLastName() {
+        const val = document.getElementById('lastName').value.trim();
+        return val === '' ? 'Last name is required' : '';
+    }
+    function validateEmail() {
+        const email = document.getElementById('email').value.trim();
+        if (email === '') return 'Email address is required';
+        const re = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+        return re.test(email) ? '' : 'Enter a valid email address';
+    }
+    function validatePassword() {
+        const pwd = document.getElementById('password').value;
+        if (pwd === '') return 'Password is required';
+        if (pwd.length < 6) return 'Password must be at least 6 characters';
+        return '';
+    }
+    function validateConfirm() {
+        const pwd = document.getElementById('password').value;
+        const confirm = document.getElementById('confirmPassword').value;
+        if (confirm === '') return 'Please confirm your password';
+        return pwd === confirm ? '' : 'Passwords do not match';
+    }
+    function validateTerms() {
+        return document.getElementById('termsCheckbox').checked ? '' : 'You must accept the Terms of Service';
+    }
+
+    function clearAllErrors() {
+        const fields = ['firstName', 'lastName', 'email', 'phone', 'password', 'confirmPassword'];
+        fields.forEach(f => setFieldError(f, ''));
+        document.getElementById('error-terms').innerHTML = '';
+        const termsCheck = document.getElementById('termsCheckbox');
+        if (termsCheck) termsCheck.classList.remove('border-red-400');
+    }
+
+    function validateFullForm() {
+        clearAllErrors();
+        let isValid = true;
+
+        const fnErr = validateFirstName();
+        if (fnErr) { setFieldError('firstName', fnErr); isValid = false; }
+        const lnErr = validateLastName();
+        if (lnErr) { setFieldError('lastName', lnErr); isValid = false; }
+        const emailErr = validateEmail();
+        if (emailErr) { setFieldError('email', emailErr); isValid = false; }
+        const pwdErr = validatePassword();
+        if (pwdErr) { setFieldError('password', pwdErr); isValid = false; }
+        const confirmErr = validateConfirm();
+        if (confirmErr) { setFieldError('confirmPassword', confirmErr); isValid = false; }
+        const termsErr = validateTerms();
+        if (termsErr) {
+            document.getElementById('error-terms').innerHTML = termsErr;
+            document.getElementById('termsCheckbox').classList.add('border-red-400');
+            isValid = false;
+        }
+        return isValid;
+    }
+
+    // Form submission
+    const form = document.getElementById('signupForm');
+    form.addEventListener('submit', function(e) {
+        if (!validateFullForm()) {
+            e.preventDefault();
+            const firstError = document.querySelector('.border-red-400');
+            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+
+    // Live field validation (on blur and input)
+    function attachLiveValidation() {
+        const fields = [
+            { id: 'firstName', validate: validateFirstName },
+            { id: 'lastName', validate: validateLastName },
+            { id: 'email', validate: validateEmail },
+            { id: 'password', validate: validatePassword },
+            { id: 'confirmPassword', validate: validateConfirm }
+        ];
+        fields.forEach(f => {
+            const el = document.getElementById(f.id);
+            if (el) {
+                el.addEventListener('input', () => {
+                    const err = f.validate();
+                    setFieldError(f.id, err);
+                    if (f.id === 'password') {
+                        const confErr = validateConfirm();
+                        setFieldError('confirmPassword', confErr);
+                    }
+                    if (f.id === 'confirmPassword') {
+                        const confErr = validateConfirm();
+                        setFieldError('confirmPassword', confErr);
+                    }
+                });
+                el.addEventListener('blur', () => {
+                    const err = f.validate();
+                    setFieldError(f.id, err);
+                    if (f.id === 'password') {
+                        const confErr = validateConfirm();
+                        setFieldError('confirmPassword', confErr);
+                    }
+                });
+            }
+        });
+        const terms = document.getElementById('termsCheckbox');
+        if (terms) {
+            terms.addEventListener('change', () => {
+                const err = validateTerms();
+                document.getElementById('error-terms').innerHTML = err;
+                if (err) terms.classList.add('border-red-400');
+                else terms.classList.remove('border-red-400');
+            });
+        }
+    }
+
+    // Password visibility toggles
+    document.getElementById('togglePassword')?.addEventListener('click', () => {
+        const pwd = document.getElementById('password');
+        const type = pwd.type === 'password' ? 'text' : 'password';
+        pwd.type = type;
+        const icon = document.querySelector('#togglePassword i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+    document.getElementById('toggleConfirmPassword')?.addEventListener('click', () => {
+        const pwd = document.getElementById('confirmPassword');
+        const type = pwd.type === 'password' ? 'text' : 'password';
+        pwd.type = type;
+        const icon = document.querySelector('#toggleConfirmPassword i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+
+    attachLiveValidation();
+</script>
+</body>
+</html>

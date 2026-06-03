@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Admin | Skill Bridge Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta name="csrf-token" content="<%= csrfToken   %>">
+</head>
+<body class="bg-gray-100 font-inter">
+    <div class="flex h-screen">
+        <!-- Sidebar (reuse your admin sidebar) -->
+        <aside class="w-64 bg-gradient-to-b from-[#0a2b3e] to-[#1a6f8c] text-white flex flex-col">
+            <div class="p-5 border-b border-white/20">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
+                        <span class="font-black">SB</span>
+                    </div>
+                    <span class="font-bold text-lg">SkillBridge Admin</span>
+                </div>
+                <p class="text-xs text-white/70 mt-2"><%= admin.name %></p>
+            </div>
+            <nav class="flex-1 py-4">
+                <a href="/admin/dashboard" class="flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-colors"> <i class="fa-solid fa-chart-line w-5"></i> Dashboard </a>
+                <a href="/admin/courses" class="flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-colors"> <i class="fa-solid fa-laptop-code w-5"></i> Courses </a>
+                <a href="/admin/courses/add" class="flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-colors"> <i class="fa-solid fa-plus-circle w-5"></i> Add Course </a>
+                <a href="/admin/create-admin" class="flex items-center gap-3 px-5 py-3 bg-white/10 border-r-4 border-teal-400"> <i class="fa-solid fa-user-shield w-5"></i> Create Admin </a>
+                <a href="/admin/logout" class="flex items-center gap-3 px-5 py-3 hover:bg-white/10 transition-colors mt-10 text-red-300"> <i class="fa-solid fa-sign-out-alt w-5"></i> Logout </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-6">
+            <div class="max-w-2xl mx-auto">
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold text-gray-800">Create New Administrator</h1>
+                    <p class="text-gray-500">Add a new admin account. All admins have full access.</p>
+                </div>
+
+                <!-- Display success/error messages -->
+                <% if (locals.success) { %>
+                    <div class="mb-4 p-3 bg-green-100 border-l-4 border-green-500 text-green-700 rounded">
+                        <i class="fa-solid fa-check-circle mr-2"></i> <%= success %>
+                    </div>
+                <% } %>
+                <% if (locals.error) { %>
+                    <div class="mb-4 p-3 bg-red-100 border-l-4 border-red-500 text-red-700 rounded">
+                        <i class="fa-solid fa-exclamation-triangle mr-2"></i> <%= error %>
+                    </div>
+                <% } %>
+
+                <form action="/admin/create-admin" method="POST" class="bg-white rounded-xl shadow p-6 space-y-5">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                    <!-- Full Name -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Full Name *</label>
+                        <input type="text" name="name" value="<%= formData ? formData.name : '' %>" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Email Address *</label>
+                        <input type="email" name="email" value="<%= formData ? formData.email : '' %>" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Password *</label>
+                        <input type="password" name="password" id="password" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
+                        <p class="text-xs text-gray-500 mt-1">Minimum 8 characters, at least one uppercase, one lowercase, one number.</p>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Confirm Password *</label>
+                        <input type="password" name="confirmPassword" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
+                    </div>
+
+                    <div class="flex gap-3 pt-3">
+                        <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg font-semibold transition">
+                            <i class="fa-solid fa-user-plus mr-2"></i> Create Admin
+                        </button>
+                        <a href="/admin/dashboard" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-lg font-semibold transition text-center">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

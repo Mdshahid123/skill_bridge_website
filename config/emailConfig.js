@@ -1,7 +1,7 @@
 // config/emailConfig.js
 const nodemailer = require('nodemailer');
 
-// Create transporter
+//Create transporter
 const transporter = nodemailer.createTransport({
     service: 'gmail', // or 'outlook', 'yahoo', etc.
     auth: {

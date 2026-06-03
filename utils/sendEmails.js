@@ -2,13 +2,13 @@
 const transporter = require('../config/emailConfig');
 
 async function sendInquiryEmail(formData) {
-    const { fullName, email, phone, course, callbackTime, message ,degree} = formData;
+    const { name, email, phoneNumber, course, callbackTime, message ,degree} = formData;
     
     // Email to Admin (you)
     const adminMailOptions = {
         from: 'shahiddelhi989@gmail.com',
-        to: 'mdshahid2021a@gmail.com', // Your admin email
-        subject: `New Admission Inquiry from ${fullName}`,
+        to: 'shahiddelhi989@gmail.com', // Your admin email
+        subject: `New Admission Inquiry from ${name}`,
         html: `
             <!DOCTYPE html>
             <html>
@@ -31,7 +31,7 @@ async function sendInquiryEmail(formData) {
                     <div class="content">
                         <div class="field">
                             <div class="label">Full Name:</div>
-                            <div>${fullName}</div>
+                            <div>${name}</div>
                         </div>
                         <div class="field">
                             <div class="label">Email:</div>
@@ -39,7 +39,7 @@ async function sendInquiryEmail(formData) {
                         </div>
                         <div class="field">
                             <div class="label">Phone:</div>
-                            <div>${phone}</div>
+                            <div>${phoneNumber}</div>
                         </div>
                         <div class="field">
                             <div class="label">Interested Course/degree:</div>
@@ -65,7 +65,7 @@ async function sendInquiryEmail(formData) {
     
     // Auto-reply to Student
     const studentMailOptions = {
-        from: 'your-email@gmail.com',
+        from: 'shahiddelhi989@gmail.com',
         to: email, // Send to the student who filled the form
         subject: 'Thank you for your inquiry - Skill Bridge',
         html: `
@@ -86,14 +86,14 @@ async function sendInquiryEmail(formData) {
                         <h2>Welcome to Skill Bridge!</h2>
                     </div>
                     <div class="content">
-                        <p>Dear ${fullName},</p>
+                        <p>Dear ${name},</p>
                         <p>Thank you for your interest in Skill Bridge! We have received your admission inquiry.</p>
                         <p><strong>Your inquiry details:</strong></p>
                         <ul>
                             <li>Course: ${course || degree || 'Not specified'}</li>
                             <li>Preferred Time: ${callbackTime || 'Not specified'}</li>
                         </ul>
-                        <p>Our admission counselor will contact you within 24 hours at <strong>${phone}</strong>.</p>
+                        <p>Our admission counselor will contact you within 24 hours at <strong>${phoneNumber}</strong>.</p>
                         <p>If you have any immediate questions, feel free to reply to this email.</p>
                         <br>
                         <p>Best regards,<br><strong>Skill Bridge Team</strong></p>
@@ -110,15 +110,14 @@ async function sendInquiryEmail(formData) {
     try {
         // Send email to admin
         await transporter.sendMail(adminMailOptions);
-        console.log("Admin email sent successfully");
+        console.log("Admin email sent successfully")
         
         // Send auto-reply to student
         await transporter.sendMail(studentMailOptions);
         console.log("Student auto-reply sent successfully");
-        
         return { success: true };
-    } catch (error) {
-        console.error("Email sending failed:", error);
+    }catch (error) {
+        console.error("Email sending failed:", error.message);
         return { success: false, error: error.message };
     }
 }
