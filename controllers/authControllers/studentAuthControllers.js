@@ -19,7 +19,7 @@ async function submitLogin(req, res) {
         const existingUser = await user.findOne({ email });
 
         if (!existingUser) {
-            return res.status(401).render("pages/auth/login", {
+            return res.status(401).render("pages/auth/student/login", {
                 error: "Invalid email or password",
                 email: email
             });
@@ -31,7 +31,7 @@ async function submitLogin(req, res) {
         );
 
         if (!isPasswordValid) {
-            return res.status(401).render("pages/auth/login", {
+            return res.status(401).render("pages/auth/student/login", {
                 error: "Invalid email or password",
                 email: email
             });
@@ -55,7 +55,7 @@ async function submitLogin(req, res) {
             if (err) {
                 console.error("Session save error:", err);
 
-                return res.status(500).render("pages/auth/login", {
+                return res.status(500).render("pages/auth/student/login", {
                     error: "An error occurred while logging in. Please try again",
                     email: email
                 });
@@ -71,7 +71,7 @@ async function submitLogin(req, res) {
     } catch (error) {
         console.error("Error during login:", error);
 
-        res.status(500).render("pages/auth/login", {
+        res.status(500).render("pages/auth/student/login", {
             error: "An error occurred while logging in. Please try again.",
             email: email
         });
@@ -158,13 +158,15 @@ check("terms")
    console.log("Received signup data:", req.body);
    const error = validationResult(req)
      if(!error.isEmpty()){
-        return res.status(422).render("pages/auth/signup",{
+        return res.status(422).render("pages/auth//student/signup",{
                 isLogin:false,
                 error:error.array()[0].msg,
         })
      }
 
      try{
+    
+
      //hash password before saving to database
      const hashedPassword = await bcrypt.hash(req.body.password, 12);
      req.body.password=hashedPassword
@@ -176,8 +178,15 @@ check("terms")
      res.redirect("/login");
 
      }catch(err){
+
+         if(err.code === 11000){
+          return res.status(422).render("pages/auth/student/signup",{
+               isLogin:false,
+               error:"An account with this email already exists. Please log in. "
+          });
+     }
      console.log("Error during user registration:", err);
-     res.status(500).render("pages/auth/signup",{isLogin:false,error:"An error occurred while registering. Please try again."})
+     res.status(500).render("pages/auth/student/signUp",{isLogin:false,error:"An error occurred while registering. Please try again."})
     }
 }
 ]
