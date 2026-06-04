@@ -64,7 +64,6 @@ function showContactPage(req, res) {
 
 
 // store enquery form
-
 function storeEnqueryForm(req, res) {
      
     // print the form data 

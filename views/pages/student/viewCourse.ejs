@@ -12,7 +12,6 @@
         body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
         
         /* ========== COURSE PAGE SPECIFIC STYLES ========== */
-        /* Only apply bold/professional styles to main course content, not nav/footer */
         .course-content-wrapper h1,
         .course-content-wrapper h2,
         .course-content-wrapper h3,
@@ -39,11 +38,10 @@
             font-weight: 500 !important;
         }
         
-        /* Keep buttons, badges etc consistent */
         .btn-primary-custom { background: linear-gradient(135deg, #0a2b3e, #1a6f8c); transition: all 0.2s; color: white; font-weight: 700; }
         .btn-primary-custom:hover { background: linear-gradient(135deg, #0a2b3e, #0066b3); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,111,140,0.3); }
         
-        /* Hero and other section styles (no nav breakage) */
+        /* Hero section */
         .hero-glow { background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%); position: relative; overflow: hidden; }
         .hero-glow::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(26,111,140,0.12) 0%, rgba(0,102,179,0.06) 50%, transparent 70%); animation: rotateGlow 20s linear infinite; }
         @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -67,17 +65,16 @@
         .lecture-item.locked .fa-circle-play { display: none; }
         .lecture-item.locked .fa-lock { display: inline-block; }
         
-        /* INSTRUCTOR CARD */
+        /* ========== INSTRUCTOR CARD – NO VACANT SPACE, CONSTANT RATIO ========== */
         .instructor-card {
             background: white;
             border-radius: 1.25rem;
             overflow: hidden;
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
             transition: all 0.3s ease;
-            flex-shrink: 0;
             border: 1px solid #eef2f8;
-            height: 350px;
         }
         .instructor-card:hover {
             transform: translateY(-6px);
@@ -85,27 +82,22 @@
         }
         .instructor-image-container {
             width: 100%;
-            background: linear-gradient(135deg, #e0f2f5, #cce7ed);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
+            background: #f1f5f9;
+            aspect-ratio: 4 / 3;           /* constant ratio – fills without empty space */
+            overflow: hidden;
         }
         .instructor-cover-img {
-            max-width: 100%;
-            max-height: 200px;
             width: 100%;
             height: 100%;
-            object-fit: fill;
+            object-fit: cover;             /* no vacant area, covers whole container */
             display: block;
             transition: transform 0.4s ease;
-            border-radius: 0.5rem;
         }
         .instructor-card:hover .instructor-cover-img {
             transform: scale(1.02);
         }
         .instructor-info {
-            padding: 1.25rem 1rem 1.25rem 1rem;
+            padding: 1.25rem 1rem;
             text-align: left;
             background: white;
         }
@@ -120,40 +112,57 @@
             font-weight: 500;
             color: #334155;
             line-height: 1.4;
-            margin-bottom: 0;
         }
         
-        /* ENROLLMENT CARD IMAGE */
+        /* ========== ENROLLMENT CARD IMAGE – NO VACANT SPACE, CONSTANT RATIO ========== */
         .course-sidebar-img-container {
             width: 100%;
             background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.75rem;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
-            min-height: 180px;
+            border-radius: 0.75rem;
         }
         .course-sidebar-img {
-            max-width: 100%;
-            max-height: 180px;
-            width: 500px;
-            height: auto;
-            object-fit: fill;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
         
+        /* Responsive adjustments */
         @media (max-width: 1024px) {
             .instructor-card {
-                width: 100%;
                 max-width: 340px;
                 margin: 0 auto;
             }
-            .instructor-image-container {
-                min-height: 180px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
-            .instructor-cover-img {
-                max-height: 180px;
+            .hero-glow .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .instructor-card {
+                margin-top: 1rem;
+            }
+            .breadcrumb {
+                font-size: 0.75rem;
+            }
+            h1 {
+                font-size: 1.75rem !important;
+            }
+            .typing-dynamic-container {
+                min-width: 160px;
+            }
+            /* Optionally adjust aspect ratio on mobile */
+            .instructor-image-container {
+                aspect-ratio: 3 / 4;
+            }
+            .course-sidebar-img-container {
+                aspect-ratio: 16 / 9;
             }
         }
         
@@ -176,11 +185,15 @@
                 margin-left: 0;
             }
         }
+
+
+        
+
     </style>
 </head>
 <body>
 
-    <%- include("../partials/common/navbar.ejs") %>
+    <%- include("../../partials/common/navbar.ejs") %>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
@@ -201,7 +214,7 @@
         </div>
     </div>
 
-    <!-- MAIN COURSE CONTENT WRAPPER – all bold/professional styles are scoped inside this -->
+    <!-- MAIN COURSE CONTENT WRAPPER -->
     <div class="course-content-wrapper">
         <main>
             <!-- Course Header -->
@@ -228,8 +241,8 @@
                                 <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
                                 <span class="text-teal-600 text-xs font-extrabold tracking-wide">Most Popular Course</span>
                             </div>
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 glow-text"><%= course.courseName %></h1>
-                            <p class="text-gray-700 text-lg max-w-2xl font-medium"><%= course.courseDescription %></p>
+                            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 glow-text"><%= course.courseName %></h1>
+                            <p class="text-gray-700 text-base md:text-lg max-w-2xl font-medium"><%= course.courseDescription %></p>
                             
                             <div class="flex flex-wrap gap-4 mt-6">
                                 <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
@@ -247,10 +260,10 @@
                             </div>
                         </div>
                         
-                        <!-- INSTRUCTOR CARD -->
-                        <div class="instructor-card">
+                        <!-- INSTRUCTOR CARD (image fills container, no vacant space) -->
+                        <div class="instructor-card mx-auto lg:mx-0">
                             <div class="instructor-image-container">
-                                <img src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="instructor-cover-img">
+                                <img style="object-fit:fill;" src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="instructor-cover-img">
                             </div>
                             <div class="instructor-info">
                                 <h3 class="instructor-name"><%= course.instructor.name %></h3>
@@ -264,7 +277,7 @@
             <!-- Course Content -->
             <div class="container mx-auto px-6 py-12 max-w-8xl">
                 <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Left Column -->
+                    <!-- Left Column (2/3 on large screens) -->
                     <div class="lg:col-span-2 space-y-8">
                         <!-- What You'll Learn -->
                         <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all">
@@ -302,8 +315,8 @@
                         </div>
                     </div>
 
-                    <!-- Right Sidebar - Enrollment Card -->
-                    <div style="width:380px; margin-left:20px;" class="space-y-6">
+                    <!-- Right Sidebar - Enrollment Card (image fills container) -->
+                    <div class="lg:col-span-1 space-y-6">
                         <div class="bg-white rounded-xl p-6 shadow-sm border border-teal-100 sticky top-24">
                             <div class="course-sidebar-img-container mb-4">
                                 <img src="<%= course.image %>" alt="<%= course.courseName %>" class="course-sidebar-img">
@@ -326,45 +339,6 @@
                     </div>
                 </div>
 
-                <!-- Projects Showcase -->
-                <div class="mt-16">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Projects</h2>
-                        <p class="text-gray-600 mt-3 max-w-2xl mx-auto font-medium">Real-world projects built by our students - from AI chatbots to full-stack applications</p>
-                    </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <% if (course.projects && course.projects.length > 0) { %>
-                            <% course.projects.forEach(project => { %>
-                                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md">
-                                    <div class="relative h-40 bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center">
-                                        <i class="fa-solid fa-diagram-project text-white text-5xl opacity-80"></i>
-                                        <span class="absolute top-3 right-3 bg-black/50 backdrop-blur px-2 py-0.5 rounded-full text-[10px] text-white font-bold">Project</span>
-                                    </div>
-                                    <div class="p-4">
-                                        <h3 class="font-extrabold text-gray-800 text-lg"><%= project.projectTitle %></h3>
-                                        <p class="text-gray-600 text-xs font-medium mb-3"><%= project.projectDescription %></p>
-                                        <div class="flex flex-wrap gap-1 mb-3">
-                                            <span class="text-[10px] bg-gray-100 text-gray-700 font-semibold px-2 py-0.5 rounded-full">React</span>
-                                            <span class="text-[10px] bg-gray-100 text-gray-700 font-semibold px-2 py-0.5 rounded-full">Node.js</span>
-                                            <span class="text-[10px] bg-gray-100 text-gray-700 font-semibold px-2 py-0.5 rounded-full">MongoDB</span>
-                                        </div>
-                                        <div class="flex items-center justify-between pt-2 border-t border-gray-100">
-                                            <div class="flex gap-2">
-                                                <% if (project.projectUrl) { %>
-                                                    <a href="<%= project.projectUrl %>" target="_blank" class="text-teal-600 text-xs font-bold hover:text-teal-700 transition">Demo →</a>
-                                                <% } %>
-                                                <button class="text-gray-500 text-xs font-medium hover:text-gray-700 transition">Code</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <% }); %>
-                        <% } else { %>
-                            <div class="col-span-4 text-center py-8 text-gray-500 font-medium">No projects added yet.</div>
-                        <% } %>
-                    </div>
-                </div>
-
                 <!-- Exclusive Course Offerings -->
                 <div class="mt-20">
                     <div class="text-center mb-14">
@@ -377,6 +351,7 @@
                         <p class="text-gray-500 mt-3 max-w-2xl mx-auto font-medium">Comprehensive learning ecosystem designed for your success</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+                        <!-- (offering cards remain unchanged) -->
                         <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-100 to-rose-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-diagram-project text-rose-600 text-2xl"></i>
@@ -422,7 +397,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate Section -->
+                <!-- Certificate Section (unchanged) -->
                 <div class="relative mt-20 mb-36">
                     <div class="absolute inset-0 bg-gradient-to-r from-teal-50/30 to-blue-50/30 rounded-3xl -z-10"></div>
                     <div class="flex flex-col lg:flex-row items-center gap-12 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
@@ -468,7 +443,7 @@
                     </div>
                 </div>
 
-                <!-- Need Help Section -->
+                <!-- Need Help Section (unchanged) -->
                 <div class="mt-16">
                     <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-2xl">
                         <div class="flex flex-col md:flex-row">
@@ -548,7 +523,7 @@
         </main>
     </div>
 
-    <!-- Payment Modal -->
+    <!-- Payment Modal (unchanged) -->
     <div id="paymentModal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);">
         <div class="relative max-w-md w-full bg-white rounded-2xl overflow-hidden shadow-2xl">
             <button id="closePaymentModal" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center transition-all hover:scale-110">
@@ -571,7 +546,7 @@
         </div>
     </div>
 
-    <!-- Video Modal -->
+    <!-- Video Modal (unchanged) -->
     <div id="videoModal" class="fixed inset-0 bg-black/90 z-[2000] hidden items-center justify-center p-4" style="backdrop-filter: blur(8px);">
         <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl">
             <button id="closeVideoModal" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"><i class="fa-solid fa-xmark text-2xl"></i></button>
@@ -582,7 +557,7 @@
         </div>
     </div>
 
-    <%- include("../partials/common/footer") %>
+    <%- include("../../partials/common/footer") %>
 
     <script>
         const courseFromServer = <%- JSON.stringify(course) %>;
