@@ -1,21 +1,131 @@
-<!-- ==================== 3. OUR STORY SECTION ==================== -->
-<section id="aboutSkillBridge" class="py-24 px-6 md:px-12 bg-white scroll-reveal mt-20">
-    <div class="container mx-auto max-w-6xl">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1">
-                <span class="text-[#1a6f8c] font-bold uppercase tracking-wider text-sm">Who We Are</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3 mb-6">Bridging Skills with Career Opportunities</h2>
-                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-5">SkillBridge is our special education division of <span class="font-bold text-[#1a6f8c]">ASN Immigration</span>. Through it, we offer IT skills, tech, and corporate training. We also help you enroll in future-ready online degree programs from UGC-approved and NAAC A+ accredited universities. There are over <span class="font-bold text-[#1a6f8c]">30 programs</span> to choose from—BCA, BBA, BA, B.Sc, MCA, MBA, MA, M.Sc, and more.</p>
-                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-5">Let's face it—the digital world moves fast. To keep up, you need more than just a degree. You need practical skills and a mindset for lifelong learning. That's where SkillBridge comes in. Our goal? Give students, graduates, and working professionals real, industry-relevant skills and flexible education choices that actually make a difference in their careers.</p>
-                <p class="text-gray-600 text-base md:text-lg leading-relaxed">We offer job-focused IT training, corporate learning solutions, and online or distance degree programs—all designed to help you stand out in today's job market.</p>
+<!-- ==================== 3. OUR STORY SECTION (PROFESSIONAL & INTERACTIVE) ==================== -->
+<section id="aboutSkillBridge" class="py-24 px-6 md:px-12 bg-white scroll-reveal relative overflow-hidden">
+    <!-- Subtle background pattern -->
+    <div class="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-[#1a6f8c] rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#0066b3] rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto max-w-6xl relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Text Content (left side, order on mobile) -->
+            <div class="order-2 md:order-1 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a6f8c]/10 border border-[#1a6f8c]/20 mb-2">
+                    <span class="w-2 h-2 rounded-full bg-[#1a6f8c] animate-pulse"></span>
+                    <span class="text-[#1a6f8c] text-xs font-bold uppercase tracking-wider">Who We Are</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+                    Bridging Skills with 
+                    <span class="bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] bg-clip-text text-transparent">Career Opportunities</span>
+                </h2>
+                
+                <div class="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
+                    <p class="animate-fade-in-up" style="animation-delay: 0.1s">
+                        SkillBridge is our special education division of <span class="font-bold text-[#1a6f8c]">ASN Immigration</span>. Through it, we offer IT skills, tech, and corporate training. We also help you enroll in future-ready online degree programs from UGC-approved and NAAC A+ accredited universities. There are over <span class="font-bold text-[#1a6f8c]">30 programs</span> to choose from—BCA, BBA, BA, B.Sc, MCA, MBA, MA, M.Sc, and more.
+                    </p>
+                    <p class="animate-fade-in-up" style="animation-delay: 0.2s">
+                        Let's face it—the digital world moves fast. To keep up, you need more than just a degree. You need practical skills and a mindset for lifelong learning. That's where SkillBridge comes in. Our goal? Give students, graduates, and working professionals real, industry-relevant skills and flexible education choices that actually make a difference in their careers.
+                    </p>
+                    <p class="animate-fade-in-up" style="animation-delay: 0.3s">
+                        We offer job-focused IT training, corporate learning solutions, and online or distance degree programs—all designed to help you stand out in today's job market.
+                    </p>
+                </div>
+                
+                <!-- Interactive stats badges (adds professionalism without changing text) -->
+                <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up" style="animation-delay: 0.4s">
+                    <div class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100 hover:border-[#1a6f8c]/30 transition-all hover:shadow-md group">
+                        <i class="fa-regular fa-building text-[#1a6f8c] text-sm group-hover:scale-110 transition-transform"></i>
+                        <span class="text-sm font-semibold text-gray-700">30+ Programs</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100 hover:border-[#1a6f8c]/30 transition-all hover:shadow-md group">
+                        <i class="fa-regular fa-clock text-[#1a6f8c] text-sm group-hover:scale-110 transition-transform"></i>
+                        <span class="text-sm font-semibold text-gray-700">Industry-Ready Skills</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100 hover:border-[#1a6f8c]/30 transition-all hover:shadow-md group">
+                        <i class="fa-solid fa-graduation-cap text-[#1a6f8c] text-sm group-hover:scale-110 transition-transform"></i>
+                        <span class="text-sm font-semibold text-gray-700">UGC-Approved Degrees</span>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Image Gallery (right side, interactive hover effects) -->
             <div class="order-1 md:order-2">
                 <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=400&fit=crop" class="rounded-2xl shadow-xl h-64 w-full object-cover" alt="Students learning">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&h=400&fit=crop" class="rounded-2xl shadow-xl h-64 w-full object-cover mt-8" alt="Tech workshop">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop" class="rounded-2xl shadow-xl h-64 w-full object-cover col-span-2" alt="Team meeting">
+                    <!-- Image 1 (top left) -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=400&fit=crop" 
+                             class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" 
+                             alt="Students learning">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-3 left-3 text-white text-xs font-bold bg-black/50 px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-regular fa-eye mr-1"></i> Collaborative Learning
+                        </div>
+                    </div>
+                    <!-- Image 2 (top right, offset with mt-8) -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 mt-8">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&h=400&fit=crop" 
+                             class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" 
+                             alt="Tech workshop">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-3 left-3 text-white text-xs font-bold bg-black/50 px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-microchip mr-1"></i> Hands-on Training
+                        </div>
+                    </div>
+                    <!-- Image 3 (bottom, spans both columns) -->
+                    <div class="col-span-2 group relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop" 
+                             class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" 
+                             alt="Team meeting">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-3 left-3 text-white text-xs font-bold bg-black/50 px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-regular fa-comments mr-1"></i> Mentorship & Support
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    /* Fade-in-up animation for text paragraphs */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+        opacity: 0;
+    }
+    
+    /* Optional: scroll reveal effect (if you have an IntersectionObserver, keep it; otherwise these classes work on load) */
+    .scroll-reveal .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+</style>
+
+<script>
+    // Optional: Add intersection observer to trigger animations when section comes into view
+    (function() {
+        const sections = document.querySelectorAll('.scroll-reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.animate-fade-in-up').forEach(el => {
+                        el.style.animation = 'none';
+                        el.offsetHeight; // trigger reflow
+                        el.style.animation = null;
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        sections.forEach(section => observer.observe(section));
+    })();
+</script>

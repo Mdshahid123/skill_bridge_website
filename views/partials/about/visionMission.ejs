@@ -1,52 +1,144 @@
-<section class="py-24 px-6 md:px-12 bg-gray-50 scroll-reveal">
-    <div class="container mx-auto max-w-6xl">
-        <div class="text-center mb-14">
-            <span class="text-[#1a6f8c] font-bold uppercase tracking-wider text-sm">Our Purpose</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">Mission & Vision</h2>
+<!-- ==================== MISSION & VISION SECTION (PROFESSIONAL & INTERACTIVE) ==================== -->
+<section class="py-24 px-6 md:px-12 bg-gray-50 scroll-reveal relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <div class="absolute top-20 left-10 w-64 h-64 bg-[#1a6f8c]/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-80 h-80 bg-[#0066b3]/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto max-w-6xl relative z-10">
+        <!-- Section Header with animation -->
+        <div class="text-center mb-14 animate-fade-in-up">
+            <div class="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-[#1a6f8c]/10 border border-[#1a6f8c]/20 mb-4">
+                <i class="fa-regular fa-compass text-[#1a6f8c] text-xs"></i>
+                <span class="text-[#1a6f8c] text-xs font-bold uppercase tracking-wider">Our Purpose</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mt-2">
+                Mission & 
+                <span class="bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] bg-clip-text text-transparent">Vision</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] rounded-full mx-auto mt-5"></div>
         </div>
         
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
             <!-- Vision Card -->
-            <div class="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-10 text-center hover:shadow-xl transition-all duration-300">
-                <div class="w-20 h-20 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <i class="fa-solid fa-eye text-3xl text-[#1a6f8c]"></i>
+            <div class="group relative bg-white rounded-2xl p-8 lg:p-10 text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl overflow-hidden animate-fade-in-up" style="animation-delay: 0.1s">
+                <!-- Animated gradient border effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" style="padding: 2px; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;"></div>
+                <div class="relative bg-white rounded-2xl p-8 lg:p-10 transition-all duration-300">
+                    <!-- Floating icon container -->
+                    <div class="relative inline-block mb-6">
+                        <div class="absolute inset-0 bg-[#1a6f8c]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative w-24 h-24 bg-gradient-to-br from-[#1a6f8c] to-[#0066b3] rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-eye text-4xl text-white"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4 group-hover:text-[#1a6f8c] transition-colors">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">We want to be the top choice for skill development and flexible higher education. Our aim is simple: help people build successful careers in today's digital world.</p>
+                    <p class="text-gray-600 leading-relaxed mt-4">We empower our learners with practical skills and credentials that open up global opportunities.</p>
+                    
+                    <!-- Decorative line that appears on hover -->
+                    <div class="w-12 h-0.5 bg-gradient-to-r from-[#1a6f8c] to-transparent mx-auto mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
-                <p class="text-gray-600 leading-relaxed">We want to be the top choice for skill development and flexible higher education. Our aim is simple: help people build successful careers in today's digital world.</p>
-                <p class="text-gray-600 leading-relaxed mt-4">We empower our learners with practical skills and credentials that open up global opportunities.</p>
             </div>
             
-            <!-- Mission Card -->
-            <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-10 text-center hover:shadow-xl transition-all duration-300">
-                <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <i class="fa-solid fa-bullseye text-3xl text-[#1a6f8c]"></i>
+            <!-- Mission Card (more detailed, with checklist) -->
+            <div class="group relative bg-white rounded-2xl p-8 lg:p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl overflow-hidden animate-fade-in-up" style="animation-delay: 0.2s">
+                <!-- Animated gradient border effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" style="padding: 2px; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;"></div>
+                <div class="relative bg-white rounded-2xl p-8 lg:p-10">
+                    <!-- Floating icon container -->
+                    <div class="relative inline-block mb-6">
+                        <div class="absolute inset-0 bg-[#1a6f8c]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                        <div class="relative w-24 h-24 bg-gradient-to-br from-[#1a6f8c] to-[#0066b3] rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-bullseye text-4xl text-white"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4 group-hover:text-[#1a6f8c] transition-colors">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed mb-5">Our mission is to deliver top-notch training and education that's practical, accessible, and meets the needs of today's industries.</p>
+                    
+                    <!-- Checklist items with hover effects -->
+                    <div class="space-y-3 text-left mb-6">
+                        <div class="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-200">
+                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-green-200 transition-colors">
+                                <i class="fa-solid fa-check-circle text-[#1a6f8c] text-sm"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm">Skill programs that companies actually want</p>
+                        </div>
+                        <div class="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-200">
+                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-green-200 transition-colors">
+                                <i class="fa-solid fa-check-circle text-[#1a6f8c] text-sm"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm">Flexible learning—online or at a distance, whatever works for you</p>
+                        </div>
+                        <div class="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-200">
+                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-green-200 transition-colors">
+                                <i class="fa-solid fa-check-circle text-[#1a6f8c] text-sm"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm">Real-world projects and hands-on experience</p>
+                        </div>
+                        <div class="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-200">
+                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-green-200 transition-colors">
+                                <i class="fa-solid fa-check-circle text-[#1a6f8c] text-sm"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm">Support from start to finish as you build your career</p>
+                        </div>
+                        <div class="flex items-start gap-3 group/item hover:translate-x-1 transition-transform duration-200">
+                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-green-200 transition-colors">
+                                <i class="fa-solid fa-check-circle text-[#1a6f8c] text-sm"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm">Encouragement for lifelong learning and growth</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-5 border-t border-gray-100 mt-3">
+                        <p class="text-gray-600 leading-relaxed text-sm italic">At SkillBridge, we're all about nurturing new ideas, building real knowledge, and helping you move forward in your career.</p>
+                    </div>
+                    
+                    <!-- Decorative line -->
+                    <div class="w-12 h-0.5 bg-gradient-to-r from-[#1a6f8c] to-transparent mx-auto mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
-                <p class="text-gray-600 leading-relaxed">Our mission is to deliver top-notch training and education that's practical, accessible, and meets the needs of today's industries.</p>
-                <div class="mt-6 text-left space-y-3">
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-[#1a6f8c] text-lg mt-0.5"></i>
-                        <p class="text-gray-600 text-sm">Skill programs that companies actually want</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-[#1a6f8c] text-lg mt-0.5"></i>
-                        <p class="text-gray-600 text-sm">Flexible learning—online or at a distance, whatever works for you</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-[#1a6f8c] text-lg mt-0.5"></i>
-                        <p class="text-gray-600 text-sm">Real-world projects and hands-on experience</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-[#1a6f8c] text-lg mt-0.5"></i>
-                        <p class="text-gray-600 text-sm">Support from start to finish as you build your career</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-[#1a6f8c] text-lg mt-0.5"></i>
-                        <p class="text-gray-600 text-sm">Encouragement for lifelong learning and growth</p>
-                    </div>
-                </div>
-                <p class="text-gray-600 leading-relaxed mt-6 pt-4 border-t border-gray-100">At SkillBridge, we're all about nurturing new ideas, building real knowledge, and helping you move forward in your career.</p>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    /* Fade-in-up animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 0.7s ease-out forwards;
+        opacity: 0;
+    }
+    
+    /* Hover effect for checklist items */
+    .group\/item {
+        transition: all 0.2s ease;
+    }
+</style>
+
+<script>
+    // Intersection Observer for scroll animations
+    (function() {
+        const animatedElements = document.querySelectorAll('.animate-fade-in-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.7s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        animatedElements.forEach(el => observer.observe(el));
+    })();
+</script>

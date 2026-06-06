@@ -13,8 +13,9 @@
    <!-- nav bar -->
     <%- include('../../partials/common/navbar.ejs') %>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
+    <!-- Mobile Menu  -->
+     
+     <div style="display: none;" id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
         <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
         <div class="flex items-center bg-gray-800 rounded-full px-4 py-3 mb-6">
             <i class="fa-solid fa-search text-gray-400 mr-2"></i>
@@ -31,7 +32,7 @@
                 <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold">Enroll Now</button>
             </div>
         </div>
-    </div>
+    </div> 
 
     <main>
 
@@ -56,6 +57,8 @@
         <%- include('../../partials/about/coreValues')  %>
         <!-- trust section -->
         <%- include('../../partials/about/trust')  %>
+
+        
 
 <!-- ==================== UNIVERSITY PARTNERS SECTION ==================== -->
         <%- include('../../partials/about/universityPartner')  %>

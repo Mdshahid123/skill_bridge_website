@@ -1,32 +1,72 @@
- <section id="trainer" class="py-24 px-6 md:px-12 bg-white scroll-reveal">
-            <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-14"><span class="text-[#1a6f8c] font-bold uppercase tracking-wider text-sm">Expert Mentors</span><h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">Learn from Industry Experts</h2></div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="team-card">
-                        <img src="/gayetery.png" class="team-img">
-                          <div class="p-5 text-center"><h3 class="text-xl font-bold text-gray-800">Gayatri Chauhan</h3><p class="text-sm text-[#1a6f8c] font-semibold mt-1">Center Manager</p>
-                          </div>
-                     </div>
-                    <div class="team-card">
-                        <img src="/shahid2.png" class="team-img">
-                        <div class="p-5 text-center">
-                            <h3 class="text-xl font-bold text-gray-800">Mohammad Shahid</h3>
-                            <p class="text-sm text-[#1a6f8c] font-semibold mt-1">Full Stack Developer</p>
-                            </div>
-                        </div>
-                    <div class="team-card"><img src="/safakat.png" class="team-img">
-                        <div class="p-5 text-center">
-                            <h3 class="text-xl font-bold text-gray-800">Shafqat Ali</h3>
-                            <p class="text-sm text-[#1a6f8c] font-semibold mt-1">Analytics and Data Science Expert</p>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <img src="/abhishek.png" class="team-img">
-                        <div class="p-5 text-center">
-                            <h3 class="text-xl font-bold text-gray-800">Abhishek Kumar</h3>
-                            <p class="text-sm text-[#1a6f8c] font-semibold mt-1">Digital Marketing Expert</p>
-                        </div>
-                    </div>
+<section id="trainer" class="py-24 px-6 md:px-12 bg-white scroll-reveal">
+    <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-14">
+            <span class="text-[#1a6f8c] font-bold uppercase tracking-wider text-sm">Expert Mentors</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">Learn from Industry Experts</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Mentor 1 -->
+            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="relative w-full bg-gray-100 flex items-center justify-center" style="aspect-ratio: 1 / 1;">
+                    <img src="/gayetery.png" alt="Gayatri Chauhan" class="w-full h-full object-contain">
+                </div>
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800">Gayatri Chauhan</h3>
+                    <p class="text-sm text-[#1a6f8c] font-semibold mt-1">Center Manager</p>
                 </div>
             </div>
-        </section>
+            <!-- Mentor 2 -->
+            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="relative w-full bg-gray-100 flex items-center justify-center" style="aspect-ratio: 1 / 1;">
+                    <img src="/shahid2.png" alt="Mohammad Shahid" class="w-full h-full object-contain">
+                </div>
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800">Mohammad Shahid</h3>
+                    <p class="text-sm text-[#1a6f8c] font-semibold mt-1">Full Stack Developer</p>
+                </div>
+            </div>
+            <!-- Mentor 3 -->
+            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="relative w-full bg-gray-100 flex items-center justify-center" style="aspect-ratio: 1 / 1;">
+                    <img src="/safakat.png" alt="Shafqat Ali" class="w-full h-full object-contain">
+                </div>
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800">Shafqat Ali</h3>
+                    <p class="text-sm text-[#1a6f8c] font-semibold mt-1">Analytics and Data Science Expert</p>
+                </div>
+            </div>
+            <!-- Mentor 4 -->
+            <div class="team-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="relative w-full bg-gray-100 flex items-center justify-center" style="aspect-ratio: 1 / 1;">
+                    <img src="/abhishek.png" alt="Abhishek Kumar" class="w-full h-full object-contain">
+                </div>
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800">Abhishek Kumar</h3>
+                    <p class="text-sm text-[#1a6f8c] font-semibold mt-1">Digital Marketing Expert</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Ensure team cards are consistent */
+    .team-card {
+        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        will-change: transform;
+    }
+    .team-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 30px -12px rgba(26,111,140,0.15);
+    }
+    /* Image container uses aspect-ratio to maintain square shape on all devices */
+    .team-card .relative {
+        background-color: #f3f4f6;
+    }
+    /* Responsive adjustments for very small screens */
+    @media (max-width: 640px) {
+        .team-card .relative {
+            aspect-ratio: 1 / 1;
+        }
+    }
+</style>

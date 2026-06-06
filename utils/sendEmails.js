@@ -90,7 +90,7 @@ async function sendInquiryEmail(formData) {
                         <p>Thank you for your interest in Skill Bridge! We have received your admission inquiry.</p>
                         <p><strong>Your inquiry details:</strong></p>
                         <ul>
-                            <li>Course: ${course || degree || 'Not specified'}</li>
+                            <li>Course/Degree: ${course || degree || 'Not specified'}</li>
                             <li>Preferred Time: ${callbackTime || 'Not specified'}</li>
                         </ul>
                         <p>Our admission counselor will contact you within 24 hours at <strong>${phoneNumber}</strong>.</p>
