@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }))//form data is sent in key=value&
 app.use(express.json())//for parsing json data sent in request body and make it available in req.body
 
 //middleware 1:serving a static files(css,js,images) from the public folder
-app.use(express.static("public"))//it also validate the requested file path
+app.use(express.static(path.join(__dirname, 'public')));//it also validate the requested file path
 app.use(session({
      secret: "shahid-akhtar",
      resave: false,
