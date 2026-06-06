@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title><%= course.courseName %> | Skill Bridge</title>
+    <meta name="description" content="<%= course.courseDescription ? course.courseDescription.slice(0, 160) : 'Learn ' + course.courseName + ' with expert mentors. Hands‑on projects, certification, and placement assistance.' %>">
+    <meta name="keywords" content="<%= course.courseName %>, online course, IT training, <%= course.category %>, learn <%= course.courseName %>">
+    <meta name="author" content="Skill Bridge">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.skillbridge.com/viewCourse/<%= course._id %>">
+    <meta property="og:title" content="<%= course.courseName %> – Skill Bridge">
+    <meta property="og:description" content="<%= course.courseDescription ? course.courseDescription.slice(0, 160) : 'Enroll now in ' + course.courseName + ' to gain industry‑relevant skills.' %>">
+    <meta property="og:image" content="<%= course.image ? course.image : 'https://www.skillbridge.com/default-course.jpg' %>">
+    <meta property="og:url" content="https://www.skillbridge.com/viewCourse/<%= course._id %>">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= course.courseName %>">
+    <meta name="twitter:description" content="<%= course.courseDescription ? course.courseDescription.slice(0, 160) : 'Course details, curriculum, and enrollment information.' %>">
+
+    <!-- Schema.org – Course -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "<%= course.courseName.replace(/"/g, '&quot;') %>",
+      "description": "<%= course.courseDescription ? course.courseDescription.replace(/"/g, '&quot;').slice(0, 300) : '' %>",
+      "provider": {
+        "@type": "Organization",
+        "name": "Skill Bridge"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "duration": "<%= course.duration %> Months"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "<%= course.price %>",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
