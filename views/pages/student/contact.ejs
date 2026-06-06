@@ -36,28 +36,11 @@
         @keyframes floatQuestion { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
         
         /* FAQ collapsible styles */
-        .faq-question {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.3s ease;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-        .faq-answer.open {
-            max-height: 300px;
-            padding-top: 0.75rem;
-            padding-bottom: 0.5rem;
-        }
-        .faq-card .fa-chevron-down {
-            transition: transform 0.3s ease;
-        }
-        .faq-card.open .fa-chevron-down {
-            transform: rotate(180deg);
-        }
+        .faq-question { cursor: pointer; transition: all 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.3s ease; padding-top: 0; padding-bottom: 0; }
+        .faq-answer.open { max-height: 300px; padding-top: 0.75rem; padding-bottom: 0.5rem; }
+        .faq-card .fa-chevron-down { transition: transform 0.3s ease; }
+        .faq-card.open .fa-chevron-down { transform: rotate(180deg); }
     </style>
 </head>
 <body class="bg-white">
@@ -118,17 +101,10 @@
                         
                         <div class="p-3">
                             <form id="heroContactForm" class="space-y-2">
-                                <div>
-                                    <input type="text" id="heroFullName" name="name" placeholder="Full Name *" required class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
-                                </div>
-                                <div>
-                                    <input type="email" id="heroEmail" name="email" placeholder="Email Address *" required class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
-                                </div>
-                                <div>
-                                    <input type="tel" id="heroPhone" name="phoneNumber" placeholder="Phone Number (10 digits) *" required maxlength="10" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
-                                </div>
+                                <div><input type="text" id="heroFullName" name="name" placeholder="Full Name *" required class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white"></div>
+                                <div><input type="email" id="heroEmail" name="email" placeholder="Email Address *" required class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white"></div>
+                                <div><input type="tel" id="heroPhone" name="phoneNumber" placeholder="Phone Number (10 digits) *" required maxlength="10" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white"></div>
                                 
-                                <!-- Courses Selection (visible by default) -->
                                 <div id="heroCourseOptions">
                                     <select id="heroCourseSelect" name="course" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
                                         <option value="">Select a course *</option>
@@ -146,39 +122,16 @@
                                     </select>
                                 </div>
                                 
-                                <!-- Degree Options (hidden by default) -->
                                 <div id="heroDegreeOptions" class="hidden">
                                     <select id="heroDegreeSelect" name="course" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white">
-                                       <option class="text-gray-900 bg-white">MBA</option>
-                                        <option class="text-gray-900 bg-white">MCA</option>
-                                        <option class="text-gray-900 bg-white">M.Sc</option>
-                                        <option class="text-gray-900 bg-white">M.Com</option>
-                                        <option class="text-gray-900 bg-white">M.Ed & Ed.D</option>
-                                        <option class="text-gray-900 bg-white">PGDM</option>
-                                        <option class="text-gray-900 bg-white">BCA</option>
-                                        <option class="text-gray-900 bg-white">B.Sc</option>
-                                        <option class="text-gray-900 bg-white">BBA</option>
-                                        <option class="text-gray-900 bg-white">BA</option>
+                                        <option>MBA</option><option>MCA</option><option>M.Sc</option><option>M.Com</option><option>M.Ed & Ed.D</option><option>PGDM</option><option>BCA</option><option>B.Sc</option><option>BBA</option><option>BA</option>
                                     </select>
                                 </div>
                                 
-                                <!-- NEW: Callback Time field (datetime-local) -->
-                                <div>
-                                    <input type="datetime-local" id="heroCallbackTime" name="callbackTime" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white" placeholder="Preferred callback time">
-                                </div>
-                                
-                                <!-- Optional message field -->
-                                <div>
-                                    <textarea id="heroMessage" name="message" rows="1" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white resize-none" placeholder="i'm interested in...courses,online degrees, career guidance"></textarea>
-                                </div>
-                                
-                                <!-- Hidden field for degree (backend expects it) -->
+                                <div><input type="datetime-local" id="heroCallbackTime" name="callbackTime" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white" placeholder="Preferred callback time"></div>
+                                <div><textarea id="heroMessage" name="message" rows="1" class="w-full px-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all bg-gray-50 focus:bg-white resize-none" placeholder="i'm interested in...courses, online degrees, career guidance"></textarea></div>
                                 <input type="hidden" name="degree" value="">
-                                
-                                <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
-                                    Submit Inquiry
-                                    <i class="fa-solid fa-paper-plane text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                                </button>
+                                <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">Submit Inquiry <i class="fa-solid fa-paper-plane text-[10px] group-hover:translate-x-1 transition-transform"></i></button>
                             </form>
                         </div>
                     </div>
@@ -187,7 +140,7 @@
         </div>
     </section>
 
-    <!-- Contact Info Cards (unchanged) -->
+    <!-- Contact Info Cards -->
     <section class="py-20 px-6 md:px-12 -mt-10 relative z-10">
         <div class="container mx-auto max-w-6xl">
             <div class="grid md:grid-cols-3 gap-6">
@@ -197,39 +150,27 @@
                         <div class="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-ping-slow"></div>
                         <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-ping-slow" style="animation-delay: 1s;"></div>
                     </div>
-                    <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fa-solid fa-phone-alt text-3xl text-white"></i>
-                    </div>
+                    <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-phone-alt text-3xl text-white"></i></div>
                     <h3 class="text-2xl font-bold text-white mb-3">Call Us</h3>
                     <p class="text-white/80 text-base">+91 099114 66118</p>
                     <p class="text-white/60 text-sm mt-2">Mon-Sat, 9AM to 8PM</p>
-                    <a href="tel:+9109911466118" class="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all duration-300 group-hover:gap-3">
-                        Call Now <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
-                    </a>
+                    <a href="tel:+9109911466118" class="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all duration-300 group-hover:gap-3">Call Now <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i></a>
                 </div>
                 <!-- Email Card -->
                 <div class="contact-card group relative overflow-hidden rounded-2xl p-8 text-center shadow-xl transition-all duration-500 hover:-translate-y-3" style="background: linear-gradient(135deg, #1a6f8c 0%, #0066b3 100%);">
-                    <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fa-solid fa-envelope text-3xl text-white"></i>
-                    </div>
+                    <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-envelope text-3xl text-white"></i></div>
                     <h3 class="text-2xl font-bold text-white mb-3">Email Us</h3>
                     <p class="text-white/80 text-base">support@skillbridge.com</p>
                     <p class="text-white/70 text-sm">info@skillbridge.com</p>
                     <p class="text-white/60 text-sm mt-2">24/7 Email Support</p>
-                    <a href="mailto:support@skillbridge.com" class="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all duration-300 group-hover:gap-3">
-                        Send Email <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
-                    </a>
+                    <a href="mailto:support@skillbridge.com" class="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all duration-300 group-hover:gap-3">Send Email <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i></a>
                 </div>
                 <!-- Address Card -->
                 <div class="contact-card group relative overflow-hidden rounded-2xl p-8 text-center shadow-xl transition-all duration-500 hover:-translate-y-3" style="background: linear-gradient(135deg, #0a2b3e 0%, #1a6f8c 100%);">
-                    <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fa-solid fa-location-dot text-3xl text-white"></i>
-                    </div>
+                    <div class="w-20 h-20 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-location-dot text-3xl text-white"></i></div>
                     <h3 class="text-2xl font-bold text-white mb-3">Visit Us</h3>
                     <p class="text-white/80 text-sm leading-relaxed">First Floor, U-197, Vikas Marg, Laxmi Nagar, Shakarpur Extension, Shakarpur, Delhi, 110092</p>
-                    <a href="https://maps.app.goo.gl/Z3H7fbRcn2959MYV8" target="_blank" class="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all duration-300 group-hover:gap-3">
-                        Get Directions <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
-                    </a>
+                    <a href="https://maps.app.goo.gl/Z3H7fbRcn2959MYV8" target="_blank" class="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all duration-300 group-hover:gap-3">Get Directions <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i></a>
                 </div>
             </div>
         </div>
@@ -246,100 +187,73 @@
                 <!-- FAQ 1 -->
                 <div class="faq-card rounded-xl p-6 shadow-lg transition-all duration-300" style="background: linear-gradient(135deg, #0a2b3e 0%, #1a6f8c 100%);">
                     <div class="faq-question flex items-start justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-question text-white text-lg"></i></div>
-                            <h3 class="font-bold text-white text-lg">How can I enroll in a course?</h3>
-                        </div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-question text-white text-lg"></i></div><h3 class="font-bold text-white text-lg">How can I enroll in a course?</h3></div>
                         <i class="fa-solid fa-chevron-down text-white/60 transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p class="text-white/75 text-sm">You can enroll directly through our website by clicking the "Enroll Now" button on any course page, or visit our center for offline enrollment. Our counselors will guide you through the process.</p>
-                    </div>
+                    <div class="faq-answer"><p class="text-white/75 text-sm">You can enroll directly through our website by clicking the "Enroll Now" button on any course page, or visit our center for offline enrollment. Our counselors will guide you through the process.</p></div>
                 </div>
                 <!-- FAQ 2 -->
                 <div class="faq-card rounded-xl p-6 shadow-lg transition-all duration-300" style="background: linear-gradient(135deg, #1a6f8c 0%, #0066b3 100%);">
                     <div class="faq-question flex items-start justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-briefcase text-white text-lg"></i></div>
-                            <h3 class="font-bold text-white text-lg">Do you offer placement assistance?</h3>
-                        </div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"><i class="fa-solid fa-briefcase text-white text-lg"></i></div><h3 class="font-bold text-white text-lg">Do you offer placement assistance?</h3></div>
                         <i class="fa-solid fa-chevron-down text-white/60 transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p class="text-white/75 text-sm">Yes, we have a dedicated placement cell that helps students prepare for interviews, build resumes, and get placed in top companies. Our placement rate is over 90%.</p>
-                    </div>
+                    <div class="faq-answer"><p class="text-white/75 text-sm">Yes, we have a dedicated placement cell that helps students prepare for interviews, build resumes, and get placed in top companies. Our placement rate is over 90%.</p></div>
                 </div>
                 <!-- FAQ 3 -->
                 <div class="faq-card rounded-xl p-6 shadow-lg transition-all duration-300" style="background: linear-gradient(135deg, #0a2b3e 0%, #1a6f8c 100%);">
                     <div class="faq-question flex items-start justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-globe text-white text-lg"></i></div>
-                            <h3 class="font-bold text-white text-lg">Are the courses online or offline?</h3>
-                        </div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"><i class="fa-solid fa-globe text-white text-lg"></i></div><h3 class="font-bold text-white text-lg">Are the courses online or offline?</h3></div>
                         <i class="fa-solid fa-chevron-down text-white/60 transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p class="text-white/75 text-sm">We offer both online and offline learning options with flexible schedules. You can choose what suits you best – live online classes, recorded sessions, or classroom training.</p>
-                    </div>
+                    <div class="faq-answer"><p class="text-white/75 text-sm">We offer both online and offline learning options with flexible schedules. You can choose what suits you best – live online classes, recorded sessions, or classroom training.</p></div>
                 </div>
                 <!-- FAQ 4 -->
                 <div class="faq-card rounded-xl p-6 shadow-lg transition-all duration-300" style="background: linear-gradient(135deg, #1a6f8c 0%, #0066b3 100%);">
                     <div class="faq-question flex items-start justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-certificate text-white text-lg"></i></div>
-                            <h3 class="font-bold text-white text-lg">Do you provide certificates?</h3>
-                        </div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"><i class="fa-solid fa-certificate text-white text-lg"></i></div><h3 class="font-bold text-white text-lg">Do you provide certificates?</h3></div>
                         <i class="fa-solid fa-chevron-down text-white/60 transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p class="text-white/75 text-sm">Yes, upon successful course completion, you will receive an industry-recognized certificate that you can share on LinkedIn and with employers.</p>
-                    </div>
+                    <div class="faq-answer"><p class="text-white/75 text-sm">Yes, upon successful course completion, you will receive an industry-recognized certificate that you can share on LinkedIn and with employers.</p></div>
                 </div>
                 <!-- FAQ 5 -->
                 <div class="faq-card rounded-xl p-6 shadow-lg transition-all duration-300" style="background: linear-gradient(135deg, #0a2b3e 0%, #1a6f8c 100%);">
                     <div class="faq-question flex items-start justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-clock text-white text-lg"></i></div>
-                            <h3 class="font-bold text-white text-lg">What is the course duration?</h3>
-                        </div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"><i class="fa-solid fa-clock text-white text-lg"></i></div><h3 class="font-bold text-white text-lg">What is the course duration?</h3></div>
                         <i class="fa-solid fa-chevron-down text-white/60 transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p class="text-white/75 text-sm">Course durations vary: short-term certification courses run 3–6 months, while full-stack programs take 6–12 months. Degree programs are 3–4 years.</p>
-                    </div>
+                    <div class="faq-answer"><p class="text-white/75 text-sm">Course durations vary: short-term certification courses run 3–6 months, while full-stack programs take 6–12 months. Degree programs are 3–4 years.</p></div>
                 </div>
                 <!-- FAQ 6 -->
                 <div class="faq-card rounded-xl p-6 shadow-lg transition-all duration-300" style="background: linear-gradient(135deg, #1a6f8c 0%, #0066b3 100%);">
                     <div class="faq-question flex items-start justify-between gap-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-university text-white text-lg"></i></div>
-                            <h3 class="font-bold text-white text-lg">Are the degree programs UGC recognized?</h3>
-                        </div>
+                        <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"><i class="fa-solid fa-university text-white text-lg"></i></div><h3 class="font-bold text-white text-lg">Are the degree programs UGC recognized?</h3></div>
                         <i class="fa-solid fa-chevron-down text-white/60 transition-transform duration-300"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p class="text-white/75 text-sm">Yes, our online degree programs are offered in collaboration with UGC-recognized partner universities, ensuring your degree is valid for government jobs and higher studies.</p>
-                    </div>
+                    <div class="faq-answer"><p class="text-white/75 text-sm">Yes, our online degree programs are offered in collaboration with UGC-recognized partner universities, ensuring your degree is valid for government jobs and higher studies.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Full Width Map -->
+    <!-- Full Width Map – Shows exact location, click to open in Google Maps -->
     <section class="py-16 px-6 md:px-12 bg-white">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">Our Location</h2>
             </div>
             <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
-                <div class="h-96 md:h-[450px] w-full">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.123456789!2d77.276543!3d28.632456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfc5b9e9d9d9d%3A0x2b2b2b2b2b2b2b2b!2sFirst%20Floor%2C%20U-197%2C%20Vikas%20Marg%2C%20Laxmi%20Nagar%2C%20Shakarpur%20Extension%2C%20Shakarpur%2C%20Delhi%2C%20110092!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div id="mapContainer" class="relative cursor-pointer group">
+                    <div class="h-96 md:h-[450px] w-full">
+                        <!-- Embedded map already showing the institute's address (no manual search needed) -->
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7003.9035308636985!2d77.2788865!3d28.631207699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce30651f90e91%3A0x483ad3c612be0602!2sSkillBridge!5e0!3m2!1sen!2sin!4v1780729035277!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section – Ready to Start Your Journey (Submit Enquiry button scrolls to hero form) -->
+    <!-- CTA Section – Ready to Start Your Journey -->
     <section class="py-20 px-6 md:px-12">
         <div class="container mx-auto max-w-5xl">
             <div class="help-split-card rounded-2xl overflow-hidden shadow-xl">
@@ -381,67 +295,47 @@
             msgDiv.textContent = message;
             msgDiv.className = `mx-3 mt-3 rounded-lg p-2 text-xs ${isError ? 'bg-red-100 text-red-700 border border-red-200' : 'bg-green-100 text-green-700 border border-green-200'}`;
             msgDiv.classList.remove('hidden');
-            setTimeout(() => {
-                if (msgDiv) msgDiv.classList.add('hidden');
-            }, 5000);
+            setTimeout(() => { if (msgDiv) msgDiv.classList.add('hidden'); }, 5000);
         }
 
-        // Form submission handler (now includes callbackTime)
+        // Hero form submission
         const heroForm = document.getElementById('heroContactForm');
         if (heroForm) {
             heroForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
-                // Determine active tab and get the selected course value
                 const isCourseTab = document.getElementById('heroCoursesTab').classList.contains('active');
                 let courseValue = '';
                 if (isCourseTab) {
-                    const courseSelect = document.getElementById('heroCourseSelect');
-                    courseValue = courseSelect.value;
+                    courseValue = document.getElementById('heroCourseSelect').value;
                 } else {
-                    const degreeSelect = document.getElementById('heroDegreeSelect');
-                    courseValue = degreeSelect.value;
+                    courseValue = document.getElementById('heroDegreeSelect').value;
                 }
-                
-                // Gather values
                 const name = document.getElementById('heroFullName').value.trim();
                 const email = document.getElementById('heroEmail').value.trim();
                 const phone = document.getElementById('heroPhone').value.trim();
                 const callbackTime = document.getElementById('heroCallbackTime').value;
                 const message = document.getElementById('heroMessage').value.trim();
                 
-                // Validation
                 if (!name || !email || !phone || !courseValue) {
                     showFormMessage('❌ All required fields (Name, Email, Phone, Course/Degree) must be filled.', true);
                     return;
                 }
-                const phoneRegex = /^\d{10}$/;
-                if (!phoneRegex.test(phone)) {
+                if (!/^\d{10}$/.test(phone)) {
                     showFormMessage('❌ Phone number must be exactly 10 digits (numbers only).', true);
                     return;
                 }
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                     showFormMessage('❌ Invalid email format.', true);
                     return;
                 }
-                
-                // Payload for backend
                 const payload = {
-                    name: name,
-                    email: email,
-                    phoneNumber: phone,
-                    course: courseValue,
-                    message: message || '',
-                    degree: '',
-                    callbackTime: callbackTime || ''
+                    name, email, phoneNumber: phone, course: courseValue,
+                    message: message || '', degree: '', callbackTime: callbackTime || ''
                 };
-                
                 const submitBtn = heroForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
-                
                 try {
                     const response = await fetch('/submitEnquery', {
                         method: 'POST',
@@ -452,11 +346,9 @@
                     if (!response.ok) throw new Error(data.error || 'Submission failed');
                     showFormMessage(data.message || '✅ Your inquiry has been received. We will contact you soon!', false);
                     heroForm.reset();
-                    // Reset selects
                     document.getElementById('heroCourseSelect').value = '';
                     document.getElementById('heroDegreeSelect').value = '';
                     document.getElementById('heroCallbackTime').value = '';
-                    // Ensure Courses tab is active
                     document.getElementById('heroCoursesTab').click();
                 } catch (err) {
                     showFormMessage(err.message || '❌ Something went wrong. Please try again later.', true);
@@ -467,7 +359,7 @@
             });
         }
         
-        // Tab switching logic
+        // Tab switching
         const coursesTab = document.getElementById('heroCoursesTab');
         const degreeTab = document.getElementById('heroDegreeTab');
         const courseOptionsDiv = document.getElementById('heroCourseOptions');
@@ -491,49 +383,48 @@
         const scrollBtn = document.getElementById('scrollToEnquiryBtn');
         if (scrollBtn) {
             scrollBtn.addEventListener('click', () => {
-                const heroSection = document.getElementById('hero-contact');
-                if (heroSection) {
-                    heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                document.getElementById('hero-contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         }
         
-        // FAQ collapsible functionality
+        // FAQ collapsible
         document.querySelectorAll('.faq-card').forEach(card => {
-            const questionDiv = card.querySelector('.faq-question');
-            const answerDiv = card.querySelector('.faq-answer');
+            const qDiv = card.querySelector('.faq-question');
+            const aDiv = card.querySelector('.faq-answer');
             const chevron = card.querySelector('.fa-chevron-down');
-            
-            if (questionDiv && answerDiv) {
-                // Initially collapsed
-                answerDiv.classList.remove('open');
-                questionDiv.addEventListener('click', () => {
-                    const isOpen = answerDiv.classList.contains('open');
-                    // Close all others (optional, but better UX)
+            if (qDiv && aDiv) {
+                aDiv.classList.remove('open');
+                qDiv.addEventListener('click', () => {
                     document.querySelectorAll('.faq-answer').forEach(ans => {
-                        if (ans !== answerDiv) {
+                        if (ans !== aDiv) {
                             ans.classList.remove('open');
                             ans.parentElement?.querySelector('.fa-chevron-down')?.classList.remove('rotate-180');
                         }
                     });
-                    answerDiv.classList.toggle('open');
-                    if (chevron) {
-                        if (answerDiv.classList.contains('open')) {
-                            chevron.style.transform = 'rotate(180deg)';
-                        } else {
-                            chevron.style.transform = 'rotate(0deg)';
-                        }
-                    }
+                    aDiv.classList.toggle('open');
+                    if (chevron) chevron.style.transform = aDiv.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
                 });
             }
         });
         
-        // Mobile menu
+        // ========== MAP CLICK: OPENS GOOGLE MAPS WITH THE ADDRESS (NO MANUAL SEARCH) ==========
+        const mapContainer = document.getElementById('mapContainer');
+        if (mapContainer) {
+            const address = "First Floor, U-197, Vikas Marg, Laxmi Nagar, Shakarpur Extension, Shakarpur, Delhi, 110092";
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+            mapContainer.addEventListener('click', () => {
+                window.open(mapsUrl, '_blank');
+            });
+        }
+        
+        // Mobile menu (keep if your navbar doesn't already handle it)
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const closeMenu = document.getElementById('closeMenu');
-        if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
-        if (closeMenu) closeMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        if (menuBtn && mobileMenu && closeMenu) {
+            menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+            closeMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        }
     </script>
 </body>
 </html>
