@@ -35,8 +35,11 @@ async function viewCourseDetails(req, res) {
      const isLogin=req.session?.isLogin || false
     const user=req.session?.user || null
     try {
-        const courseId = req.params.courseId;
-        const course = await  courseModel.findById(courseId);
+        const courseName= req.params.courseId;
+        
+        const course = await courseModel.findOne({
+            courseName: courseName
+        });
         
         if (!course) {
             return res.status(404).send('Course not found');

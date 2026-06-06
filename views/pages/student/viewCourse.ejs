@@ -273,7 +273,11 @@
                                 <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
                                 <span class="text-teal-600 text-xs font-extrabold tracking-wide">Most Popular Course</span>
                             </div>
-                            <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 glow-text"><%= course.courseName %></h1>
+                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 glow-text">
+    <%= course.courseName.replaceAll("-", " ") %>
+</h1>
+                            </h1>
+                          
                             <p class="text-gray-700 text-base md:text-lg max-w-2xl font-medium"><%= course.courseDescription %></p>
                             
                             <div class="flex flex-wrap gap-4 mt-6">

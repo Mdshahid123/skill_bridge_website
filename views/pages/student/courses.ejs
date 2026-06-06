@@ -417,7 +417,7 @@
                         <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">${c.level || 'Beginner'}</span>
                     </div>
                     <div class="flex gap-2">
-                        <a href="/viewCourse/${c._id}" class="flex-1 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all hover:scale-105">View Details</a>
+                        <a href="/viewCourse/${c.courseName}" class="flex-1 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all hover:scale-105">View Details</a>
                         <!-- Download Brochure button with text -->
                         <button onclick="downloadBrochure('${escapeHtml(c.courseName)}')" class="px-3 py-2 border border-teal-500 text-teal-600 rounded-lg hover:bg-teal-500 hover:text-white transition-all flex items-center gap-2 text-sm font-medium whitespace-nowrap">
                             <i class="fa-regular fa-file-pdf"></i> Download
