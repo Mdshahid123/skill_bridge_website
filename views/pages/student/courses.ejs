@@ -1,7 +1,6 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>All Courses – SkillBridge | IT & Tech Training</title>
@@ -25,10 +24,7 @@
       "@type": "ItemList",
       "name": "Skill Bridge Courses",
       "url": "https://www.skillbridge.com/courses",
-      "numberOfItems": 30,
-      "itemListElement": [
-        <!-- you can dynamically generate this from your course array -->
-      ]
+      "numberOfItems": 30
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -226,10 +222,6 @@
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
-            .md\:px-12 {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
             #categoryDropdownMenu {
                 width: calc(100vw - 2rem);
                 max-width: 320px;
@@ -248,12 +240,12 @@
 </head>
 <body>
 
-<!-- nav bar -->
+<!-- nav bar (included via EJS) -->
 <%- include("../../partials/common/navbar.ejs") %>
 
 <!-- Hero Section (Flowing Light Wave – no rotating glow) -->
 <div class="hero-glow pt-28 pb-16 relative">
-    <!-- Background grid layers (kept as before) -->
+    <!-- Background grid layers -->
     <div class="absolute inset-0 opacity-[0.08] brand-grid pointer-events-none"></div>
     <div class="absolute inset-0 opacity-[0.05] brand-grid-light pointer-events-none"></div>
     <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -317,10 +309,12 @@
     </div>
 </div>
 
-<!-- Courses Grid Section -->
+<!-- Courses Grid Section - MODIFIED: 4 cards per row on large screens, wider container -->
 <section class="py-12 px-6 md:px-12 bg-white">
-    <div class="container  max-w-5xl">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="coursesGridContainer">
+    <!-- Changed container max width from max-w-5xl to max-w-7xl to accommodate 4 cards comfortably -->
+    <div class="container mx-auto max-w-7xl px-2 md:px-4">
+        <!-- Grid classes: default 1 col, md:2 cols, lg:3 cols, xl:4 cols for perfect 4-cards row on large screens -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="coursesGridContainer">
             <!-- Courses will be dynamically loaded here -->
         </div>
         <div id="noResultsMessage" class="text-center py-12 hidden">
@@ -399,7 +393,13 @@
         return Math.round(((originalPrice - price) / originalPrice) * 100);
     }
 
-    // Render courses
+    // Escape HTML helper
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
+    }
+
+    // Render courses with 4-cards layout handling (grid already responsive)
     function renderCourses() {
         let filtered = [...allCourses];
         if (currentCategory !== "all") {
@@ -421,13 +421,14 @@
             return;
         }
         noResultsMessage.classList.add('hidden');
+        
         coursesGridContainer.innerHTML = filtered.map(c => `
-            <div class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
                 <div class="relative h-48 overflow-hidden">
                     <img src="${c.image || 'https://via.placeholder.com/600x400?text=No+Image'}" alt="${escapeHtml(c.courseName)}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                     <div class="absolute top-3 left-3"></div>
                 </div>
-                <div class="p-5">
+                <div class="p-5 flex flex-col flex-grow">
                     <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-1">${escapeHtml(c.courseName)}</h3>
                     <p class="text-gray-500 text-sm mb-3 line-clamp-2">${escapeHtml(c.courseDescription || c.description || 'No description available')}</p>
                     <div class="flex flex-wrap gap-2 mb-3">
@@ -443,7 +444,7 @@
                         <div><span class="text-2xl font-bold text-teal-600">₹${c.price}</span><span class="text-xs text-gray-400 line-through ml-2">₹${c.originalPrice}</span><span class="text-xs text-green-600 ml-2">${calculateDiscount(c.price, c.originalPrice)}% off</span></div>
                         <span class="text-xs bg-gray-100 px-2 py-1 rounded-full">${c.level || 'Beginner'}</span>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 mt-auto">
                         <a href="/viewCourse/${c.courseName}" class="flex-1 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all hover:scale-105">View Details</a>
                         <!-- Download Brochure button with text -->
                         <button onclick="downloadBrochure('${escapeHtml(c.courseName)}')" class="px-3 py-2 border border-teal-500 text-teal-600 rounded-lg hover:bg-teal-500 hover:text-white transition-all flex items-center gap-2 text-sm font-medium whitespace-nowrap">
@@ -567,15 +568,9 @@
         };
     }
 
-    // Escape HTML
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
-    }
-
     // Initial render
     renderCourses();
     updateActiveFilters();
 </script>
 </body>
-</html>                                          document.getElementById('inquiryForm')?.addEventListener('submit', (e) => {
+</html>
