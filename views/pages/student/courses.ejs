@@ -141,27 +141,6 @@
             background: #2dd4bf;
             border-radius: 20px;
         }
-        
-        /* ensure consistent gap and proper margin for four columns */
-        .courses-grid-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .courses-grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .courses-grid-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        /* maintain left/right margins on outer container (already in px-6) */
     </style>
 </head>
 <body>
@@ -207,9 +186,9 @@
         <div id="resultCountInfo" class="text-teal-300/80 font-mono text-center mb-3"></div>
     </div>
 
-    <!-- Courses Grid - updated to four columns per row on large screens with consistent left/right margins -->
+    <!-- Courses Grid -->
     <div class="max-w-7xl mx-auto px-6 pb-12">
-        <div class="courses-grid-container" id="coursesGrid"></div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="coursesGrid"></div>
         <div id="noCoursesMsg" class="hidden text-center py-12 text-gray-400 text-xl col-span-full">⚛️ No courses in this dimension — adjust filters!</div>
     </div>
 
