@@ -51,7 +51,7 @@
             overflow-x: hidden;
         }
 
-        /* ========== HERO SECTION – FLOWING LIGHT WAVE (no rotating glow) ========== */
+        /* ========== HERO SECTION – FLOWING LIGHT WAVE ========== */
         .hero-glow {
             background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%);
             position: relative;
@@ -59,7 +59,6 @@
             width: 100%;
         }
 
-        /* Flowing light wave animation – replaces the old rotateGlow */
         .hero-glow::before {
             content: '';
             position: absolute;
@@ -84,7 +83,6 @@
             100% { transform: translateX(50%); }
         }
 
-        /* Grid patterns (kept for texture) */
         .brand-grid {
             background-image: 
                 repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px),
@@ -309,12 +307,12 @@
     </div>
 </div>
 
-<!-- Courses Grid Section - MODIFIED: 4 cards per row on large screens, wider container -->
+<!-- Courses Grid Section - UPDATED: 3 cards per row on desktop screens (xl:grid-cols-3) -->
 <section class="py-12 px-6 md:px-12 bg-white">
-    <!-- Changed container max width from max-w-5xl to max-w-7xl to accommodate 4 cards comfortably -->
+    <!-- Container max width optimised for 3-column layout -->
     <div class="container mx-auto max-w-7xl px-2 md:px-4">
-        <!-- Grid classes: default 1 col, md:2 cols, lg:3 cols, xl:4 cols for perfect 4-cards row on large screens -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="coursesGridContainer">
+        <!-- Grid: 1 col on mobile, 2 cols on tablets, 3 cols on desktop (lg & xl) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6" id="coursesGridContainer">
             <!-- Courses will be dynamically loaded here -->
         </div>
         <div id="noResultsMessage" class="text-center py-12 hidden">
@@ -399,7 +397,7 @@
         return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
     }
 
-    // Render courses with 4-cards layout handling (grid already responsive)
+    // Render courses - 3 cards per row layout handled by Tailwind grid (xl:grid-cols-3)
     function renderCourses() {
         let filtered = [...allCourses];
         if (currentCategory !== "all") {
