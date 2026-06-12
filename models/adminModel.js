@@ -17,11 +17,6 @@ const adminSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    role: {
-        type: String,
-        enum: ['super_admin', 'content_manager', 'course_admin'],
-        default: 'course_admin'
-    },
     lastLogin: { type: Date, default: null },
     lastLoginIP: { type: String, default: null },
     loginAttempts: { type: Number, default: 0 },

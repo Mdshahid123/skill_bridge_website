@@ -19,10 +19,10 @@ adminRoutes.use(isAdmin);
 
 //Your existing protected admin routes
 adminRoutes.get("/admin/courses", adminDashboard);
+adminRoutes.get("/admin/courses/add", getAddCourseForm);
 adminRoutes.post("/storeCourses", upload.any(), storeCourses);
 adminRoutes.get("/api/admin/courses", getApiAllCourses);
 adminRoutes.delete("/api/admin/courses/:id", deleteApiCourse);
-adminRoutes.get("/admin/courses/add", getAddCourseForm);
 adminRoutes.get("/admin/courses/edit/:id", getEditCourseForm);
 adminRoutes.post("/admin/courses/update/:id", upload.any(), updateCourse);
 

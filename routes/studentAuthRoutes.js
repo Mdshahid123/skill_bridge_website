@@ -3,7 +3,7 @@ const { getLogin ,submitLogin,logout,getSignUp,submitSignUp} = require("../contr
 const studentAuthRoutes = express.Router();
 
 
-// Existing routes
+//Existing routes
 studentAuthRoutes.get("/Login", getLogin);
 studentAuthRoutes.post("/submitLogin", submitLogin);
 studentAuthRoutes.get("/logout", logout);

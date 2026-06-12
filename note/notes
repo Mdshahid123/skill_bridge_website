@@ -26,3 +26,12 @@ if (signature === expectedSignature) {
     // Signature is valid, retrieve session data using sessionId
     sessionData = getSessionData(sessionId)
 }
+
+
+
+
+
+
+// success message
+
+//admin/login?created=true (or uses req.flash).

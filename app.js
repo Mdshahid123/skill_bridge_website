@@ -1,4 +1,5 @@
 //importing a module
+
 //load env variables
 require("dotenv").config()
 const path=require("path")
@@ -20,8 +21,7 @@ const store=new mongodbStore({
      collection:"sessions"
 })
 
-
-// middleware 3:parsing the form data
+//middleware 3:parsing the form data
 app.use(express.urlencoded({ extended: true }))//form data is sent in key=value&key=value format and this middleware will parse it and make it available in req.body
 app.use(express.json())//for parsing json data sent in request body and make it available in req.body
 
@@ -37,14 +37,13 @@ app.use(session({
 //Serve static files
 app.use('/uploads', express.static('uploads'));
 
-// middleware 2:matching the reuqested routes in studentroutes otherwise call the next
+//middleware 2:matching the reuqested routes in studentroutes otherwise call the next
 app.use(studentRoutes)
 app.use(studentAuthRoutes)
 app.use(adminAuthRoutes)
 app.use(adminRoutes)
 
-// middleware 2:matching the reuqested routes in authroutes otherwise call the next
-
+//middleware 2:matching the reuqested routes in authroutes otherwise call the next
 
 //server and mongodb connection
 const db_path =process.env.mongodb_cloud
@@ -55,8 +54,13 @@ mongoose.connect(db_path).then(()=>{
           console.log(`server is running at port ${port}`)
      })
 }).catch((error)=>{
-      console.log(error)  
+      console.log(error)
 })
+
+
+
+
+
 
 
 

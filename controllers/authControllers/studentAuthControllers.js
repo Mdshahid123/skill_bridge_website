@@ -46,9 +46,14 @@ async function submitLogin(req, res) {
             role: existingUser.role || "user"
         };
 
+        
         // Store data in session
         req.session.isLogin = true;
         req.session.user = userData;
+        
+        //Clear any existing admin session data
+        req.session.isAdmin = false;
+        req.session.admin = null;
 
         // Save session before redirecting
         req.session.save((err) => {

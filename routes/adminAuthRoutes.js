@@ -12,7 +12,7 @@ adminStudentRoutes.get('/admin/login', showAdminLogin);
 adminStudentRoutes.post('/admin/submitLogin', submitAdminLogin);
 adminStudentRoutes.get('/admin/logout', adminLogout);
 adminStudentRoutes.get("/admin/signUp",adminSignup);
-adminStudentRoutes.post("admin/submitSignup",submitAdminSignup)
+adminStudentRoutes.post("/admin/submitSignup",submitAdminSignup)
 
 module.exports = adminStudentRoutes;
 

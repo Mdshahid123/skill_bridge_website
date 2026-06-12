@@ -220,7 +220,7 @@ const deleteApiCourse = async (req, res) => {
 
 // GET add course form (no data)
 const getAddCourseForm = (req, res) => {
-    res.render("pages/courseForm", { course: null });
+    res.render("pages/admin/courseForm", { course: null });
 };
 
 // GET edit course form (populated with existing data)
