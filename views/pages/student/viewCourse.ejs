@@ -42,13 +42,13 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <style>
-        /* Base styles – no global text overrides that break nav/footer */
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
-        
-        /* ========== COURSE PAGE SPECIFIC STYLES ========== */
+        /* Base styles – heavy fonts & smooth interactions */
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; }
+
+        /* ========== HEAVY TYPOGRAPHY (main content) ========== */
         .course-content-wrapper h1,
         .course-content-wrapper h2,
         .course-content-wrapper h3,
@@ -59,580 +59,354 @@
             font-weight: 800 !important;
             letter-spacing: -0.01em;
         }
-        
         .course-content-wrapper p,
         .course-content-wrapper li,
-        .course-content-wrapper span:not(.badge-text),
+        .course-content-wrapper .description-text,
+        .course-content-wrapper .requirement-item,
         .course-content-wrapper .text-gray-600,
-        .course-content-wrapper .text-gray-500,
-        .course-content-wrapper .text-sm {
-            font-weight: 500 !important;
-            color: #334155 !important;
+        .course-content-wrapper .text-gray-700 {
+            font-weight: 600 !important;
+            color: #1e293b !important;
         }
-        
-        .course-content-wrapper .text-gray-400 {
-            color: #64748b !important;
+        .course-content-wrapper .text-gray-500 {
+            font-weight: 500 !important;
+            color: #475569 !important;
+        }
+        /* Syllabus module titles & lectures */
+        .module-title {
+            font-weight: 800 !important;
+            font-size: 1.1rem;
+        }
+        .lecture-title {
+            font-weight: 600 !important;
+        }
+        .offer-card p {
             font-weight: 500 !important;
         }
-        
-        .btn-primary-custom { background: linear-gradient(135deg, #0a2b3e, #1a6f8c); transition: all 0.2s; color: white; font-weight: 700; }
-        .btn-primary-custom:hover { background: linear-gradient(135deg, #0a2b3e, #0066b3); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,111,140,0.3); }
-        
-        /* Hero section */
-        .hero-glow { background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%); position: relative; overflow: hidden; }
-        .hero-glow::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(26,111,140,0.12) 0%, rgba(0,102,179,0.06) 50%, transparent 70%); animation: rotateGlow 20s linear infinite; }
-        @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .brand-grid { background-image: repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px), repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px); background-size: 50px 50px; }
-        .brand-grid-light { background-image: repeating-linear-gradient(90deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px), repeating-linear-gradient(0deg, #5ba3bc 0px, #5ba3bc 0.5px, transparent 0.5px, transparent 40px); }
-        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(5deg); } }
-        .float-animation { animation: float 4s ease-in-out infinite; }
-        .offering-card { transition: all 0.3s ease; }
-        .offering-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -12px rgba(26,111,140,0.15); }
-        .project-card { transition: all 0.3s ease; }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.15); }
-        .breadcrumb a:hover { text-decoration: underline; }
-        #videoModal { backdrop-filter: blur(8px); }
-        .lecture-item { cursor: pointer; }
-        .lecture-item:hover { background: #e6f4f5; }
-        .glow-text { text-shadow: 0 0 20px rgba(26,111,140,0.3); }
-        .lecture-item.locked { opacity: 0.6; cursor: not-allowed; position: relative; }
-        .lecture-item.locked:hover { background: transparent; }
-        .lecture-item.locked .fa-lock { color: #ef4444; }
-        .lecture-item .fa-lock { display: none; }
-        .lecture-item.locked .fa-circle-play { display: none; }
-        .lecture-item.locked .fa-lock { display: inline-block; }
-        
-        /* ========== INSTRUCTOR CARD – NO VACANT SPACE, CONSTANT RATIO ========== */
-        .instructor-card {
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .hover-grow {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .hover-grow:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+        .btn-pulse {
+            animation: pulse-border 1.5s infinite;
+        }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(20, 184, 166, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+        }
+        .gradient-border {
+            position: relative;
             background: white;
-            border-radius: 1.25rem;
-            overflow: hidden;
-            width: 100%;
-            max-width: 300px;
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
-            transition: all 0.3s ease;
-            border: 1px solid #eef2f8;
+            border-radius: 1rem;
+        }
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(135deg, #14b8a6, #3b82f6);
+            border-radius: 1rem;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gradient-border:hover::after {
+            opacity: 1;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.hide {
+            transform: translateY(120%);
+        }
+
+        /* Syllabus interactive */
+        .lecture-item {
+            transition: all 0.2s ease;
+        }
+        .lecture-item:not(.locked):hover {
+            background: #e6f4f5;
+            padding-left: 1rem;
+        }
+
+        /* Hero & cards */
+        .hero-glow {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ccfbf1 50%, #cffafe 100%);
+            position: relative;
+        }
+        .hero-glow::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 40%, rgba(6,182,212,0.2), transparent 70%);
+            animation: slowDrift 12s infinite alternate;
+        }
+        @keyframes slowDrift {
+            0% { opacity: 0.4; transform: translate(0,0);}
+            100% { opacity: 0.8; transform: translate(5%, 5%);}
+        }
+        .brand-grid {
+            background-image: repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px),
+                              repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px);
+        }
+        .instructor-card {
+            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
         }
         .instructor-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 35px -14px rgba(26,111,140,0.25);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -12px rgba(26,111,140,0.25);
         }
-        .instructor-image-container {
-            width: 100%;
-            background: #f1f5f9;
-            aspect-ratio: 4 / 3;
-            overflow: hidden;
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
         }
-        .instructor-cover-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
+        @keyframes float {
+            0%,100%{ transform: translateY(0px); }
+            50%{ transform: translateY(-8px); }
         }
-        .instructor-card:hover .instructor-cover-img {
-            transform: scale(1.02);
-        }
-        .instructor-info {
-            padding: 1.25rem 1rem;
-            text-align: left;
-            background: white;
-        }
-        .instructor-name {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #0a2b3e;
-            margin-bottom: 0.25rem;
-        }
-        .instructor-bio {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #334155;
-            line-height: 1.4;
-        }
-        
-        /* ========== ENROLLMENT CARD IMAGE – NO VACANT SPACE, CONSTANT RATIO ========== */
-        .course-sidebar-img-container {
-            width: 100%;
-            background: #f1f5f9;
-            aspect-ratio: 4 / 3;
-            overflow: hidden;
-            border-radius: 0.75rem;
-        }
-        .course-sidebar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-            .instructor-card {
-                max-width: 340px;
-                margin: 0 auto;
-            }
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            .hero-glow .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            .instructor-card {
-                margin-top: 1rem;
-            }
-            .breadcrumb {
-                font-size: 0.75rem;
-            }
-            h1 {
-                font-size: 1.75rem !important;
-            }
-            .typing-dynamic-container {
-                min-width: 160px;
-            }
-            .instructor-image-container {
-                aspect-ratio: 3 / 4;
-            }
-            .course-sidebar-img-container {
-                aspect-ratio: 16 / 9;
-            }
-        }
-        
-        /* Need help section animations */
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-6px); }
-        }
-        .animate-bounce-slow {
-            animation: bounce-slow 2s ease-in-out infinite;
-        }
-        .delay-100 {
-            animation-delay: 0.5s;
-        }
-        .ml-13 {
-            margin-left: 3.25rem;
-        }
-        @media (max-width: 768px) {
-            .ml-13 {
-                margin-left: 0;
-            }
-        }
-
-
-        /* Enhanced message toast styling */
-#helpFormMessage {
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    transform-origin: top;
-    animation: messageSlideIn 0.3s ease-out forwards;
-}
-
-@keyframes messageSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Success message */
-#helpFormMessage.bg-green-100 {
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border-left: 4px solid #22c55e;
-    box-shadow: 0 4px 12px rgba(34,197,94,0.15);
-}
-
-/* Error message */
-#helpFormMessage.bg-red-100 {
-    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-    border-left: 4px solid #ef4444;
-    box-shadow: 0 4px 12px rgba(239,68,68,0.15);
-}
-
-#helpFormMessage i {
-    margin-right: 0.5rem;
-    font-size: 1rem;
-}
     </style>
 </head>
 <body>
 
     <%- include("../../partials/common/navbar.ejs") %>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu (unchanged) -->
     <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
         <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
-        <div class="flex items-center bg-gray-800 rounded-full px-4 py-3 mb-6">
-            <i class="fa-solid fa-search text-gray-400 mr-2"></i>
-            <input type="text" placeholder="Search courses..." class="bg-transparent text-white placeholder-gray-400 text-sm w-full focus:outline-none">
-        </div>
         <div class="flex flex-col gap-5 text-xl">
             <a href="/" class="font-semibold text-gray-300 py-3 border-b border-gray-800">Home</a>
             <a href="/about" class="font-semibold text-gray-300 py-3 border-b">About</a>
             <a href="/courses" class="font-semibold text-gray-300 py-3 border-b">Courses</a>
             <a href="/contact" class="font-semibold text-gray-300 py-3 border-b">Contact</a>
-            <div class="flex gap-4 mt-4">
-                <button class="flex-1 bg-transparent border border-gray-600 text-gray-300 py-3 rounded-full font-semibold">Login</button>
-                <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold">Enroll Now</button>
-            </div>
+            <div class="flex gap-4 mt-4"><button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-bold">Enroll Now</button></div>
         </div>
     </div>
 
-    <!-- MAIN COURSE CONTENT WRAPPER -->
     <div class="course-content-wrapper">
         <main>
-            <!-- Course Header -->
+            <!-- Hero Section (Enhanced) -->
             <div class="hero-glow pt-28 pb-16 relative overflow-hidden">
                 <div class="absolute inset-0 opacity-[0.08] brand-grid"></div>
-                <div class="absolute inset-0 opacity-[0.05] brand-grid-light"></div>
-                <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px), repeating-linear-gradient(135deg, #1a6f8c 0px, #1a6f8c 0.5px, transparent 0.5px, transparent 80px);"></div>
-                <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl"></div>
-                
                 <div class="container mx-auto px-6 relative z-10">
-                    <div class="breadcrumb text-sm mb-4">
-                        <a href="/" class="text-teal-700/70 hover:text-teal-700 font-medium">Home</a>
-                        <span class="text-teal-700/40 mx-2">/</span>
-                        <a href="/courses" class="text-teal-700/70 hover:text-teal-700 font-medium">Courses</a>
-                        <span class="text-teal-700/40 mx-2">/</span>
-                        <span class="text-teal-800 font-bold" id="courseBreadcrumb"><%= course.category %></span>
-                    </div>
-                    
-                    <div class="flex flex-col lg:flex-row gap-8 items-start">
-                        <div class="flex-1">
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-4">
+                    <div class="flex flex-col lg:flex-row gap-10 items-start">
+                        <div class="flex-1 animate-fade-up">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-5">
                                 <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                                <span class="text-teal-600 text-xs font-extrabold tracking-wide">Most Popular Course</span>
+                                <span class="text-teal-700 text-xs font-black tracking-wider">⭐ MOST POPULAR</span>
                             </div>
-                                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 glow-text">
-    <%= course.courseName.replaceAll("-", " ") %>
-</h1>
-                            </h1>
-                          
-                            <p class="text-gray-700 text-base md:text-lg max-w-2xl font-medium"><%= course.courseDescription %></p>
-                            
-                            <div class="flex flex-wrap gap-4 mt-6">
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
-                                    <i class="fa-regular fa-star text-teal-500"></i>
-                                    <span class="text-sm font-bold text-gray-700">4.9 ★ (2.5k+ ratings)</span>
-                                </div>
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
-                                    <i class="fa-regular fa-user text-teal-500"></i>
-                                    <span class="text-sm font-bold text-gray-700">15k+ students enrolled</span>
-                                </div>
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
-                                    <i class="fa-regular fa-clock text-teal-500"></i>
-                                    <span class="text-sm font-bold text-gray-700">Updated monthly</span>
-                                </div>
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-5 leading-tight"><%= course.courseName.replaceAll("-", " ") %></h1>
+                            <p class="text-gray-800 text-lg max-w-2xl font-semibold leading-relaxed"><%= course.courseDescription %></p>
+                            <div class="flex flex-wrap gap-4 mt-8">
+                                <div class="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-5 py-2 rounded-full"><i class="fa-regular fa-star text-teal-600"></i><span class="font-bold text-gray-800">4.9 ★ (2.5k+ ratings)</span></div>
+                                <div class="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-5 py-2 rounded-full"><i class="fa-regular fa-user text-teal-600"></i><span class="font-bold text-gray-800">15k+ enrolled</span></div>
+                                <div class="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-5 py-2 rounded-full"><i class="fa-regular fa-clock text-teal-600"></i><span class="font-bold text-gray-800">Updated monthly</span></div>
                             </div>
                         </div>
-                        
-                        <!-- INSTRUCTOR CARD -->
-                        <div class="instructor-card mx-auto lg:mx-0">
-                            <div class="instructor-image-container">
-                                <img style="object-fit:contain;" src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="instructor-cover-img">
+                        <!-- Instructor Card with animation -->
+                        <div class="instructor-card bg-white rounded-2xl shadow-xl overflow-hidden max-w-sm mx-auto lg:mx-0 animate-fade-up delay-100">
+                            <div class="aspect-[4/3] overflow-hidden bg-gray-100">
+                                <img style="object-fit:cover;" src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                             </div>
-                            <div class="instructor-info">
-                                <h3 class="instructor-name"><%= course.instructor.name %></h3>
-                                <p class="instructor-bio"><%= course.instructor.bio %></p>
+                            <div class="p-5">
+                                <h3 class="text-2xl font-black text-gray-800"><%= course.instructor.name %></h3>
+                                <p class="text-gray-600 font-semibold mt-1"><%= course.instructor.bio %></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Course Content Container -->
+            <!-- Main Content Container -->
             <div class="container mx-auto px-6 py-12 max-w-8xl">
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Left Column (2/3) -->
-                    <div class="lg:col-span-2 space-y-8">
+                <div class="grid lg:grid-cols-3 gap-10">
+                    <!-- Left Column (2/3) - Animated sections -->
+                    <div class="lg:col-span-2 space-y-10">
                         <!-- What You'll Learn -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all">
-                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-lightbulb text-teal-500"></i> What You'll Learn</h2>
-                            <div class="grid md:grid-cols-2 gap-3">
+                        <div class="bg-white rounded-2xl p-7 shadow-md hover:shadow-lg transition-all gradient-border animate-fade-up delay-100">
+                            <h2 class="text-2xl font-black text-gray-900 mb-5 flex items-center gap-2"><i class="fa-regular fa-lightbulb text-teal-500 text-2xl"></i> What You'll Learn</h2>
+                            <div class="grid md:grid-cols-2 gap-4">
                                 <% course.whatYouLearn.forEach(item => { %>
-                                    <div class="flex items-center gap-2 text-gray-700 text-sm font-medium"><i class="fa-regular fa-circle-check text-teal-500"></i><span><%= item %></span></div>
+                                    <div class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-teal-600 mt-0.5"></i><span class="text-gray-800 font-semibold"><%= item %></span></div>
                                 <% }); %>
                             </div>
                         </div>
 
-                        <!-- Syllabus -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                            <div class="flex justify-between items-center mb-4 flex-wrap gap-3">
-                                <h2 class="text-xl font-extrabold text-gray-800 flex items-center gap-2"><i class="fa-regular fa-rectangle-list text-teal-500"></i> Course Content</h2>
-                                <button id="downloadBrochureBtn" class="flex items-center gap-2 text-sm font-bold text-teal-600 border border-teal-300 px-4 py-1.5 rounded-full hover:bg-teal-500 hover:text-white transition-all"><i class="fa-regular fa-file-pdf"></i>Download Brochure</button>
+                        <!-- Syllabus (Interactive + Heavy Font) -->
+                        <div class="bg-white rounded-2xl p-7 shadow-md hover:shadow-lg transition-all" id="syllabusSection">
+                            <div class="flex flex-wrap justify-between items-center mb-6">
+                                <h2 class="text-2xl font-black text-gray-900 flex items-center gap-2"><i class="fa-regular fa-rectangle-list text-teal-500"></i> Course Content</h2>
+                                <button id="downloadBrochureBtn" class="flex items-center gap-2 text-sm font-extrabold text-teal-700 border border-teal-300 px-5 py-2 rounded-full hover:bg-teal-600 hover:text-white transition-all"><i class="fa-regular fa-file-pdf"></i>Download Brochure</button>
                             </div>
-                            <div id="courseContent"></div>
+                            <div id="courseContent" class="space-y-4"></div>
                         </div>
 
                         <!-- Requirements -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-list-check text-teal-500"></i> Requirements</h2>
-                            <ul class="space-y-2">
+                        <div class="bg-white rounded-2xl p-7 shadow-md hover:shadow-lg transition-all animate-fade-up delay-200">
+                            <h2 class="text-2xl font-black text-gray-900 mb-5 flex items-center gap-2"><i class="fa-regular fa-list-check text-teal-500"></i> Requirements</h2>
+                            <ul class="space-y-3">
                                 <% course.requirements.forEach(req => { %>
-                                    <li class="flex items-center gap-2 text-gray-700 text-sm font-medium"><i class="fa-regular fa-circle-check text-teal-500"></i><span><%= req %></span></li>
+                                    <li class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-teal-600 mt-1"></i><span class="text-gray-800 font-semibold"><%= req %></span></li>
                                 <% }); %>
                             </ul>
                         </div>
 
-                        <!-- Description -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-file-lines text-teal-500"></i> Description</h2>
-                            <p class="text-gray-700 leading-relaxed font-medium"><%= course.longDescription %></p>
+                        <!-- Description (Long) -->
+                        <div class="bg-white rounded-2xl p-7 shadow-md hover:shadow-lg transition-all animate-fade-up delay-300">
+                            <h2 class="text-2xl font-black text-gray-900 mb-5 flex items-center gap-2"><i class="fa-regular fa-file-lines text-teal-500"></i> Full Description</h2>
+                            <div class="text-gray-800 font-semibold leading-relaxed space-y-4"><%= course.longDescription %></div>
                         </div>
                     </div>
 
-                    <!-- Right Sidebar - Enrollment Card -->
-                    <div class="lg:col-span-1 space-y-6">
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-teal-100 sticky top-24">
-                            <div class="course-sidebar-img-container mb-4">
-                                <img style="object-fit:fill" src="<%= course.image %>" alt="<%= course.courseName %>" class="course-sidebar-img">
+                    <!-- Right Sidebar – Enrollment Card (Sticky) -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-2xl p-6 shadow-xl border border-teal-100 sticky top-24 transition-all hover:shadow-2xl animate-fade-up">
+                            <div class="aspect-video rounded-xl overflow-hidden mb-5">
+                                <img style="object-fit:cover;" src="<%= course.image %>" alt="<%= course.courseName %>" class="w-full h-full object-cover">
                             </div>
-                            <h3 class="text-xl font-extrabold text-gray-800 mb-2"><%= course.courseName %></h3>
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-3xl font-extrabold text-teal-600">₹<%= course.price %></span>
-                                <span class="text-sm text-gray-500 line-through font-medium">₹<%= course.originalPrice %></span>
-                                <span class="text-xs bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full"><%= Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100) %>% off</span>
+                            <h3 class="text-2xl font-black text-gray-800"><%= course.courseName %></h3>
+                            <div class="flex items-center gap-3 my-4">
+                                <span class="text-4xl font-black text-teal-600">₹<%= course.price %></span>
+                                <span class="text-lg text-gray-500 line-through font-semibold">₹<%= course.originalPrice %></span>
+                                <span class="bg-green-100 text-green-800 font-black px-2 py-1 rounded-full text-sm"><%= Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100) %>% off</span>
                             </div>
                             <div class="space-y-3 mb-6">
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span><%= course.duration %> Months</span></div>
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-signal w-5 text-teal-500"></i> <span><%= course.level %></span></div>
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-certificate w-5 text-teal-500"></i> <span>Certificate of Completion</span></div>
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span>Lifetime Access</span></div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-clock w-5 text-teal-600"></i><span class="font-bold"><%= course.duration %> Months</span></div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-signal w-5 text-teal-600"></i><span class="font-bold"><%= course.level %></span></div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-certificate w-5 text-teal-600"></i><span class="font-bold">Certificate of Completion</span></div>
+                                <div class="flex items-center gap-3"><i class="fa-regular fa-infinity w-5 text-teal-600"></i><span class="font-bold">Lifetime Access</span></div>
                             </div>
-                            <button class="w-full btn-primary-custom text-white py-3 rounded-xl font-extrabold transition-all enroll-btn hover:scale-105">Enroll Now <i class="fa-solid fa-arrow-right ml-2"></i></button>
-                            <p class="text-center text-xs text-gray-500 font-medium mt-3">Join 15,000+ successful students</p>
+                            <button class="w-full bg-gradient-to-r from-teal-600 to-blue-700 hover:from-teal-700 hover:to-blue-800 text-white py-3.5 rounded-xl font-extrabold transition-all enroll-btn btn-pulse">Enroll Now <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                            <p class="text-center text-sm text-gray-600 font-semibold mt-4">⚡ Join 15,000+ successful students</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Exclusive Course Offerings -->
-                <div class="mt-20">
-                    <div class="text-center mb-14">
-                        <div class="inline-flex items-center justify-center mb-4">
-                            <span class="w-12 h-px bg-gradient-to-r from-transparent to-teal-400"></span>
-                            <span class="mx-3 text-teal-600 text-sm font-bold tracking-wider uppercase">Why Choose Us</span>
-                            <span class="w-12 h-px bg-gradient-to-l from-transparent to-teal-400"></span>
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Exclusive Course Offerings</h2>
-                        <p class="text-gray-500 mt-3 max-w-2xl mx-auto font-medium">Comprehensive learning ecosystem designed for your success</p>
+                <!-- Sticky CTA bar (appears on scroll) -->
+                <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-4 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
+                    <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <div class="flex items-center gap-3"><span class="font-black text-gray-800"><%= course.courseName %></span><span class="text-2xl font-black text-teal-600">₹<%= course.price %></span><span class="text-sm text-gray-500 line-through">₹<%= course.originalPrice %></span></div>
+                        <button class="enroll-btn bg-teal-600 text-white px-8 py-2.5 rounded-full font-extrabold shadow-lg hover:bg-teal-700 transition-all">Enroll Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+
+                <!-- Exclusive Offerings (Animated) -->
+                <div class="mt-24">
+                    <div class="text-center mb-12">
+                        <span class="text-teal-600 font-black tracking-wider">WHY CHOOSE US</span>
+                        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-2">Exclusive Course Offerings</h2>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-                        <!-- Offering Cards (unchanged) -->
-                        <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-100 to-rose-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-diagram-project text-rose-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">Capstone Project</h3>
-                            <p class="text-gray-500 leading-relaxed">Build real-world projects that showcase your skills to employers.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-up delay-100">
+                            <div class="w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center mb-4"><i class="fa-solid fa-diagram-project text-rose-600 text-2xl"></i></div>
+                            <h3 class="text-xl font-black">Capstone Project</h3>
+                            <p class="text-gray-700 font-medium">Build real‑world projects that showcase your skills to employers.</p>
                         </div>
-                        <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-pen-ruler text-amber-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">Practice Exercises</h3>
-                            <p class="text-gray-500 leading-relaxed">Topic-wise coding challenges and practice problems to strengthen concepts.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-up delay-200">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center mb-4"><i class="fa-solid fa-pen-ruler text-amber-600 text-2xl"></i></div>
+                            <h3 class="text-xl font-black">Practice Exercises</h3>
+                            <p class="text-gray-700 font-medium">Topic-wise challenges to strengthen concepts.</p>
                         </div>
-                        <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-folder-open text-green-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">Assignments & Projects</h3>
-                            <p class="text-gray-500 leading-relaxed">Regular assignments and mini-projects to apply what you've learned.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-up delay-300">
+                            <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-4"><i class="fa-solid fa-folder-open text-green-600 text-2xl"></i></div>
+                            <h3 class="text-xl font-black">Assignments & Projects</h3>
+                            <p class="text-gray-700 font-medium">Apply what you've learned with regular tasks.</p>
                         </div>
-                        <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-100 to-cyan-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-headset text-cyan-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">Live Doubt Resolution</h3>
-                            <p class="text-gray-500 leading-relaxed">Get your doubts resolved instantly by expert mentors during live sessions.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-up delay-150">
+                            <div class="w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center mb-4"><i class="fa-solid fa-headset text-cyan-600 text-2xl"></i></div>
+                            <h3 class="text-xl font-black">Live Doubt Resolution</h3>
+                            <p class="text-gray-700 font-medium">Instant help from expert mentors.</p>
                         </div>
-                        <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                                <i class="fa-regular fa-certificate text-emerald-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">Certification of Completion</h3>
-                            <p class="text-gray-500 leading-relaxed">Earn a globally recognized certificate to boost your career.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-up delay-250">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-4"><i class="fa-regular fa-certificate text-emerald-600 text-2xl"></i></div>
+                            <h3 class="text-xl font-black">Certification</h3>
+                            <p class="text-gray-700 font-medium">Globally recognized certificate.</p>
                         </div>
-                        <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-bullhorn text-orange-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">Career Guidance & Interview Prep</h3>
-                            <p class="text-gray-500 leading-relaxed">Resume building, mock interviews, and placement assistance.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-up delay-350">
+                            <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center mb-4"><i class="fa-solid fa-bullhorn text-orange-600 text-2xl"></i></div>
+                            <h3 class="text-xl font-black">Career Guidance</h3>
+                            <p class="text-gray-700 font-medium">Resume, mock interviews, placement assistance.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Certificate Section -->
-                <div class="relative mt-20 mb-36">
-                    <div class="absolute inset-0 bg-gradient-to-r from-teal-50/30 to-blue-50/30 rounded-3xl -z-10"></div>
-                    <div class="flex flex-col lg:flex-row items-center gap-12 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                        <div class="relative w-full lg:w-5/12 bg-gradient-to-br from-teal-50 to-blue-50 p-8 flex justify-center">
-                            <div class="relative">
-                                <div class="absolute -top-3 -left-3 z-10">
-                                    <div class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md flex items-center gap-1">
-                                        <i class="fa-solid fa-award text-xs"></i>
-                                        <span>Official</span>
-                                    </div>
-                                </div>
-                                <img src="/cc.png" alt="Course Certificate Sample" class="w-full max-w-md mx-auto rounded-xl shadow-2xl border-4 border-white transition-transform duration-300 hover:scale-105">
-                                <div class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                                    <i class="fa-regular fa-eye mr-1"></i> Sample
-                                </div>
-                            </div>
+                <!-- Certificate Section (animated) -->
+                <div class="relative mt-24 mb-32 animate-fade-up delay-100">
+                    <div class="flex flex-col lg:flex-row items-center gap-12 bg-white rounded-3xl shadow-xl overflow-hidden border p-8">
+                        <div class="lg:w-5/12 text-center">
+                            <img src="/cc.png" alt="Certificate" class="w-full max-w-sm mx-auto rounded-xl shadow-2xl border-4 border-white hover:scale-105 transition-transform">
                         </div>
-                        <div class="flex-1 lg:w-7/12 p-8 lg:p-10">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center">
-                                    <i class="fa-regular fa-certificate text-teal-600 text-xl"></i>
-                                </div>
-                                <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">Course Certificate</h2>
-                            </div>
-                            <p class="text-gray-600 text-base leading-relaxed font-medium mb-6">Earn a verified certificate upon course completion. Showcase your skills to employers and get recognized globally.</p>
-                            <div class="flex flex-wrap gap-5 mb-6">
-                                <div class="flex items-center gap-2"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center"><i class="fa-regular fa-circle-check text-green-600 text-sm"></i></div><span class="text-gray-700 font-semibold">Shareable on LinkedIn</span></div>
-                                <div class="flex items-center gap-2"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center"><i class="fa-regular fa-circle-check text-green-600 text-sm"></i></div><span class="text-gray-700 font-semibold">Verifiable & Secure</span></div>
-                                <div class="flex items-center gap-2"><div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center"><i class="fa-regular fa-circle-check text-green-600 text-sm"></i></div><span class="text-gray-700 font-semibold">Lifetime Access</span></div>
-                            </div>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="bg-gradient-to-r from-teal-50 to-teal-100 text-teal-700 text-xs font-bold px-4 py-2 rounded-full shadow-sm border border-teal-200"><i class="fa-regular fa-building mr-1"></i> Industry Recognized</span>
-                                <span class="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 text-xs font-bold px-4 py-2 rounded-full shadow-sm border border-blue-200"><i class="fa-regular fa-star mr-1"></i> UGC Approved</span>
-                                <span class="bg-gradient-to-r from-emerald-50 to-emerald-100 text-emerald-700 text-xs font-bold px-4 py-2 rounded-full shadow-sm border border-emerald-200"><i class="fa-solid fa-globe mr-1"></i> Globally Accepted</span>
-                            </div>
-                            <div class="mt-8">
-                                <button class="inline-flex items-center gap-2 text-teal-600 font-bold text-sm bg-teal-50 px-5 py-2.5 rounded-full hover:bg-teal-100 transition-all hover:gap-3">
-                                    <i class="fa-regular fa-file-pdf"></i> Download Sample Certificate
-                                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </button>
-                            </div>
+                        <div class="lg:w-7/12">
+                            <h2 class="text-3xl lg:text-4xl font-black text-gray-900">Course Certificate</h2>
+                            <p class="text-gray-700 font-semibold mt-3 text-lg">Earn a verified certificate upon completion. Showcase your skills globally.</p>
+                            <div class="flex flex-wrap gap-4 mt-6"><span class="bg-teal-50 text-teal-700 font-bold px-4 py-2 rounded-full">✓ Shareable on LinkedIn</span><span class="bg-blue-50 text-blue-700 font-bold px-4 py-2 rounded-full">✓ Verifiable & Secure</span><span class="bg-emerald-50 text-emerald-700 font-bold px-4 py-2 rounded-full">✓ Lifetime Access</span></div>
+                            <button class="mt-8 inline-flex items-center gap-2 text-teal-700 font-bold bg-teal-50 px-6 py-2.5 rounded-full hover:bg-teal-100 transition-all">Download Sample <i class="fa-regular fa-file-pdf"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Need Help Section (Integrated with Backend) -->
-                <div class="mt-16">
-                    <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-2xl">
+                <!-- Need Help Section (Enhanced animation & validation) -->
+                <div class="mt-16 animate-fade-up delay-200">
+                    <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
                         <div class="flex flex-col md:flex-row">
-                            <!-- Left Illustration -->
-                            <div class="relative w-full md:w-5/12 bg-gradient-to-br from-teal-50 via-blue-50 to-indigo-50 p-8 flex flex-col items-center justify-center">
-                                <div class="relative">
-                                    <div class="absolute -top-14 left-1/2 transform -translate-x-1/2 animate-bounce-slow z-10">
-                                        <div class="relative">
-                                            <div class="bg-white rounded-2xl shadow-lg px-4 py-2 flex items-center gap-2 border border-teal-200">
-                                                <i class="fa-solid fa-circle-question text-teal-500 text-lg"></i>
-                                                <span class="text-teal-700 font-bold text-sm">Need Help?</span>
-                                            </div>
-                                            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b border-r border-teal-200"></div>
-                                        </div>
-                                    </div>
-                                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-10">
-                                        <i class="fa-solid fa-circle-question text-7xl text-teal-600"></i>
-                                    </div>
-                                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Support illustration" class="w-48 h-48 object-contain relative z-20">
-                                    <div class="absolute -top-4 -right-2 opacity-20 animate-pulse"><i class="fa-solid fa-question text-teal-500 text-sm"></i></div>
-                                    <div class="absolute bottom-2 -left-3 opacity-20 animate-pulse delay-100"><i class="fa-solid fa-question text-teal-500 text-xs"></i></div>
-                                </div>
-                                <div class="text-center mt-6 relative z-20">
-                                    <h3 class="text-xl font-extrabold text-gray-800">We're here to help <span class="text-teal-500">💙</span></h3>
-                                    <p class="text-gray-500 text-sm mt-1 max-w-xs mx-auto">Got a question? Our support team is ready to assist you.</p>
-                                </div>
-                                <div class="absolute bottom-4 left-4 opacity-5"><i class="fa-regular fa-message text-6xl text-teal-600"></i></div>
-                                <div class="absolute top-4 right-4 opacity-5"><i class="fa-regular fa-circle-question text-6xl text-teal-600"></i></div>
+                            <div class="md:w-5/12 bg-gradient-to-br from-teal-50 to-blue-50 p-8 text-center">
+                                <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Support" class="w-40 h-40 mx-auto floating-icon">
+                                <h3 class="text-2xl font-black mt-4">We're here to help 💙</h3>
+                                <p class="text-gray-700 font-semibold">Our support team will assist you within 24h.</p>
                             </div>
-
-                            <!-- Right Side - Form (Backend Ready) -->
-                            <div class="w-full md:w-7/12 p-8 lg:p-10 bg-white">
-                                <div class="mb-6">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center">
-                                            <i class="fa-regular fa-envelope-open text-teal-600 text-lg"></i>
-                                        </div>
-                                        <h2 class="text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight">Need help?</h2>
-                                    </div>
-                                    <p class="text-gray-500 text-sm ml-13">Fill out the form below and we'll get back to you within 24 hours.</p>
-                                </div>
-
-                                <div id="helpFormMessage" class="mb-4 hidden rounded-lg p-3 text-sm"></div>
-
+                            <div class="md:w-7/12 p-8">
+                                <div id="helpFormMessage" class="mb-4 hidden rounded-xl p-3 text-sm font-bold"></div>
                                 <form id="helpForm" class="space-y-4">
-                                    <div>
-                                        <label class="text-sm font-bold text-gray-700 block mb-1.5"><i class="fa-regular fa-user mr-1 text-teal-500 text-xs"></i> Full Name <span class="text-red-500">*</span></label>
-                                        <input type="text" id="helpName" name="name" placeholder="e.g. Rahul  Kumar" class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white" required>
-                                    </div>
-                                    <div>
-                                        <label class="text-sm font-bold text-gray-700 block mb-1.5"><i class="fa-regular fa-envelope mr-1 text-teal-500 text-xs"></i> Email Address <span class="text-red-500">*</span></label>
-                                        <input type="email" id="helpEmail" name="email" placeholder="rahul@example.com" class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white" required>
-                                    </div>
-                                    <div>
-                                        <label class="text-sm font-bold text-gray-700 block mb-1.5"><i class="fa-solid fa-phone mr-1 text-teal-500 text-xs"></i> Phone Number <span class="text-red-500">*</span></label>
-                                        <input type="tel" id="helpPhone" name="phoneNumber" placeholder="9876543210" maxlength="10" class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white" required>
-                                        <p class="text-xs text-gray-400 mt-1">Exactly 10 digits, no spaces or symbols</p>
-                                    </div>
-                                    <input type="hidden" id="helpCourse" name="course" value="<%= course.courseName %>">
-                                    <input type="hidden" name="degree" value="">
-                                    <div>
-                                        <label class="text-sm font-bold text-gray-700 block mb-1.5"><i class="fa-regular fa-clock mr-1 text-teal-500 text-xs"></i> Preferred Callback Time</label>
-                                        <input type="datetime-local" id="helpCallbackTime" name="callbackTime" class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white">
-                                    </div>
-                                    <div>
-                                        <label class="text-sm font-bold text-gray-700 block mb-1.5"><i class="fa-regular fa-message mr-1 text-teal-500 text-xs"></i> Message (Optional)</label>
-                                        <textarea id="helpMessage" name="message" rows="3" placeholder="How can we assist you? Please provide details..." class="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white resize-none"></textarea>
-                                    </div>
-                                    <button type="submit" id="helpSubmitBtn" class="w-full bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-[1.02] shadow-md hover:shadow-lg">
-                                        <i class="fa-regular fa-paper-plane"></i> Send Message
-                                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                                    </button>
-                                    <p class="text-xs text-gray-400 text-center mt-3 flex items-center justify-center gap-1">
-                                        <i class="fa-regular fa-clock"></i> We'll respond within 24 hours
-                                        <i class="fa-regular fa-face-smile ml-1"></i>
-                                    </p>
+                                    <input type="text" id="helpName" placeholder="Full Name *" class="w-full rounded-xl border border-gray-200 px-4 py-3 font-semibold focus:ring-2 focus:ring-teal-500" required>
+                                    <input type="email" id="helpEmail" placeholder="Email Address *" class="w-full rounded-xl border border-gray-200 px-4 py-3 font-semibold" required>
+                                    <input type="tel" id="helpPhone" placeholder="Phone Number *" class="w-full rounded-xl border border-gray-200 px-4 py-3 font-semibold" required>
+                                    <input type="hidden" id="helpCourse" value="<%= course.courseName %>">
+                                    <textarea id="helpMessage" rows="3" placeholder="Your question..." class="w-full rounded-xl border border-gray-200 px-4 py-3 font-semibold"></textarea>
+                                    <button type="submit" class="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white font-extrabold py-3 rounded-xl hover:scale-[1.02] transition-all">Send Message <i class="fa-regular fa-paper-plane ml-2"></i></button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> <!-- End of container -->
+            </div>
         </main>
-    </div> <!-- End of course-content-wrapper -->
+    </div>
 
     <!-- Payment Modal -->
-    <div id="paymentModal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);">
-        <div class="relative max-w-md w-full bg-white rounded-2xl overflow-hidden shadow-2xl">
-            <button id="closePaymentModal" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center transition-all hover:scale-110">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <div class="bg-gradient-to-r from-teal-600 to-blue-600 px-6 py-4">
-                <div class="flex items-center gap-3"><i class="fa-solid fa-lock text-white text-xl"></i><h3 class="text-white font-extrabold text-xl">Secure Payment</h3></div>
-                <p class="text-white/80 text-sm font-medium mt-1">Complete your enrollment securely</p>
-            </div>
-            <div class="p-6">
-                <form id="paymentForm">
-                    <div class="space-y-4">
-                        <div><label class="text-sm font-bold text-gray-700 block mb-1">Cardholder Name</label><input type="text" placeholder="John Doe" class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-teal-500 focus:border-teal-500 font-medium" required></div>
-                        <div><label class="text-sm font-bold text-gray-700 block mb-1">Card Number</label><input type="text" placeholder="1234 5678 9012 3456" class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-teal-500 focus:border-teal-500 font-medium" required></div>
-                        <div class="grid grid-cols-2 gap-4"><div><label class="text-sm font-bold text-gray-700 block mb-1">Expiry Date</label><input type="text" placeholder="MM/YY" class="w-full px-4 py-2 border border-gray-300 rounded-xl font-medium" required></div><div><label class="text-sm font-bold text-gray-700 block mb-1">CVV</label><input type="text" placeholder="123" class="w-full px-4 py-2 border border-gray-300 rounded-xl font-medium" required></div></div>
-                        <button type="submit" class="w-full btn-primary-custom text-white py-3 rounded-xl font-extrabold transition-all">Pay ₹<%= course.price %> <i class="fa-solid fa-arrow-right ml-2"></i></button>
-                    </div>
-                </form>
-            </div>
+    <div id="paymentModal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative">
+            <button id="closePaymentModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <h3 class="text-2xl font-black text-center mb-4">Secure Payment</h3>
+            <form id="paymentForm">
+                <input type="text" placeholder="Cardholder Name" class="w-full mb-3 p-3 border rounded-xl font-semibold" required>
+                <input type="text" placeholder="Card Number" class="w-full mb-3 p-3 border rounded-xl font-semibold" required>
+                <div class="flex gap-3"><input type="text" placeholder="MM/YY" class="w-1/2 p-3 border rounded-xl font-semibold" required><input type="text" placeholder="CVV" class="w-1/2 p-3 border rounded-xl font-semibold" required></div>
+                <button type="submit" class="w-full mt-5 bg-teal-600 text-white py-3 rounded-xl font-extrabold">Pay ₹<%= course.price %></button>
+            </form>
         </div>
     </div>
 
     <!-- Video Modal -->
-    <div id="videoModal" class="fixed inset-0 bg-black/90 z-[2000] hidden items-center justify-center p-4" style="backdrop-filter: blur(8px);">
-        <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl">
-            <button id="closeVideoModal" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"><i class="fa-solid fa-xmark text-2xl"></i></button>
-            <div class="aspect-video bg-gradient-to-br from-gray-900 to-black">
-                <iframe id="youtubeFrame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="p-4 bg-gray-900"><h3 id="videoTitle" class="text-white font-extrabold text-lg">Lecture</h3><p id="videoSection" class="text-gray-400 text-sm font-medium mt-1">Section</p></div>
+    <div id="videoModal" class="fixed inset-0 bg-black/90 z-[2000] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden">
+            <button id="closeVideoModal" class="absolute top-4 right-4 text-white text-3xl z-10"><i class="fa-solid fa-xmark"></i></button>
+            <div class="aspect-video"><iframe id="youtubeFrame" class="w-full h-full" src="" frameborder="0" allowfullscreen></iframe></div>
+            <div class="p-4 bg-gray-900"><h3 id="videoTitle" class="text-white font-black"></h3><p id="videoSection" class="text-gray-400 font-semibold"></p></div>
         </div>
     </div>
 
@@ -643,307 +417,150 @@
         let isPurchased = localStorage.getItem(`course_${courseFromServer._id}_purchased`) === 'true';
 
         function renderSyllabus() {
-            const contentContainer = document.getElementById('courseContent');
-            if (!contentContainer) return;
-            
+            const container = document.getElementById('courseContent');
+            if (!container) return;
             let lectureCounter = 0;
-            const syllabusHtml = `
-                <div class="space-y-3">
-                    ${courseFromServer.syllabus.map((module, idx) => `
-                        <div class="border rounded-xl overflow-hidden bg-white">
-                            <div class="flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-teal-50 transition-all duration-300 section-header" data-section="${idx}">
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-regular fa-folder-open text-teal-500"></i>
-                                    <span class="font-extrabold text-gray-800">${escapeHtml(module.moduleTitle)}</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-xs text-gray-600 font-medium">${module.lectures.length} lectures</span>
-                                    <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300"></i>
-                                </div>
-                            </div>
-                            <div class="lecture-list hidden border-t border-gray-100 bg-white">
-                                <div class="divide-y divide-gray-50">
-                                    ${module.lectures.map((lecture, li) => {
-                                        lectureCounter++;
-                                        const isLocked = !isPurchased && lectureCounter > 2;
-                                        return `
-                                            <div class="lecture-item flex items-center gap-3 p-3 transition-all duration-200 cursor-pointer group ${isLocked ? 'locked' : ''}" 
-                                                 data-lecture="${escapeHtml(lecture.lectureTitle)}" 
-                                                 data-section="${escapeHtml(module.moduleTitle)}"
-                                                 data-locked="${isLocked}"
-                                                 data-video-url="${lecture.videoUrl || ''}">
-                                                <i class="fa-regular fa-circle-play text-gray-400 text-base w-5 group-hover:text-teal-500 transition"></i>
-                                                <i class="fa-solid fa-lock text-red-500 text-base w-5"></i>
-                                                <span class="text-sm text-gray-700 flex-1 group-hover:text-teal-600 transition font-medium ${isLocked ? 'opacity-60' : ''}">${escapeHtml(lecture.lectureTitle)}</span>
-                                                <span class="text-xs text-gray-500 font-medium">${lecture.videoDuration || '0:00'}</span>
-                                                ${!isLocked ? '<i class="fa-brands fa-youtube text-gray-400 text-sm group-hover:text-red-500 transition"></i>' : '<i class="fa-solid fa-lock text-gray-400 text-sm"></i>'}
-                                            </div>
-                                        `;
-                                    }).join('')}
-                                </div>
-                            </div>
+            let html = '';
+            courseFromServer.syllabus.forEach((module, idx) => {
+                let lecturesHtml = '';
+                module.lectures.forEach(lecture => {
+                    lectureCounter++;
+                    const locked = !isPurchased && lectureCounter > 2;
+                    lecturesHtml += `
+                        <div class="lecture-item flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all ${locked ? 'locked opacity-60' : 'hover:bg-teal-50'}" data-lecture="${escapeHtml(lecture.lectureTitle)}" data-section="${escapeHtml(module.moduleTitle)}" data-locked="${locked}" data-video-url="${lecture.videoUrl || ''}">
+                            <i class="fa-regular fa-circle-play text-gray-500 w-5"></i>
+                            <i class="fa-solid fa-lock text-red-500 w-5 hidden"></i>
+                            <span class="flex-1 text-gray-800 font-semibold lecture-title">${escapeHtml(lecture.lectureTitle)}</span>
+                            <span class="text-gray-500 text-sm font-medium">${lecture.videoDuration || '0:00'}</span>
+                            ${!locked ? '<i class="fa-brands fa-youtube text-gray-500 group-hover:text-red-500"></i>' : '<i class="fa-solid fa-lock text-gray-500"></i>'}
                         </div>
-                    `).join('')}
-                    ${!isPurchased ? `<div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-center">
-                        <i class="fa-solid fa-lock text-amber-600 mr-2"></i>
-                        <span class="text-amber-700 text-sm font-bold">First 2 lectures are free. <strong>Enroll now</strong> to unlock all ${lectureCounter} lectures!</span>
-                    </div>` : `<div class="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
-                        <i class="fa-solid fa-circle-check text-green-600 mr-2"></i>
-                        <span class="text-green-700 text-sm font-bold">✅ Course unlocked! You have access to all ${lectureCounter} lectures.</span>
-                    </div>`}
-                    <div class="text-center mt-4">
-                        <button class="text-teal-600 text-sm font-extrabold hover:underline expand-all-btn transition-all duration-300">
-                            <i class="fa-regular fa-rectangle-list mr-1"></i> Expand all sections
-                        </button>
+                    `;
+                });
+                html += `
+                    <div class="border rounded-2xl overflow-hidden">
+                        <div class="flex justify-between items-center p-4 bg-gray-50 cursor-pointer hover:bg-teal-50 transition section-header" data-section="${idx}">
+                            <div class="flex items-center gap-3"><i class="fa-regular fa-folder-open text-teal-600"></i><span class="font-black text-gray-800 module-title">${escapeHtml(module.moduleTitle)}</span></div>
+                            <div class="flex items-center gap-2"><span class="text-xs font-bold text-gray-600">${module.lectures.length} lectures</span><i class="fa-solid fa-chevron-down text-gray-400 transition-transform"></i></div>
+                        </div>
+                        <div class="lecture-list hidden divide-y">${lecturesHtml}</div>
                     </div>
-                </div>
-            `;
-            contentContainer.innerHTML = syllabusHtml;
+                `;
+            });
+            html += `<div class="mt-4 text-center">${!isPurchased ? '<div class="bg-amber-50 p-3 rounded-xl font-bold text-amber-700">🔒 First 2 lectures free. Enroll to unlock all!</div>' : '<div class="bg-green-50 p-3 rounded-xl font-bold text-green-700">✅ Course unlocked! Full access.</div>'}</div>`;
+            container.innerHTML = html;
 
             document.querySelectorAll('.section-header').forEach(header => {
                 header.addEventListener('click', function() {
-                    const lectureList = this.nextElementSibling;
+                    const list = this.nextElementSibling;
                     const icon = this.querySelector('.fa-chevron-down');
-                    lectureList.classList.toggle('hidden');
-                    if (icon) icon.style.transform = lectureList.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                    list.classList.toggle('hidden');
+                    icon.style.transform = list.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
                 });
             });
 
             document.querySelectorAll('.lecture-item').forEach(item => {
                 item.addEventListener('click', function(e) {
-                    const isLocked = this.getAttribute('data-locked') === 'true';
-                    if (isLocked) {
-                        e.preventDefault();
-                        alert('🔒 This lecture is locked. Please complete payment to unlock all lectures!');
-                        return;
-                    }
-                    const lecture = this.getAttribute('data-lecture');
-                    const section = this.getAttribute('data-section');
-                    const videoUrl = this.getAttribute('data-video-url');
-                    if (videoUrl) {
-                        openVideoModal(lecture, section, videoUrl);
-                    } else {
-                        alert('Video not available.');
-                    }
+                    if (this.dataset.locked === 'true') { alert('🔒 Please enroll to unlock this lecture.'); return; }
+                    const videoUrl = this.dataset.videoUrl;
+                    if (videoUrl) openVideoModal(this.dataset.lecture, this.dataset.section, videoUrl);
+                    else alert('Video not available.');
                 });
             });
-
-            let expanded = false;
-            const expandBtn = document.querySelector('.expand-all-btn');
-            if (expandBtn) {
-                expandBtn.addEventListener('click', function() {
-                    const allLists = document.querySelectorAll('.lecture-list');
-                    const allIcons = document.querySelectorAll('.fa-chevron-down');
-                    if (expanded) {
-                        allLists.forEach(list => list.classList.add('hidden'));
-                        allIcons.forEach(icon => icon.style.transform = 'rotate(0deg)');
-                        this.innerHTML = '<i class="fa-regular fa-rectangle-list mr-1"></i> Expand all sections';
-                    } else {
-                        allLists.forEach(list => list.classList.remove('hidden'));
-                        allIcons.forEach(icon => icon.style.transform = 'rotate(180deg)');
-                        this.innerHTML = '<i class="fa-regular fa-rectangle-list mr-1"></i> Collapse all sections';
-                    }
-                    expanded = !expanded;
-                });
-            }
         }
 
-        function openVideoModal(lecture, section, videoUrl) {
-            const modal = document.getElementById('videoModal');
-            document.getElementById('videoTitle').textContent = lecture;
-            document.getElementById('videoSection').textContent = section;
-            let embedUrl = videoUrl;
-            if (videoUrl && (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be'))) {
-                const videoId = videoUrl.split('v=')[1]?.split('&')[0] || videoUrl.split('/').pop();
-                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-            } else if (videoUrl) {
-                embedUrl = videoUrl;
-            } else {
-                embedUrl = 'https://www.youtube.com/embed/EVW4nj1jCy0?autoplay=1&rel=0';
+        function openVideoModal(title, section, url) {
+            let embed = url;
+            if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                let vid = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
+                embed = `https://www.youtube.com/embed/${vid}?autoplay=1`;
             }
-            document.getElementById('youtubeFrame').src = embedUrl;
-            modal.classList.remove('hidden');
-            modal.style.display = 'flex';
+            document.getElementById('youtubeFrame').src = embed;
+            document.getElementById('videoTitle').innerText = title;
+            document.getElementById('videoSection').innerText = section;
+            document.getElementById('videoModal').classList.remove('hidden');
+            document.getElementById('videoModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
         function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
             document.getElementById('youtubeFrame').src = '';
-            modal.classList.add('hidden');
-            modal.style.display = 'none';
+            document.getElementById('videoModal').classList.add('hidden');
+            document.getElementById('videoModal').style.display = 'none';
             document.body.style.overflow = '';
         }
 
+        // Sticky CTA scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const cta = document.getElementById('stickyCta');
+            if (!cta) return;
+            const current = window.scrollY;
+            if (current > 400 && current > lastScroll) cta.classList.remove('hide');
+            else if (current < lastScroll && current > 400) cta.classList.add('hide');
+            if (current < 300) cta.classList.add('hide');
+            lastScroll = current;
+        });
+        document.getElementById('stickyCta')?.classList.add('hide');
+
+        // Enroll buttons logic
         const paymentModal = document.getElementById('paymentModal');
-        const closePaymentModal = document.getElementById('closePaymentModal');
-        if (closePaymentModal) closePaymentModal.addEventListener('click', () => {
-            paymentModal.classList.add('hidden');
-            paymentModal.style.display = 'none';
-            document.body.style.overflow = '';
-        });
-        if (paymentModal) paymentModal.addEventListener('click', (e) => {
-            if (e.target === paymentModal) {
-                paymentModal.classList.add('hidden');
-                paymentModal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-
         document.querySelectorAll('.enroll-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (isPurchased) {
-                    alert('✅ You already have access to this course! All lectures are unlocked.');
-                } else {
-                    paymentModal.classList.remove('hidden');
-                    paymentModal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                }
+            btn.addEventListener('click', (e) => {
+                if (isPurchased) alert('✅ You already own this course!');
+                else { paymentModal.classList.remove('hidden'); paymentModal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
             });
         });
-
-        const paymentForm = document.getElementById('paymentForm');
-        if (paymentForm) {
-            paymentForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
-                submitBtn.disabled = true;
-                setTimeout(() => {
-                    isPurchased = true;
-                    localStorage.setItem(`course_${courseFromServer._id}_purchased`, 'true');
-                    alert('✅ Payment Successful! You now have full access to all lectures.');
-                    paymentModal.classList.add('hidden');
-                    paymentModal.style.display = 'none';
-                    document.body.style.overflow = '';
-                    renderSyllabus();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            });
-        }
+        document.getElementById('closePaymentModal')?.addEventListener('click', () => { paymentModal.classList.add('hidden'); paymentModal.style.display = 'none'; document.body.style.overflow = ''; });
+        document.getElementById('paymentForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            setTimeout(() => {
+                isPurchased = true;
+                localStorage.setItem(`course_${courseFromServer._id}_purchased`, 'true');
+                alert('✅ Payment successful! All lectures unlocked.');
+                paymentModal.classList.add('hidden');
+                renderSyllabus();
+                document.body.style.overflow = '';
+            }, 1000);
+        });
 
         document.getElementById('closeVideoModal')?.addEventListener('click', closeVideoModal);
         document.getElementById('videoModal')?.addEventListener('click', (e) => { if(e.target === e.currentTarget) closeVideoModal(); });
-        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeVideoModal(); });
+        document.getElementById('downloadBrochureBtn')?.addEventListener('click', () => alert('📄 Brochure download started.'));
 
-        document.getElementById('downloadBrochureBtn')?.addEventListener('click', () => alert('📄 Brochure download started (demo).'));
-        document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
-        document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
-
-        function escapeHtml(str) {
-            return str.replace(/[&<>]/g, function(m) {
-                if (m === '&') return '&amp;';
-                if (m === '<') return '&lt;';
-                if (m === '>') return '&gt;';
-                return m;
-            });
+        // Need help form submission (backend)
+        const helpForm = document.getElementById('helpForm');
+        const msgDiv = document.getElementById('helpFormMessage');
+        function showMsg(text, isErr) {
+            msgDiv.innerHTML = (isErr ? '❌ ' : '✅ ') + text;
+            msgDiv.className = `mb-4 rounded-xl p-3 font-bold ${isErr ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`;
+            msgDiv.classList.remove('hidden');
+            setTimeout(() => msgDiv.classList.add('hidden'), 5000);
         }
+        helpForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('helpName').value.trim();
+            const email = document.getElementById('helpEmail').value.trim();
+            const phone = document.getElementById('helpPhone').value.trim();
+            const course = document.getElementById('helpCourse').value;
+            const message = document.getElementById('helpMessage').value.trim();
+            if (!name || !email || !phone) return showMsg('All required fields must be filled', true);
+            if (!/^\d{10}$/.test(phone)) return showMsg('Phone must be 10 digits', true);
+            try {
+                const res = await fetch('/submitEnquery', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({name,email,phoneNumber:phone,course,message}) });
+                const data = await res.json();
+                if(res.ok) showMsg(data.message || 'Inquiry sent!', false);
+                else showMsg(data.error || 'Error', true);
+            } catch(err) { showMsg('Network error', true); }
+        });
 
         renderSyllabus();
 
-        // ========== NEED HELP FORM SUBMISSION (Backend Ready) ==========
-        const helpForm = document.getElementById('helpForm');
-        const helpSubmitBtn = document.getElementById('helpSubmitBtn');
-        const helpMsgDiv = document.getElementById('helpFormMessage');
-function showHelpMessage(message, isError = false) {
-    if (!helpMsgDiv) return;
-    
-    // Clear previous timeout
-    if (window.helpMsgTimeout) clearTimeout(window.helpMsgTimeout);
-    
-    // Set icon and additional classes
-    const icon = isError ? '<i class="fa-solid fa-circle-exclamation"></i>' : '<i class="fa-regular fa-circle-check"></i>';
-    helpMsgDiv.innerHTML = `${icon} <span>${message}</span>`;
-    helpMsgDiv.className = `mb-4 rounded-xl p-3 text-sm font-medium flex items-center gap-2 shadow-md transition-all duration-300 ${
-        isError 
-            ? 'bg-gradient-to-r from-red-50 to-red-100 text-red-800 border-l-4 border-red-500' 
-            : 'bg-gradient-to-r from-green-50 to-green-100 text-green-800 border-l-4 border-green-500'
-    }`;
-    helpMsgDiv.classList.remove('hidden');
-    
-    // Force reflow before scroll
-    void helpMsgDiv.offsetHeight;
-    
-    // Auto-scroll to the message (smoothly, with a tiny delay)
-    setTimeout(() => {
-        helpMsgDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // If inside a scrollable container, also adjust that container's scroll
-        const scrollParent = helpMsgDiv.closest('.overflow-y-auto, .max-h-\\[90vh\\], .overflow-auto');
-        if (scrollParent) {
-            const offset = helpMsgDiv.offsetTop - scrollParent.offsetTop - 80;
-            scrollParent.scrollTo({ top: offset, behavior: 'smooth' });
-        }
-    }, 80);
-    
-    // Auto-hide after 5 seconds
-    window.helpMsgTimeout = setTimeout(() => {
-        if (helpMsgDiv) helpMsgDiv.classList.add('hidden');
-    }, 5000);
-}
-        if (helpForm) {
-            helpForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const name = document.getElementById('helpName')?.value.trim();
-                const email = document.getElementById('helpEmail')?.value.trim();
-                const phone = document.getElementById('helpPhone')?.value.trim();
-                const course = document.getElementById('helpCourse')?.value || '';
-                const callbackTime = document.getElementById('helpCallbackTime')?.value || '';
-                const message = document.getElementById('helpMessage')?.value.trim() || '';
-                
-                if (!name || !email || !phone || !course) {
-                    showHelpMessage('❌ All required fields (Name, Email, Phone) must be filled.', true);
-                    return;
-                }
-                const phoneRegex = /^\d{10}$/;
-                if (!phoneRegex.test(phone)) {
-                    showHelpMessage('❌ Phone number must be exactly 10 digits (numbers only).', true);
-                    return;
-                }
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    showHelpMessage('❌ Invalid email format.', true);
-                    return;
-                }
-                
-                const payload = {
-                    name,
-                    email,
-                    phoneNumber: phone,
-                    course,
-                    message,
-                    degree: '',
-                    callbackTime
-                };
-                
-                if (helpSubmitBtn) {
-                    helpSubmitBtn.disabled = true;
-                    helpSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-                }
-                
-                try {
-                    const response = await fetch('/submitEnquery', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const data = await response.json();
-                    if (!response.ok) throw new Error(data.error || 'Submission failed');
-                    showHelpMessage(data.message || '✅ Your inquiry has been received. We will contact you soon!', false);
-                    helpForm.reset();
-                } catch (err) {
-                    showHelpMessage(err.message || '❌ Something went wrong. Please try again later.', true);
-                } finally {
-                    if (helpSubmitBtn) {
-                        helpSubmitBtn.disabled = false;
-                        helpSubmitBtn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> Send Message <i class="fa-solid fa-arrow-right text-xs"></i>';
-                    }
-                }
-            });
-        }
+        // Scroll animations (fade-up already applied, but ensure visibility)
+        const faders = document.querySelectorAll('.animate-fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.style.opacity = '1'; });
+        }, { threshold: 0.1 });
+        faders.forEach(f => { f.style.opacity = '0'; observer.observe(f); });
     </script>
 </body>
 </html>
