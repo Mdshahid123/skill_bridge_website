@@ -45,54 +45,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <style>
-        /* Base enhancements – only visual, no functional changes */
         body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; }
-        
-        /* Slightly increased font sizes for headings & important text */
-        .course-content-wrapper h1 {
-            font-size: 2.5rem !important;
-        }
-        @media (min-width: 768px) {
-            .course-content-wrapper h1 { font-size: 3rem !important; }
-        }
-        .course-content-wrapper h2 {
-            font-size: 1.75rem !important;
-            font-weight: 800 !important;
-        }
-        .course-content-wrapper .module-title {
-            font-size: 1.1rem !important;
-            font-weight: 800 !important;
-        }
-        .course-content-wrapper .lecture-title {
-            font-weight: 600 !important;
-        }
-        .course-content-wrapper p, 
-        .course-content-wrapper li,
-        .course-content-wrapper .text-gray-700 {
-            font-weight: 500 !important;
-            line-height: 1.5;
-        }
-        .enroll-btn, .btn-primary-custom {
-            font-weight: 700 !important;
-        }
+        .course-content-wrapper h1 { font-size: 2rem !important; }
+        @media (min-width: 768px) { .course-content-wrapper h1 { font-size: 2.5rem !important; } }
+        .course-content-wrapper h2 { font-size: 1.5rem !important; font-weight: 800 !important; }
+        .course-content-wrapper .module-title { font-size: 1rem !important; font-weight: 800 !important; }
+        .course-content-wrapper p, .course-content-wrapper li { font-weight: 500 !important; line-height: 1.5; }
 
-        /* ========== SMOOTH ANIMATIONS ========== */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .fade-up {
-            animation: fadeUp 0.6s ease forwards;
-        }
-        .hover-lift {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
-        }
+        .fade-up { animation: fadeUp 0.6s ease forwards; }
 
-        /* Hero & card enhancements */
         .hero-glow {
             background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%);
             position: relative;
@@ -109,56 +74,49 @@
             animation: rotateGlow 20s linear infinite;
             pointer-events: none;
         }
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .brand-grid {
             background-image: repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px),
                               repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 50px);
         }
-        .instructor-card {
+        .instructor-card { transition: all 0.3s ease; max-width: 280px; border-radius: 1rem; overflow: hidden; }
+        .instructor-card:hover { transform: translateY(-4px); box-shadow: 0 15px 25px -10px rgba(26,111,140,0.2); }
+        .instructor-image-container { aspect-ratio: 1 / 1; overflow: hidden; background: #f1f5f9; }
+        .instructor-info { padding: 1rem; text-align: center; }
+        .instructor-name { font-size: 1.1rem; font-weight: 800; }
+        .instructor-bio { font-size: 0.75rem; font-weight: 500; color: #4b5563; }
+
+        .section-header:hover { background: #e6f4f5; }
+        .lecture-item { transition: all 0.2s; cursor: pointer; }
+        .lecture-item:not(.locked):hover { background: #f0f9ff; padding-left: 1rem; }
+
+        .sticky-cta { transition: transform 0.3s ease; }
+        .sticky-cta.hide { transform: translateY(120%); }
+        .btn-pulse { animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(20,184,166,0.4); } 70% { box-shadow: 0 0 0 10px rgba(20,184,166,0); } 100% { box-shadow: 0 0 0 0 rgba(20,184,166,0); } }
+
+        .silver-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 50%, #f3f4f6 100%);
+            border: 1px solid rgba(107,114,128,0.15);
+            box-shadow: 0 8px 20px -6px rgba(0,0,0,0.05);
+        }
+        .payment-card {
+            background: white;
+            border-radius: 1.25rem;
+            border: 1px solid rgba(20,184,166,0.2);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
-        .instructor-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(26,111,140,0.2);
-        }
-        .section-header {
-            transition: background 0.2s;
-        }
-        .section-header:hover {
-            background: #e6f4f5;
-        }
-        .lecture-item {
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        .lecture-item:not(.locked):hover {
-            background: #f0f9ff;
-            padding-left: 1rem;
-        }
-        .sticky-cta {
-            transition: transform 0.3s ease;
-        }
-        .sticky-cta.hide {
-            transform: translateY(120%);
-        }
-        .btn-pulse {
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(20,184,166,0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(20,184,166,0); }
-            100% { box-shadow: 0 0 0 0 rgba(20,184,166,0); }
-        }
+        .payment-card:hover { transform: translateY(-4px); box-shadow: 0 25px 40px -12px rgba(20,184,166,0.2); }
+        .payment-btn { background: linear-gradient(105deg, #1a6f8c, #0f5f7a); transition: all 0.2s; }
+        .payment-btn:hover { transform: scale(1.02); box-shadow: 0 10px 20px -8px rgba(26,111,140,0.5); }
     </style>
 </head>
 <body>
 
     <%- include("../../partials/common/navbar.ejs") %>
 
-    <!-- Mobile Menu (unchanged) -->
+    <!-- Mobile Menu -->
     <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
         <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
         <div class="flex flex-col gap-5 text-xl">
@@ -173,97 +131,92 @@
         </div>
     </div>
 
-    <!-- MAIN COURSE CONTENT WRAPPER -->
     <div class="course-content-wrapper">
         <main>
-            <!-- Course Header -->
-            <div class="hero-glow pt-28 pb-16 relative overflow-hidden">
+            <!-- Hero Section (reduced height) -->
+            <div class="hero-glow pt-20 pb-10 relative overflow-hidden">
                 <div class="absolute inset-0 opacity-[0.08] brand-grid"></div>
                 <div class="container mx-auto px-6 relative z-10">
-                    <div class="flex flex-col lg:flex-row gap-8 items-start">
+                    <div class="flex flex-col lg:flex-row gap-6 items-start">
                         <div class="flex-1 fade-up">
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-4">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-3">
                                 <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
                                 <span class="text-teal-700 text-xs font-extrabold tracking-wide">Most Popular Course</span>
                             </div>
-                            <h1 class="text-4xl md:text-5xl lg:text-5xl font-extrabold text-gray-900 mb-4 glow-text"><%= course.courseName.replaceAll("-", " ") %></h1>
-                            <p class="text-gray-700 text-base md:text-lg max-w-2xl font-medium"><%= course.courseDescription %></p>
-                            <div class="flex flex-wrap gap-4 mt-6">
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
+                            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3"><%= course.courseName.replaceAll("-", " ") %></h1>
+                            <p class="text-gray-700 text-base max-w-2xl font-medium"><%= course.courseDescription %></p>
+                            <div class="flex flex-wrap gap-3 mt-4">
+                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-100">
                                     <i class="fa-regular fa-star text-teal-500"></i>
-                                    <span class="text-sm font-bold text-gray-700">4.9 ★ (2.5k+ ratings)</span>
+                                    <span class="text-xs font-bold text-gray-700">4.9 ★ (2.5k+ ratings)</span>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
+                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-100">
                                     <i class="fa-regular fa-user text-teal-500"></i>
-                                    <span class="text-sm font-bold text-gray-700">15k+ students enrolled</span>
+                                    <span class="text-xs font-bold text-gray-700">15k+ students enrolled</span>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full border border-teal-100">
+                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-100">
                                     <i class="fa-regular fa-clock text-teal-500"></i>
-                                    <span class="text-sm font-bold text-gray-700">Updated monthly</span>
+                                    <span class="text-xs font-bold text-gray-700">Updated monthly</span>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- INSTRUCTOR CARD (unchanged, added hover effect) -->
-                        <div class="instructor-card bg-white rounded-xl shadow-md overflow-hidden max-w-sm mx-auto lg:mx-0 fade-up">
-                            <div class="instructor-image-container aspect-[4/3] overflow-hidden bg-gray-100">
-                                <img style="object-fit:contain;" src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <!-- Instructor Card -->
+                        <div class="instructor-card bg-white shadow-md mx-auto lg:mx-0 fade-up">
+                            <div class="instructor-image-container">
+                                <img style="object-fit:cover;" src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                             </div>
-                            <div class="instructor-info p-5">
-                                <h3 class="text-xl font-extrabold text-gray-800"><%= course.instructor.name %></h3>
-                                <p class="text-gray-600 text-sm font-medium mt-1"><%= course.instructor.bio %></p>
+                            <div class="instructor-info">
+                                <h3 class="instructor-name"><%= course.instructor.name %></h3>
+                                <p class="instructor-bio"><%= course.instructor.bio %></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Course Content Container -->
-            <div class="container mx-auto px-6 py-12 max-w-8xl">
+            <!-- Main Content -->
+            <div class="container mx-auto px-6 py-10 max-w-8xl">
                 <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Left Column (2/3) -->
-                    <div class="lg:col-span-2 space-y-8">
+                    <!-- Left Column (silver cards) -->
+                    <div class="lg:col-span-2 space-y-6">
                         <!-- What You'll Learn -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all fade-up">
-                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-lightbulb text-teal-500"></i> What You'll Learn</h2>
+                        <div class="silver-card rounded-xl p-5 shadow-sm fade-up">
+                            <h2 class="text-xl font-extrabold text-gray-800 mb-3 flex items-center gap-2"><i class="fa-regular fa-lightbulb text-teal-500"></i> What You'll Learn</h2>
                             <div class="grid md:grid-cols-2 gap-3">
                                 <% course.whatYouLearn.forEach(item => { %>
                                     <div class="flex items-center gap-2 text-gray-700 text-sm font-medium"><i class="fa-regular fa-circle-check text-teal-500"></i><span><%= item %></span></div>
                                 <% }); %>
                             </div>
                         </div>
-
-                        <!-- Syllabus (Interactive) -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                        <!-- Syllabus -->
+                        <div class="silver-card rounded-xl p-5 shadow-sm">
                             <div class="flex justify-between items-center mb-4 flex-wrap gap-3">
                                 <h2 class="text-xl font-extrabold text-gray-800 flex items-center gap-2"><i class="fa-regular fa-rectangle-list text-teal-500"></i> Course Content</h2>
                                 <button id="downloadBrochureBtn" class="flex items-center gap-2 text-sm font-bold text-teal-600 border border-teal-300 px-4 py-1.5 rounded-full hover:bg-teal-500 hover:text-white transition-all"><i class="fa-regular fa-file-pdf"></i>Download Brochure</button>
                             </div>
                             <div id="courseContent"></div>
                         </div>
-
                         <!-- Requirements -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all fade-up">
-                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-list-check text-teal-500"></i> Requirements</h2>
+                        <div class="silver-card rounded-xl p-5 shadow-sm fade-up">
+                            <h2 class="text-xl font-extrabold text-gray-800 mb-3 flex items-center gap-2"><i class="fa-regular fa-list-check text-teal-500"></i> Requirements</h2>
                             <ul class="space-y-2">
                                 <% course.requirements.forEach(req => { %>
                                     <li class="flex items-center gap-2 text-gray-700 text-sm font-medium"><i class="fa-regular fa-circle-check text-teal-500"></i><span><%= req %></span></li>
                                 <% }); %>
                             </ul>
                         </div>
-
-                        <!-- Description (Long) -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all fade-up">
-                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-regular fa-file-lines text-teal-500"></i> Description</h2>
+                        <!-- Description -->
+                        <div class="silver-card rounded-xl p-5 shadow-sm fade-up">
+                            <h2 class="text-xl font-extrabold text-gray-800 mb-3 flex items-center gap-2"><i class="fa-regular fa-file-lines text-teal-500"></i> Description</h2>
                             <p class="text-gray-700 leading-relaxed font-medium"><%= course.longDescription %></p>
                         </div>
                     </div>
 
-                    <!-- Right Sidebar - Enrollment Card (Sticky) -->
+                    <!-- Right Sidebar - Payment Card -->
                     <div class="lg:col-span-1 space-y-6">
-                        <div class="bg-white rounded-xl p-6 shadow-sm border border-teal-100 sticky top-24 hover:shadow-lg transition-all fade-up">
-                            <div class="course-sidebar-img-container aspect-video rounded-lg overflow-hidden mb-4">
-                                <img style="object-fit:fill" src="<%= course.image %>" alt="<%= course.courseName %>" class="w-full h-full object-cover">
+                        <div class="payment-card p-5 sticky top-24 fade-up">
+                            <div class="course-sidebar-img-container aspect-video rounded-xl overflow-hidden mb-4 shadow-md">
+                                <img style="object-fit:cover;" src="<%= course.image %>" alt="<%= course.courseName %>" class="w-full h-full object-cover">
                             </div>
                             <h3 class="text-xl font-extrabold text-gray-800 mb-2"><%= course.courseName %></h3>
                             <div class="flex items-center gap-3 mb-4">
@@ -271,19 +224,22 @@
                                 <span class="text-sm text-gray-500 line-through font-medium">₹<%= course.originalPrice %></span>
                                 <span class="text-xs bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full"><%= Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100) %>% off</span>
                             </div>
-                            <div class="space-y-3 mb-6">
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span><%= course.duration %> Months</span></div>
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-signal w-5 text-teal-500"></i> <span><%= course.level %></span></div>
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-certificate w-5 text-teal-500"></i> <span>Certificate of Completion</span></div>
-                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-clock w-5 text-teal-500"></i> <span>Lifetime Access</span></div>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-clock w-4 text-teal-500"></i> <span><%= course.duration %> Months</span></div>
+                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-signal w-4 text-teal-500"></i> <span><%= course.level %></span></div>
+                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-certificate w-4 text-teal-500"></i> <span>Certificate of Completion</span></div>
+                                <div class="flex items-center gap-3 text-sm text-gray-700 font-medium"><i class="fa-regular fa-infinity w-4 text-teal-500"></i> <span>Lifetime Access</span></div>
                             </div>
-                            <button class="w-full btn-primary-custom text-white py-3 rounded-xl font-extrabold transition-all enroll-btn hover:scale-105 btn-pulse">Enroll Now <i class="fa-solid fa-arrow-right ml-2"></i></button>
-                            <p class="text-center text-xs text-gray-500 font-medium mt-3">Join 15,000+ successful students</p>
+                            <!-- Main payment button (dark) -->
+                       <button id="mainEnrollBtn" class="w-full bg-black hover:bg-gray-900 text-white py-3 rounded-xl font-extrabold text-sm transition-all shadow-lg flex items-center justify-center gap-2 border border-teal-500/40" style="background: #000000 !important; box-shadow: 0 4px 14px 0 rgba(0,0,0,0.3);">
+    <i class="fa-solid fa-lock"></i> Enroll Now <i class="fa-solid fa-arrow-right"></i>
+</button>
+                            <p class="text-center text-xs text-gray-500 font-medium mt-3">✅ Instant access after payment • 7‑day refund guarantee</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Exclusive Course Offerings (Animated Cards) -->
+                <!-- ========== EXCLUSIVE COURSE OFFERINGS ========== -->
                 <div class="mt-20">
                     <div class="text-center mb-14">
                         <div class="inline-flex items-center justify-center mb-4">
@@ -295,7 +251,6 @@
                         <p class="text-gray-500 mt-3 max-w-2xl mx-auto font-medium">Comprehensive learning ecosystem designed for your success</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-                        <!-- Offering Cards with hover lift -->
                         <div class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 fade-up">
                             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-100 to-rose-200 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-diagram-project text-rose-600 text-2xl"></i>
@@ -341,7 +296,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate Section (unchanged, added hover) -->
+                <!-- ========== CERTIFICATE SECTION ========== -->
                 <div class="relative mt-20 mb-36 fade-up">
                     <div class="flex flex-col lg:flex-row items-center gap-12 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all">
                         <div class="relative w-full lg:w-5/12 bg-gradient-to-br from-teal-50 to-blue-50 p-8 flex justify-center">
@@ -386,7 +341,7 @@
                     </div>
                 </div>
 
-                <!-- Need Help Section (Fully functional, added animation) -->
+                <!-- ========== NEED HELP SECTION ========== -->
                 <div class="mt-16 fade-up">
                     <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-2xl">
                         <div class="flex flex-col md:flex-row">
@@ -459,19 +414,20 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- End of container -->
-        </main>
-    </div> <!-- End of course-content-wrapper -->
-
-    <!-- Sticky CTA Bar (appears on scroll) -->
-    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-4 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
-        <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div class="flex items-center gap-3">
-                <span class="font-extrabold text-gray-800"><%= course.courseName %></span>
-                <span class="text-2xl font-extrabold text-teal-600">₹<%= course.price %></span>
-                <span class="text-sm text-gray-500 line-through font-medium">₹<%= course.originalPrice %></span>
             </div>
-            <button class="enroll-btn bg-teal-600 text-white px-8 py-2.5 rounded-full font-extrabold shadow-lg hover:bg-teal-700 transition-all">Enroll Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
+        </main>
+    </div>
+
+    <!-- Sticky CTA Bar (button now dark) -->
+    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-3 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
+        <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="font-extrabold text-gray-800 text-sm"><%= course.courseName %></span>
+                <span class="text-xl font-extrabold text-teal-600">₹<%= course.price %></span>
+                <span class="text-xs text-gray-500 line-through font-medium">₹<%= course.originalPrice %></span>
+            </div>
+            <!-- Sticky button changed to dark -->
+            <button id="stickyEnrollBtn" class="bg-gray-900 hover:bg-gray-950 text-white px-6 py-1.5 rounded-full font-extrabold text-sm shadow-lg transition-all flex items-center gap-2 border border-teal-500/30">Enroll Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
         </div>
     </div>
 
@@ -491,7 +447,7 @@
                         <div><label class="text-sm font-bold text-gray-700 block mb-1">Cardholder Name</label><input type="text" placeholder="John Doe" class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-teal-500 focus:border-teal-500 font-medium" required></div>
                         <div><label class="text-sm font-bold text-gray-700 block mb-1">Card Number</label><input type="text" placeholder="1234 5678 9012 3456" class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-teal-500 focus:border-teal-500 font-medium" required></div>
                         <div class="grid grid-cols-2 gap-4"><div><label class="text-sm font-bold text-gray-700 block mb-1">Expiry Date</label><input type="text" placeholder="MM/YY" class="w-full px-4 py-2 border border-gray-300 rounded-xl font-medium" required></div><div><label class="text-sm font-bold text-gray-700 block mb-1">CVV</label><input type="text" placeholder="123" class="w-full px-4 py-2 border border-gray-300 rounded-xl font-medium" required></div></div>
-                        <button type="submit" class="w-full btn-primary-custom text-white py-3 rounded-xl font-extrabold transition-all">Pay ₹<%= course.price %> <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                        <button type="submit" class="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 rounded-xl font-extrabold transition-all">Pay ₹<%= course.price %> <i class="fa-solid fa-arrow-right ml-2"></i></button>
                     </div>
                 </form>
             </div>
@@ -518,7 +474,6 @@
         function renderSyllabus() {
             const contentContainer = document.getElementById('courseContent');
             if (!contentContainer) return;
-            
             let lectureCounter = 0;
             const syllabusHtml = `
                 <div class="space-y-3">
@@ -588,8 +543,7 @@
 
             document.querySelectorAll('.lecture-item').forEach(item => {
                 item.addEventListener('click', function(e) {
-                    const isLocked = this.getAttribute('data-locked') === 'true';
-                    if (isLocked) {
+                    if (this.getAttribute('data-locked') === 'true') {
                         e.preventDefault();
                         alert('🔒 This lecture is locked. Please complete payment to unlock all lectures!');
                         return;
@@ -597,11 +551,8 @@
                     const lecture = this.getAttribute('data-lecture');
                     const section = this.getAttribute('data-section');
                     const videoUrl = this.getAttribute('data-video-url');
-                    if (videoUrl) {
-                        openVideoModal(lecture, section, videoUrl);
-                    } else {
-                        alert('Video not available.');
-                    }
+                    if (videoUrl) openVideoModal(lecture, section, videoUrl);
+                    else alert('Video not available.');
                 });
             });
 
@@ -633,11 +584,8 @@
             if (videoUrl && (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be'))) {
                 const videoId = videoUrl.split('v=')[1]?.split('&')[0] || videoUrl.split('/').pop();
                 embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-            } else if (videoUrl) {
-                embedUrl = videoUrl;
-            } else {
-                embedUrl = 'https://www.youtube.com/embed/EVW4nj1jCy0?autoplay=1&rel=0';
-            }
+            } else if (videoUrl) embedUrl = videoUrl;
+            else embedUrl = 'https://www.youtube.com/embed/EVW4nj1jCy0?autoplay=1&rel=0';
             document.getElementById('youtubeFrame').src = embedUrl;
             modal.classList.remove('hidden');
             modal.style.display = 'flex';
@@ -652,24 +600,25 @@
             document.body.style.overflow = '';
         }
 
-        // Sticky CTA scroll
-        let lastScroll = 0;
-        const stickyCta = document.getElementById('stickyCta');
-        window.addEventListener('scroll', () => {
-            if (!stickyCta) return;
-            const currentScroll = window.scrollY;
-            if (currentScroll > 400 && currentScroll > lastScroll) {
-                stickyCta.classList.remove('hide');
-            } else if (currentScroll < lastScroll && currentScroll > 300) {
-                stickyCta.classList.add('hide');
-            }
-            if (currentScroll < 300) stickyCta.classList.add('hide');
-            lastScroll = currentScroll;
-        });
-        if (stickyCta) stickyCta.classList.add('hide');
-
+        // Payment functionality
         const paymentModal = document.getElementById('paymentModal');
         const closePaymentModal = document.getElementById('closePaymentModal');
+        
+        function openPaymentModal() {
+            if (isPurchased) {
+                alert('✅ You already have access to this course! All lectures are unlocked.');
+                return;
+            }
+            paymentModal.classList.remove('hidden');
+            paymentModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        const mainEnrollBtn = document.getElementById('mainEnrollBtn');
+        const stickyEnrollBtn = document.getElementById('stickyEnrollBtn');
+        if (mainEnrollBtn) mainEnrollBtn.addEventListener('click', openPaymentModal);
+        if (stickyEnrollBtn) stickyEnrollBtn.addEventListener('click', openPaymentModal);
+        
         if (closePaymentModal) closePaymentModal.addEventListener('click', () => {
             paymentModal.classList.add('hidden');
             paymentModal.style.display = 'none';
@@ -681,19 +630,6 @@
                 paymentModal.style.display = 'none';
                 document.body.style.overflow = '';
             }
-        });
-
-        document.querySelectorAll('.enroll-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (isPurchased) {
-                    alert('✅ You already have access to this course! All lectures are unlocked.');
-                } else {
-                    paymentModal.classList.remove('hidden');
-                    paymentModal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
         });
 
         const paymentForm = document.getElementById('paymentForm');
@@ -722,22 +658,28 @@
         document.getElementById('videoModal')?.addEventListener('click', (e) => { if(e.target === e.currentTarget) closeVideoModal(); });
         document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeVideoModal(); });
 
+        let lastScroll = 0;
+        const stickyCta = document.getElementById('stickyCta');
+        window.addEventListener('scroll', () => {
+            if (!stickyCta) return;
+            const currentScroll = window.scrollY;
+            if (currentScroll > 400 && currentScroll > lastScroll) stickyCta.classList.remove('hide');
+            else if (currentScroll < lastScroll && currentScroll > 300) stickyCta.classList.add('hide');
+            if (currentScroll < 300) stickyCta.classList.add('hide');
+            lastScroll = currentScroll;
+        });
+        if (stickyCta) stickyCta.classList.add('hide');
+
         document.getElementById('downloadBrochureBtn')?.addEventListener('click', () => alert('📄 Brochure download started (demo).'));
         document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
         document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
 
         function escapeHtml(str) {
-            return str.replace(/[&<>]/g, function(m) {
-                if (m === '&') return '&amp;';
-                if (m === '<') return '&lt;';
-                if (m === '>') return '&gt;';
-                return m;
-            });
+            return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
         }
-
         renderSyllabus();
 
-        // Need Help Form Submission (Backend Ready)
+        // Need Help Form Submission
         const helpForm = document.getElementById('helpForm');
         const helpSubmitBtn = document.getElementById('helpSubmitBtn');
         const helpMsgDiv = document.getElementById('helpFormMessage');
@@ -804,7 +746,6 @@
             });
         }
 
-        // Scroll-triggered fade-up animations
         const fadeElements = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

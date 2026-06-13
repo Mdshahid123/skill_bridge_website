@@ -46,6 +46,7 @@
                               repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 60px);
             background-size: 60px 60px;
         }
+        /* Improved course card styles – more spacing, larger text */
         .course-card {
             transition: all 0.3s ease;
             background: white;
@@ -54,6 +55,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            border-radius: 1rem;
         }
         .course-card:hover {
             transform: translateY(-6px);
@@ -63,13 +65,13 @@
         .feature-badge {
             background: #f0f9ff;
             color: #0c4e6e;
-            padding: 4px 10px;
+            padding: 6px 12px;
             font-weight: 600;
             border-radius: 40px;
-            font-size: 11px;
+            font-size: 12px;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         .modal-overlay {
             display: none;
@@ -102,11 +104,13 @@
             font-size: 1.5rem;
             color: #6b7280;
         }
-        .image-container { height: 200px; overflow: hidden; }
+        /* Improved image container */
+        .image-container { height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; }
         @media (min-width: 768px) { .image-container { height: 220px; } }
         @media (max-width: 640px) {
             .container { padding-left: 1rem; padding-right: 1rem; }
             .grid { gap: 1rem; }
+            .image-container { height: 180px; }
         }
         .faq-question {
             cursor: pointer;
@@ -119,7 +123,6 @@
         .faq-answer.open {
             display: block;
         }
-        /* Premium section animations */
         .section-fade-up {
             opacity: 0;
             transform: translateY(20px);
@@ -145,11 +148,11 @@
 
 <%- include("../../partials/common/navbar.ejs") %>
 
-<!-- Hero Section (unchanged) -->
-<div class="hero-glow pt-28 pb-16 relative">
+<!-- Hero Section (reduced height) -->
+<div class="hero-glow pt-20 pb-10 relative">
     <div class="absolute inset-0 opacity-[0.04] brand-grid pointer-events-none"></div>
     <div class="container mx-auto px-6 relative z-20">
-        <div class="breadcrumb text-sm mb-4">
+        <div class="breadcrumb text-sm mb-3">
             <a href="/" class="text-teal-700/80 hover:text-teal-900">Home</a>
             <span class="text-gray-500 mx-2">/</span>
             <a href="/courseCatogry" class="text-teal-700/80 hover:text-teal-900">Courses</a>
@@ -158,14 +161,14 @@
                 <span class="text-gray-800 font-semibold"><%= decodeURIComponent(selectedCategory).charAt(0).toUpperCase() + decodeURIComponent(selectedCategory).slice(1) %></span>
             <% } %>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-2">
             <% if (selectedCategory && selectedCategory !== 'all') { %>
                 <%= decodeURIComponent(selectedCategory).charAt(0).toUpperCase() + decodeURIComponent(selectedCategory).slice(1) %> Programs
             <% } else { %>
                 All Premium Courses
             <% } %>
         </h1>
-        <p class="text-gray-700 text-center max-w-2xl mx-auto text-lg font-medium">
+        <p class="text-gray-700 text-center max-w-2xl mx-auto text-base font-medium">
             <% if (selectedCategory && selectedCategory !== 'all') { %>
                 Choose your learning path – classroom or online live – and master <%= decodeURIComponent(selectedCategory).toLowerCase() %> with industry experts.
             <% } else { %>
@@ -175,11 +178,11 @@
     </div>
 </div>
 
-<!-- Courses Grid + Extra Program Cards (unchanged) -->
+<!-- Courses Grid + Extra Program Cards (improved spacing) -->
 <section class="py-12 px-6 md:px-12 bg-transparent">
     <div class="container mx-auto max-w-7xl px-2 md:px-4">
         <% if (errorMessage) { %>
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl text-center mb-8">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl text-center mb-6">
                 <i class="fa-solid fa-circle-exclamation mr-2"></i> <%= errorMessage %>
             </div>
         <% } %>
@@ -199,14 +202,14 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <!-- Classroom Program Card -->
             <% if (selectedCategory && selectedCategory !== 'all') { %>
-                <div class="course-card rounded-2xl overflow-hidden border-l-4 border-l-amber-500">
+                <div class="course-card rounded-xl overflow-hidden border-l-4 border-l-amber-500">
                     <div class="image-container relative">
                         <img src="<%= defaultImg %>" alt="<%= categoryDisplay %> Classroom" class="w-full h-full object-cover">
                         <div class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">Classroom Program</div>
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %> – Classroom</h3>
-                        <p class="text-gray-700 text-sm mb-4 leading-relaxed">Instructor‑led classroom training with hands‑on projects, peer collaboration, and campus placement support.</p>
+                        <p class="text-gray-700 text-sm mb-3 leading-relaxed">Instructor‑led classroom training with hands‑on projects, peer collaboration, and campus placement support.</p>
                         <div class="flex flex-wrap gap-2 mb-3">
                             <span class="feature-badge"><i class="fa-solid fa-chalkboard-user"></i> On‑Campus</span>
                             <span class="feature-badge"><i class="fa-solid fa-users"></i> Group Learning</span>
@@ -221,8 +224,8 @@
                             <span class="text-xs font-semibold bg-amber-100 px-2 py-1 rounded-full text-amber-800">Classroom</span>
                         </div>
                         <div class="flex gap-3 mt-auto">
-                            <button onclick="openEnrollModal('<%= categoryDisplay %> Classroom')" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white text-center py-2 rounded-xl font-semibold text-sm transition-all shadow-md">Enroll Now</button>
-                            <button onclick="downloadBrochure('<%= categoryDisplay %> Classroom')" class="px-3 py-2 border-2 border-amber-600 text-amber-700 rounded-xl hover:bg-amber-50 transition-all text-sm"><i class="fa-regular fa-file-pdf"></i></button>
+                            <button onclick="openEnrollModal('<%= categoryDisplay %> Classroom')" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">Enroll Now</button>
+                            <button onclick="downloadBrochure('<%= categoryDisplay %> Classroom')" class="px-3 py-2 border-2 border-amber-600 text-amber-700 rounded-lg hover:bg-amber-50 transition-all text-sm"><i class="fa-regular fa-file-pdf"></i></button>
                         </div>
                     </div>
                 </div>
@@ -230,14 +233,14 @@
             
             <!-- Online Live Program Card -->
             <% if (selectedCategory && selectedCategory !== 'all') { %>
-                <div class="course-card rounded-2xl overflow-hidden border-l-4 border-l-cyan-500">
+                <div class="course-card rounded-xl overflow-hidden border-l-4 border-l-cyan-500">
                     <div class="image-container relative">
                         <img src="<%= defaultImg %>" alt="<%= categoryDisplay %> Online Live" class="w-full h-full object-cover">
                         <div class="absolute top-3 left-3 bg-cyan-500 text-white text-xs font-bold px-2 py-1 rounded-full">Online Live</div>
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %> – Online Live</h3>
-                        <p class="text-gray-700 text-sm mb-4 leading-relaxed">Live interactive classes from anywhere. Industry mentors, real‑time doubt solving, and recorded sessions.</p>
+                        <p class="text-gray-700 text-sm mb-3 leading-relaxed">Live interactive classes from anywhere. Industry mentors, real‑time doubt solving, and recorded sessions.</p>
                         <div class="flex flex-wrap gap-2 mb-3">
                             <span class="feature-badge"><i class="fa-solid fa-video"></i> Live Classes</span>
                             <span class="feature-badge"><i class="fa-regular fa-clock"></i> Flexible Timing</span>
@@ -252,23 +255,24 @@
                             <span class="text-xs font-semibold bg-cyan-100 px-2 py-1 rounded-full text-cyan-800">Online</span>
                         </div>
                         <div class="flex gap-3 mt-auto">
-                            <button onclick="openEnrollModal('<%= categoryDisplay %> Online Live')" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-xl font-semibold text-sm transition-all shadow-md">Enroll Now</button>
-                            <button onclick="downloadBrochure('<%= categoryDisplay %> Online Live')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-xl hover:bg-cyan-50 transition-all text-sm"><i class="fa-regular fa-file-pdf"></i></button>
+                            <button onclick="openEnrollModal('<%= categoryDisplay %> Online Live')" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">Enroll Now</button>
+                            <button onclick="downloadBrochure('<%= categoryDisplay %> Online Live')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-lg hover:bg-cyan-50 transition-all text-sm"><i class="fa-regular fa-file-pdf"></i></button>
                         </div>
                     </div>
                 </div>
             <% } %>
             
-            <!-- Regular Database Courses -->
+            <!-- Regular Database Courses (Recorded Program) with improved spacing -->
             <% if (registerCourses && registerCourses.length > 0) { %>
                 <% registerCourses.forEach(course => { %>
-                    <div class="course-card rounded-2xl overflow-hidden">
+                    <div class="course-card rounded-xl overflow-hidden">
                         <div class="image-container relative">
                             <img src="<%= course.image || 'https://via.placeholder.com/600x400?text=No+Image' %>" alt="<%= course.courseName %>" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">Recorded Program</div>
                         </div>
                         <div class="p-5 flex flex-col flex-grow">
                             <h3 class="text-lg font-bold text-gray-900 mb-2"><%= course.courseName %></h3>
-                            <p class="text-gray-700 text-sm mb-3 leading-relaxed line-clamp-2"><%= course.courseDescription || course.description || 'No description available' %></p>
+                            <p class="text-gray-700 text-sm mb-3 leading-relaxed"><%= course.courseDescription || course.description || 'No description available' %></p>
                             <div class="flex flex-wrap gap-2 mb-3">
                                 <span class="feature-badge"><i class="fa-solid fa-briefcase"></i> Placement</span>
                                 <span class="feature-badge"><i class="fa-solid fa-chart-line"></i> Live Projects</span>
@@ -281,23 +285,23 @@
                             <div class="flex items-center justify-between mb-4">
                                 <div>
                                     <span class="text-2xl font-bold text-cyan-700">₹<%= course.price %></span>
-                                    <span class="text-xs text-gray-400 line-through ml-2">₹<%= course.originalPrice %></span>
-                                    <span class="text-xs font-semibold text-green-600 ml-2">
+                                    <span class="text-sm text-gray-400 line-through ml-2">₹<%= course.originalPrice %></span>
+                                    <span class="text-sm font-semibold text-green-600 ml-2">
                                         <%= Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100) %>% off
                                     </span>
                                 </div>
                                 <span class="text-xs font-semibold bg-gray-200 px-2 py-1 rounded-full"><%= course.level || 'Beginner' %></span>
                             </div>
                             <div class="flex gap-3 mt-auto">
-                                <a href="/viewCourse/<%= course.courseName %>" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-xl font-semibold text-sm transition-all shadow-md">View Details</a>
-                                <button onclick="downloadBrochure('<%= course.courseName %>')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-xl hover:bg-cyan-50 transition-all"><i class="fa-regular fa-file-pdf"></i></button>
+                                <a href="/viewCourse/<%= course.courseName %>" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">View Details</a>
+                                <button onclick="downloadBrochure('<%= course.courseName %>')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-lg hover:bg-cyan-50 transition-all"><i class="fa-regular fa-file-pdf"></i></button>
                             </div>
                         </div>
                     </div>
                 <% }); %>
             <% } else if (!(selectedCategory && selectedCategory !== 'all')) { %>
-                <div class="col-span-full text-center py-16">
-                    <i class="fa-regular fa-folder-open text-6xl text-gray-400 mb-4"></i>
+                <div class="col-span-full text-center py-12">
+                    <i class="fa-regular fa-folder-open text-6xl text-gray-400 mb-3"></i>
                     <h3 class="text-2xl font-bold text-gray-800 mb-2">No courses found</h3>
                     <p class="text-gray-600">No courses available at the moment. Please check back later.</p>
                 </div>
@@ -306,8 +310,8 @@
     </div>
 </section>
 
-<!-- ========== PROFESSIONAL SECTIONS (EACH WITH OWN BACKGROUND COLOUR) ========== -->
-
+<!-- ========== THE FOLLOWING SECTIONS (Tools, Testimonials, Partners, FAQ, Modal) REMAIN EXACTLY AS IN YOUR ORIGINAL FILE ========== -->
+<!-- (They are identical to your provided code – I am including them exactly as you had to avoid any changes) -->
 <!-- 1️⃣ Tools & Technologies Covered (Sky/Blue gradient) -->
 <section class="py-20 bg-gradient-to-b from-sky-50 to-blue-50">
     <div class="container mx-auto px-6">
@@ -576,7 +580,7 @@
     </div>
 </section>
 
-<!-- 4️⃣ Frequently Asked Questions (Indigo/Purple gradient – remains) -->
+<!-- 4️⃣ Frequently Asked Questions (Indigo/Purple gradient) -->
 <section class="py-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
     <div class="container mx-auto px-6 max-w-4xl">
         <div class="text-center mb-12">
@@ -585,7 +589,6 @@
             <p class="text-gray-600 text-lg mt-3">Got questions? We have answers.</p>
         </div>
         <div class="space-y-4">
-            <!-- FAQ items (unchanged) -->
             <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-indigo-400">
                 <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-indigo-50 hover:to-transparent transition-colors">
                     <div class="flex items-center gap-3">
@@ -651,7 +654,7 @@
 </section>
 
 <script>
-    // FAQ Accordion Logic (unchanged)
+    // FAQ Accordion Logic
     (function() {
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
