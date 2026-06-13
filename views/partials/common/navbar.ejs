@@ -1,6 +1,6 @@
-<!-- ======================== PROFESSIONAL TWO-ROW NAVBAR (REDUCED BOLD MAIN LINKS, BOLD DROPDOWNS) ======================== -->
+<!-- ======================== FINAL NAVBAR (PREMIUM HORIZONTAL MODAL – IMPROVED FORM LAYOUT) ======================== -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md border-b border-gray-100" id="mainNav">
-    <!-- FIRST ROW: Brand, Search, Book Demo, Auth -->
+    <!-- FIRST ROW -->
     <div class="bg-white border-b border-gray-100 px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20 gap-4 w-full">
             <!-- Brand -->
@@ -17,197 +17,136 @@
             </a>
 
             <!-- Desktop Search Bar -->
-            <div class="hidden md:flex flex-1 max-w-md mx-4">
+            <div class="hidden md:flex flex-1 max-w-md mx-4 relative">
                 <div class="relative w-full">
                     <input type="text" id="desktopSearchInput" placeholder="Search courses..." 
-                           class="w-full px-4 py-2.5 pl-10 pr-4 border border-gray-300 rounded-full bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1a6f8c]/40 focus:border-[#1a6f8c] text-sm font-medium text-black placeholder-gray-500 transition-all">
+                           class="w-full px-4 py-2.5 pl-10 pr-4 border border-gray-300 rounded-full bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1a6f8c]/40 text-sm font-medium"
+                           autocomplete="off">
                     <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                    <div id="desktopSuggestions" class="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl shadow-xl border border-gray-200 z-50 hidden max-h-80 overflow-y-auto"></div>
                 </div>
             </div>
 
             <!-- Right buttons -->
-            <div style="gap: 40px;" class="flex items-center gap-3 md:gap-4 flex-shrink-0">
+            <div class="flex items-center gap-3 md:gap-4 flex-shrink-0">
                 <button id="bookDemoBtnDesktop" class="hidden md:flex px-5 py-2 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] hover:from-[#0a2b3e] hover:to-[#1a6f8c] text-white rounded-full font-bold text-sm shadow-md transition-all duration-300 hover:shadow-lg items-center gap-2">
                     <span>Book Demo</span>
-                    <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
                 </button>
-                <div style="gap: 20px;" class="hidden sm:flex items-center gap-2">
+                <div class="hidden sm:flex items-center gap-2">
                     <a href="/login" class="px-4 py-1.5 text-sm font-bold text-black border border-gray-300 rounded-md hover:bg-gray-50 hover:border-[#1a6f8c] transition-all">Login</a>
                     <a href="/signup" class="px-4 py-1.5 text-sm font-bold bg-black text-white rounded-md hover:bg-gray-800 transition-all shadow-sm">Sign Up</a>
                 </div>
-                <button id="menuBtn" class="lg:hidden w-9 h-9 rounded-full bg-gray-100 hover:bg-[#1a6f8c] transition-all duration-300 flex items-center justify-center">
+                <button id="menuBtn" class="md:hidden w-9 h-9 rounded-full bg-gray-100 hover:bg-[#1a6f8c] transition-all flex items-center justify-center">
                     <i class="fa-solid fa-bars text-gray-700 hover:text-white text-base"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- SECOND ROW: Course categories with dropdowns (main links less bold) -->
-    <div class="bg-white border-b border-gray-100 w-full">
+    <!-- SECOND ROW: Course categories (desktop only) -->
+    <div class="hidden md:block bg-white border-b border-gray-100 w-full">
         <div class="px-4 sm:px-8 lg:px-12">
-            <div style="gap: 35px;" class="flex items-center justify-center gap-4 md:gap-2 py-3">
-                <!-- Static links (reduced bold) -->
-                <a  href="/" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide">Home</a>
-                <a href="/about" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide">About</a>
-                <a href="/contact" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide">Contact</a>
+            <div class="flex items-center justify-center gap-4 md:gap-6 py-3">
+                <a href="/" class="category-link text-black font-bold text-sm md:text-base">Home</a>
+                <a href="/about" class="category-link text-black font-bold text-sm md:text-base">About</a>
                 
-                <!-- Development Dropdown -->
-                <div class="relative group/dropdown">
-                    <a href="/courses?category=development" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide flex items-center gap-1">
-                        Development <i class="fa-solid fa-chevron-down text-[10px] transition-all duration-200 group-hover/dropdown:rotate-180"></i>
+                <div class="relative dropdown-container">
+                    <a href="/courseCatogry?category=development" class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
+                        Development <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
-                    <div class="dropdown-menu absolute left-0 mt-3 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50 origin-top-left scale-95 group-hover/dropdown:scale-100">
+                    <div class="dropdown-menu">
                         <div class="py-2">
-                            <a href="/courses?category=frontend" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                </i> <span>Frontend Development</span>
-                            </a>
-                            <a href="/courses?category=backend" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                </i> <span>Backend Development</span>
-                            </a>
-                            <a href="/courses?category=react" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                        <span>React.js</span>
-                            </a>
-                            <div class="border-t border-gray-100 my-1">
-
-                            </div>
-                            <a href="/courses?category=mern stack" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                   <span>Full Stack MERN</span>
-                            </a>
-                            <a href="/courses?category=php" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                 <span>Full Stack Development with PHP</span>
-                            </a>
-                            <a href="/courses?category=java" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                                    <span>Full Stack Development with java</span>
-                            </a>
-                            <a href="/courses?category=fullstack" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                            <span>Full Stack Development with python</span>
-                            </a>
-                            
-                          
-                         
-                            <a href="/courses?category=fullstack" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                        <span>Word Press Development</span>
-                            </a>
-                            <a href="/courses?category=fullstack" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                <span>Full Stack Devlopment Expert</span>
-                            </a>
+                            <a href="/courseCatogry?category=frontend%20development"><i class="fa-brands fa-html5 w-5 text-teal-600"></i> Frontend Development</a>
+                            <a href="/courseCatogry?category=backend%20development"><i class="fa-solid fa-server w-5 text-teal-600"></i> Backend Development</a>
+                            <a href="/courseCatogry?category=react.js"><i class="fa-brands fa-react w-5 text-teal-600"></i> React.js</a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <a href="/courseCatogry?category=full%20stack%20mern"><i class="fa-solid fa-layer-group w-5 text-teal-600"></i> Full Stack MERN</a>
+                            <a href="/courseCatogry?category=full%20stack%20development%20with%20php"><i class="fa-brands fa-php w-5 text-teal-600"></i> Full Stack Development with PHP</a>
+                            <a href="/courseCatogry?category=full%20stack%20development%20with%20java"><i class="fa-brands fa-java w-5 text-teal-600"></i> Full Stack Development with Java</a>
+                            <a href="/courseCatogry?category=full%20stack%20development%20with%20python"><i class="fa-brands fa-python w-5 text-teal-600"></i> Full Stack Development with Python</a>
+                            <a href="/courseCatogry?category=wordpress%20development"><i class="fa-brands fa-wordpress w-5 text-teal-600"></i> WordPress Development</a>
+                            <a href="/courseCatogry?category=full%20stack%20development%20expert"><i class="fa-solid fa-code w-5 text-teal-600"></i> Full Stack Development Expert</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Data Science Dropdown -->
-                <div class="relative group/dropdown">
-                    <a href="/courses?category=data-science" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide flex items-center gap-1">
-                        Data Science <i class="fa-solid fa-chevron-down text-[10px] transition-all duration-200 group-hover/dropdown:rotate-180"></i>
+                <div class="relative dropdown-container">
+                    <a href="/courseCatogry?category=data%20science" class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
+                        Data Science <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
-                    <div class="dropdown-menu absolute left-0 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50 origin-top-left scale-95 group-hover/dropdown:scale-100">
+                    <div class="dropdown-menu">
                         <div class="py-2">
-                            <a href="/courses?category=machine-learning" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                <span>Data Science</span>
-                            </a>
-                            <a href="/courses?category=deep-learning" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                <span>Data Analytics</span>
-                            </a>
-                            <a href="/courses?category=python-data" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                 <span>AI/ML</span>
-                            </a>
+                            <a href="/courseCatogry?category=data%20science"><i class="fa-solid fa-chart-line w-5 text-teal-600"></i> Data Science</a>
+                            <a href="/courseCatogry?category=data%20analytics"><i class="fa-solid fa-chart-simple w-5 text-teal-600"></i> Data Analytics</a>
+                            <a href="/courseCatogry?category=ai%20ml"><i class="fa-solid fa-robot w-5 text-teal-600"></i> AI/ML</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Programming Dropdown -->
-                <div class="relative group/dropdown">
-                    <a href="/courses?category=programming" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide flex items-center gap-1">
-                        Programming <i class="fa-solid fa-chevron-down text-[10px] transition-all duration-200 group-hover/dropdown:rotate-180"></i>
+                <div class="relative dropdown-container">
+                    <a href="/courseCatogry?category=programming" class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
+                        Programming <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
-                    <div class="dropdown-menu absolute left-0 mt-3 w-56 bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 z-50 origin-top-left scale-95 group-hover/dropdown:scale-100">
+                    <div class="dropdown-menu">
                         <div class="py-2">
-                            <a href="/courses?category=python" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                          <span>Python</span>
-                            </a>
-                            <a href="/courses?category=java" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                            <span>Java</span>
-                            </a>
-                            <a href="/courses?category=javascript" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                            <span>JavaScript</span>
-                            </a>
-                            <a href="/courses?category=cpp" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                 <span>C</span>
-                            </a>
-                            <a href="/courses?category=cpp" class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-gray-800 hover:bg-gradient-to-r hover:from-teal-50 hover:to-transparent hover:text-teal-700 transition-all">
-                                 <span>C++</span>
-                            </a>
-                           
+                            <a href="/courseCatogry?category=python"><i class="fa-brands fa-python w-5 text-teal-600"></i> Python</a>
+                            <a href="/courseCatogry?category=java"><i class="fa-brands fa-java w-5 text-teal-600"></i> Java</a>
+                            <a href="/courseCatogry?category=javascript"><i class="fa-brands fa-js w-5 text-teal-600"></i> JavaScript</a>
+                            <a href="/courseCatogry?category=c"><i class="fa-solid fa-code w-5 text-teal-600"></i> C</a>
+                            <a href="/courseCatogry?category=cpp"><i class="fa-solid fa-code w-5 text-teal-600"></i> C++</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Digital Marketing Dropdown -->
-                <div class="relative group/dropdown">
-                    <a href="/courses?category=digital-marketing" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide flex items-center gap-1">
-                        Digital Marketing
-                    </a>
-                </div>
-                
-                <!-- Gen AI Dropdown -->
-                <div class="relative group/dropdown">
-                    <a href="/courses?category=gen-ai" class="category-link text-black font-bold text-sm md:text-base whitespace-nowrap tracking-wide flex items-center gap-1">
-                        Gen AI 
-                    </a>
-                    </div>
-                </div>
+                <a href="/courseCatogry?category=digital%20marketing" class="category-link text-black font-bold text-sm md:text-base">Digital Marketing</a>
+                <a href="/courseCatogry?category=dsa" class="category-link text-black font-bold text-sm md:text-base">DSA</a>
+                <a href="/courses" class="category-link text-black font-bold text-sm md:text-base">All Courses</a>
+                <a href="/contact" class="category-link text-black font-bold text-sm md:text-base">Contact</a>
             </div>
         </div>
     </div>
 
-    <!-- Search Modal (unchanged) -->
-    <div id="searchModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200] hidden items-start justify-center pt-16 md:pt-20">
-        <div class="w-full max-w-md md:max-w-2xl mx-4 bg-white rounded-2xl shadow-2xl overflow-hidden animate-fadeInUp">
-            <div class="p-4 md:p-5 border-b border-gray-100 flex items-center gap-3">
-                <i class="fa-solid fa-magnifying-glass text-gray-400 text-lg md:text-xl"></i>
-                <input type="text" id="searchInput" placeholder="Type at least 2 characters to search courses..." class="flex-1 text-base md:text-lg focus:outline-none font-medium text-black" autocomplete="off">
-                <button id="closeSearchBtn" class="text-gray-400 hover:text-gray-600 transition-all duration-300 hover:rotate-90">
-                    <i class="fa-solid fa-xmark text-xl md:text-2xl"></i>
+    <!-- MOBILE MENU (unchanged) -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black/50 z-50 hidden md:hidden">
+        <div id="mobileMenuPanel" class="absolute top-0 right-0 w-80 sm:w-96 h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col">
+            <div class="p-5 border-b border-gray-100 flex justify-between items-center">
+                <span class="font-black text-xl">Menu</span>
+                <button id="closeMenu" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200"><i class="fa-solid fa-xmark text-gray-600"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-5 space-y-6">
+                <div class="relative">
+                    <input type="text" id="mobileSearchInput" placeholder="Search courses..." 
+                           class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1a6f8c]/40 text-sm"
+                           autocomplete="off">
+                    <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                    <div id="mobileSuggestions" class="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl shadow-xl border border-gray-200 z-50 hidden max-h-60 overflow-y-auto"></div>
+                </div>
+                <button id="bookDemoBtnMobile" class="w-full py-3 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-calendar-check"></i> Book Free Demo
                 </button>
+                <div class="space-y-5">
+                    <div><div class="font-extrabold">Development</div><div class="grid grid-cols-2 gap-2 pl-2"><a href="/courseCatogry?category=frontend%20development" class="text-gray-600 text-sm">Frontend</a><a href="/courseCatogry?category=backend%20development" class="text-gray-600 text-sm">Backend</a><a href="/courseCatogry?category=react.js" class="text-gray-600 text-sm">React.js</a><a href="/courseCatogry?category=full%20stack%20mern" class="text-gray-600 text-sm">MERN</a><a href="/courseCatogry?category=full%20stack%20development%20with%20php" class="text-gray-600 text-sm">PHP Stack</a><a href="/courseCatogry?category=full%20stack%20development%20with%20java" class="text-gray-600 text-sm">Java Stack</a><a href="/courseCatogry?category=full%20stack%20development%20with%20python" class="text-gray-600 text-sm">Python Stack</a><a href="/courseCatogry?category=wordpress%20development" class="text-gray-600 text-sm">WordPress</a><a href="/courseCatogry?category=full%20stack%20development%20expert" class="text-gray-600 text-sm">Expert</a></div></div>
+                    <div><div class="font-extrabold">Data Science</div><div class="pl-2 space-y-2"><a href="/courseCatogry?category=data%20science" class="block text-gray-600 text-sm">Data Science</a><a href="/courseCatogry?category=data%20analytics" class="block text-gray-600 text-sm">Data Analytics</a><a href="/courseCatogry?category=ai%20ml" class="block text-gray-600 text-sm">AI/ML</a></div></div>
+                    <div><div class="font-extrabold">Programming</div><div class="grid grid-cols-2 gap-2 pl-2"><a href="/courseCatogry?category=python" class="text-gray-600 text-sm">Python</a><a href="/courseCatogry?category=java" class="text-gray-600 text-sm">Java</a><a href="/courseCatogry?category=javascript" class="text-gray-600 text-sm">JavaScript</a><a href="/courseCatogry?category=c" class="text-gray-600 text-sm">C</a><a href="/courseCatogry?category=cpp" class="text-gray-600 text-sm">C++</a></div></div>
+                    <div class="pt-2"><a href="/courseCatogry?category=digital%20marketing" class="block font-bold py-2 border-b">Digital Marketing</a><a href="/courseCatogry?category=dsa" class="block font-bold py-2 border-b">DSA</a><a href="/courses" class="block font-bold py-2 border-b">All Courses</a><a href="/contact" class="block font-bold py-2 border-b">Contact</a><a href="/about" class="block font-bold py-2 border-b">About</a></div>
+                </div>
+                <div class="flex gap-4 mt-6"><a href="/login" class="flex-1 text-center py-2 border border-gray-300 rounded-xl font-bold text-sm">Login</a><a href="/signup" class="flex-1 text-center py-2 bg-black text-white rounded-xl font-bold text-sm">Sign Up</a></div>
             </div>
-            <div id="searchResultsContainer" class="p-4 md:p-5 max-h-96 overflow-y-auto"></div>
-            <div class="p-3 text-center text-xs text-gray-400 border-t border-gray-100">Search for courses, categories, or skills</div>
         </div>
     </div>
-
-    <!-- Mobile Menu Panel (keep your existing code) -->
-    <!-- ... -->
 </nav>
 
-<!-- Spacer -->
-<div class="pt-[116px] md:pt-[136px]"></div>
+<div class="pt-[68px] md:pt-[116px]"></div>
 
 <style>
-    /* Professional dropdown styling (unchanged) */
-    .dropdown-menu {
-        transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
-        transform-origin: top center;
-    }
-    .group/dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: scale(1);
-    }
-    .group/dropdown .fa-chevron-down {
-        transition: transform 0.2s ease;
-    }
-    .group/dropdown:hover .fa-chevron-down {
-        transform: rotate(180deg);
-    }
-    #mainNav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: white; }
-    
-    /* Main category links – reduced boldness (700 instead of 900) */
+    /* Category link and dropdown styles (unchanged) */
     .category-link {
         position: relative;
         padding-bottom: 4px;
-        transition: color 0.2s ease;
+        transition: color 0.2s;
         font-weight: 700 !important;
-        color: #000000 !important;
+        color: #000 !important;
     }
     .category-link::after {
         content: '';
@@ -218,7 +157,7 @@
         height: 2.5px;
         background: linear-gradient(90deg, #1a6f8c, #0066b3);
         border-radius: 2px;
-        transition: width 0.25s ease;
+        transition: width 0.25s;
     }
     .category-link:hover {
         color: #1a6f8c !important;
@@ -226,35 +165,427 @@
     .category-link:hover::after {
         width: 100%;
     }
-    
-    /* Dropdown items – keep bold (700) */
+    .dropdown-container {
+        position: relative;
+    }
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.75rem;
+        width: 260px;
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15);
+        border: 1px solid #e5e7eb;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.95);
+        transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+        z-index: 100;
+        transform-origin: top center;
+    }
+    .dropdown-container:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+    .dropdown-container:hover .fa-chevron-down {
+        transform: rotate(180deg);
+    }
     .dropdown-menu a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.875rem;
         font-weight: 700;
         color: #1f2937;
+        transition: background 0.15s;
+    }
+    .dropdown-menu a i {
+        width: 1.25rem;
     }
     .dropdown-menu a:hover {
+        background: linear-gradient(90deg, #f0f9ff, transparent);
         color: #0d5e6b;
     }
-    
-    input::placeholder {
-        font-weight: 500;
-        color: #9ca3af;
+    #mobileMenuPanel {
+        transition: transform 0.3s ease-out;
     }
-    
-    @media (max-width: 1024px) {
-        .overflow-x-auto { scrollbar-width: thin; }
+    #mobileMenuPanel.open {
+        transform: translateX(0) !important;
+    }
+    /* ========== PREMIUM HORIZONTAL MODAL – IMPROVED RIGHT SIDE FORM ========== */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+    .course-modal {
+        background: white;
+        border-radius: 2rem;
+        max-width: 1000px;
+        width: 90%;
+        position: relative;
+        animation: modalFadeIn 0.3s ease;
+        box-shadow: 0 30px 50px -20px rgba(0,0,0,0.3);
+        overflow: hidden;
+    }
+    @keyframes modalFadeIn {
+        from { opacity: 0; transform: scale(0.96); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #9ca3af;
+        transition: color 0.2s;
+        z-index: 20;
+        background: rgba(255,255,255,0.8);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-close:hover {
+        color: #1f2937;
+        background: white;
+    }
+    /* Two‑column layout */
+    .modal-two-columns {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .modal-left {
+        flex: 1.2;
+        background: linear-gradient(145deg, #0a2b3e, #1a6f8c);
+        padding: 2rem;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .modal-left h3 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    .modal-left p {
+        font-size: 0.95rem;
+        opacity: 0.9;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+    .modal-left .benefits {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .modal-left .benefits li {
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .modal-left .benefits li i {
+        font-size: 1.1rem;
+    }
+    .modal-right {
+        flex: 1.8;
+        padding: 2rem;
+        background: white;
+    }
+    /* Improved form layout – cleaner, more spacious */
+    .form-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    .form-group {
+        flex: 1;
+        min-width: calc(50% - 0.5rem);
+    }
+    .form-group.full-width {
+        flex: 1 1 100%;
+    }
+    .form-group label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #374151;
+        margin-bottom: 0.4rem;
+    }
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.75rem;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+        background: #fafbfc;
+        font-family: inherit;
+    }
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #1a6f8c;
+        box-shadow: 0 0 0 3px rgba(26,111,140,0.1);
+        background: white;
+    }
+    .btn-submit {
+        background: linear-gradient(105deg, #1a6f8c, #0f5f7a);
+        color: white;
+        font-weight: 800;
+        padding: 0.8rem;
+        border-radius: 3rem;
+        font-size: 1rem;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -8px rgba(26,111,140,0.4);
+    }
+    @media (max-width: 768px) {
+        .modal-two-columns {
+            flex-direction: column;
+        }
+        .modal-left {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .modal-left .benefits li {
+            justify-content: center;
+        }
+        .form-row {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .form-group {
+            min-width: 100%;
+        }
+        .course-modal {
+            width: 95%;
+        }
+    }
+    .suggestion-item {
+        transition: background 0.15s;
+        cursor: pointer;
+    }
+    .suggestion-item:hover {
+        background-color: #f3f4f6;
     }
 </style>
 
 <script>
-    // Your existing JavaScript (search, mobile menu, book demo)
     (function() {
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
+        }
+
+        // Scroll shadow
         const mainNav = document.getElementById('mainNav');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) mainNav.classList.add('scrolled');
-            else mainNav.classList.remove('scrolled');
+            if (window.scrollY > 20) mainNav.classList.add('scrolled', 'shadow-lg');
+            else mainNav.classList.remove('scrolled', 'shadow-lg');
         });
-        // Mobile menu toggle code (add your existing)
-        // Search and book demo logic (add your existing)
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobilePanel = document.getElementById('mobileMenuPanel');
+        const closeMenu = document.getElementById('closeMenu');
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => mobilePanel.classList.add('open'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            mobilePanel.classList.remove('open');
+            setTimeout(() => { mobileMenu.classList.add('hidden'); document.body.style.overflow = ''; }, 300);
+        }
+        if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
+        if (closeMenu) closeMenu.addEventListener('click', closeMobileMenu);
+        if (mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+
+        // Shared suggestion fetch
+        let debounceTimer;
+        async function fetchAndShowSuggestions(inputElement, suggestionsContainer) {
+            const query = inputElement.value.trim();
+            clearTimeout(debounceTimer);
+            if (query.length < 2) {
+                suggestionsContainer.classList.add('hidden');
+                return;
+            }
+            debounceTimer = setTimeout(async () => {
+                try {
+                    const res = await fetch(`/api/courses/search?q=${encodeURIComponent(query)}`);
+                    const courses = await res.json();
+                    if (courses && courses.length) {
+                        suggestionsContainer.innerHTML = courses.map(c => `
+                            <div class="suggestion-item p-3 border-b border-gray-100" data-course="${escapeHtml(c.courseName)}">
+                                <div class="font-semibold">${escapeHtml(c.courseName)}</div>
+                                <div class="text-xs text-gray-500">${escapeHtml((c.courseDescription || '').substring(0, 80))}...</div>
+                            </div>
+                        `).join('');
+                        suggestionsContainer.classList.remove('hidden');
+                        document.querySelectorAll(`#${suggestionsContainer.id} .suggestion-item`).forEach(el => {
+                            el.addEventListener('click', () => {
+                                const courseName = el.getAttribute('data-course');
+                                if (courseName) window.location.href = `/viewCourse/${encodeURIComponent(courseName)}`;
+                            });
+                        });
+                    } else {
+                        suggestionsContainer.classList.add('hidden');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    suggestionsContainer.classList.add('hidden');
+                }
+            }, 300);
+        }
+
+        // Desktop search
+        const desktopInput = document.getElementById('desktopSearchInput');
+        const desktopSuggestions = document.getElementById('desktopSuggestions');
+        if (desktopInput && desktopSuggestions) {
+            desktopInput.addEventListener('input', () => fetchAndShowSuggestions(desktopInput, desktopSuggestions));
+            document.addEventListener('click', (e) => {
+                if (!desktopInput.contains(e.target) && !desktopSuggestions.contains(e.target)) {
+                    desktopSuggestions.classList.add('hidden');
+                }
+            });
+            desktopInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const query = desktopInput.value.trim();
+                    if (query) window.location.href = `/courseCatogry?courseName=${encodeURIComponent(query)}`;
+                }
+            });
+        }
+
+        // Mobile search
+        const mobileInput = document.getElementById('mobileSearchInput');
+        const mobileSuggestions = document.getElementById('mobileSuggestions');
+        if (mobileInput && mobileSuggestions) {
+            mobileInput.addEventListener('input', () => fetchAndShowSuggestions(mobileInput, mobileSuggestions));
+            document.addEventListener('click', (e) => {
+                if (!mobileInput.contains(e.target) && !mobileSuggestions.contains(e.target)) {
+                    mobileSuggestions.classList.add('hidden');
+                }
+            });
+            mobileInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const query = mobileInput.value.trim();
+                    if (query) window.location.href = `/courseCatogry?courseName=${encodeURIComponent(query)}`;
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        // ========== PREMIUM BOOK DEMO MODAL (improved right side) ==========
+        let demoModal = document.getElementById('demoModal');
+        if (!demoModal) {
+            demoModal = document.createElement('div');
+            demoModal.id = 'demoModal';
+            demoModal.className = 'modal-overlay';
+            demoModal.innerHTML = `
+                <div class="course-modal">
+                    <div class="modal-close" id="closeDemoModal">&times;</div>
+                    <div class="modal-two-columns">
+                        <div class="modal-left">
+                            <h3>✨ Free Career Consultation</h3>
+                            <p>Our expert counsellors will help you choose the right course and answer all your questions.</p>
+                            <ul class="benefits">
+                                <li><i class="fa-regular fa-circle-check"></i> Live course overview</li>
+                                <li><i class="fa-regular fa-clock"></i> Flexible scheduling</li>
+                                <li><i class="fa-regular fa-message"></i> One-on-one interaction</li>
+                                <li><i class="fa-regular fa-building"></i> Placement guidance</li>
+                            </ul>
+                        </div>
+                        <div class="modal-right">
+                            <form id="demoForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Full Name <span class="text-red-500">*</span></label>
+                                        <input type="text" id="demoName" placeholder="e.g. John Doe" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email <span class="text-red-500">*</span></label>
+                                        <input type="email" id="demoEmail" placeholder="john@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Phone <span class="text-red-500">*</span></label>
+                                        <input type="tel" id="demoPhone" placeholder="+91 98765 43210" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interested Course (Optional)</label>
+                                        <select id="demoCourse">
+                                            <option value="">Select a course</option>
+                                            <option>Frontend Development</option><option>Backend Development</option>
+                                            <option>Data Science</option><option>Full Stack MERN</option>
+                                            <option>Python</option><option>Java</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Preferred Date & Time (Optional)</label>
+                                    <textarea id="demoMessage" rows="2" placeholder="e.g., 'Weekday evenings after 7 PM'"></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Request Demo <i class="fa-solid fa-arrow-right"></i></button>
+                                <p class="text-center text-xs text-gray-500 mt-3">No spam. We'll contact you within 24h.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(demoModal);
+        }
+        const bookDemoBtns = [document.getElementById('bookDemoBtnDesktop'), document.getElementById('bookDemoBtnMobile')];
+        const closeDemo = document.getElementById('closeDemoModal');
+        const demoForm = document.getElementById('demoForm');
+        bookDemoBtns.forEach(btn => {
+            if (btn) btn.addEventListener('click', () => demoModal.style.display = 'flex');
+        });
+        if (closeDemo) closeDemo.addEventListener('click', () => demoModal.style.display = 'none');
+        if (demoModal) demoModal.addEventListener('click', (e) => { if (e.target === demoModal) demoModal.style.display = 'none'; });
+        if (demoForm) demoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('✅ Demo request sent! Our team will contact you within 24 hours.');
+            demoForm.reset();
+            demoModal.style.display = 'none';
+            closeMobileMenu();
+        });
     })();
 </script>

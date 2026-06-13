@@ -151,6 +151,49 @@ const searchCoursesAPI = async (req, res) => {
         res.status(500).json({ error: 'Failed to search courses' });
     }
 };
+
+
+// GET /courseCatogry
+ 
+async function getCoursesByCategory(req, res) {
+    try {
+        const { category } = req.query;   // only category, ignore courseName
+        console.log("Category filter:", category);
+        
+        let filter = {};
+        
+        if (category && category.trim() !== '') {
+            const decodedCategory = decodeURIComponent(category);
+            filter.category = { $regex: new RegExp(`^${decodedCategory}$`, 'i') };
+        }
+        
+        // Fetch only courses matching the category (or all if no category)
+        const registerCourses = await courseModel.find(filter).sort({ createdAt: -1 });
+        
+        console.log(`Found ${registerCourses.length} courses for category: ${category || 'all'}`);
+        
+        res.render('pages/student/courseCatogry', {
+            registerCourses: registerCourses,
+            selectedCategory: category || 'all',
+            searchTerm: '',              // empty because search is client‑side
+            errorMessage: null,
+            isLogin: req.session?.isLogin || false,
+            user: req.session?.user || null
+        });
+    } catch (error) {
+        console.error('Error in getCoursesByCategory:', error);
+        res.status(500).render('pages/student/courseCatogry', {
+            registerCourses: [],
+            selectedCategory: 'all',
+            searchTerm: '',
+            errorMessage: 'Unable to load courses. Please try again later.',
+            isLogin: req.session?.isLogin || false,
+            user: req.session?.user || null
+        });
+    }
+}
+
+
 module.exports = {
     viewCourseDetails,
     showHomePage,
@@ -159,5 +202,6 @@ module.exports = {
     getEnqueryForm,
     showAboutPage,
     showContactPage,
-    searchCoursesAPI
+    searchCoursesAPI,
+    getCoursesByCategory
 }
