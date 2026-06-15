@@ -27,6 +27,9 @@
                 </div>
             </div>
 
+                <a href="/courses" class="category-link text-black font-bold text-sm md:text-base">All Courses</a> 
+                <a href="/contact" class="category-link text-black font-bold text-sm md:text-base">Contact</a>
+
             <!-- Right buttons -->
             <div class="flex items-center gap-3 md:gap-4 flex-shrink-0">
                 <button id="bookDemoBtnDesktop" class="hidden md:flex px-5 py-2 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] hover:from-[#0a2b3e] hover:to-[#1a6f8c] text-white rounded-full font-bold text-sm shadow-md transition-all duration-300 hover:shadow-lg items-center gap-2">
@@ -50,23 +53,32 @@
             <div class="flex items-center justify-center gap-4 md:gap-6 py-3">
                 <a href="/" class="category-link text-black font-bold text-sm md:text-base">Home</a>
                 <a href="/about" class="category-link text-black font-bold text-sm md:text-base">About</a>
-                
+                <div class="relative dropdown-container">
+                    <a class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
+                      Digital Marketing <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="py-2">
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <a href="/courseCatogry?category=digital%20marketing">Digital Marketing with AI</a>
+                            <a href="/courseCatogry?category=performance%20marketing">Performance Marketing </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="relative dropdown-container">
                     <a href="/courseCatogry?category=development" class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
                       Web Development <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
                     <div class="dropdown-menu">
                         <div class="py-2">
-                            <a href="/courseCatogry?category=frontend%20development"><i class="fa-brands fa-html5 w-5 text-teal-600"></i> Frontend Development</a>
-                            <a href="/courseCatogry?category=backend%20development"><i class="fa-solid fa-server w-5 text-teal-600"></i> Backend Development</a>
-                            <a href="/courseCatogry?category=react.js"><i class="fa-brands fa-react w-5 text-teal-600"></i> React.js</a>
                             <div class="border-t border-gray-100 my-1"></div>
-                            <a href="/courseCatogry?category=full%20stack%20mern"><i class="fa-solid fa-layer-group w-5 text-teal-600"></i> Full Stack MERN</a>
-                            <a href="/courseCatogry?category=full%20stack%20development%20with%20php"><i class="fa-brands fa-php w-5 text-teal-600"></i> Full Stack Development with PHP</a>
-                            <a href="/courseCatogry?category=full%20stack%20development%20with%20java"><i class="fa-brands fa-java w-5 text-teal-600"></i> Full Stack Development with Java</a>
-                            <a href="/courseCatogry?category=full%20stack%20development%20with%20python"><i class="fa-brands fa-python w-5 text-teal-600"></i> Full Stack Development with Python</a>
-                            <a href="/courseCatogry?category=wordpress%20development"><i class="fa-brands fa-wordpress w-5 text-teal-600"></i> WordPress Development</a>
-                            <!-- <a href="/courseCatogry?category=full%20stack%20development%20expert"><i class="fa-solid fa-code w-5 text-teal-600"></i> Full Stack Development Expert</a> -->
+                            <a href="/courseCatogry?category=full%20stack%20mern">Full Stack Development with MERN</a>
+                            <a >Full Stack Development with PHP</a>
+                            <a href="/courseCatogry?category=frontend%20development">Frontend Development</a>
+                            <a href="/courseCatogry?category=backend%20development"> Backend Development</a>
+                            <a href="/courseCatogry?category=software%20testing"> QA Testing</a>
+                            <a href="/courseCatogry?category=react"> React</a>
+                            <a href="/courseCatogry?category=react.js"><React.js</a>
                         </div>
                     </div>
                 </div>
@@ -77,10 +89,22 @@
                     </a>
                     <div class="dropdown-menu">
                         <div class="py-2">
-                            <a href="/courseCatogry?category=data%20science"><i class="fa-solid fa-chart-line w-5 text-teal-600"></i> Data Science</a>
-                            <a href="/courseCatogry?category=data%20analytics"><i class="fa-solid fa-chart-simple w-5 text-teal-600"></i> Data Analytics</a>
+                            <a href="/courseCatogry?category=data%20science"><i class="fa-solid fa-chart-line w-5 text-teal-600"></i> Data Science Pro</a>
                             <a href="/courseCatogry?category=ai%20ml"><i class="fa-solid fa-robot w-5 text-teal-600"></i> AI/ML</a>
-                            <a href="/courseCatogry?category=excel"><i class="fa-solid fa-robot w-5 text-teal-600"></i> Mater Excel</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative dropdown-container">
+                    <a href="/courseCatogry?category=data%20science" class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
+                        Data Analytics <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="py-2">
+                            <a href="/courseCatogry?category=data%20analytics">Data Analytics Pro</a>
+                            <a href="/courseCatogry?category=data%20analytics">Business Analytics</a>
+                            <a href="/courseCatogry?category=excel"> Advance Excel</a>
+                            <a href="/courseCatogry?category=power bi">Power BI</a>
+                            <a href="/courseCatogry?category=sql">SQL</a>
                         </div>
                     </div>
                 </div>
@@ -91,19 +115,49 @@
                     </a>
                     <div class="dropdown-menu">
                         <div class="py-2">
-                            <a href="/courseCatogry?category=python"><i class="fa-brands fa-python w-5 text-teal-600"></i> Python</a>
-                            <a href="/courseCatogry?category=java"><i class="fa-brands fa-java w-5 text-teal-600"></i> Java</a>
-                            <a href="/courseCatogry?category=javascript"><i class="fa-brands fa-js w-5 text-teal-600"></i> JavaScript</a>
-                            <a href="/courseCatogry?category=c"><i class="fa-solid fa-code w-5 text-teal-600"></i> C</a>
-                            <a href="/courseCatogry?category=cpp"><i class="fa-solid fa-code w-5 text-teal-600"></i> C++</a>
+                            <a href="/courseCatogry?category=c"> C</a>
+                            <a href="/courseCatogry?category=cpp">C++</a>
+                            <a href="/courseCatogry?category=java">Java</a>
+                            <a href="/courseCatogry?category=javascript">JavaScript</a>
+                            <a href="/courseCatogry?category=python">Python</a>
+                            <a href="/courseCatogry?category=sql">SQL</a>
                         </div>
                     </div>
                 </div>
                 
-                <a href="/courseCatogry?category=digital%20marketing" class="category-link text-black font-bold text-sm md:text-base">Digital Marketing</a>
-                <a href="/courseCatogry?category=dsa" class="category-link text-black font-bold text-sm md:text-base">DSA</a>
-                <a href="/courses" class="category-link text-black font-bold text-sm md:text-base">All Courses</a>
-                <a href="/contact" class="category-link text-black font-bold text-sm md:text-base">Contact</a>
+                <div class="relative dropdown-container">
+                    <a href="/courseCatogry?category=programming" class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
+                        DSA <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="py-2">
+                            <a href="/courseCatogry?category=c">DSA with C</a>
+                            <a href="/courseCatogry?category=cpp">DSA with C++</a>
+                            <a href="/courseCatogry?category=java">DSA with Java</a>
+                            <a href="/courseCatogry?category=javascript">DSA with JavaScript</a>
+                            <a href="/courseCatogry?category=python">DSA with Python</a>
+                            <a href="/courseCatogry?category=python">Data Structure</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative dropdown-container">
+                    <a href="/courseCatogry?category=programming" class="category-link text-black font-bold text-sm md:text-base flex items-center gap-1">
+                        Diploma Programs<i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="py-2">
+                            <a href="/courseCatogry?category=c">Diploma in software Engineering</a>
+                            <a href="/courseCatogry?category=cpp">Diploma in Data Science</a>
+                            <a href="/courseCatogry?category=java">Diploma in Digital Marketing with AI</a>
+                            <a href="/courseCatogry?category=javascript">Diploma in Cloud Computing and Cyber Security</a>
+                            <a href="/courseCatogry?category=javascript">Diploma in Ethical Hacking and Cyber Security</a>
+                            <a href="/courseCatogry?category=python">Diploma in Computer Network and Cyber Security</a>
+                            <a href="/courseCatogry?category=python">Diploma in Computer Network , Cloud Computing & AI </a>
+                        </div>
+                    </div>
+                </div>
+            
             </div>
         </div>
     </div>
