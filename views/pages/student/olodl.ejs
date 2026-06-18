@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Online & Distance Learning Programs – SkillBridge</title>
+    <meta name="description" content="Explore UGC-approved Online & Distance UG/PG Programs – BBA, BCA, BA, B.Sc, MBA, MCA, M.Sc, MA, PGDM. Flexible learning with global recognition.">
+    <meta name="keywords" content="online MBA, distance learning, PG programs, online MCA, online M.Sc, online MA, PGDM, UGC approved, online BBA, online BCA">
+    <meta name="author" content="SkillBridge">
+    <link rel="canonical" href="https://www.skillbridge.com/olodl">
+    <meta property="og:title" content="Online & Distance Learning Programs – SkillBridge">
+    <meta property="og:description" content="Advance your career with UGC-approved online UG & PG programs. Flexible, affordable, and globally recognized.">
+    <meta property="og:image" content="https://www.skillbridge.com/og-olodl.jpg">
+    <meta property="og:url" content="https://www.skillbridge.com/olodl">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Online & Distance Learning Programs">
+    <meta name="twitter:description" content="UGC-approved online UG & PG programs with placement support.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #e5e7eb; }
+
+        /* ====== HERO & COMMON STYLES ====== */
+        .hero-olodl {
+            background: linear-gradient(145deg, #0a0a0f, #111827, #0a1628);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(34,211,238,0.06) 0px, rgba(34,211,238,0.06) 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, rgba(34,211,238,0.06) 0px, rgba(34,211,238,0.06) 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+            animation: gridMove 8s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            animation: pulseOrb 4s ease-in-out infinite;
+        }
+        .glow-orb-1 { width: 350px; height: 350px; top: -80px; right: -80px; background: rgba(6,182,212,0.2); }
+        .glow-orb-2 { width: 250px; height: 250px; bottom: -40px; left: 5%; background: rgba(59,130,246,0.25); animation-delay: 2s; }
+        .glow-orb-3 { width: 180px; height: 180px; top: 40%; right: 15%; background: rgba(139,92,246,0.2); animation-delay: 1.5s; }
+        @keyframes pulseOrb {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(34,211,238,0.15);
+            pointer-events: none;
+            animation: floatParticle 8s ease-in-out infinite;
+        }
+        .p1 { width: 8px; height: 8px; top: 15%; left: 8%; animation-duration: 6s; }
+        .p2 { width: 14px; height: 14px; top: 65%; left: 90%; animation-duration: 9s; animation-delay: 1s; }
+        .p3 { width: 6px; height: 6px; top: 30%; left: 80%; animation-duration: 5s; animation-delay: 2s; }
+        .p4 { width: 10px; height: 10px; top: 85%; left: 20%; animation-duration: 7s; animation-delay: 0.5s; }
+        .p5 { width: 7px; height: 7px; top: 20%; left: 50%; animation-duration: 6.5s; animation-delay: 1.5s; }
+        .p6 { width: 12px; height: 12px; top: 50%; left: 60%; animation-duration: 8.5s; animation-delay: 3s; opacity: 0.08; }
+        .p7 { width: 5px; height: 5px; top: 75%; left: 45%; animation-duration: 7.5s; animation-delay: 2.5s; }
+        .p8 { width: 9px; height: 9px; top: 10%; left: 35%; animation-duration: 5.5s; animation-delay: 1.8s; }
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0,0) scale(1); opacity: 0.3; }
+            25% { transform: translate(25px,-20px) scale(1.1); opacity: 0.7; }
+            50% { transform: translate(-10px,-35px) scale(0.9); opacity: 0.4; }
+            75% { transform: translate(15px,-10px) scale(1.05); opacity: 0.6; }
+        }
+        .animate-border-glow { animation: borderGlow 2s ease-in-out infinite; }
+        .animate-border-glow-delay { animation: borderGlow 2.5s ease-in-out infinite 1s; }
+        @keyframes borderGlow {
+            0%, 100% { border-color: rgba(34,211,238,0.3); box-shadow: 0 0 10px rgba(34,211,238,0); }
+            50% { border-color: rgba(34,211,238,1); box-shadow: 0 0 30px rgba(34,211,238,0.5); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fadeUp 0.6s ease-out forwards; opacity: 0; }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-down { animation: slideDown 0.5s ease-out forwards; opacity: 0; }
+        @keyframes pulseRing { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+        .animate-pulse-ring { animation: pulseRing 1.5s ease-in-out infinite; }
+
+        /* ====== GLASS CARDS ====== */
+        .glass-card {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(34,211,238,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.4);
+        }
+        .glass-card-dark {
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .glass-card-dark:hover {
+            border-color: rgba(34,211,238,0.2);
+            transform: translateY(-4px);
+        }
+
+        /* ====== ACCORDION ====== */
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 0.5rem;
+        }
+        .faq-answer.open { display: block; }
+
+        /* ====== GRADIENT TEXT ====== */
+        .gradient-text {
+            background: linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-border-top {
+            border-top: 2px solid transparent;
+            background-image: linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .hero-olodl { padding-top: 4rem; padding-bottom: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <%- include("../../partials/common/navbar.ejs") %>
+
+    <!-- ============================================================ -->
+    <!-- HERO SECTION                                                   -->
+    <!-- ============================================================ -->
+    <section class="hero-olodl relative overflow-hidden flex items-center min-h-[85vh] lg:min-h-screen py-12 lg:py-20">
+        <div class="absolute inset-0 hero-grid pointer-events-none opacity-30"></div>
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="glow-orb glow-orb-3"></div>
+        <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div>
+        <div class="particle p4"></div><div class="particle p5"></div><div class="particle p6"></div>
+        <div class="particle p7"></div><div class="particle p8"></div>
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div class="absolute top-10 left-10 w-40 h-40 border-l-2 border-t-2 border-cyan-400/50 rounded-tl-2xl animate-border-glow"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 border-r-2 border-b-2 border-blue-400/50 rounded-br-2xl animate-border-glow-delay"></div>
+        </div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/40 mb-5 animate-slide-down backdrop-blur-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse-ring"></span>
+                    <span class="text-cyan-300 text-sm font-medium tracking-wide">🎓 UGC-Approved Programs</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-5 animate-fade-up">
+                    Online & Distance
+                    <span class="gradient-text">UG & PG Programs</span>
+                </h1>
+                <p class="text-gray-300 text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-8 animate-fade-up" style="animation-delay:0.1s;">
+                    Advance your career without leaving your job. UGC-approved online degrees – flexible, affordable, and globally recognized.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 animate-fade-up" style="animation-delay:0.2s;">
+                    <a href="#programs" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-all">Explore Programs</a>
+                    <a href="#admission" class="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full font-bold hover:bg-white/20 transition-all">Admission Process</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PROGRAMS OVERVIEW (UG + PG)                                   -->
+    <!-- ============================================================ -->
+    <section id="programs" class="py-16 lg:py-24 bg-gradient-to-b from-[#0a0a0f] to-[#111827]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Programs</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">Our Online UG & PG Programs</h2>
+                <p class="text-gray-400 text-lg mt-3">Choose from UGC-approved undergraduate and postgraduate programs designed for your career growth.</p>
+            </div>
+
+            <!-- Sub-heading: Undergraduate -->
+            <h3 class="text-2xl font-extrabold text-white mb-6 text-center lg:text-left">Undergraduate Programs</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
+                <!-- BBA -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-building-columns text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">BBA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Bachelor of Business Administration – foundation in management, marketing, and finance.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">3 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">10+2</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">6+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-emerald-400 font-bold">₹50K – ₹3L+</span>
+                        <a href="#bba-details" class="text-emerald-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- BCA -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full from-blue-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-laptop-code text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">BCA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Bachelor of Computer Applications – core programming, web development, and IT fundamentals.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">3 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">10+2</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">4+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-blue-400 font-bold">₹40K – ₹2.5L+</span>
+                        <a href="#bca-details" class="text-blue-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- BA -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-book-open text-amber-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">BA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Bachelor of Arts – specialize in humanities, social sciences, and languages.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">3 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">10+2</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">5+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-amber-400 font-bold">₹30K – ₹2L+</span>
+                        <a href="#ba-details" class="text-amber-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- B.Sc -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">B.Sc</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Bachelor of Science – analytical, research-oriented programs in science & data.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">3 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">10+2</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">4+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-purple-400 font-bold">₹40K – ₹2.5L+</span>
+                        <a href="#bsc-details" class="text-purple-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-heading: Postgraduate -->
+            <h3 class="text-2xl font-extrabold text-white mb-6 text-center lg:text-left">Postgraduate Programs</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- MBA -->
+                <div class="glass-card p-6 border-cyan-500/20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-building-columns text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">MBA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Master of Business Administration – build leadership, strategy & management skills.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">2 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">Bachelors</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">12+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-cyan-400 font-bold">₹1L – ₹14L+</span>
+                        <a href="#mba-details" class="text-cyan-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- MCA -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-laptop-code text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">MCA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Master of Computer Applications – advanced IT, AI, cloud, and software development.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">2 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">B.Sc/BCA</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">AI/ML/Cloud</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-blue-400 font-bold">₹80K – ₹6L+</span>
+                        <a href="#mca-details" class="text-blue-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- M.Sc -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-flask text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">M.Sc</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Master of Science – advanced analytical & research skills in science & data.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">2 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">B.Sc/B.Tech</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">5+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-purple-400 font-bold">₹60K – ₹5L+</span>
+                        <a href="#msc-details" class="text-purple-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- MA -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-book-open text-amber-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">MA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Master of Arts – specialize in humanities, education, public administration & social sciences.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">2 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">BA/B.Sc</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">6+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-amber-400 font-bold">₹50K – ₹4L+</span>
+                        <a href="#ma-details" class="text-amber-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- PGDM -->
+                <div class="glass-card p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-chart-simple text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">PGDM</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Post Graduate Diploma in Management – industry-focused, practical & career-ready.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">1–2 Years</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">Bachelors</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">6+ Specializations</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-emerald-400 font-bold">₹80K – ₹10L+</span>
+                        <a href="#pgdm-details" class="text-emerald-400 text-sm font-semibold hover:underline">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Online & Distance (general) -->
+                <div class="glass-card p-6 border-cyan-500/20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                            <i class="fa-solid fa-globe text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white">Online & Distance</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Flexible learning for professionals – study anywhere, anytime, at your own pace.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+                        <span class="bg-white/5 px-3 py-1 rounded-full">100% Online</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">UGC-Approved</span>
+                        <span class="bg-white/5 px-3 py-1 rounded-full">Work & Study</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-cyan-400 font-bold">EMI Available</span>
+                        <a href="#admission" class="text-cyan-400 text-sm font-semibold hover:underline">Apply Now →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MBA DETAILS (placeholder – you can expand for each program)  -->
+    <!-- ============================================================ -->
+    <section id="mba-details" class="py-16 lg:py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row gap-10 items-start">
+                <div class="flex-1">
+                    <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">MBA Program</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4 mb-4">Online MBA – Program Overview</h2>
+                    <p class="text-gray-300 text-base leading-relaxed mb-6">Advance your career without leaving your job. The Online MBA is a flexible yet high‑impact postgraduate management degree designed for professionals and recent graduates who want to gain advanced business skills, leadership capabilities, and strategic insights without attending on‑campus classes.</p>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-cyan-400 mt-1"></i><span class="text-gray-300">100% online with recorded lectures & live webinars</span></div>
+                        <div class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-cyan-400 mt-1"></i><span class="text-gray-300">Industry-aligned curriculum with case studies</span></div>
+                        <div class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-cyan-400 mt-1"></i><span class="text-gray-300">Global networking & collaborative platforms</span></div>
+                        <div class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-cyan-400 mt-1"></i><span class="text-gray-300">Cost-effective with EMI & financing options</span></div>
+                    </div>
+                </div>
+                <div class="flex-1 w-full">
+                    <div class="glass-card-dark p-6">
+                        <h3 class="text-lg font-extrabold text-white mb-4">Quick Facts</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between pb-2 border-b border-white/5"><span class="text-gray-400">Duration</span><span class="text-white font-semibold">2 Years</span></div>
+                            <div class="flex justify-between pb-2 border-b border-white/5"><span class="text-gray-400">Eligibility</span><span class="text-white font-semibold">Bachelor’s Degree</span></div>
+                            <div class="flex justify-between pb-2 border-b border-white/5"><span class="text-gray-400">Specializations</span><span class="text-white font-semibold">12+</span></div>
+                            <div class="flex justify-between pb-2 border-b border-white/5"><span class="text-gray-400">Fee Range</span><span class="text-white font-semibold">₹1L – ₹14L+</span></div>
+                            <div class="flex justify-between"><span class="text-gray-400">Mode</span><span class="text-white font-semibold">100% Online</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MBA SPECIALIZATIONS                                           -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-24 bg-[#0a0a0f]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Specializations</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">Choose Your Career Path</h2>
+                <p class="text-gray-400 text-lg mt-3">Online MBA programs offer a wide range of specializations to help you target your career goals.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-chart-line text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Marketing Management</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-coins text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Finance & Accounting</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-users text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">HR Management</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-truck text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Operations & Supply Chain</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-database text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Business Analytics & Data Science</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-globe text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">International Business</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-rocket text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Entrepreneurship & Strategy</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-cart-shopping text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Digital Marketing & E‑Commerce</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-heart-pulse text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Healthcare Management</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-store text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Retail & Sales Management</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-list-check text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">Project Management</p></div>
+                <div class="glass-card p-4 text-center"><i class="fa-solid fa-server text-cyan-400 text-2xl mb-2"></i><p class="text-white font-semibold">IT & Systems Management</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MBA CURRICULUM                                                -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6 lg:px-12 max-w-5xl">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Curriculum</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">MBA Curriculum Overview</h2>
+                <p class="text-gray-400 text-lg mt-3">A comprehensive 2‑year program covering core management pillars.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card-dark p-6">
+                    <h3 class="text-xl font-extrabold text-cyan-400 mb-4">Semester I</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Business Communication</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Managerial Economics</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Financial Accounting</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Organizational Behavior</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Data Visualization & Decision Making</li>
+                    </ul>
+                </div>
+                <div class="glass-card-dark p-6">
+                    <h3 class="text-xl font-extrabold text-cyan-400 mb-4">Semester II</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Strategic Management</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Human Resource Management</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Marketing Management</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Operations Management</li>
+                        <li class="flex items-center gap-3"><i class="fa-regular fa-circle-check text-cyan-400 text-sm"></i> Research Methods & Business Analytics</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-6">*Curriculum may vary by university. Full syllabus provided during counselling.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BENEFITS OF ONLINE LEARNING                                   -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-24 bg-[#0a0a0f]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Benefits</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">Why Choose Online Learning?</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-clock text-cyan-400 text-2xl"></i></div>
+                    <h3 class="text-lg font-extrabold text-white">Flexibility without Compromise</h3>
+                    <p class="text-gray-400 text-sm mt-2">Learn at your own pace without disrupting your career or personal commitments.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-wallet text-blue-400 text-2xl"></i></div>
+                    <h3 class="text-lg font-extrabold text-white">Cost‑Effective Learning</h3>
+                    <p class="text-gray-400 text-sm mt-2">More affordable than traditional degrees with scholarship, loan, and EMI options.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-bolt text-purple-400 text-2xl"></i></div>
+                    <h3 class="text-lg font-extrabold text-white">Practical & Immediate Application</h3>
+                    <p class="text-gray-400 text-sm mt-2">Apply what you learn directly to your job, improving performance and visibility.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-users text-emerald-400 text-2xl"></i></div>
+                    <h3 class="text-lg font-extrabold text-white">Networking Opportunities</h3>
+                    <p class="text-gray-400 text-sm mt-2">Connect with peers, faculty, and global learners through virtual platforms.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/20 flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-award text-amber-400 text-2xl"></i></div>
+                    <h3 class="text-lg font-extrabold text-white">Global Recognition</h3>
+                    <p class="text-gray-400 text-sm mt-2">Degrees from UGC-approved online programs are widely recognized by employers.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-14 h-14 rounded-full bg-rose-500/20 flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-laptop text-rose-400 text-2xl"></i></div>
+                    <h3 class="text-lg font-extrabold text-white">Learn Anywhere, Anytime</h3>
+                    <p class="text-gray-400 text-sm mt-2">Access lectures, assignments, and resources from anywhere in the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAREER OPPORTUNITIES                                          -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Careers</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">Career Opportunities</h2>
+                <p class="text-gray-400 text-lg mt-3">Graduates of online programs are prepared for leadership roles across industries.</p>
+            </div>
+            <div class="overflow-x-auto rounded-xl glass-card-dark">
+                <table class="w-full text-sm">
+                    <thead class="bg-white/5">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-white font-bold">Role</th>
+                            <th class="px-6 py-4 text-left text-white font-bold">Salary Range (INR per annum)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <tr><td class="px-6 py-4 text-gray-300">Business Development Manager</td><td class="px-6 py-4 text-gray-300">₹3.1 LPA – ₹15.8 LPA</td></tr>
+                        <tr><td class="px-6 py-4 text-gray-300">Project Manager</td><td class="px-6 py-4 text-gray-300">₹5 LPA – ₹30 LPA</td></tr>
+                        <tr><td class="px-6 py-4 text-gray-300">Marketing Manager</td><td class="px-6 py-4 text-gray-300">₹2.2 LPA – ₹25.5 LPA</td></tr>
+                        <tr><td class="px-6 py-4 text-gray-300">Financial Analyst</td><td class="px-6 py-4 text-gray-300">₹3 LPA – ₹10.9 LPA</td></tr>
+                        <tr><td class="px-6 py-4 text-gray-300">Management Consultant</td><td class="px-6 py-4 text-gray-300">₹4.6 LPA – ₹37.5 LPA</td></tr>
+                        <tr><td class="px-6 py-4 text-gray-300">Operations Manager</td><td class="px-6 py-4 text-gray-300">₹4 LPA – ₹31.5 LPA</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-4">*Salary figures are indicative and may vary by experience, industry, and location.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ELIGIBILITY & ADMISSION                                       -->
+    <!-- ============================================================ -->
+    <section id="admission" class="py-16 lg:py-24 bg-[#0a0a0f]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Eligibility</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-4 mb-4">Who Can Apply?</h2>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-cyan-400 mt-1"></i> A Bachelor’s degree from a recognized university (minimum marks as per university policy)</li>
+                        <li class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-cyan-400 mt-1"></i> No work experience required for most programs – suitable for fresh graduates</li>
+                        <li class="flex items-start gap-3"><i class="fa-regular fa-circle-check text-cyan-400 mt-1"></i> For executive tracks, prior professional experience may be preferred</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Process</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-4 mb-4">Admission Process</h2>
+                    <ol class="space-y-3 text-gray-300">
+                        <li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-sm flex items-center justify-center flex-shrink-0">1</span> Program Selection – Choose specialization and university</li>
+                        <li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-sm flex items-center justify-center flex-shrink-0">2</span> Eligibility Check – Verify minimum academic criteria</li>
+                        <li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-sm flex items-center justify-center flex-shrink-0">3</span> Application Submission – Complete online forms on university portal</li>
+                        <li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-sm flex items-center justify-center flex-shrink-0">4</span> Document Upload – Submit necessary educational documents</li>
+                        <li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-sm flex items-center justify-center flex-shrink-0">5</span> Fee Payment – Directly to the university via secure payment options</li>
+                        <li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-sm flex items-center justify-center flex-shrink-0">6</span> Confirmation – Receive admission confirmation via email/SMS</li>
+                    </ol>
+                    <p class="text-gray-400 text-sm mt-4">SkillBridge supports you through each step with guidance and clarity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- UNIVERSITY PARTNERS                                           -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">Partners</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">Our University Partners</h2>
+                <p class="text-gray-400 text-lg mt-3">UGC-approved universities offering globally recognized online degrees.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div class="glass-card p-4 text-center"><p class="text-white font-semibold">Amity University</p></div>
+                <div class="glass-card p-4 text-center"><p class="text-white font-semibold">Jain University</p></div>
+                <div class="glass-card p-4 text-center"><p class="text-white font-semibold">Manipal University</p></div>
+                <div class="glass-card p-4 text-center"><p class="text-white font-semibold">LPU Online</p></div>
+                <div class="glass-card p-4 text-center"><p class="text-white font-semibold">Sikkim Manipal University</p></div>
+                <div class="glass-card p-4 text-center"><p class="text-white font-semibold">IGNOU</p></div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-gray-400 text-sm">View all partner universities → <a href="https://collegevidya.com/courses/online-mba/" target="_blank" class="text-cyan-400 hover:underline">CollegeVidya</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HR ACCEPTANCE                                                 -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-24 bg-[#0a0a0f]">
+        <div class="container mx-auto px-6 lg:px-12 max-w-5xl">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">HR Acceptance</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">Are Online & Distance Degrees Accepted by HRs?</h2>
+                <p class="text-gray-400 text-lg mt-3">Yes. Online and Distance Degrees are widely accepted by HRs across India and globally – when earned from UGC-approved and accredited universities.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-6">
+                    <h3 class="text-lg font-extrabold text-white flex items-center gap-2"><i class="fa-regular fa-award text-cyan-400"></i> UGC & Government Recognition</h3>
+                    <ul class="mt-4 space-y-2 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-cyan-400"></i> Recognized by UGC (University Grants Commission)</li>
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-cyan-400"></i> Valid as per AICTE / DEB guidelines</li>
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-cyan-400"></i> Equivalent to regular degrees for jobs and higher education</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-lg font-extrabold text-white flex items-center gap-2"><i class="fa-regular fa-building text-cyan-400"></i> What HRs Actually Look For</h3>
+                    <ul class="mt-4 space-y-2 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-cyan-400"></i> University accreditation & reputation</li>
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-cyan-400"></i> Skill relevance to the job role</li>
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-cyan-400"></i> Practical exposure & projects</li>
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-cyan-400"></i> Communication and problem-solving ability</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-gray-400 text-sm">Online degree holders are actively recruited in IT, Banking, Marketing, HR, Consulting, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FAQ SECTION (All 12 questions)                               -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cyan-400 text-sm font-bold uppercase tracking-wider bg-cyan-500/10 px-4 py-1.5 rounded-full">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4">Frequently Asked Questions</h2>
+                <p class="text-gray-400 text-lg mt-3">Everything you need to know about online & distance learning.</p>
+            </div>
+            <div class="space-y-4">
+                <% const faqs = [
+                    { q: "Are online and distance degrees valid in India?", a: "Yes. Online and distance degrees are valid and legally recognized in India when offered by UGC-approved universities as per UGC–DEB guidelines." },
+                    { q: "Are online degrees accepted by HRs and companies?", a: "Yes. Most private companies, MNCs, startups, and corporate organizations accept online degrees, provided the degree is from a recognized and reputed university." },
+                    { q: "Are online degrees equivalent to regular degrees?", a: "Yes. As per UGC norms, online and distance degrees are equivalent to regular degrees in terms of curriculum, credit structure, and certification." },
+                    { q: "Can I get a job after completing an online degree?", a: "Absolutely. Online degree holders are employed across IT, Banking & Finance, Marketing, HR, Data & Analytics, and more. Career outcomes depend on skills, specialization, and project experience." },
+                    { q: "Are online degrees accepted for government jobs?", a: "Online and distance degrees from UGC-approved universities are accepted for many government jobs, subject to specific recruitment eligibility criteria." },
+                    { q: "Can I pursue higher studies after an online degree?", a: "Yes. Students can pursue Master’s programs after UG, PhD after PG, and professional certifications in India or abroad. University-specific admission criteria may apply." },
+                    { q: "Do online degrees mention 'online' on the certificate?", a: "No. Most universities issue the same degree certificate as regular programs, without mentioning the mode of study." },
+                    { q: "Who should opt for online or distance education?", a: "Online and distance programs are ideal for working professionals, fresh graduates, career switchers, entrepreneurs, and students preparing for competitive exams." },
+                    { q: "How do HRs verify online degrees?", a: "HRs verify degrees through university enrollment numbers, UGC-approved university databases, digital verification portals, and transcripts." },
+                    { q: "Are online degrees accepted abroad?", a: "Yes. Many international employers and universities accept online degrees from reputed Indian universities, though acceptance may vary by country and institution." },
+                    { q: "How does SkillBridge help students choose the right program?", a: "SkillBridge provides unbiased counselling to help students choose UGC-approved universities, career-oriented specializations, and avoid unrecognized institutions." },
+                    { q: "Are online programs easier than regular programs?", a: "No. Online programs follow the same academic standards, assessments, and examinations as regular programs. Discipline and time management are key to success." }
+                ]; %>
+                <% faqs.forEach((faq, index) => { %>
+                    <div class="faq-item glass-card-dark p-5 border-l-4 border-l-cyan-400/40">
+                        <div class="faq-question flex justify-between items-center cursor-pointer hover:bg-white/5 transition-colors rounded-lg p-2 -m-2">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-regular fa-circle-question text-cyan-400 text-lg"></i>
+                                <h3 class="font-bold text-white"><%= faq.q %></h3>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer text-gray-300 text-sm leading-relaxed pt-3 border-t border-white/5 mt-3"><%= faq.a %></div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FINAL CTA                                                     -->
+    <!-- ============================================================ -->
+    <section class="py-16 lg:py-20 bg-gradient-to-r from-cyan-600/20 via-blue-600/20 to-purple-600/20 border-t border-white/5">
+        <div class="container mx-auto px-6 lg:px-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Advance Your Career?</h2>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8">Get personalised guidance on UGC-approved online programs, specializations, and admission process.</p>
+            <a href="/contact" class="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-all">Talk to a Counsellor <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        </div>
+    </section>
+
+    <%- include("../../partials/common/footer") %>
+
+    <!-- ============================================================ -->
+    <!-- SCRIPT: FAQ ACCORDION                                        -->
+    <!-- ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = question.querySelector('.fa-chevron-down');
+                question.addEventListener('click', function() {
+                    const isOpen = answer.classList.contains('open');
+                    // Close all others
+                    faqItems.forEach(other => {
+                        const otherAnswer = other.querySelector('.faq-answer');
+                        const otherIcon = other.querySelector('.fa-chevron-down');
+                        if (otherAnswer !== answer && otherAnswer.classList.contains('open')) {
+                            otherAnswer.classList.remove('open');
+                            otherAnswer.style.display = 'none';
+                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    if (isOpen) {
+                        answer.classList.remove('open');
+                        answer.style.display = 'none';
+                        if (icon) icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        answer.classList.add('open');
+                        answer.style.display = 'block';
+                        if (icon) icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Placement & Career – SkillBridge</title>
+    <meta name="description" content="SkillBridge offers 100% placement assistance with 500+ hiring partners. Get career counseling, mock interviews, internships, and alumni support.">
+    <meta name="keywords" content="placement assistance, career guidance, job placement, hiring partners, SkillBridge">
+    <meta name="author" content="SkillBridge">
+    <link rel="canonical" href="https://www.skillbridge.com/placement-career">
+    <meta property="og:title" content="Placement & Career – SkillBridge">
+    <meta property="og:description" content="100% placement assistance with 500+ hiring partners. Build your career with SkillBridge.">
+    <meta property="og:image" content="https://www.skillbridge.com/og-placement.jpg">
+    <meta property="og:url" content="https://www.skillbridge.com/placement-career">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Placement & Career – SkillBridge">
+    <meta name="twitter:description" content="100% placement assistance with 500+ hiring partners.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1e293b; }
+
+        /* ====== HERO – PINK THEME WITH GRID & PARTICLES ====== */
+        .hero-placement {
+            background: linear-gradient(145deg, #fce7f3, #fbcfe8, #f472b6);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(157,23,77,0.12) 0px, rgba(157,23,77,0.12) 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, rgba(157,23,77,0.12) 0px, rgba(157,23,77,0.12) 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+            animation: gridMove 8s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            pointer-events: none;
+            animation: floatParticle 6s ease-in-out infinite;
+        }
+        .particle:nth-child(1) { width: 12px; height: 12px; top: 10%; left: 5%; animation-duration: 7s; }
+        .particle:nth-child(2) { width: 20px; height: 20px; top: 60%; left: 85%; animation-duration: 9s; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 30%; left: 75%; animation-duration: 5s; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 16px; height: 16px; top: 80%; left: 15%; animation-duration: 8s; animation-delay: 0.5s; }
+        .particle:nth-child(5) { width: 10px; height: 10px; top: 20%; left: 45%; animation-duration: 6.5s; animation-delay: 1.5s; }
+        .particle:nth-child(6) { width: 25px; height: 25px; top: 50%; left: 50%; animation-duration: 10s; animation-delay: 3s; opacity: 0.1; }
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            25% { transform: translate(30px, -20px) scale(1.1); opacity: 0.8; }
+            50% { transform: translate(-10px, -40px) scale(0.9); opacity: 0.5; }
+            75% { transform: translate(20px, -15px) scale(1.05); opacity: 0.7; }
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: pulseOrb 4s ease-in-out infinite;
+        }
+        .glow-orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            right: -50px;
+            background: rgba(236,72,153,0.25);
+            animation-delay: 0s;
+        }
+        .glow-orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -30px;
+            left: 10%;
+            background: rgba(251,207,232,0.3);
+            animation-delay: 2s;
+        }
+        @keyframes pulseOrb {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.9; }
+        }
+
+        /* ====== CARDS (PINK ACCENTS) ====== */
+        .pink-card {
+            background: white;
+            border-radius: 1.25rem;
+            border-left: 6px solid #ec4899;
+            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .pink-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+        }
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #fce7f3;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.1);
+        }
+        .section-header {
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .section-header:hover { background: #fdf2f8; }
+        .btn-pink {
+            background: linear-gradient(105deg, #db2777, #be185d);
+            transition: all 0.2s;
+        }
+        .btn-pink:hover { transform: scale(1.02); box-shadow: 0 8px 16px -6px rgba(219,39,119,0.4); }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .sticky-cta { transition: transform 0.3s ease; }
+        .sticky-cta.hide { transform: translateY(120%); }
+
+        /* ====== STUDENT CARD ====== */
+        .student-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .student-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 28px -8px rgba(0,0,0,0.1);
+        }
+        .student-avatar {
+            width: 100%;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        .student-info { padding: 1rem; }
+
+        /* ====== TESTIMONIAL CARD ====== */
+        .testimonial-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
+        }
+
+        /* ====== RECRUITER ITEM ====== */
+        .recruiter-item {
+            background: white;
+            border-radius: 1rem;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .recruiter-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.1);
+        }
+
+        /* ====== ACCORDION ====== */
+        .faq-item {
+            border-left: 4px solid #ec4899;
+        }
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .faq-question:hover {
+            background: #fdf2f8;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 0.75rem;
+            border-top: 1px solid #fce7f3;
+            margin-top: 0.75rem;
+        }
+        .faq-answer.open {
+            display: block;
+        }
+
+        /* ====== CAROUSEL CONTROLS ====== */
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .carousel-btn:hover {
+            background: #f1f5f9;
+            transform: scale(1.05);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .hero-placement { padding-top: 4rem; padding-bottom: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <%- include("../../partials/common/navbar.ejs") %>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
+        <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
+        <div class="flex flex-col gap-5 text-xl">
+            <a href="/" class="font-semibold text-gray-300 py-3 border-b border-gray-800">Home</a>
+            <a href="/about" class="font-semibold text-gray-300 py-3 border-b">About</a>
+            <a href="/courses" class="font-semibold text-gray-300 py-3 border-b">Courses</a>
+            <a href="/contact" class="font-semibold text-gray-300 py-3 border-b">Contact</a>
+            <div class="flex gap-4 mt-4">
+                <button class="flex-1 bg-transparent border border-gray-600 text-gray-300 py-3 rounded-full font-semibold">Login</button>
+                <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="course-content-wrapper">
+        <main>
+            <!-- ========== HERO SECTION – PINK THEME ========== -->
+            <div class="hero-placement pt-24 pb-16 relative">
+                <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+                <div class="glow-orb"></div>
+                <div class="glow-orb"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="flex-1 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-200/80 text-pink-800 text-xs font-bold uppercase tracking-wider border border-pink-300 mb-4">
+                                <i class="fa-regular fa-star"></i> 98% Placement Rate
+                            </div>
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                                Best Job Oriented<br>
+                                <span class="text-pink-600">Placement Training</span>
+                            </h1>
+                            <p class="text-gray-700 text-base md:text-lg max-w-2xl mt-4">
+                                We provide best career guidance along with appropriate placements. Our 98% placement rate is a testament to our commitment to your success.
+                            </p>
+                            <div class="flex flex-wrap gap-4 mt-6">
+                                <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                                    <i class="fa-regular fa-star text-pink-500"></i>
+                                    <span class="text-sm font-bold">4.9 ★ (2k+ reviews)</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                                    <i class="fa-regular fa-user text-pink-500"></i>
+                                    <span class="text-sm font-bold">15k+ students placed</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                                    <i class="fa-regular fa-clock text-pink-500"></i>
+                                    <span class="text-sm font-bold">100% Assistance</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 w-full max-w-sm">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg">
+                                    <div class="text-3xl font-extrabold text-pink-600">98%</div>
+                                    <p class="text-sm text-gray-600 font-medium">Placement Rate</p>
+                                </div>
+                                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg">
+                                    <div class="text-3xl font-extrabold text-pink-600">500+</div>
+                                    <p class="text-sm text-gray-600 font-medium">Hiring Partners</p>
+                                </div>
+                                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg">
+                                    <div class="text-3xl font-extrabold text-pink-600">15K+</div>
+                                    <p class="text-sm text-gray-600 font-medium">Students Placed</p>
+                                </div>
+                                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg">
+                                    <div class="text-3xl font-extrabold text-pink-600">75+</div>
+                                    <p class="text-sm text-gray-600 font-medium">Expert Mentors</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== TOP RECRUITERS ========== -->
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-pink-600 text-sm font-bold uppercase tracking-wider bg-pink-50 px-4 py-1.5 rounded-full">Recruiters</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Top Companies Trust SkillBridge</h2>
+                        <p class="text-gray-600 text-lg mt-3">500+ companies actively hiring our graduates</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4 md:gap-6 max-w-5xl mx-auto">
+                        <div class="recruiter-item"><i class="fa-brands fa-google text-blue-500"></i><span class="font-semibold text-gray-700 text-sm">Google</span></div>
+                        <div class="recruiter-item"><i class="fa-brands fa-microsoft text-purple-600"></i><span class="font-semibold text-gray-700 text-sm">Microsoft</span></div>
+                        <div class="recruiter-item"><i class="fa-brands fa-amazon text-amber-500"></i><span class="font-semibold text-gray-700 text-sm">Amazon</span></div>
+                        <div class="recruiter-item"><i class="fa-solid fa-chart-line text-indigo-600"></i><span class="font-semibold text-gray-700 text-sm">TCS</span></div>
+                        <div class="recruiter-item"><i class="fa-brands fa-infinity text-emerald-600"></i><span class="font-semibold text-gray-700 text-sm">Infosys</span></div>
+                        <div class="recruiter-item"><i class="fa-solid fa-bullhorn text-teal-600"></i><span class="font-semibold text-gray-700 text-sm">Accenture</span></div>
+                        <div class="recruiter-item"><i class="fa-solid fa-laptop-code text-rose-600"></i><span class="font-semibold text-gray-700 text-sm">Wipro</span></div>
+                        <div class="recruiter-item"><i class="fa-brands fa-ibm text-blue-600"></i><span class="font-semibold text-gray-700 text-sm">IBM</span></div>
+                        <div class="recruiter-item"><i class="fa-brands fa-apple text-gray-600"></i><span class="font-semibold text-gray-700 text-sm">Apple</span></div>
+                        <div class="recruiter-item"><i class="fa-brands fa-meta text-sky-600"></i><span class="font-semibold text-gray-700 text-sm">Meta</span></div>
+                    </div>
+                    <p class="text-center text-gray-500 text-sm mt-6">+ 490+ more companies</p>
+                </div>
+            </section>
+
+            <!-- ========== PLACEMENT PACKAGES ========== -->
+            <section class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-pink-600 text-sm font-bold uppercase tracking-wider bg-pink-50 px-4 py-1.5 rounded-full">Packages</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Salary Packages</h2>
+                        <p class="text-gray-600 text-lg mt-3">Graduates secure competitive packages across all levels.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                        <div class="stat-card text-center border-t-4 border-t-pink-400">
+                            <div class="text-sm font-bold text-pink-600 uppercase tracking-wider">Entry Level</div>
+                            <div class="text-4xl font-extrabold text-gray-900 my-3">₹6-8 LPA</div>
+                            <p class="text-gray-500 text-sm">Fresh graduates</p>
+                        </div>
+                        <div class="stat-card text-center border-t-4 border-t-rose-400">
+                            <div class="text-sm font-bold text-rose-600 uppercase tracking-wider">Mid Level</div>
+                            <div class="text-4xl font-extrabold text-gray-900 my-3">₹10-12 LPA</div>
+                            <p class="text-gray-500 text-sm">2-4 years experience</p>
+                        </div>
+                        <div class="stat-card text-center border-t-4 border-t-fuchsia-400">
+                            <div class="text-sm font-bold text-fuchsia-600 uppercase tracking-wider">Senior Level</div>
+                            <div class="text-4xl font-extrabold text-gray-900 my-3">₹15 LPA+</div>
+                            <p class="text-gray-500 text-sm">Senior roles</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== PLACEMENT PROCESS ========== -->
+            <section id="process" class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-pink-600 text-sm font-bold uppercase tracking-wider bg-pink-50 px-4 py-1.5 rounded-full">Process</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">How We Ensure 100% Placement</h2>
+                        <p class="text-gray-600 text-lg mt-3">A structured approach to help you land your dream job.</p>
+                    </div>
+                    <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                        <div class="pink-card p-6 text-center">
+                            <div class="w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-extrabold text-pink-600">1</span>
+                            </div>
+                            <h3 class="font-extrabold text-gray-800">Career Counseling</h3>
+                            <p class="text-gray-500 text-sm mt-1">Identify the right career path</p>
+                        </div>
+                        <div class="pink-card p-6 text-center">
+                            <div class="w-14 h-14 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-extrabold text-rose-600">2</span>
+                            </div>
+                            <h3 class="font-extrabold text-gray-800">Resume & Interview Prep</h3>
+                            <p class="text-gray-500 text-sm mt-1">Build a strong profile</p>
+                        </div>
+                        <div class="pink-card p-6 text-center">
+                            <div class="w-14 h-14 rounded-full bg-fuchsia-100 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-extrabold text-fuchsia-600">3</span>
+                            </div>
+                            <h3 class="font-extrabold text-gray-800">Internships & Industry Exposure</h3>
+                            <p class="text-gray-500 text-sm mt-1">Gain real-world experience</p>
+                        </div>
+                        <div class="pink-card p-6 text-center">
+                            <div class="w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center mx-auto mb-4">
+                                <span class="text-xl font-extrabold text-pink-600">4</span>
+                            </div>
+                            <h3 class="font-extrabold text-gray-800">Alumni Network & Referrals</h3>
+                            <p class="text-gray-500 text-sm mt-1">Leverage our strong alumni</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== SUCCESS STORIES (AUTO-SCROLLING CAROUSEL) ========== -->
+            <section class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-pink-600 text-sm font-bold uppercase tracking-wider bg-pink-50 px-4 py-1.5 rounded-full">Success Stories</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Our Placed Students</h2>
+                        <p class="text-gray-600 text-lg mt-3">Real students who secured their dream jobs with SkillBridge.</p>
+                    </div>
+
+                    <div class="relative max-w-6xl mx-auto">
+                        <div class="overflow-hidden rounded-2xl">
+                            <div id="studentCarousel" class="flex transition-transform duration-500 ease-in-out">
+                                <!-- Slide 1 -->
+                                <div class="w-full flex-shrink-0 px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-pink-500 to-rose-500">AJ</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Ashutosh Jha</p>
+                                            <p class="text-sm text-gray-500">Program Analyst</p>
+                                            <p class="text-pink-600 font-bold">₹8.5 LPA</p>
+                                            <p class="text-xs text-gray-400">EbixCash</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-rose-500 to-fuchsia-500">LS</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Lovekush</p>
+                                            <p class="text-sm text-gray-500">Software Developer</p>
+                                            <p class="text-pink-600 font-bold">₹3.5 LPA</p>
+                                            <p class="text-xs text-gray-400">MS Technology</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-fuchsia-500 to-pink-500">SC</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Sachin Charkhwal</p>
+                                            <p class="text-sm text-gray-500">Web Designer</p>
+                                            <p class="text-pink-600 font-bold">₹2 LPA</p>
+                                            <p class="text-xs text-gray-400">Paytel Financial</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-amber-500 to-orange-500">AC</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Abhishek Chauhan</p>
+                                            <p class="text-sm text-gray-500">Manual Testing Eng.</p>
+                                            <p class="text-pink-600 font-bold">₹4.2 LPA</p>
+                                            <p class="text-xs text-gray-400">Vivo India</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="w-full flex-shrink-0 px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-emerald-500 to-teal-500">KG</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Kishan Gupta</p>
+                                            <p class="text-sm text-gray-500">Software Developer</p>
+                                            <p class="text-pink-600 font-bold">₹2 LPA</p>
+                                            <p class="text-xs text-gray-400">Webcity Technologies</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-rose-500 to-red-500">RS</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Rahul Sain</p>
+                                            <p class="text-sm text-gray-500">AutoCAD Designer</p>
+                                            <p class="text-pink-600 font-bold">—</p>
+                                            <p class="text-xs text-gray-400">Objectify</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-indigo-500 to-blue-500">BV</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Bhubnesh Verma</p>
+                                            <p class="text-sm text-gray-500">AutoCAD Designer</p>
+                                            <p class="text-pink-600 font-bold">—</p>
+                                            <p class="text-xs text-gray-400">Objectify</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-cyan-500 to-emerald-500">SP</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Somnath Prasad</p>
+                                            <p class="text-sm text-gray-500">AutoCAD Designer</p>
+                                            <p class="text-pink-600 font-bold">—</p>
+                                            <p class="text-xs text-gray-400">Objectify</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 3 -->
+                                <div class="w-full flex-shrink-0 px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-teal-500 to-cyan-500">RK</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Rakesh Kumar</p>
+                                            <p class="text-sm text-gray-500">Full Stack Developer</p>
+                                            <p class="text-pink-600 font-bold">₹7.2 LPA</p>
+                                            <p class="text-xs text-gray-400">TechM</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-pink-500 to-rose-500">SN</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Sneha Nair</p>
+                                            <p class="text-sm text-gray-500">Data Analyst</p>
+                                            <p class="text-pink-600 font-bold">₹6.8 LPA</p>
+                                            <p class="text-xs text-gray-400">Deloitte</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-orange-500 to-amber-500">VM</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Vikram Mehta</p>
+                                            <p class="text-sm text-gray-500">Cloud Engineer</p>
+                                            <p class="text-pink-600 font-bold">₹9.5 LPA</p>
+                                            <p class="text-xs text-gray-400">AWS</p>
+                                        </div>
+                                    </div>
+                                    <div class="student-card">
+                                        <div class="student-avatar bg-gradient-to-br from-violet-500 to-purple-500">PD</div>
+                                        <div class="student-info">
+                                            <p class="font-bold text-gray-800">Priya Dubey</p>
+                                            <p class="text-sm text-gray-500">UI/UX Designer</p>
+                                            <p class="text-pink-600 font-bold">₹5.5 LPA</p>
+                                            <p class="text-xs text-gray-400">Adobe</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation Buttons -->
+                        <button id="studentPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
+                            <i class="fa-solid fa-chevron-left text-gray-600"></i>
+                        </button>
+                        <button id="studentNext" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
+                            <i class="fa-solid fa-chevron-right text-gray-600"></i>
+                        </button>
+                        <!-- Dots -->
+                        <div class="flex justify-center gap-3 mt-6">
+                            <span class="student-dot w-3 h-3 rounded-full bg-pink-600 transition-all" data-index="0"></span>
+                            <span class="student-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="1"></span>
+                            <span class="student-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="2"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== TESTIMONIALS (AUTO-SCROLLING CAROUSEL) ========== -->
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-pink-600 text-sm font-bold uppercase tracking-wider bg-pink-50 px-4 py-1.5 rounded-full">Testimonials</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">What Our Students Say</h2>
+                        <p class="text-gray-600 text-lg mt-3">Real feedback from our successful graduates.</p>
+                    </div>
+
+                    <div class="relative max-w-4xl mx-auto">
+                        <div class="overflow-hidden rounded-2xl">
+                            <div id="testimonialCarousel" class="flex transition-transform duration-500 ease-in-out">
+                                <!-- Slide 1 -->
+                                <div class="w-full flex-shrink-0 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="testimonial-card">
+                                        <div class="flex items-center gap-1 mb-3">
+                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-600 text-sm leading-relaxed">"The Web Designing course was pivotal for my career. The placement support helped me secure a great position."</p>
+                                        <div class="flex items-center gap-3 mt-4">
+                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 text-white flex items-center justify-center font-bold text-lg">AJ</div>
+                                            <div><p class="font-bold text-gray-800">Ayush</p><p class="text-xs text-gray-500">Web Designer</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-card">
+                                        <div class="flex items-center gap-1 mb-3">
+                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-600 text-sm leading-relaxed">"The Java course was transformative. Placement support helped me secure a position at a top MNC."</p>
+                                        <div class="flex items-center gap-3 mt-4">
+                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg">VC</div>
+                                            <div><p class="font-bold text-gray-800">Vishal</p><p class="text-xs text-gray-500">Java Developer</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="w-full flex-shrink-0 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="testimonial-card">
+                                        <div class="flex items-center gap-1 mb-3">
+                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-600 text-sm leading-relaxed">"SkillBridge placement service is one of the best. I got placed in a leading firm. Highly recommended!"</p>
+                                        <div class="flex items-center gap-3 mt-4">
+                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-fuchsia-500 to-pink-500 text-white flex items-center justify-center font-bold text-lg">OZ</div>
+                                            <div><p class="font-bold text-gray-800">Omer</p><p class="text-xs text-gray-500">Java Developer</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-card">
+                                        <div class="flex items-center gap-1 mb-3">
+                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-600 text-sm leading-relaxed">"Enlighten your career by enrolling for suitable courses and get placed in MNCs. Best placement support!"</p>
+                                        <div class="flex items-center gap-3 mt-4">
+                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 text-white flex items-center justify-center font-bold text-lg">RS</div>
+                                            <div><p class="font-bold text-gray-800">Randeep</p><p class="text-xs text-gray-500">Software Engineer</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 3 -->
+                                <div class="w-full flex-shrink-0 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="testimonial-card">
+                                        <div class="flex items-center gap-1 mb-3">
+                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-600 text-sm leading-relaxed">"The Data Science course gave me the skills I needed. The placement team connected me with amazing opportunities."</p>
+                                        <div class="flex items-center gap-3 mt-4">
+                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center font-bold text-lg">PS</div>
+                                            <div><p class="font-bold text-gray-800">Priya</p><p class="text-xs text-gray-500">Data Scientist</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-card">
+                                        <div class="flex items-center gap-1 mb-3">
+                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                                        </div>
+                                        <p class="text-gray-600 text-sm leading-relaxed">"I switched from non‑IT to Full Stack developer. The instructors were patient and the curriculum was up‑to‑date."</p>
+                                        <div class="flex items-center gap-3 mt-4">
+                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-red-500 text-white flex items-center justify-center font-bold text-lg">AK</div>
+                                            <div><p class="font-bold text-gray-800">Amit</p><p class="text-xs text-gray-500">Full Stack Developer</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation Buttons -->
+                        <button id="testimonialPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
+                            <i class="fa-solid fa-chevron-left text-gray-600"></i>
+                        </button>
+                        <button id="testimonialNext" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
+                            <i class="fa-solid fa-chevron-right text-gray-600"></i>
+                        </button>
+                        <!-- Dots -->
+                        <div class="flex justify-center gap-3 mt-6">
+                            <span class="testimonial-dot w-3 h-3 rounded-full bg-pink-600 transition-all" data-index="0"></span>
+                            <span class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="1"></span>
+                            <span class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="2"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== FAQ SECTION (FIXED ACCORDION) ========== -->
+            <section class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6 max-w-3xl">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-pink-600 text-sm font-bold uppercase tracking-wider bg-pink-50 px-4 py-1.5 rounded-full">FAQ</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Placement FAQs</h2>
+                        <p class="text-gray-600 text-lg mt-3">Everything you need to know about our placement support.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <% const faqs = [
+                            { q: "Is placement assistance guaranteed?", a: "Yes, we offer 100% placement assistance to all our students. This includes resume building, mock interviews, and job referrals to our 500+ hiring partner network." },
+                            { q: "What is the average salary package offered?", a: "The average salary package for our graduates is ₹8.5 LPA, with the highest being ₹37.5 LPA." },
+                            { q: "Do you provide placement support for online students?", a: "Absolutely. Placement support is available for all students – regardless of whether they are enrolled in classroom, online live, or recorded programs." },
+                            { q: "How do you prepare students for interviews?", a: "We conduct mock interviews, technical assessments, aptitude tests, and provide personalized feedback to build your confidence and skills." },
+                            { q: "Can I get help with resume and LinkedIn profile?", a: "Yes. Our career services include ATS‑friendly resume building, cover letter writing, and LinkedIn profile optimization." },
+                            { q: "What industries do your hiring partners belong to?", a: "Our partners span IT & Technology, Banking & Finance, Marketing & Digital Media, HR & Talent Management, Consulting & Analytics, and Startups." }
+                        ]; %>
+                        <% faqs.forEach((faq, index) => { %>
+                            <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-all">
+                                <div class="faq-question flex justify-between items-center">
+                                    <h3 class="font-bold text-gray-800 text-sm"><%= faq.q %></h3>
+                                    <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                                </div>
+                                <div class="faq-answer text-gray-600 text-sm leading-relaxed"><%= faq.a %></div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== INQUIRY CTA ========== -->
+            <section class="py-16 bg-gradient-to-r from-pink-600 to-rose-600 text-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Launch Your Career?</h2>
+                    <p class="text-pink-100 max-w-2xl mx-auto mb-8">Get personalised career guidance and placement support from our expert team.</p>
+                    <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-white text-pink-700 px-8 py-3 rounded-full font-extrabold shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+                        Request Information <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiryModal" class="modal-overlay">
+        <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 relative shadow-2xl">
+            <button onclick="document.getElementById('inquiryModal').style.display='none'" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            <div class="text-center mb-5">
+                <div class="w-16 h-16 rounded-full bg-pink-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                    <i class="fa-regular fa-calendar-check text-white text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800">Placement Inquiry</h2>
+                <p class="text-gray-500 text-sm">Fill in your details and we'll get back to you.</p>
+            </div>
+            <form id="placementInquiryForm" class="space-y-4">
+                <input type="text" id="inquiryName" placeholder="Full Name *" required class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
+                <input type="email" id="inquiryEmail" placeholder="Email Address *" required class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
+                <input type="tel" id="inquiryPhone" placeholder="Phone Number *" required class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
+                <select id="inquiryCourse" class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
+                    <option value="">Interested Course (optional)</option>
+                    <option>Web Development</option>
+                    <option>Data Science</option>
+                    <option>Digital Marketing</option>
+                    <option>UI/UX Design</option>
+                    <option>Cloud Computing</option>
+                    <option>DSA</option>
+                </select>
+                <textarea id="inquiryMessage" rows="3" placeholder="Any specific questions?" class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white py-2 rounded-xl font-semibold transition-all">Submit Inquiry</button>
+            </form>
+            <p class="text-center text-xs text-gray-400 mt-3">We respect your privacy. No spam.</p>
+        </div>
+    </div>
+
+    <!-- Sticky CTA -->
+    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-3 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
+        <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span class="font-extrabold text-gray-800 text-sm">Placement & Career</span>
+            <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-1.5 rounded-full font-extrabold text-sm shadow-lg transition-all">Request Info <i class="fa-solid fa-arrow-right ml-1"></i></button>
+        </div>
+    </div>
+
+    <%- include("../../partials/common/footer") %>
+
+    <script>
+        // ========== INQUIRY FORM SUBMISSION ==========
+        const inquiryForm = document.getElementById('placementInquiryForm');
+        if (inquiryForm) {
+            inquiryForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const name = document.getElementById('inquiryName').value.trim();
+                const email = document.getElementById('inquiryEmail').value.trim();
+                const phone = document.getElementById('inquiryPhone').value.trim();
+                const course = document.getElementById('inquiryCourse').value;
+                const message = document.getElementById('inquiryMessage').value.trim();
+
+                if (!name || !email || !phone) {
+                    alert('Please fill all required fields.');
+                    return;
+                }
+
+                const payload = { name, email, phoneNumber: phone, course, message, degree: 'Placement Inquiry' };
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+                try {
+                    const response = await fetch('/submitEnquery', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert('✅ Inquiry sent! Our team will contact you shortly.');
+                        this.reset();
+                        document.getElementById('inquiryModal').style.display = 'none';
+                    } else {
+                        alert('❌ ' + (result.error || 'Submission failed. Please try again.'));
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('❌ Something went wrong. Please try again later.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
+
+        // ========== STICKY CTA SCROLL ==========
+        let lastScroll = 0;
+        const stickyCta = document.getElementById('stickyCta');
+        window.addEventListener('scroll', () => {
+            if (!stickyCta) return;
+            const currentScroll = window.scrollY;
+            if (currentScroll > 400 && currentScroll > lastScroll) stickyCta.classList.remove('hide');
+            else if (currentScroll < lastScroll && currentScroll > 300) stickyCta.classList.add('hide');
+            if (currentScroll < 300) stickyCta.classList.add('hide');
+            lastScroll = currentScroll;
+        });
+        if (stickyCta) stickyCta.classList.add('hide');
+
+        // ========== MOBILE MENU ==========
+        document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
+        document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+
+        // ========== ESCAPE TO CLOSE MODAL ==========
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('inquiryModal');
+                if (modal) modal.style.display = 'none';
+            }
+        });
+
+        // ========== STUDENT CAROUSEL (AUTO-SCROLL) ==========
+        (function() {
+            const slider = document.getElementById('studentCarousel');
+            const dots = document.querySelectorAll('.student-dot');
+            const prevBtn = document.getElementById('studentPrev');
+            const nextBtn = document.getElementById('studentNext');
+            if (!slider || dots.length === 0) return;
+            let currentIndex = 0;
+            let interval;
+            const slideCount = dots.length;
+            const autoSlideInterval = 4000;
+
+            function updateSlider(index) {
+                const slideWidth = slider.parentElement.clientWidth;
+                slider.style.transform = `translateX(-${index * slideWidth}px)`;
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('bg-pink-600');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.add('bg-gray-300');
+                        dot.classList.remove('bg-pink-600');
+                    }
+                });
+                currentIndex = index;
+            }
+
+            function nextSlide() {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= slideCount) newIndex = 0;
+                updateSlider(newIndex);
+            }
+
+            function prevSlide() {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) newIndex = slideCount - 1;
+                updateSlider(newIndex);
+            }
+
+            function startAutoSlide() {
+                if (interval) clearInterval(interval);
+                interval = setInterval(nextSlide, autoSlideInterval);
+            }
+
+            function stopAutoSlide() {
+                if (interval) clearInterval(interval);
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoSlide(); prevSlide(); startAutoSlide(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoSlide(); nextSlide(); startAutoSlide(); });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    if (!isNaN(index)) {
+                        stopAutoSlide();
+                        updateSlider(index);
+                        startAutoSlide();
+                    }
+                });
+            });
+
+            const container = slider.closest('.relative');
+            if (container) {
+                container.addEventListener('mouseenter', stopAutoSlide);
+                container.addEventListener('mouseleave', startAutoSlide);
+            }
+
+            window.addEventListener('resize', () => updateSlider(currentIndex));
+            updateSlider(0);
+            startAutoSlide();
+        })();
+
+        // ========== TESTIMONIAL CAROUSEL (AUTO-SCROLL) ==========
+        (function() {
+            const slider = document.getElementById('testimonialCarousel');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            const prevBtn = document.getElementById('testimonialPrev');
+            const nextBtn = document.getElementById('testimonialNext');
+            if (!slider || dots.length === 0) return;
+            let currentIndex = 0;
+            let interval;
+            const slideCount = dots.length;
+            const autoSlideInterval = 5000;
+
+            function updateSlider(index) {
+                const slideWidth = slider.parentElement.clientWidth;
+                slider.style.transform = `translateX(-${index * slideWidth}px)`;
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('bg-pink-600');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.add('bg-gray-300');
+                        dot.classList.remove('bg-pink-600');
+                    }
+                });
+                currentIndex = index;
+            }
+
+            function nextSlide() {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= slideCount) newIndex = 0;
+                updateSlider(newIndex);
+            }
+
+            function prevSlide() {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) newIndex = slideCount - 1;
+                updateSlider(newIndex);
+            }
+
+            function startAutoSlide() {
+                if (interval) clearInterval(interval);
+                interval = setInterval(nextSlide, autoSlideInterval);
+            }
+
+            function stopAutoSlide() {
+                if (interval) clearInterval(interval);
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoSlide(); prevSlide(); startAutoSlide(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoSlide(); nextSlide(); startAutoSlide(); });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    if (!isNaN(index)) {
+                        stopAutoSlide();
+                        updateSlider(index);
+                        startAutoSlide();
+                    }
+                });
+            });
+
+            const container = slider.closest('.relative');
+            if (container) {
+                container.addEventListener('mouseenter', stopAutoSlide);
+                container.addEventListener('mouseleave', startAutoSlide);
+            }
+
+            window.addEventListener('resize', () => updateSlider(currentIndex));
+            updateSlider(0);
+            startAutoSlide();
+        })();
+
+        // ========== FAQ ACCORDION (FIXED) ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = question.querySelector('.fa-chevron-down');
+                
+                question.addEventListener('click', function() {
+                    const isOpen = answer.classList.contains('open');
+                    
+                    // Close all other items
+                    faqItems.forEach(other => {
+                        const otherAnswer = other.querySelector('.faq-answer');
+                        const otherIcon = other.querySelector('.fa-chevron-down');
+                        if (otherAnswer !== answer && otherAnswer.classList.contains('open')) {
+                            otherAnswer.classList.remove('open');
+                            otherAnswer.style.display = 'none';
+                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current
+                    if (isOpen) {
+                        answer.classList.remove('open');
+                        answer.style.display = 'none';
+                        if (icon) icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        answer.classList.add('open');
+                        answer.style.display = 'block';
+                        if (icon) icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+
+        // ========== FADE UP OBSERVER ==========
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => {
+            el.classList.add('fade-up');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

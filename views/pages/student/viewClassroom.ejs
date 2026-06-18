@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title><%= course.courseName %> – Classroom Program | SkillBridge</title>
+    <meta name="description" content="<%= course.courseDescription ? course.courseDescription.slice(0, 160) : 'Join our classroom program for ' + course.courseName + ' with in‑person mentorship and hands‑on projects.' %>">
+    <meta name="keywords" content="<%= course.courseName %>, classroom program, in‑person training, IT course, SkillBridge">
+    <meta name="author" content="Skill Bridge">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.skillbridge.com/viewClassroom/<%= course._id %>">
+    <meta property="og:title" content="<%= course.courseName %> – Classroom Program">
+    <meta property="og:description" content="<%= course.courseDescription ? course.courseDescription.slice(0, 160) : 'Enroll in the classroom program for ' + course.courseName + ' and learn with expert instructors on campus.' %>">
+    <meta property="og:image" content="<%= course.image ? course.image : 'https://www.skillbridge.com/default-course.jpg' %>">
+    <meta property="og:url" content="https://www.skillbridge.com/viewClassroom/<%= course._id %>">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= course.courseName %> – Classroom Program">
+    <meta name="twitter:description" content="<%= course.courseDescription ? course.courseDescription.slice(0, 160) : 'Classroom program details for ' + course.courseName + ' with placement assistance.' %>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #faf8f5; color: #1e293b; }
+        .hero-classroom {
+            background: linear-gradient(145deg, #fef3c7, #fde68a, #fcd34d);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Animated Grid Pattern – gold theme */
+        .hero-grid {
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(180,83,9,0.12) 0px, rgba(180,83,9,0.12) 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, rgba(180,83,9,0.12) 0px, rgba(180,83,9,0.12) 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+            animation: gridMove 8s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            pointer-events: none;
+            animation: floatParticle 6s ease-in-out infinite;
+        }
+        .particle:nth-child(1) { width: 12px; height: 12px; top: 10%; left: 5%; animation-duration: 7s; }
+        .particle:nth-child(2) { width: 20px; height: 20px; top: 60%; left: 85%; animation-duration: 9s; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 30%; left: 75%; animation-duration: 5s; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 16px; height: 16px; top: 80%; left: 15%; animation-duration: 8s; animation-delay: 0.5s; }
+        .particle:nth-child(5) { width: 10px; height: 10px; top: 20%; left: 45%; animation-duration: 6.5s; animation-delay: 1.5s; }
+        .particle:nth-child(6) { width: 25px; height: 25px; top: 50%; left: 50%; animation-duration: 10s; animation-delay: 3s; opacity: 0.1; }
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            25% { transform: translate(30px, -20px) scale(1.1); opacity: 0.8; }
+            50% { transform: translate(-10px, -40px) scale(0.9); opacity: 0.5; }
+            75% { transform: translate(20px, -15px) scale(1.05); opacity: 0.7; }
+        }
+        /* Glowing orbs – amber/gold */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: pulseOrb 4s ease-in-out infinite;
+        }
+        .glow-orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            right: -50px;
+            background: rgba(217,119,6,0.25);
+            animation-delay: 0s;
+        }
+        .glow-orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -30px;
+            left: 10%;
+            background: rgba(251,191,36,0.3);
+            animation-delay: 2s;
+        }
+        @keyframes pulseOrb {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.9; }
+        }
+        .gold-card {
+            background: white;
+            border-radius: 1.25rem;
+            border-left: 6px solid #f59e0b;
+            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .gold-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+        }
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #fef3c7;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.1);
+        }
+        .section-header {
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .section-header:hover { background: #fef3c7; }
+        .lecture-item { cursor: default; }
+        .lecture-item i { color: #f59e0b; }
+        .btn-gold {
+            background: linear-gradient(105deg, #d97706, #b45309);
+            transition: all 0.2s;
+        }
+        .btn-gold:hover { transform: scale(1.02); box-shadow: 0 8px 16px -6px rgba(180,83,9,0.4); }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .sticky-cta { transition: transform 0.3s ease; }
+        .sticky-cta.hide { transform: translateY(120%); }
+    </style>
+</head>
+<body>
+
+    <%- include("../../partials/common/navbar.ejs") %>
+
+    <!-- Mobile Menu (same as before) -->
+    <div id="mobileMenu" class="fixed inset-0 bg-gray-900 z-50 hidden flex-col p-6 pt-24">
+        <button id="closeMenu" class="absolute top-6 right-6 text-3xl"><i class="fa-solid fa-xmark text-white"></i></button>
+        <div class="flex flex-col gap-5 text-xl">
+            <a href="/" class="font-semibold text-gray-300 py-3 border-b border-gray-800">Home</a>
+            <a href="/about" class="font-semibold text-gray-300 py-3 border-b">About</a>
+            <a href="/courses" class="font-semibold text-gray-300 py-3 border-b">Courses</a>
+            <a href="/contact" class="font-semibold text-gray-300 py-3 border-b">Contact</a>
+            <div class="flex gap-4 mt-4">
+                <button class="flex-1 bg-transparent border border-gray-600 text-gray-300 py-3 rounded-full font-semibold">Login</button>
+                <button class="flex-1 btn-primary-custom text-white py-3 rounded-full font-semibold">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="course-content-wrapper">
+        <main>
+            <!-- ========== HERO SECTION – CLASSROOM THEME WITH ANIMATED GRID & PARTICLES ========== -->
+            <div class="hero-classroom pt-24 pb-16 relative">
+                <!-- Animated Grid -->
+                <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+                <!-- Glowing Orbs (gold) -->
+                <div class="glow-orb"></div>
+                <div class="glow-orb"></div>
+                <!-- Floating Particles -->
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="flex-1 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-200/80 text-amber-800 text-xs font-bold uppercase tracking-wider border border-amber-300 mb-4">
+                                <i class="fa-regular fa-building"></i> Classroom Program
+                            </div>
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                                <%= course.courseName.replaceAll("-", " ") %>
+                            </h1>
+                            <p class="text-gray-700 text-base md:text-lg max-w-2xl mt-4"><%= course.courseDescription %></p>
+                            <div class="flex flex-wrap gap-4 mt-6">
+                                <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                                    <i class="fa-regular fa-star text-amber-500"></i>
+                                    <span class="text-sm font-bold">4.9 ★ (2.5k+ ratings)</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                                    <i class="fa-regular fa-user text-amber-500"></i>
+                                    <span class="text-sm font-bold">5k+ students enrolled</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                                    <i class="fa-regular fa-clock text-amber-500"></i>
+                                    <span class="text-sm font-bold"><%= course.duration || '6' %> Months</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Instructor Card (larger) -->
+                        <div class="flex-shrink-0">
+                            <div class="bg-white rounded-2xl shadow-lg overflow-hidden max-w-xs mx-auto lg:mx-0">
+                                <div class="aspect-square overflow-hidden bg-gray-100">
+                                    <img src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-4 text-center">
+                                    <h3 class="text-xl font-extrabold"><%= course.instructor.name %></h3>
+                                    <p class="text-sm text-gray-500"><%= course.instructor.bio %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== PROGRAM OVERVIEW SECTION ========== -->
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-amber-600 text-sm font-bold uppercase tracking-wider bg-amber-50 px-4 py-1.5 rounded-full">Overview</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">About This Classroom Program</h2>
+                        <p class="text-gray-600 text-lg mt-3"><%= course.longDescription || course.courseDescription %></p>
+                    </div>
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                        <div class="stat-card text-center">
+                            <i class="fa-regular fa-clock text-3xl text-amber-500 mb-2"></i>
+                            <div class="text-2xl font-extrabold"><%= course.duration || '6' %> Months</div>
+                            <p class="text-sm text-gray-500">Program Duration</p>
+                        </div>
+                        <div class="stat-card text-center">
+                            <i class="fa-regular fa-user-group text-3xl text-amber-500 mb-2"></i>
+                            <div class="text-2xl font-extrabold">25</div>
+                            <p class="text-sm text-gray-500">Class Size</p>
+                        </div>
+                        <div class="stat-card text-center">
+                            <i class="fa-regular fa-calendar text-3xl text-amber-500 mb-2"></i>
+                            <div class="text-2xl font-extrabold">Flexible</div>
+                            <p class="text-sm text-gray-500">Batch Options</p>
+                        </div>
+                        <div class="stat-card text-center">
+                            <i class="fa-regular fa-building text-3xl text-amber-500 mb-2"></i>
+                            <div class="text-2xl font-extrabold">On‑Campus</div>
+                            <p class="text-sm text-gray-500">Location</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== WHAT YOU'LL LEARN + REQUIREMENTS (Two columns) ========== -->
+            <section class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="gold-card p-6">
+                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2">
+                                <i class="fa-regular fa-lightbulb text-amber-500"></i> What You'll Learn
+                            </h2>
+                            <ul class="space-y-3">
+                                <% course.whatYouLearn.forEach(item => { %>
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <i class="fa-regular fa-circle-check text-amber-500 mt-1"></i>
+                                        <span><%= item %></span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                        <div class="gold-card p-6">
+                            <h2 class="text-xl font-extrabold text-gray-800 mb-4 flex items-center gap-2">
+                                <i class="fa-regular fa-list-check text-amber-500"></i> Prerequisites
+                            </h2>
+                            <ul class="space-y-3">
+                                <% course.requirements.forEach(req => { %>
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <i class="fa-regular fa-circle-check text-amber-500 mt-1"></i>
+                                        <span><%= req %></span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== CURRICULUM (Syllabus) – Timeline style ========== -->
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <div class="text-center mb-12">
+                        <span class="text-amber-600 text-sm font-bold uppercase tracking-wider bg-amber-50 px-4 py-1.5 rounded-full">Curriculum</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Classroom Session Plan</h2>
+                        <p class="text-gray-600 text-lg mt-3">Hands‑on, in‑person sessions led by expert instructors</p>
+                    </div>
+                    <div id="courseContent" class="space-y-4"></div>
+                </div>
+            </section>
+
+            <!-- ========== WHY CLASSROOM? (Benefits) ========== -->
+            <section class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <span class="text-amber-600 text-sm font-bold uppercase tracking-wider bg-amber-50 px-4 py-1.5 rounded-full">Why Classroom?</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Why Choose In‑Person Learning?</h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mb-4">
+                                <i class="fa-regular fa-handshake text-amber-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-gray-800">Peer Collaboration</h3>
+                            <p class="text-gray-600 text-sm mt-2">Work in groups, share ideas, and learn from diverse perspectives.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mb-4">
+                                <i class="fa-regular fa-comment-dots text-amber-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-gray-800">Instant Doubt Resolution</h3>
+                            <p class="text-gray-600 text-sm mt-2">Get real‑time answers from instructors and peers.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mb-4">
+                                <i class="fa-regular fa-building-columns text-amber-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-gray-800">Campus Experience</h3>
+                            <p class="text-gray-600 text-sm mt-2">State‑of‑the‑art labs, dedicated study spaces, and networking.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== ADMISSION PROCESS ========== -->
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <div class="text-center mb-12">
+                        <span class="text-amber-600 text-sm font-bold uppercase tracking-wider bg-amber-50 px-4 py-1.5 rounded-full">Admission</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">How to Join</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-md transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
+                                <span class="font-extrabold text-amber-700 text-xl">1</span>
+                            </div>
+                            <h4 class="font-extrabold text-gray-800">Fill Inquiry</h4>
+                            <p class="text-sm text-gray-500 mt-1">Submit your interest via the form</p>
+                        </div>
+                        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-md transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
+                                <span class="font-extrabold text-amber-700 text-xl">2</span>
+                            </div>
+                            <h4 class="font-extrabold text-gray-800">Counseling & Assessment</h4>
+                            <p class="text-sm text-gray-500 mt-1">Get guidance and take a skills assessment</p>
+                        </div>
+                        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-md transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
+                                <span class="font-extrabold text-amber-700 text-xl">3</span>
+                            </div>
+                            <h4 class="font-extrabold text-gray-800">Enroll & Start</h4>
+                            <p class="text-sm text-gray-500 mt-1">Complete admission and begin your journey</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== INQUIRY CTA ========== -->
+            <section class="py-16 bg-gradient-to-r from-amber-600 to-amber-800 text-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Join the Classroom Program?</h2>
+                    <p class="text-amber-100 max-w-2xl mx-auto mb-8">Get all the details about fees, schedule, and admission process.</p>
+                    <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-white text-amber-700 px-8 py-3 rounded-full font-extrabold shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+                        Request Information <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiryModal" class="modal-overlay">
+        <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 relative shadow-2xl">
+            <button onclick="document.getElementById('inquiryModal').style.display='none'" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            <div class="text-center mb-5">
+                <div class="w-16 h-16 rounded-full bg-amber-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                    <i class="fa-regular fa-calendar-check text-white text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800">Classroom Program Inquiry</h2>
+                <p class="text-gray-500 text-sm">Fill in your details and we'll get back to you.</p>
+            </div>
+            <form id="classroomInquiryForm" class="space-y-4">
+                <input type="text" id="inquiryName" placeholder="Full Name *" required class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
+                <input type="email" id="inquiryEmail" placeholder="Email Address *" required class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
+                <input type="tel" id="inquiryPhone" placeholder="Phone Number *" required class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
+                <select id="inquiryBatch" class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
+                    <option value="">Preferred Batch (optional)</option>
+                    <option>Weekday Morning</option>
+                    <option>Weekday Evening</option>
+                    <option>Weekend Batch</option>
+                </select>
+                <textarea id="inquiryMessage" rows="3" placeholder="Any specific questions?" class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500"></textarea>
+                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-xl font-semibold transition-all">Submit Inquiry</button>
+            </form>
+            <p class="text-center text-xs text-gray-400 mt-3">We respect your privacy. No spam.</p>
+        </div>
+    </div>
+
+    <!-- Sticky CTA (Request Info) -->
+    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-3 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
+        <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span class="font-extrabold text-gray-800 text-sm"><%= course.courseName %></span>
+            <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-1.5 rounded-full font-extrabold text-sm shadow-lg transition-all">Request Info <i class="fa-solid fa-arrow-right ml-1"></i></button>
+        </div>
+    </div>
+
+    <%- include("../../partials/common/footer") %>
+
+    <script>
+        // ========== SYLLABUS RENDER – CLASSROOM STYLE ==========
+        const courseFromServer = <%- JSON.stringify(course) %>;
+
+        function renderSyllabus() {
+            const container = document.getElementById('courseContent');
+            if (!container) return;
+            const html = courseFromServer.syllabus.map((module, idx) => {
+                const lecturesHtml = module.lectures.map(lecture => `
+                    <div class="flex items-center gap-3 p-3 border-b border-gray-50 last:border-0">
+                        <i class="fa-regular fa-calendar-check text-amber-500 w-5"></i>
+                        <span class="flex-1 text-gray-800 font-medium">${escapeHtml(lecture.lectureTitle)}</span>
+                        <span class="text-xs text-gray-500">${lecture.videoDuration || 'In-Person'}</span>
+                    </div>
+                `).join('');
+                return `
+                    <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+                        <div class="section-header flex justify-between items-center p-4 bg-gray-50 hover:bg-amber-50 transition-colors" data-section="${idx}">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-regular fa-folder-open text-amber-500"></i>
+                                <span class="font-extrabold text-gray-800">${escapeHtml(module.moduleTitle)}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs text-gray-600 font-medium">${module.lectures.length} sessions</span>
+                                <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                        <div class="lecture-list hidden bg-white">
+                            ${lecturesHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('') + `
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-center">
+                    <i class="fa-regular fa-calendar-check text-amber-600 mr-2"></i>
+                    <span class="text-amber-700 text-sm font-bold">All sessions are delivered in‑person on campus.</span>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="text-amber-600 text-sm font-extrabold hover:underline expand-all-btn transition-all duration-300">
+                        <i class="fa-regular fa-rectangle-list mr-1"></i> Expand all sections
+                    </button>
+                </div>
+            `;
+            container.innerHTML = html;
+
+            document.querySelectorAll('.section-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const list = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+                    list.classList.toggle('hidden');
+                    if (icon) icon.style.transform = list.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            });
+
+            let expanded = false;
+            const expandBtn = document.querySelector('.expand-all-btn');
+            if (expandBtn) {
+                expandBtn.addEventListener('click', function() {
+                    const allLists = document.querySelectorAll('.lecture-list');
+                    const allIcons = document.querySelectorAll('.fa-chevron-down');
+                    if (expanded) {
+                        allLists.forEach(l => l.classList.add('hidden'));
+                        allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
+                        this.innerHTML = '<i class="fa-regular fa-rectangle-list mr-1"></i> Expand all sections';
+                    } else {
+                        allLists.forEach(l => l.classList.remove('hidden'));
+                        allIcons.forEach(i => i.style.transform = 'rotate(180deg)');
+                        this.innerHTML = '<i class="fa-regular fa-rectangle-list mr-1"></i> Collapse all sections';
+                    }
+                    expanded = !expanded;
+                });
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
+        }
+
+        // ========== INQUIRY FORM SUBMISSION ==========
+        const inquiryForm = document.getElementById('classroomInquiryForm');
+        if (inquiryForm) {
+            inquiryForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const name = document.getElementById('inquiryName').value.trim();
+                const email = document.getElementById('inquiryEmail').value.trim();
+                const phone = document.getElementById('inquiryPhone').value.trim();
+                const batch = document.getElementById('inquiryBatch').value;
+                const message = document.getElementById('inquiryMessage').value.trim();
+
+                if (!name || !email || !phone) {
+                    alert('Please fill all required fields.');
+                    return;
+                }
+
+                const payload = {
+                    name,
+                    email,
+                    phoneNumber: phone,
+                    course: '<%= course.courseName %> (Classroom)',
+                    message: `Preferred batch: ${batch}\n${message}`,
+                    degree: 'Classroom Program'
+                };
+
+                const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+                try {
+                    const response = await fetch('/submitEnquery', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert('✅ Inquiry sent! Our team will contact you shortly.');
+                        inquiryForm.reset();
+                        document.getElementById('inquiryModal').style.display = 'none';
+                    } else {
+                        alert('❌ ' + (result.error || 'Submission failed. Please try again.'));
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('❌ Something went wrong. Please try again later.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
+
+        // ========== STICKY CTA SCROLL ==========
+        let lastScroll = 0;
+        const stickyCta = document.getElementById('stickyCta');
+        window.addEventListener('scroll', () => {
+            if (!stickyCta) return;
+            const currentScroll = window.scrollY;
+            if (currentScroll > 400 && currentScroll > lastScroll) stickyCta.classList.remove('hide');
+            else if (currentScroll < lastScroll && currentScroll > 300) stickyCta.classList.add('hide');
+            if (currentScroll < 300) stickyCta.classList.add('hide');
+            lastScroll = currentScroll;
+        });
+        if (stickyCta) stickyCta.classList.add('hide');
+
+        // ========== MOBILE MENU ==========
+        document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
+        document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+
+        // ========== ESCAPE TO CLOSE MODAL ==========
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('inquiryModal');
+                if (modal) modal.style.display = 'none';
+            }
+        });
+
+        // ========== RENDER ==========
+        renderSyllabus();
+
+        // ========== FADE UP OBSERVER ==========
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => {
+            el.classList.add('fade-up');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
