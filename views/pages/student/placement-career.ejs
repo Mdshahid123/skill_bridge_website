@@ -116,6 +116,8 @@
             transition: background 0.2s;
         }
         .section-header:hover { background: #fdf2f8; }
+        .lecture-item { cursor: default; }
+        .lecture-item i { color: #ec4899; }
         .btn-pink {
             background: linear-gradient(105deg, #db2777, #be185d);
             transition: all 0.2s;
@@ -130,19 +132,8 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .sticky-cta { transition: transform 0.3s ease; }
-        .sticky-cta.hide { transform: translateY(120%); }
+        /* Remove modal and sticky CTA styles as we are replacing them */
+        /* .modal-overlay and .sticky-cta removed */
 
         /* ====== STUDENT CARD ====== */
         .student-card {
@@ -202,43 +193,74 @@
         }
 
         /* ====== ACCORDION ====== */
-        .faq-item {
-            border-left: 4px solid #ec4899;
-        }
         .faq-question {
             cursor: pointer;
             transition: all 0.2s;
         }
-        .faq-question:hover {
-            background: #fdf2f8;
-        }
         .faq-answer {
             display: none;
             padding-top: 0.75rem;
-            border-top: 1px solid #fce7f3;
-            margin-top: 0.75rem;
         }
-        .faq-answer.open {
-            display: block;
-        }
+        .faq-answer.open { display: block; }
 
-        /* ====== CAROUSEL CONTROLS ====== */
-        .carousel-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            border: 1px solid #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        /* ====== NEW CTA SECTION STYLES ====== */
+        .help-split-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.10);
+            transition: box-shadow 0.2s;
+            overflow: hidden;
         }
-        .carousel-btn:hover {
-            background: #f1f5f9;
-            transform: scale(1.05);
+        .help-split-card:hover {
+            box-shadow: 0 20px 40px -12px rgba(26,111,140,0.2);
+        }
+        .person-illustration {
+            background: linear-gradient(135deg, #e6f4f5, #d4eef2);
+        }
+        .input-field {
+            border: 1px solid #e2e8f0;
+            transition: all 0.15s;
+            background: #f9fafb;
+        }
+        .input-field:focus {
+            border-color: #1a6f8c;
+            box-shadow: 0 0 0 3px rgba(26,111,140,0.12);
+            outline: none;
+            background: #ffffff;
+        }
+        .cta-btn-primary {
+            background: linear-gradient(135deg, #0a2b3e, #1a6f8c);
+            transition: all 0.2s;
+            color: white;
+        }
+        .cta-btn-primary:hover {
+            background: linear-gradient(135deg, #0a2b3e, #0066b3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(26,111,140,0.3);
+        }
+        .cta-tab.active {
+            background: linear-gradient(135deg, #0a2b3e, #1a6f8c);
+            color: white !important;
+            border-color: #1a6f8c !important;
+            box-shadow: 0 2px 8px rgba(26,111,140,0.25);
+        }
+        .cta-tab {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .float-question {
+            animation: floatQuestion 3s ease-in-out infinite;
+        }
+        .float-question-delay {
+            animation: floatQuestion 3.5s ease-in-out infinite 0.5s;
+        }
+        @keyframes floatQuestion {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(4deg); }
+        }
+        .person-illustration h3,
+        .person-illustration p {
+            font-weight: 600;
         }
 
         /* ====== RESPONSIVE ====== */
@@ -268,11 +290,14 @@
 
     <div class="course-content-wrapper">
         <main>
-            <!-- ========== HERO SECTION – PINK THEME ========== -->
+            <!-- ========== HERO SECTION – PINK THEME WITH ANIMATED GRID & PARTICLES ========== -->
             <div class="hero-placement pt-24 pb-16 relative">
+                <!-- Animated Grid -->
                 <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+                <!-- Glowing Orbs -->
                 <div class="glow-orb"></div>
                 <div class="glow-orb"></div>
+                <!-- Floating Particles -->
                 <div class="particle"></div>
                 <div class="particle"></div>
                 <div class="particle"></div>
@@ -307,6 +332,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Stats Grid (instead of instructor card) -->
                         <div class="flex-shrink-0 w-full max-w-sm">
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="bg-white/90 backdrop-blur-sm rounded-xl p-4 text-center shadow-lg">
@@ -424,7 +450,7 @@
                 </div>
             </section>
 
-            <!-- ========== SUCCESS STORIES (AUTO-SCROLLING CAROUSEL) ========== -->
+            <!-- ========== SUCCESS STORIES ========== -->
             <section class="py-16 bg-gray-50">
                 <div class="container mx-auto px-6">
                     <div class="text-center max-w-3xl mx-auto mb-12">
@@ -432,147 +458,48 @@
                         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Our Placed Students</h2>
                         <p class="text-gray-600 text-lg mt-3">Real students who secured their dream jobs with SkillBridge.</p>
                     </div>
-
-                    <div class="relative max-w-6xl mx-auto">
-                        <div class="overflow-hidden rounded-2xl">
-                            <div id="studentCarousel" class="flex transition-transform duration-500 ease-in-out">
-                                <!-- Slide 1 -->
-                                <div class="w-full flex-shrink-0 px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-pink-500 to-rose-500">AJ</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Ashutosh Jha</p>
-                                            <p class="text-sm text-gray-500">Program Analyst</p>
-                                            <p class="text-pink-600 font-bold">₹8.5 LPA</p>
-                                            <p class="text-xs text-gray-400">EbixCash</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-rose-500 to-fuchsia-500">LS</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Lovekush</p>
-                                            <p class="text-sm text-gray-500">Software Developer</p>
-                                            <p class="text-pink-600 font-bold">₹3.5 LPA</p>
-                                            <p class="text-xs text-gray-400">MS Technology</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-fuchsia-500 to-pink-500">SC</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Sachin Charkhwal</p>
-                                            <p class="text-sm text-gray-500">Web Designer</p>
-                                            <p class="text-pink-600 font-bold">₹2 LPA</p>
-                                            <p class="text-xs text-gray-400">Paytel Financial</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-amber-500 to-orange-500">AC</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Abhishek Chauhan</p>
-                                            <p class="text-sm text-gray-500">Manual Testing Eng.</p>
-                                            <p class="text-pink-600 font-bold">₹4.2 LPA</p>
-                                            <p class="text-xs text-gray-400">Vivo India</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 2 -->
-                                <div class="w-full flex-shrink-0 px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-emerald-500 to-teal-500">KG</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Kishan Gupta</p>
-                                            <p class="text-sm text-gray-500">Software Developer</p>
-                                            <p class="text-pink-600 font-bold">₹2 LPA</p>
-                                            <p class="text-xs text-gray-400">Webcity Technologies</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-rose-500 to-red-500">RS</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Rahul Sain</p>
-                                            <p class="text-sm text-gray-500">AutoCAD Designer</p>
-                                            <p class="text-pink-600 font-bold">—</p>
-                                            <p class="text-xs text-gray-400">Objectify</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-indigo-500 to-blue-500">BV</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Bhubnesh Verma</p>
-                                            <p class="text-sm text-gray-500">AutoCAD Designer</p>
-                                            <p class="text-pink-600 font-bold">—</p>
-                                            <p class="text-xs text-gray-400">Objectify</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-cyan-500 to-emerald-500">SP</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Somnath Prasad</p>
-                                            <p class="text-sm text-gray-500">AutoCAD Designer</p>
-                                            <p class="text-pink-600 font-bold">—</p>
-                                            <p class="text-xs text-gray-400">Objectify</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 3 -->
-                                <div class="w-full flex-shrink-0 px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-teal-500 to-cyan-500">RK</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Rakesh Kumar</p>
-                                            <p class="text-sm text-gray-500">Full Stack Developer</p>
-                                            <p class="text-pink-600 font-bold">₹7.2 LPA</p>
-                                            <p class="text-xs text-gray-400">TechM</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-pink-500 to-rose-500">SN</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Sneha Nair</p>
-                                            <p class="text-sm text-gray-500">Data Analyst</p>
-                                            <p class="text-pink-600 font-bold">₹6.8 LPA</p>
-                                            <p class="text-xs text-gray-400">Deloitte</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-orange-500 to-amber-500">VM</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Vikram Mehta</p>
-                                            <p class="text-sm text-gray-500">Cloud Engineer</p>
-                                            <p class="text-pink-600 font-bold">₹9.5 LPA</p>
-                                            <p class="text-xs text-gray-400">AWS</p>
-                                        </div>
-                                    </div>
-                                    <div class="student-card">
-                                        <div class="student-avatar bg-gradient-to-br from-violet-500 to-purple-500">PD</div>
-                                        <div class="student-info">
-                                            <p class="font-bold text-gray-800">Priya Dubey</p>
-                                            <p class="text-sm text-gray-500">UI/UX Designer</p>
-                                            <p class="text-pink-600 font-bold">₹5.5 LPA</p>
-                                            <p class="text-xs text-gray-400">Adobe</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                        <div class="student-card">
+                            <div class="student-avatar bg-gradient-to-br from-pink-500 to-rose-500">AJ</div>
+                            <div class="student-info">
+                                <p class="font-bold text-gray-800">Ashutosh Jha</p>
+                                <p class="text-sm text-gray-500">Program Analyst</p>
+                                <p class="text-pink-600 font-bold">₹8.5 LPA</p>
+                                <p class="text-xs text-gray-400">EbixCash</p>
                             </div>
                         </div>
-                        <!-- Navigation Buttons -->
-                        <button id="studentPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
-                            <i class="fa-solid fa-chevron-left text-gray-600"></i>
-                        </button>
-                        <button id="studentNext" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
-                            <i class="fa-solid fa-chevron-right text-gray-600"></i>
-                        </button>
-                        <!-- Dots -->
-                        <div class="flex justify-center gap-3 mt-6">
-                            <span class="student-dot w-3 h-3 rounded-full bg-pink-600 transition-all" data-index="0"></span>
-                            <span class="student-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="1"></span>
-                            <span class="student-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="2"></span>
+                        <div class="student-card">
+                            <div class="student-avatar bg-gradient-to-br from-rose-500 to-fuchsia-500">LS</div>
+                            <div class="student-info">
+                                <p class="font-bold text-gray-800">Lovekush</p>
+                                <p class="text-sm text-gray-500">Software Developer</p>
+                                <p class="text-pink-600 font-bold">₹3.5 LPA</p>
+                                <p class="text-xs text-gray-400">MS Technology</p>
+                            </div>
+                        </div>
+                        <div class="student-card">
+                            <div class="student-avatar bg-gradient-to-br from-fuchsia-500 to-pink-500">SC</div>
+                            <div class="student-info">
+                                <p class="font-bold text-gray-800">Sachin Charkhwal</p>
+                                <p class="text-sm text-gray-500">Web Designer</p>
+                                <p class="text-pink-600 font-bold">₹2 LPA</p>
+                                <p class="text-xs text-gray-400">Paytel Financial</p>
+                            </div>
+                        </div>
+                        <div class="student-card">
+                            <div class="student-avatar bg-gradient-to-br from-amber-500 to-orange-500">AC</div>
+                            <div class="student-info">
+                                <p class="font-bold text-gray-800">Abhishek Chauhan</p>
+                                <p class="text-sm text-gray-500">Manual Testing Eng.</p>
+                                <p class="text-pink-600 font-bold">₹4.2 LPA</p>
+                                <p class="text-xs text-gray-400">Vivo India</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ========== TESTIMONIALS (AUTO-SCROLLING CAROUSEL) ========== -->
+            <!-- ========== TESTIMONIALS ========== -->
             <section class="py-16 bg-white">
                 <div class="container mx-auto px-6">
                     <div class="text-center max-w-3xl mx-auto mb-12">
@@ -580,99 +507,32 @@
                         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">What Our Students Say</h2>
                         <p class="text-gray-600 text-lg mt-3">Real feedback from our successful graduates.</p>
                     </div>
-
-                    <div class="relative max-w-4xl mx-auto">
-                        <div class="overflow-hidden rounded-2xl">
-                            <div id="testimonialCarousel" class="flex transition-transform duration-500 ease-in-out">
-                                <!-- Slide 1 -->
-                                <div class="w-full flex-shrink-0 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div class="testimonial-card">
-                                        <div class="flex items-center gap-1 mb-3">
-                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
-                                        </div>
-                                        <p class="text-gray-600 text-sm leading-relaxed">"The Web Designing course was pivotal for my career. The placement support helped me secure a great position."</p>
-                                        <div class="flex items-center gap-3 mt-4">
-                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 text-white flex items-center justify-center font-bold text-lg">AJ</div>
-                                            <div><p class="font-bold text-gray-800">Ayush</p><p class="text-xs text-gray-500">Web Designer</p></div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-card">
-                                        <div class="flex items-center gap-1 mb-3">
-                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
-                                        </div>
-                                        <p class="text-gray-600 text-sm leading-relaxed">"The Java course was transformative. Placement support helped me secure a position at a top MNC."</p>
-                                        <div class="flex items-center gap-3 mt-4">
-                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg">VC</div>
-                                            <div><p class="font-bold text-gray-800">Vishal</p><p class="text-xs text-gray-500">Java Developer</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 2 -->
-                                <div class="w-full flex-shrink-0 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div class="testimonial-card">
-                                        <div class="flex items-center gap-1 mb-3">
-                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
-                                        </div>
-                                        <p class="text-gray-600 text-sm leading-relaxed">"SkillBridge placement service is one of the best. I got placed in a leading firm. Highly recommended!"</p>
-                                        <div class="flex items-center gap-3 mt-4">
-                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-fuchsia-500 to-pink-500 text-white flex items-center justify-center font-bold text-lg">OZ</div>
-                                            <div><p class="font-bold text-gray-800">Omer</p><p class="text-xs text-gray-500">Java Developer</p></div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-card">
-                                        <div class="flex items-center gap-1 mb-3">
-                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
-                                        </div>
-                                        <p class="text-gray-600 text-sm leading-relaxed">"Enlighten your career by enrolling for suitable courses and get placed in MNCs. Best placement support!"</p>
-                                        <div class="flex items-center gap-3 mt-4">
-                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 text-white flex items-center justify-center font-bold text-lg">RS</div>
-                                            <div><p class="font-bold text-gray-800">Randeep</p><p class="text-xs text-gray-500">Software Engineer</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 3 -->
-                                <div class="w-full flex-shrink-0 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div class="testimonial-card">
-                                        <div class="flex items-center gap-1 mb-3">
-                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
-                                        </div>
-                                        <p class="text-gray-600 text-sm leading-relaxed">"The Data Science course gave me the skills I needed. The placement team connected me with amazing opportunities."</p>
-                                        <div class="flex items-center gap-3 mt-4">
-                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center font-bold text-lg">PS</div>
-                                            <div><p class="font-bold text-gray-800">Priya</p><p class="text-xs text-gray-500">Data Scientist</p></div>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-card">
-                                        <div class="flex items-center gap-1 mb-3">
-                                            <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
-                                        </div>
-                                        <p class="text-gray-600 text-sm leading-relaxed">"I switched from non‑IT to Full Stack developer. The instructors were patient and the curriculum was up‑to‑date."</p>
-                                        <div class="flex items-center gap-3 mt-4">
-                                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-red-500 text-white flex items-center justify-center font-bold text-lg">AK</div>
-                                            <div><p class="font-bold text-gray-800">Amit</p><p class="text-xs text-gray-500">Full Stack Developer</p></div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        <div class="testimonial-card">
+                            <div class="flex items-center gap-1 mb-3">
+                                <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">"The Web Designing course was pivotal for my career. The placement support helped me secure a great position."</p>
+                            <div class="flex items-center gap-3 mt-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 text-white flex items-center justify-center font-bold text-lg">AJ</div>
+                                <div><p class="font-bold text-gray-800">Ayush</p><p class="text-xs text-gray-500">Web Designer</p></div>
                             </div>
                         </div>
-                        <!-- Navigation Buttons -->
-                        <button id="testimonialPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
-                            <i class="fa-solid fa-chevron-left text-gray-600"></i>
-                        </button>
-                        <button id="testimonialNext" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-100 transition-all z-10 border border-gray-200">
-                            <i class="fa-solid fa-chevron-right text-gray-600"></i>
-                        </button>
-                        <!-- Dots -->
-                        <div class="flex justify-center gap-3 mt-6">
-                            <span class="testimonial-dot w-3 h-3 rounded-full bg-pink-600 transition-all" data-index="0"></span>
-                            <span class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="1"></span>
-                            <span class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition-all" data-index="2"></span>
+                        <div class="testimonial-card">
+                            <div class="flex items-center gap-1 mb-3">
+                                <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed">"The Java course was transformative. Placement support helped me secure a position at a top MNC."</p>
+                            <div class="flex items-center gap-3 mt-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-500 to-fuchsia-500 text-white flex items-center justify-center font-bold text-lg">VC</div>
+                                <div><p class="font-bold text-gray-800">Vishal</p><p class="text-xs text-gray-500">Java Developer</p></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ========== FAQ SECTION (FIXED ACCORDION) ========== -->
+            <!-- ========== FAQ SECTION ========== -->
             <section class="py-16 bg-gray-50">
                 <div class="container mx-auto px-6 max-w-3xl">
                     <div class="text-center max-w-3xl mx-auto mb-12">
@@ -690,8 +550,8 @@
                             { q: "What industries do your hiring partners belong to?", a: "Our partners span IT & Technology, Banking & Finance, Marketing & Digital Media, HR & Talent Management, Consulting & Analytics, and Startups." }
                         ]; %>
                         <% faqs.forEach((faq, index) => { %>
-                            <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-all">
-                                <div class="faq-question flex justify-between items-center">
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 border-l-4 border-l-pink-400 hover:shadow-md transition-all">
+                                <div class="faq-question flex justify-between items-center cursor-pointer">
                                     <h3 class="font-bold text-gray-800 text-sm"><%= faq.q %></h3>
                                     <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
                                 </div>
@@ -702,290 +562,150 @@
                 </div>
             </section>
 
-            <!-- ========== INQUIRY CTA ========== -->
-            <section class="py-16 bg-gradient-to-r from-pink-600 to-rose-600 text-white">
-                <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Launch Your Career?</h2>
-                    <p class="text-pink-100 max-w-2xl mx-auto mb-8">Get personalised career guidance and placement support from our expert team.</p>
-                    <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-white text-pink-700 px-8 py-3 rounded-full font-extrabold shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-                        Request Information <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
+            <!-- ========== NEW CTA SECTION – REPLACES OLD INQUIRY MODAL & STICKY CTA ========== -->
+            <!-- CTA SECTION - with Course & Degree Tabs (Compact, Bolder Text, Larger Person) -->
+            <section class="mt-12 mb-16 px-6 md:px-12 scroll-reveal">
+                <div class="help-split-card max-w-6xl mx-auto">
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Left Side - Person Illustration -->
+                        <div class="person-illustration w-full md:w-5/12 p-6 md:p-8 flex flex-col items-center justify-center relative">
+                            <div class="relative flex flex-col items-center w-full">
+                                <div class="relative inline-block">
+                                    <img src="https://pwskills.com/images/accountImage/leadform/man.webp" alt="Need help" class="w-full max-w-[260px] h-auto object-contain" />
+                                    <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-sm border border-teal-100 float-question z-10">
+                                        <span class="text-4xl font-extrabold text-teal-600">?</span>
+                                    </div>
+                                    <div class="absolute -top-6 left-[40%] transform -translate-x-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-sm border border-teal-100 float-question-delay z-10">
+                                        <span class="text-2xl font-extrabold text-teal-500">?</span>
+                                    </div>
+                                    <div class="absolute -top-2 left-[65%] transform -translate-x-1/2 bg-white/80 backdrop-blur-sm p-1.5 rounded-full shadow-sm border border-teal-100 float-question" style="animation-delay: 1s;">
+                                        <span class="text-xl font-extrabold text-teal-500">?</span>
+                                    </div>
+                                </div>
+                                <div class="mt-5 text-center">
+                                    <h3 class="text-lg font-extrabold text-gray-800">Have questions? <span class="text-teal-600">We're here</span></h3>
+                                    <p class="text-sm font-medium text-gray-600 max-w-[200px] mx-auto leading-relaxed">Get personalized guidance on courses, scholarships, and career roadmap.</p>
+                                </div>
+                                <div class="absolute bottom-4 right-4 opacity-10 text-6xl text-teal-500"><i class="fa-regular fa-circle-question"></i></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Side - Contact Form with Tabs -->
+                        <div class="w-full md:w-7/12 p-6 md:p-8 bg-white">
+                            <div class="flex items-center gap-2 mb-5">
+                                <i class="fa-regular fa-headset text-teal-600 text-xl"></i>
+                                <h2 class="text-2xl font-extrabold text-gray-800">Talk to our <span class="text-teal-600">Counselor</span></h2>
+                            </div>
+                            
+                            <div class="flex gap-3 mb-5">
+                                <button id="ctaCoursesTab" class="cta-tab flex-1 px-4 py-2 rounded-lg bg-white border-2 border-gray-200 text-gray-700 font-bold text-sm transition-all hover:bg-teal-50 hover:border-teal-300">
+                                    <i class="fa-solid fa-laptop-code mr-2"></i> Course Inquiry
+                                </button>
+                                <button id="ctaDegreeTab" class="cta-tab flex-1 px-4 py-2 rounded-lg bg-white border-2 border-gray-200 text-gray-700 font-bold text-sm transition-all hover:bg-teal-50 hover:border-teal-300">
+                                    <i class="fa-solid fa-graduation-cap mr-2"></i> Degree Program
+                                </button>
+                            </div>
+                            
+                            <form id="ctaHelpForm" class="space-y-3">
+                                <!-- Name -->
+                                <input id="ctaFullName" type="text" name="name" placeholder="e.g. Rahul Kumar" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required>
+                                
+                                <!-- Email -->
+                                <input id="ctaEmail" type="email" name="email" placeholder="rahul@example.com" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required>
+                                
+                                <!-- Phone Number -->
+                                <input id="ctaPhoneNumber" type="tel" name="phoneNumber" placeholder="+91 98765 43210" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800" required>
+                                
+                                <!-- NEW: Preferred Callback Time (dropdown) -->
+                                <div>
+                                    <label class="text-sm font-bold text-gray-700 block mb-1">Preferred Callback Time (optional)</label>
+                                    <select id="ctaCallbackTime" name="callbackTime" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                                        <option value="" selected>Select a time slot</option>
+                                        <option>Morning (9 AM - 12 PM)</option>
+                                        <option>Afternoon (12 PM - 3 PM)</option>
+                                        <option>Evening (3 PM - 6 PM)</option>
+                                        <option>Late Evening (6 PM - 8 PM)</option>
+                                        <option>Anytime</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Course Options (default visible) -->
+                                <div id="ctaCourseOptions">
+                                    <label class="text-sm font-bold text-gray-700 block mb-1">Interested Course *</label>
+                                    <select id="ctaCourseSelect" name="course" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                                        <option value="" disabled selected>Select a course</option>
+                                        <option>Web Development</option>
+                                        <option>Generative AI</option>
+                                        <option>Data Science & AI</option>
+                                        <option>Data Analytics</option>
+                                        <option>Digital Marketing</option>
+                                        <option>programming Language</option>
+                                        <option>Data Structures & Algorithms</option>
+                                        <option>Placement Preparation</option>
+                                        <option>Cloud & DevOps</option>
+                                        <option>Cybersecurity</option>
+                                        <option>UI/UX Design</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Degree Options (hidden by default) -->
+                                <div id="ctaDegreeOptions" class="hidden">
+                                    <label class="text-sm font-bold text-gray-700 block mb-1">Interested Degree Program *</label>
+                                    <select id="ctaDegreeSelect" name="degree" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800">
+                                        <option value="" disabled selected>Select a degree program</option>
+                                        <option>B.Tech in Computer Science</option>
+                                        <option>BCA (Bachelor of Computer Applications)</option>
+                                        <option>MCA (Master of Computer Applications)</option>
+                                        <option>M.Sc in Artificial Intelligence</option>
+                                        <option>MBA in Technology Management</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Message -->
+                                <textarea id="ctaMessage" name="message" rows="2" placeholder="I'm interested in... courses, online degrees, career guidance" class="input-field w-full rounded-lg px-4 py-2.5 text-sm font-medium text-gray-800 resize-none"></textarea>
+                                
+                                <button type="submit" class="cta-btn-primary w-full text-white font-extrabold py-2.5 rounded-lg text-base flex items-center justify-center gap-2 transition hover:scale-105">
+                                    <i class="fa-regular fa-paper-plane text-sm"></i> Request Callback
+                                </button>
+                                <p class="text-md font-medium text-gray-500 text-center mt-2">We'll respond within 24 hours</p>
+                            </form>
+                            
+                            <div class="mt-5 pt-4 border-t border-gray-200">
+                                <div class="flex flex-col sm:flex-row justify-center gap-4 text-xs font-semibold text-gray-600">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <i class="fas fa-phone-alt text-teal-600 text-xl"></i>
+                                        <span class="text-xl">+91 9911466118</span>
+                                    </div>
+                                    <div class="hidden sm:block text-gray-300">|</div>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <i class="fas fa-envelope text-teal-600 text-xl"></i>
+                                        <span class="text-xl">contact@skillbridgetech.in</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Inquiry Modal -->
-    <div id="inquiryModal" class="modal-overlay">
-        <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 relative shadow-2xl">
-            <button onclick="document.getElementById('inquiryModal').style.display='none'" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            <div class="text-center mb-5">
-                <div class="w-16 h-16 rounded-full bg-pink-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
-                    <i class="fa-regular fa-calendar-check text-white text-2xl"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-800">Placement Inquiry</h2>
-                <p class="text-gray-500 text-sm">Fill in your details and we'll get back to you.</p>
-            </div>
-            <form id="placementInquiryForm" class="space-y-4">
-                <input type="text" id="inquiryName" placeholder="Full Name *" required class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
-                <input type="email" id="inquiryEmail" placeholder="Email Address *" required class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
-                <input type="tel" id="inquiryPhone" placeholder="Phone Number *" required class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
-                <select id="inquiryCourse" class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500">
-                    <option value="">Interested Course (optional)</option>
-                    <option>Web Development</option>
-                    <option>Data Science</option>
-                    <option>Digital Marketing</option>
-                    <option>UI/UX Design</option>
-                    <option>Cloud Computing</option>
-                    <option>DSA</option>
-                </select>
-                <textarea id="inquiryMessage" rows="3" placeholder="Any specific questions?" class="w-full px-4 py-2 border rounded-xl focus:ring-pink-500 focus:border-pink-500"></textarea>
-                <button type="submit" class="w-full bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white py-2 rounded-xl font-semibold transition-all">Submit Inquiry</button>
-            </form>
-            <p class="text-center text-xs text-gray-400 mt-3">We respect your privacy. No spam.</p>
-        </div>
-    </div>
-
-    <!-- Sticky CTA -->
-    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-3 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
-        <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <span class="font-extrabold text-gray-800 text-sm">Placement & Career</span>
-            <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-1.5 rounded-full font-extrabold text-sm shadow-lg transition-all">Request Info <i class="fa-solid fa-arrow-right ml-1"></i></button>
-        </div>
-    </div>
-
     <%- include("../../partials/common/footer") %>
 
     <script>
-        // ========== INQUIRY FORM SUBMISSION ==========
-        const inquiryForm = document.getElementById('placementInquiryForm');
-        if (inquiryForm) {
-            inquiryForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const name = document.getElementById('inquiryName').value.trim();
-                const email = document.getElementById('inquiryEmail').value.trim();
-                const phone = document.getElementById('inquiryPhone').value.trim();
-                const course = document.getElementById('inquiryCourse').value;
-                const message = document.getElementById('inquiryMessage').value.trim();
-
-                if (!name || !email || !phone) {
-                    alert('Please fill all required fields.');
-                    return;
-                }
-
-                const payload = { name, email, phoneNumber: phone, course, message, degree: 'Placement Inquiry' };
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-
-                try {
-                    const response = await fetch('/submitEnquery', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const result = await response.json();
-                    if (response.ok) {
-                        alert('✅ Inquiry sent! Our team will contact you shortly.');
-                        this.reset();
-                        document.getElementById('inquiryModal').style.display = 'none';
-                    } else {
-                        alert('❌ ' + (result.error || 'Submission failed. Please try again.'));
-                    }
-                } catch (err) {
-                    console.error(err);
-                    alert('❌ Something went wrong. Please try again later.');
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                }
-            });
-        }
-
-        // ========== STICKY CTA SCROLL ==========
-        let lastScroll = 0;
-        const stickyCta = document.getElementById('stickyCta');
-        window.addEventListener('scroll', () => {
-            if (!stickyCta) return;
-            const currentScroll = window.scrollY;
-            if (currentScroll > 400 && currentScroll > lastScroll) stickyCta.classList.remove('hide');
-            else if (currentScroll < lastScroll && currentScroll > 300) stickyCta.classList.add('hide');
-            if (currentScroll < 300) stickyCta.classList.add('hide');
-            lastScroll = currentScroll;
-        });
-        if (stickyCta) stickyCta.classList.add('hide');
-
         // ========== MOBILE MENU ==========
         document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
         document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
 
-        // ========== ESCAPE TO CLOSE MODAL ==========
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const modal = document.getElementById('inquiryModal');
-                if (modal) modal.style.display = 'none';
-            }
-        });
-
-        // ========== STUDENT CAROUSEL (AUTO-SCROLL) ==========
-        (function() {
-            const slider = document.getElementById('studentCarousel');
-            const dots = document.querySelectorAll('.student-dot');
-            const prevBtn = document.getElementById('studentPrev');
-            const nextBtn = document.getElementById('studentNext');
-            if (!slider || dots.length === 0) return;
-            let currentIndex = 0;
-            let interval;
-            const slideCount = dots.length;
-            const autoSlideInterval = 4000;
-
-            function updateSlider(index) {
-                const slideWidth = slider.parentElement.clientWidth;
-                slider.style.transform = `translateX(-${index * slideWidth}px)`;
-                dots.forEach((dot, i) => {
-                    if (i === index) {
-                        dot.classList.add('bg-pink-600');
-                        dot.classList.remove('bg-gray-300');
-                    } else {
-                        dot.classList.add('bg-gray-300');
-                        dot.classList.remove('bg-pink-600');
-                    }
-                });
-                currentIndex = index;
-            }
-
-            function nextSlide() {
-                let newIndex = currentIndex + 1;
-                if (newIndex >= slideCount) newIndex = 0;
-                updateSlider(newIndex);
-            }
-
-            function prevSlide() {
-                let newIndex = currentIndex - 1;
-                if (newIndex < 0) newIndex = slideCount - 1;
-                updateSlider(newIndex);
-            }
-
-            function startAutoSlide() {
-                if (interval) clearInterval(interval);
-                interval = setInterval(nextSlide, autoSlideInterval);
-            }
-
-            function stopAutoSlide() {
-                if (interval) clearInterval(interval);
-            }
-
-            if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoSlide(); prevSlide(); startAutoSlide(); });
-            if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoSlide(); nextSlide(); startAutoSlide(); });
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    if (!isNaN(index)) {
-                        stopAutoSlide();
-                        updateSlider(index);
-                        startAutoSlide();
-                    }
-                });
-            });
-
-            const container = slider.closest('.relative');
-            if (container) {
-                container.addEventListener('mouseenter', stopAutoSlide);
-                container.addEventListener('mouseleave', startAutoSlide);
-            }
-
-            window.addEventListener('resize', () => updateSlider(currentIndex));
-            updateSlider(0);
-            startAutoSlide();
-        })();
-
-        // ========== TESTIMONIAL CAROUSEL (AUTO-SCROLL) ==========
-        (function() {
-            const slider = document.getElementById('testimonialCarousel');
-            const dots = document.querySelectorAll('.testimonial-dot');
-            const prevBtn = document.getElementById('testimonialPrev');
-            const nextBtn = document.getElementById('testimonialNext');
-            if (!slider || dots.length === 0) return;
-            let currentIndex = 0;
-            let interval;
-            const slideCount = dots.length;
-            const autoSlideInterval = 5000;
-
-            function updateSlider(index) {
-                const slideWidth = slider.parentElement.clientWidth;
-                slider.style.transform = `translateX(-${index * slideWidth}px)`;
-                dots.forEach((dot, i) => {
-                    if (i === index) {
-                        dot.classList.add('bg-pink-600');
-                        dot.classList.remove('bg-gray-300');
-                    } else {
-                        dot.classList.add('bg-gray-300');
-                        dot.classList.remove('bg-pink-600');
-                    }
-                });
-                currentIndex = index;
-            }
-
-            function nextSlide() {
-                let newIndex = currentIndex + 1;
-                if (newIndex >= slideCount) newIndex = 0;
-                updateSlider(newIndex);
-            }
-
-            function prevSlide() {
-                let newIndex = currentIndex - 1;
-                if (newIndex < 0) newIndex = slideCount - 1;
-                updateSlider(newIndex);
-            }
-
-            function startAutoSlide() {
-                if (interval) clearInterval(interval);
-                interval = setInterval(nextSlide, autoSlideInterval);
-            }
-
-            function stopAutoSlide() {
-                if (interval) clearInterval(interval);
-            }
-
-            if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoSlide(); prevSlide(); startAutoSlide(); });
-            if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoSlide(); nextSlide(); startAutoSlide(); });
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    if (!isNaN(index)) {
-                        stopAutoSlide();
-                        updateSlider(index);
-                        startAutoSlide();
-                    }
-                });
-            });
-
-            const container = slider.closest('.relative');
-            if (container) {
-                container.addEventListener('mouseenter', stopAutoSlide);
-                container.addEventListener('mouseleave', startAutoSlide);
-            }
-
-            window.addEventListener('resize', () => updateSlider(currentIndex));
-            updateSlider(0);
-            startAutoSlide();
-        })();
-
-        // ========== FAQ ACCORDION (FIXED) ==========
+        // ========== FAQ ACCORDION ==========
         document.addEventListener('DOMContentLoaded', function() {
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 const answer = item.querySelector('.faq-answer');
                 const icon = question.querySelector('.fa-chevron-down');
-                
                 question.addEventListener('click', function() {
                     const isOpen = answer.classList.contains('open');
-                    
-                    // Close all other items
                     faqItems.forEach(other => {
                         const otherAnswer = other.querySelector('.faq-answer');
                         const otherIcon = other.querySelector('.fa-chevron-down');
@@ -995,8 +715,6 @@
                             if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
                         }
                     });
-                    
-                    // Toggle current
                     if (isOpen) {
                         answer.classList.remove('open');
                         answer.style.display = 'none';
@@ -1023,6 +741,127 @@
             el.classList.add('fade-up');
             observer.observe(el);
         });
+
+        // ========== NEW CTA FORM SUBMISSION ==========
+        (function() {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Tab switching
+                const coursesTab = document.getElementById('ctaCoursesTab');
+                const degreeTab = document.getElementById('ctaDegreeTab');
+                const courseOptions = document.getElementById('ctaCourseOptions');
+                const degreeOptions = document.getElementById('ctaDegreeOptions');
+                const courseSelect = document.getElementById('ctaCourseSelect');
+                const degreeSelect = document.getElementById('ctaDegreeSelect');
+                
+                function removeActiveFromTabs() {
+                    coursesTab?.classList.remove('active');
+                    degreeTab?.classList.remove('active');
+                }
+                
+                function setActiveTab(tab, showElement, hideElement) {
+                    removeActiveFromTabs();
+                    tab.classList.add('active');
+                    showElement.classList.remove('hidden');
+                    hideElement.classList.add('hidden');
+                }
+                
+                if (coursesTab && degreeTab) {
+                    setActiveTab(coursesTab, courseOptions, degreeOptions);
+                    coursesTab.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setActiveTab(coursesTab, courseOptions, degreeOptions);
+                    });
+                    degreeTab.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setActiveTab(degreeTab, degreeOptions, courseOptions);
+                    });
+                }
+                
+                // Form submission
+                const ctaForm = document.getElementById('ctaHelpForm');
+                if (ctaForm) {
+                    ctaForm.removeEventListener('submit', ctaForm._handler);
+                    ctaForm._handler = async function(e) {
+                        e.preventDefault();
+                        
+                        const name = document.getElementById('ctaFullName')?.value.trim() || '';
+                        const email = document.getElementById('ctaEmail')?.value.trim() || '';
+                        const phone = document.getElementById('ctaPhoneNumber')?.value.trim() || '';
+                        const callbackTime = document.getElementById('ctaCallbackTime')?.value || '';
+                        const message = document.getElementById('ctaMessage')?.value.trim() || '';
+                        
+                        const isCourseActive = coursesTab.classList.contains('active');
+                        let selectedProgram = '';
+                        if (isCourseActive) {
+                            selectedProgram = courseSelect ? courseSelect.value : '';
+                        } else {
+                            selectedProgram = degreeSelect ? degreeSelect.value : '';
+                        }
+                        
+                        // Validation
+                        let errorMsg = '';
+                        if (!name) errorMsg = 'Please enter your full name.';
+                        else if (!email) errorMsg = 'Please enter your email address.';
+                        else if (!phone) errorMsg = 'Please enter your phone number.';
+                        else if (!selectedProgram) errorMsg = isCourseActive ? 'Please select a course.' : 'Please select a degree program.';
+                        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errorMsg = 'Please enter a valid email address.';
+                        else if (!/^\d{10}$/.test(phone)) errorMsg = 'Phone number must be exactly 10 digits.';
+                        
+                        if (errorMsg) {
+                            alert(errorMsg);
+                            return;
+                        }
+                        
+                        const payload = {
+                            name,
+                            email,
+                            phoneNumber: phone,
+                            course: selectedProgram,
+                            callbackTime,
+                            message
+                        };
+                        
+                        const submitBtn = ctaForm.querySelector('button[type="submit"]');
+                        const originalText = submitBtn.innerHTML;
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+                        
+                        try {
+                            const response = await fetch('/submitEnquery', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+                            let result;
+                            const contentType = response.headers.get('content-type');
+                            if (contentType && contentType.includes('application/json')) {
+                                result = await response.json();
+                            } else {
+                                const text = await response.text();
+                                result = { error: text || 'Unknown error' };
+                            }
+                            if (response.ok) {
+                                alert('✅ Inquiry sent! You will receive a confirmation email shortly.');
+                                ctaForm.reset();
+                                if (courseSelect) courseSelect.value = '';
+                                if (degreeSelect) degreeSelect.value = '';
+                                document.getElementById('ctaCallbackTime').value = '';
+                                setActiveTab(coursesTab, courseOptions, degreeOptions);
+                            } else {
+                                alert('❌ ' + (result.error || 'Submission failed.'));
+                            }
+                        } catch (err) {
+                            console.error(err);
+                            alert('❌ Network error. Please try again.');
+                        } finally {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                        }
+                    };
+                    ctaForm.addEventListener('submit', ctaForm._handler);
+                }
+            });
+        })();
     </script>
 </body>
 </html>

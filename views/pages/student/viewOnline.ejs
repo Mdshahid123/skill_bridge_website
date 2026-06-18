@@ -370,58 +370,20 @@
                 </div>
             </section>
 
-            <!-- ========== INQUIRY CTA ========== -->
-            <section class="py-16 bg-gradient-to-r from-indigo-600 to-blue-700 text-white">
-                <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Learn Online Live?</h2>
-                    <p class="text-indigo-100 max-w-2xl mx-auto mb-8">Get all the details about fees, schedule, and admission process.</p>
-                    <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-white text-indigo-700 px-8 py-3 rounded-full font-extrabold shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-                        Request Information <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-            </section>
+      
         </main>
     </div>
 
     <!-- Inquiry Modal -->
-    <div id="inquiryModal" class="modal-overlay">
-        <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 relative shadow-2xl">
-            <button onclick="document.getElementById('inquiryModal').style.display='none'" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            <div class="text-center mb-5">
-                <div class="w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
-                    <i class="fa-regular fa-calendar-check text-white text-2xl"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-800">Online Live Program Inquiry</h2>
-                <p class="text-gray-500 text-sm">Fill in your details and we'll get back to you.</p>
-            </div>
-            <form id="onlineInquiryForm" class="space-y-4">
-                <input type="text" id="inquiryName" placeholder="Full Name *" required class="w-full px-4 py-2 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500">
-                <input type="email" id="inquiryEmail" placeholder="Email Address *" required class="w-full px-4 py-2 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500">
-                <input type="tel" id="inquiryPhone" placeholder="Phone Number *" required class="w-full px-4 py-2 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500">
-                <select id="inquiryBatch" class="w-full px-4 py-2 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500">
-                    <option value="">Preferred Batch (optional)</option>
-                    <option>Weekday Morning</option>
-                    <option>Weekday Evening</option>
-                    <option>Weekend Batch</option>
-                </select>
-                <textarea id="inquiryMessage" rows="3" placeholder="Any specific questions?" class="w-full px-4 py-2 border rounded-xl focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-xl font-semibold transition-all">Submit Inquiry</button>
-            </form>
-            <p class="text-center text-xs text-gray-400 mt-3">We respect your privacy. No spam.</p>
-        </div>
-    </div>
 
-    <!-- Sticky CTA (Request Info) -->
-    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-3 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
-        <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <span class="font-extrabold text-gray-800 text-sm"><%= course.courseName %></span>
-            <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-1.5 rounded-full font-extrabold text-sm shadow-lg transition-all">Request Info <i class="fa-solid fa-arrow-right ml-1"></i></button>
-        </div>
-    </div>
+    <%- include('../../partials/common/inquiry-form') %>
 
     <%- include("../../partials/common/footer") %>
 
     <script>
+
+
+
         // ========== SYLLABUS RENDER – ONLINE LIVE STYLE ==========
         const courseFromServer = <%- JSON.stringify(course) %>;
 
@@ -500,59 +462,7 @@
             return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
         }
 
-        // ========== INQUIRY FORM SUBMISSION ==========
-        const inquiryForm = document.getElementById('onlineInquiryForm');
-        if (inquiryForm) {
-            inquiryForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const name = document.getElementById('inquiryName').value.trim();
-                const email = document.getElementById('inquiryEmail').value.trim();
-                const phone = document.getElementById('inquiryPhone').value.trim();
-                const batch = document.getElementById('inquiryBatch').value;
-                const message = document.getElementById('inquiryMessage').value.trim();
-
-                if (!name || !email || !phone) {
-                    alert('Please fill all required fields.');
-                    return;
-                }
-
-                const payload = {
-                    name,
-                    email,
-                    phoneNumber: phone,
-                    course: '<%= course.courseName %> (Online Live)',
-                    message: `Preferred batch: ${batch}\n${message}`,
-                    degree: 'Online Live Program'
-                };
-
-                const submitBtn = inquiryForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-
-                try {
-                    const response = await fetch('/submitEnquery', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    const result = await response.json();
-                    if (response.ok) {
-                        alert('✅ Inquiry sent! Our team will contact you shortly.');
-                        inquiryForm.reset();
-                        document.getElementById('inquiryModal').style.display = 'none';
-                    } else {
-                        alert('❌ ' + (result.error || 'Submission failed. Please try again.'));
-                    }
-                } catch (err) {
-                    console.error(err);
-                    alert('❌ Something went wrong. Please try again later.');
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                }
-            });
-        }
+       
 
         // ========== STICKY CTA SCROLL ==========
         let lastScroll = 0;
@@ -567,17 +477,7 @@
         });
         if (stickyCta) stickyCta.classList.add('hide');
 
-        // ========== MOBILE MENU ==========
-        document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
-        document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
-
-        // ========== ESCAPE TO CLOSE MODAL ==========
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const modal = document.getElementById('inquiryModal');
-                if (modal) modal.style.display = 'none';
-            }
-        });
+      
 
         // ========== RENDER ==========
         renderSyllabus();

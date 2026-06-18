@@ -1,207 +1,95 @@
-<!-- Courses Section -->
+<!-- Courses Section – DYNAMIC -->
 <section id="courses" class="py-16 px-6 md:px-12 bg-gradient-to-b from-gray-50 to-white scroll-reveal">
     <div class="container mx-auto max-w-6xl text-center">
         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 section-underline pb-2">Our Premium Courses</h2>
-        
-        <!-- Initial 3 Courses (Visible by default) -->
+
+        <% 
+            // Prepare course data
+            const courses = typeof registerCourses !== 'undefined' && Array.isArray(registerCourses) 
+                ? registerCourses 
+                : [];
+            
+            // Limit for initial visible cards (first 3)
+            const initialCount = 3;
+            const initialCourses = courses.slice(0, initialCount);
+            const moreCourses = courses.slice(initialCount);
+            
+            // Fallback image if course.image is missing
+            const defaultImage = 'https://via.placeholder.com/600x400?text=Course+Image';
+        %>
+
+        <!-- Initial 3 Courses (visible by default) -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10" id="initialCourses">
-            <!-- Course 1 - Web Development -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge-new text-[10px] px-2 py-1 top-2 right-2">Popular</div>
+            <% if (initialCourses.length > 0) { %>
+                <% initialCourses.forEach(course => { %>
+                    <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
+                        <div class="course-img-wrapper h-52 overflow-hidden relative">
+                            <img src="<%= course.image || defaultImage %>" 
+                                 alt="<%= course.courseName %>" 
+                                 class="w-full h-full object-cover transition-transform duration-500">
+                            <div class="course-overlay"></div>
+                            <!-- Optional badge: you can add logic if you have a 'popular' field -->
+                            <!-- <div class="course-badge-new text-[10px] px-2 py-1 top-2 right-2">Popular</div> -->
+                        </div>
+                        <div class="p-5 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2"><%= course.courseName %></h3>
+                            <p class="text-gray-600 text-sm leading-relaxed"><%= course.courseDescription || 'No description available.' %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="col-span-full text-center py-8 text-gray-500">
+                    <p>No courses available at the moment. Please check back later.</p>
                 </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Web Development</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn HTML, CSS, JavaScript and modern frameworks like React, Angular, and Vue.js to build responsive websites and dynamic web applications.</p>
-                </div>
-            </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQGUj5p0p_iVzg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1710642350647?e=2147483647&v=beta&t=iuVzdE7wQrLcurtk_NsMU-aMRHnqUDqaCOUMOf4J-Zc" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                    <div class="course-badge-new text-[10px] px-2 py-1 top-2 right-2">Popular</div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">GEN AI</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn Generative AI, Large Language Models (LLMs), prompt engineering, AI agents, and modern AI frameworks to build intelligent applications, chatbots, and automation solutions.</p>
-                </div>
-            </div>
-            
-            <!-- Course 2 - Data Science & AI -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://www.mygreatlearning.com/blog/wp-content/uploads/2019/09/What-is-data-science-2.jpg" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Science & AI</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Master Machine Learning, Deep Learning, NLP, Computer Vision, and Generative AI to solve complex real-world problems with data-driven solutions.</p>
-                </div>
-            </div>
-            
-            <!-- Course 3 - Data Analytics -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Analytics</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Master Excel, SQL, Python, Power BI, and Tableau to analyze data, create dashboards, and drive business decisions with actionable insights.</p>
-                </div>
-            </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&h=400&fit=crop" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Data Structures & Algorithms</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Master Arrays, Linked Lists, Trees, Graphs, Dynamic Programming, and essential algorithms to crack coding interviews at top tech companies.</p>
-                </div>
-            </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://www.ducatindia.com/_next/image?url=https%3A%2F%2Fadmin.ducatindia.com%2Fblog%2F1738219178418How%20AI%20and%20Automation%20are%20Transforming%20Digital%20Marketing.png&w=640&q=75" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Digital Marketing</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn SEO, social media marketing, content marketing, email marketing, Google Ads, and analytics to create effective digital campaigns and grow online businesses.</p>
-                </div>
-            </div>
+            <% } %>
         </div>
-        
-        <!-- Hidden Courses (Visible after clicking View All) -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 hidden" id="moreCourses">
-            <!-- Course 4 - Data Structures & Algorithms -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://i.pinimg.com/736x/51/16/39/511639ed8370cb83211f49e0d8f04af2.jpg" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">C language</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn C programming, data structures, algorithms, memory management, and problem-solving techniques to build a strong foundation in software development.</p>
-                </div>
+
+        <!-- Additional Courses (hidden initially, shown on "View All") -->
+        <% if (moreCourses.length > 0) { %>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 hidden" id="moreCourses">
+                <% moreCourses.forEach(course => { %>
+                    <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
+                        <div class="course-img-wrapper h-52 overflow-hidden relative">
+                            <img src="<%= course.image || defaultImage %>" 
+                                 alt="<%= course.courseName %>" 
+                                 class="w-full h-full object-cover transition-transform duration-500">
+                            <div class="course-overlay"></div>
+                        </div>
+                        <div class="p-5 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2"><%= course.courseName %></h3>
+                            <p class="text-gray-600 text-sm leading-relaxed"><%= course.courseDescription || 'No description available.' %></p>
+                        </div>
+                    </div>
+                <% }); %>
             </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/4087150/cover_image/retina_1708x683/cover-0828_AfterAllTheseYearstheWorldisStillPoweredbyCProgramming_Razvan_Newsletter-cf788d4abd7bb87f05ef434309ed8503.png" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">C++ language</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn C++, object-oriented programming, STL, data structures, algorithms, and advanced programming concepts to develop efficient and scalable applications.</p>
-                </div>
+
+            <!-- Toggle Button -->
+            <div class="mt-10">
+                <button id="toggleCoursesBtn" class="border-2 border-[#0a2b3e] px-8 py-3 rounded-full font-semibold text-base hover:bg-[#0a2b3e] hover:text-white transition-all duration-300">
+                    View All Courses →
+                </button>
             </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://i.pinimg.com/736x/6d/16/a3/6d16a301e656ab223942728e9e293e8b.jpg" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">python langauge</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn Python, a powerful and versatile programming language, to develop software applications, automate tasks, analyze data, and build intelligent solutions. Master Python fundamentals, object-oriented programming, data structures, file handling, libraries, and modern development practices to create efficient and scalable applications.</p>
-                </div>
-            </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://i.pinimg.com/736x/bd/89/3a/bd893a529d494acb0977cf90413987f1.jpg" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">java language</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn Java, one of the most widely used programming languages, to build robust, scalable, and high-performance applications. Master object-oriented programming, data structures, collections, exception handling, multithreading, JDBC, and modern development practices to create desktop, web, and enterprise-level software solutions.</p>
-                </div>
-            </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://i.pinimg.com/736x/b7/e5/ae/b7e5ae240266427b482da70381a3d917.jpg" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">java Script languagee</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn JavaScript, the world's most popular programming language, to build interactive websites and dynamic web applications. Master ES6+ features, DOM manipulation, event handling, asynchronous programming, APIs, and modern development practices to create responsive and engaging user experiences.</p>
-                </div>
-            </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://i.pinimg.com/736x/f8/f8/ce/f8f8cec5a945d15d9d2bbc5e3fa15100.jpg" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">UI/UX DESIGN</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn user interface design, user experience principles, wireframing, prototyping, design systems, and modern design tools to create intuitive and engaging digital products.</p>
-                </div>
-            </div>
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://i.pinimg.com/736x/18/c1/fa/18c1fa6f163e4f6466e6d54ed66a0468.jpg" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Video Editing</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn video editing, motion graphics, visual effects, color correction, audio enhancement, and storytelling techniques to create professional-quality videos and digital content.</p>
-                </div>
-            </div>
-            
-            <!-- Course 5 - Cloud & DevOps -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cloud & DevOps</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn AWS, Docker, Kubernetes, Jenkins, and CI/CD pipelines to automate infrastructure, deploy scalable applications, and master DevOps practices.</p>
-                </div>
-            </div>
-            
-            <!-- Course 6 - Cybersecurity -->
-            <div class="course-card-impressive bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
-                <div class="course-img-wrapper h-52 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" class="w-full h-full object-cover transition-transform duration-500">
-                    <div class="course-overlay"></div>
-                </div>
-                <div class="p-5 flex-grow">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cybersecurity</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Learn ethical hacking, penetration testing, network security, cryptography, and risk management to protect digital assets and infrastructure.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- View All / Show Less Button -->
-        <div class="mt-10">
-            <button id="toggleCoursesBtn" class="border-2 border-[#0a2b3e] px-8 py-3 rounded-full font-semibold text-base hover:bg-[#0a2b3e] hover:text-white transition-all duration-300">View All Courses →</button>
-        </div>
+        <% } %>
     </div>
 </section>
 
+<!-- Reuse your existing styles (they are unchanged) -->
 <style>
     /* Course Card Styles - Reduced Displacement */
     .course-card-impressive {
         transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         will-change: transform;
     }
-    
     .course-card-impressive:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.12);
     }
-    
-    /* Image hover effect - subtle zoom */
     .course-img-wrapper img {
         transition: transform 0.4s ease-out;
     }
-    
     .course-card-impressive:hover .course-img-wrapper img {
         transform: scale(1.03);
     }
-    
-    /* Overlay effect - subtle */
     .course-overlay {
         position: absolute;
         top: 0;
@@ -212,35 +100,34 @@
         opacity: 0;
         transition: opacity 0.3s ease;
     }
-    
     .course-card-impressive:hover .course-overlay {
         opacity: 1;
     }
 </style>
 
 <script>
-    // Toggle functionality for View All / Show Less
+    // Toggle functionality – works with dynamic data
     document.addEventListener('DOMContentLoaded', function() {
         const initialCourses = document.getElementById('initialCourses');
         const moreCourses = document.getElementById('moreCourses');
         const toggleBtn = document.getElementById('toggleCoursesBtn');
-        
+
+        // If there are no extra courses, hide the button
+        if (moreCourses && moreCourses.children.length === 0 && toggleBtn) {
+            toggleBtn.style.display = 'none';
+        }
+
         let isExpanded = false;
-        
         if (toggleBtn) {
             toggleBtn.addEventListener('click', function() {
                 if (!isExpanded) {
-                    // Show all courses
                     moreCourses.classList.remove('hidden');
                     toggleBtn.textContent = 'Show Less Courses ↑';
                     isExpanded = true;
                 } else {
-                    // Hide extra courses
                     moreCourses.classList.add('hidden');
                     toggleBtn.textContent = 'View All Courses →';
                     isExpanded = false;
-                    
-                    // Smooth scroll back to courses section
                     document.getElementById('courses').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });

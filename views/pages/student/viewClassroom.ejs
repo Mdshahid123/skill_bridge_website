@@ -370,54 +370,11 @@
                 </div>
             </section>
 
-            <!-- ========== INQUIRY CTA ========== -->
-            <section class="py-16 bg-gradient-to-r from-amber-600 to-amber-800 text-white">
-                <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Join the Classroom Program?</h2>
-                    <p class="text-amber-100 max-w-2xl mx-auto mb-8">Get all the details about fees, schedule, and admission process.</p>
-                    <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-white text-amber-700 px-8 py-3 rounded-full font-extrabold shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-                        Request Information <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Inquiry Modal -->
-    <div id="inquiryModal" class="modal-overlay">
-        <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 relative shadow-2xl">
-            <button onclick="document.getElementById('inquiryModal').style.display='none'" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            <div class="text-center mb-5">
-                <div class="w-16 h-16 rounded-full bg-amber-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
-                    <i class="fa-regular fa-calendar-check text-white text-2xl"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-800">Classroom Program Inquiry</h2>
-                <p class="text-gray-500 text-sm">Fill in your details and we'll get back to you.</p>
-            </div>
-            <form id="classroomInquiryForm" class="space-y-4">
-                <input type="text" id="inquiryName" placeholder="Full Name *" required class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
-                <input type="email" id="inquiryEmail" placeholder="Email Address *" required class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
-                <input type="tel" id="inquiryPhone" placeholder="Phone Number *" required class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
-                <select id="inquiryBatch" class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500">
-                    <option value="">Preferred Batch (optional)</option>
-                    <option>Weekday Morning</option>
-                    <option>Weekday Evening</option>
-                    <option>Weekend Batch</option>
-                </select>
-                <textarea id="inquiryMessage" rows="3" placeholder="Any specific questions?" class="w-full px-4 py-2 border rounded-xl focus:ring-amber-500 focus:border-amber-500"></textarea>
-                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-xl font-semibold transition-all">Submit Inquiry</button>
-            </form>
-            <p class="text-center text-xs text-gray-400 mt-3">We respect your privacy. No spam.</p>
-        </div>
-    </div>
+         
+   
 
     <!-- Sticky CTA (Request Info) -->
-    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-3 transform translate-y-full transition-transform duration-300 z-40 sticky-cta">
-        <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <span class="font-extrabold text-gray-800 text-sm"><%= course.courseName %></span>
-            <button onclick="document.getElementById('inquiryModal').style.display='flex'" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-1.5 rounded-full font-extrabold text-sm shadow-lg transition-all">Request Info <i class="fa-solid fa-arrow-right ml-1"></i></button>
-        </div>
-    </div>
+  <%- include('../../partials/common/inquiry-form') %>
 
     <%- include("../../partials/common/footer") %>
 

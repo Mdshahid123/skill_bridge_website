@@ -2,17 +2,35 @@ const sendInquiryEmail = require('../../utils/sendEmails');
 const courseModel=require("../../models/coursesModel")
 const path = require("path");
 
-//show home page
+
+
 function showHomePage(req, res) {
-// ✅ Add this debug log
     console.log("=== HOME PAGE DEBUG ===");
     console.log("Session ID:", req.session.id);
     console.log("isLogin:", req.session?.isLogin);
     console.log("User:", req.session?.user);
 
- res.render("pages/student/home", {isLogin:req.session?.isLogin || false,user:req.session?.user || null});
-            
+    const isLogin = req.session?.isLogin || false;
+    const user = req.session?.user || null;
 
+    courseModel.find()
+        .then((registerCourses) => {
+            // ✅ Pass the courses to the view
+            res.render("pages/student/home", {
+                registerCourses: registerCourses,   // <-- added
+                isLogin: isLogin,
+                user: user
+            });
+        })
+        .catch((error) => {
+            console.error("Error fetching courses:", error);
+            // On error, still render with empty array
+            res.render("pages/student/home", {
+                registerCourses: [],
+                isLogin: isLogin,
+                user: user
+            });
+        });
 }
 
 //show courses - FIXED

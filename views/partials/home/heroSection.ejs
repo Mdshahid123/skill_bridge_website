@@ -142,7 +142,8 @@
                         </button>
                     </div>
                     
-                    <form id="heroAdmissionForm" action="/submitEnquery" method="POST" class="space-y-2 md:space-y-2.5">
+                    <!-- ===== FIX: added novalidate, removed required from selects ===== -->
+                    <form id="heroAdmissionForm" action="/submitEnquery" method="POST" novalidate class="space-y-2 md:space-y-2.5">
                         <div>
                             <label class="text-white text-xs font-semibold mb-0.5 block">Full Name <span class="text-red-500">*</span></label>
                             <input type="text" id="heroFullName" name="name" placeholder="Rahul Kumar" required 
@@ -161,7 +162,7 @@
                         
                         <div id="heroCourseOptions">
                             <label class="text-white text-xs font-semibold mb-0.5 block">Select Course <span class="text-red-500">*</span></label>
-                            <select id="heroCourseSelect" name="course" required class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
+                            <select id="heroCourseSelect" name="course" class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                                 <option value="" disabled selected class="text-gray-900 bg-white">Select a course</option>
                                 <option class="text-gray-900 bg-white">Web Development</option>
                                 <option class="text-gray-900 bg-white">Generative AI</option>
@@ -177,7 +178,7 @@
                         
                         <div id="heroDegreeOptions" class="hidden">
                             <label class="text-white text-xs font-semibold mb-0.5 block">Select Degree Program <span class="text-red-500">*</span></label>
-                            <select id="heroDegreeSelect" name="course" required class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
+                            <select id="heroDegreeSelect" name="course" class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                                 <option value="" disabled selected class="text-gray-900 bg-white">Select an online degree program</option>
                                 <option class="text-gray-900 bg-white">MBA</option>
                                 <option class="text-gray-900 bg-white">MCA</option>
@@ -208,7 +209,7 @@
     </div>
 </section>
 
-<!-- ====== STYLES (unchanged, but ensure responsive adjustments) ====== -->
+<!-- ====== STYLES (unchanged) ====== -->
 <style>
     /* ====== GRID PATTERN ====== */
     .hero-grid {
@@ -366,7 +367,7 @@
         });
     })();
 
-    // ==================== HERO FORM TAB LOGIC & SUBMISSION (IMPROVED) ====================
+    // ==================== HERO FORM – NOW WORKS ON BOTH TABS, ALWAYS ====================
     document.addEventListener('DOMContentLoaded', function() {
         const coursesTab = document.getElementById('heroCoursesTab');
         const degreeTab = document.getElementById('heroDegreeTab');
@@ -374,126 +375,135 @@
         const degreeOptions = document.getElementById('heroDegreeOptions');
         const heroForm = document.getElementById('heroAdmissionForm');
         
-        if (!coursesTab || !degreeTab) return;
+        if (!coursesTab || !degreeTab || !heroForm) return;
         
-        function activateTab(tabToActivate, showElement, hideElement) {
+        // DOM refs for form fields
+        const fullName = document.getElementById('heroFullName');
+        const email = document.getElementById('heroEmail');
+        const phone = document.getElementById('heroPhone');
+        const message = document.getElementById('heroMessage');
+        const courseSelect = document.getElementById('heroCourseSelect');
+        const degreeSelect = document.getElementById('heroDegreeSelect');
+        const submitBtn = heroForm.querySelector('button[type="submit"]');
+        
+        // ---- Tab switching ----
+        function activateTab(tab) {
             coursesTab.classList.remove('active');
             degreeTab.classList.remove('active');
-            tabToActivate.classList.add('active');
-            showElement.classList.remove('hidden');
-            hideElement.classList.add('hidden');
+            tab.classList.add('active');
+            
+            if (tab === coursesTab) {
+                courseOptions.classList.remove('hidden');
+                degreeOptions.classList.add('hidden');
+            } else {
+                degreeOptions.classList.remove('hidden');
+                courseOptions.classList.add('hidden');
+            }
         }
         
         coursesTab.addEventListener('click', function(e) {
             e.preventDefault();
-            activateTab(coursesTab, courseOptions, degreeOptions);
+            activateTab(coursesTab);
         });
         
         degreeTab.addEventListener('click', function(e) {
             e.preventDefault();
-            activateTab(degreeTab, degreeOptions, courseOptions);
+            activateTab(degreeTab);
         });
         
-        activateTab(coursesTab, courseOptions, degreeOptions);
+        activateTab(coursesTab); // default
         
-        // --- FORM SUBMISSION WITH ROBUST HANDLING ---
-        if (heroForm) {
-            heroForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
+        // ---- Form submission handler ----
+        async function handleSubmit(e) {
+            e.preventDefault();
+            
+            // 1. Gather values
+            const nameVal = fullName ? fullName.value.trim() : '';
+            const emailVal = email ? email.value.trim() : '';
+            const phoneVal = phone ? phone.value.trim() : '';
+            const msgVal = message ? message.value.trim() : '';
+            
+            const isCourseActive = coursesTab.classList.contains('active');
+            let courseVal = '';
+            if (isCourseActive && courseSelect) {
+                courseVal = courseSelect.value || '';
+            } else if (degreeSelect) {
+                courseVal = degreeSelect.value || '';
+            }
+            
+            // 2. Validate
+            if (!nameVal || !emailVal || !phoneVal || !courseVal) {
+                alert('⚠️ Please fill all required fields.');
+                return;
+            }
+            if (!/^\d{10}$/.test(phoneVal)) {
+                alert('⚠️ Phone number must be exactly 10 digits.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+                alert('⚠️ Please enter a valid email address.');
+                return;
+            }
+            
+            // 3. Build payload
+            const payload = {
+                name: nameVal,
+                email: emailVal,
+                phoneNumber: phoneVal,
+                course: courseVal,
+                message: msgVal
+            };
+            if (!isCourseActive) {
+                payload.degree = courseVal;
+            }
+            
+            // 4. Disable button
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            
+            try {
+                const response = await fetch('/submitEnquery', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
                 
-                // Gather fields
-                const name = document.getElementById('heroFullName')?.value.trim();
-                const email = document.getElementById('heroEmail')?.value.trim();
-                const phone = document.getElementById('heroPhone')?.value.trim();
-                const message = document.getElementById('heroMessage')?.value.trim() || '';
-                
-                const isCourseTab = coursesTab.classList.contains('active');
-                let courseValue = '';
-                if (isCourseTab) {
-                    const courseSelect = document.getElementById('heroCourseSelect');
-                    courseValue = courseSelect?.value || '';
-                } else {
-                    const degreeSelect = document.getElementById('heroDegreeSelect');
-                    courseValue = degreeSelect?.value || '';
-                }
-                
-                // Validation
-                if (!name || !email || !phone || !courseValue) {
-                    alert('⚠️ Please fill all required fields.');
-                    return;
-                }
-                
-                // Phone number length validation (10 digits)
-                if (!/^\d{10}$/.test(phone)) {
-                    alert('⚠️ Phone number must be exactly 10 digits.');
-                    return;
-                }
-                
-                // Email format validation
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    alert('⚠️ Please enter a valid email address.');
-                    return;
-                }
-                
-                // Build payload
-                const payload = { 
-                    name, 
-                    email, 
-                    phoneNumber: phone, 
-                    course: courseValue,
-                    message 
-                };
-                // If degree tab is active, also send 'degree'
-                if (!isCourseTab) {
-                    payload.degree = courseValue; // same as course for degree programs
-                }
-                
-                // Disable button and show spinner
-                const submitBtn = heroForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-                
+                let result = null;
+                let responseText = '';
                 try {
-                    const response = await fetch('/submitEnquery', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                    // Try to parse JSON response, but handle non‑JSON gracefully
-                    let result = null;
-                    let responseText = '';
-                    try {
-                        responseText = await response.text();
-                        result = JSON.parse(responseText);
-                    } catch (parseError) {
-                        // Response is not JSON – maybe HTML error page
-                        console.warn('Server returned non‑JSON:', responseText);
-                        throw new Error('Server returned an unexpected response. Please try again later.');
-                    }
-                    
-                    if (response.ok) {
-                        alert('✅ ' + (result.message || 'Inquiry sent successfully! We will contact you soon.'));
-                        heroForm.reset();
-                        document.getElementById('heroCourseSelect').value = '';
-                        document.getElementById('heroDegreeSelect').value = '';
-                        // Switch back to Courses tab
-                        activateTab(coursesTab, courseOptions, degreeOptions);
-                    } else {
-                        // Server responded with error status (e.g., 400, 500)
-                        const errorMsg = result?.error || result?.message || 'Submission failed. Please try again.';
-                        alert('❌ ' + errorMsg);
-                    }
-                } catch (error) {
-                    console.error('Submission error:', error);
-                    alert('❌ ' + (error.message || 'Something went wrong. Please check your network and try again.'));
-                } finally {
-                    // Re‑enable button
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
+                    responseText = await response.text();
+                    result = JSON.parse(responseText);
+                } catch (_) {
+                    console.warn('Non-JSON response:', responseText);
+                    throw new Error('Server returned an unexpected response. Please try again later.');
                 }
-            });
+                
+                if (response.ok) {
+                    alert('✅ ' + (result.message || 'Inquiry sent successfully! We will contact you soon.'));
+                    // Reset fields
+                    if (fullName) fullName.value = '';
+                    if (email) email.value = '';
+                    if (phone) phone.value = '';
+                    if (message) message.value = '';
+                    if (courseSelect) courseSelect.value = '';
+                    if (degreeSelect) degreeSelect.value = '';
+                    // Keep the current tab active (no forced switch)
+                } else {
+                    const errorMsg = result?.error || result?.message || 'Submission failed. Please try again.';
+                    alert('❌ ' + errorMsg);
+                }
+            } catch (err) {
+                console.error('Submission error:', err);
+                alert('❌ ' + (err.message || 'Something went wrong. Please check your network and try again.'));
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         }
+        
+        // Attach the event handler (safe to call multiple times)
+        heroForm.removeEventListener('submit', handleSubmit);
+        heroForm.addEventListener('submit', handleSubmit);
     });
 </script>
