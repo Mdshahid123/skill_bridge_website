@@ -31,14 +31,14 @@ function showCourses(req, res) {
 
 // view course details
 async function viewCourseDetails(req, res) {
-    console.log(req.params)
-     const isLogin=req.session?.isLogin || false
-    const user=req.session?.user || null
+     console.log(req.params)
+      const isLogin=req.session?.isLogin || false
+      const user=req.session?.user || null
     try {
         const courseName= req.params.courseId;
         
         const course = await courseModel.findOne({
-            courseName: courseName
+            _id: courseName
         });
         
         if (!course) {
@@ -194,6 +194,102 @@ async function getCoursesByCategory(req, res) {
 }
 
 
+
+// ========== VIEW CLASSROOM PROGRAM DETAILS ==========
+async function viewClassroomDetails(req, res) {
+    console.log("📚 viewClassroomDetails called with params:", req.params);
+    const isLogin = req.session?.isLogin || false;
+    const user = req.session?.user || null;
+    
+    try {
+        const courseId = req.params.courseId;
+        
+        const course = await courseModel.findOne({
+            $or: [
+                { _id: courseId },
+                { courseName: courseId }
+            ]
+        });
+        
+        if (!course) {
+            // If you have a 404.ejs view, use: res.status(404).render('pages/student/404', { message: 'Classroom program not found', isLogin, user });
+            // Otherwise, send a simple error message.
+            res.status(404).render('pages/student/404', { message: 'Classroom program not found', isLogin, user });
+        }
+        
+        const classroomCourse = {
+            ...course.toObject(),
+            mode: 'classroom',
+            price: course.classroomPrice || 45000,
+            originalPrice: course.classroomOriginalPrice || 65000,
+            duration: course.classroomDuration || course.duration || 6,
+            description: course.classroomDescription || course.courseDescription,
+            features: [
+                'On‑Campus Learning',
+                'Group Collaboration',
+                'Lab Access',
+                'Instructor‑led Sessions'
+            ]
+        };
+        
+        res.render('pages/student/viewClassroom', { 
+            course: classroomCourse,
+            isLogin,
+            user
+        });
+        
+    } catch (error) {
+        console.error('Error loading classroom program:', error);
+        res.status(500).send('Unable to load classroom program details');
+    }
+}
+
+// ========== VIEW ONLINE LIVE PROGRAM DETAILS ==========
+async function viewOnlineDetails(req, res) {
+    console.log("💻 viewOnlineDetails called with params:", req.params);
+    const isLogin = req.session?.isLogin || false;
+    const user = req.session?.user || null;
+    
+    try {
+        const courseId = req.params.courseId;
+        
+        const course = await courseModel.findOne({
+            $or: [
+                { _id: courseId },
+                { courseName: courseId }
+            ]
+        });
+        
+        if (!course) {
+            return res.status(404).send('Online live program not found');
+        }
+        
+        const onlineCourse = {
+            ...course.toObject(),
+            mode: 'online',
+            price: course.onlinePrice || 35000,
+            originalPrice: course.onlineOriginalPrice || 55000,
+            duration: course.onlineDuration || course.duration || 6,
+            description: course.onlineDescription || course.courseDescription,
+            features: [
+                'Live Interactive Classes',
+                'Flexible Timing',
+                'Recorded Backup',
+                'Virtual Access'
+            ]
+        };
+        
+        res.render('pages/student/viewOnline', { 
+            course: onlineCourse,
+            isLogin,
+            user
+        });
+        
+    } catch (error) {
+        console.error('Error loading online live program:', error);
+        res.status(500).send('Unable to load online live program details');
+    }
+}
 module.exports = {
     viewCourseDetails,
     showHomePage,
@@ -203,5 +299,7 @@ module.exports = {
     showAboutPage,
     showContactPage,
     searchCoursesAPI,
-    getCoursesByCategory
+    getCoursesByCategory,
+    viewClassroomDetails,   
+    viewOnlineDetails, 
 }

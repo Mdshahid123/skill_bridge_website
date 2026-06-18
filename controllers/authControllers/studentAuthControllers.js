@@ -5,7 +5,6 @@ const bcrypt = require("bcryptjs")
 //--------- login related routes----------------------//
 
 // get login 
-
 function getLogin(req,res){
      res.render("pages/auth/student/login")
 }
@@ -14,6 +13,7 @@ function getLogin(req,res){
 // Submit login handler
 async function submitLogin(req, res) {
     const { email, password } = req.body;
+    console.log("login",req.body)
 
     try {
         const existingUser = await user.findOne({ email });
@@ -69,7 +69,6 @@ async function submitLogin(req, res) {
             console.log("✅ Session created successfully!");
             console.log("Session ID:", req.session.id);
             console.log("User data stored:", req.session.user);
-
             res.redirect("/");
         });
 

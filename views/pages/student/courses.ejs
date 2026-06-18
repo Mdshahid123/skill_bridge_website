@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>All Courses – SkillBridge | IT & Tech Training</title>
-    <meta name="description" content="Explore 30+ industry‑relevant courses: Web Development, Data Science, Digital Marketing, Cloud Computing, DSA, and more. Enroll now for placement assistance.">
-    <meta name="keywords" content="IT courses, tech training, web development course, data science course, digital marketing course, placement assistance">
-    <meta name="author" content="Skill Bridge">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.skillbridge.com/courses">
-    <meta property="og:title" content="Skill Bridge Courses – Learn from Industry Experts">
-    <meta property="og:description" content="Browse all our courses – from beginner to advanced. Get certified and job‑ready.">
-    <meta property="og:image" content="https://www.skillbridge.com/og-courses.jpg">
-    <meta property="og:url" content="https://www.skillbridge.com/courses">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Skill Bridge Course Catalog">
-    <meta name="twitter:description" content="Join thousands of students learning high‑demand tech skills.">
+    <meta name="description" content="Explore 30+ industry‑relevant courses: Web Development, Data Science, Digital Marketing, Cloud Computing, DSA, and more. Enroll now for placement assistance." />
+    <meta name="keywords" content="IT courses, tech training, web development course, data science course, digital marketing course, placement assistance" />
+    <meta name="author" content="Skill Bridge" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.skillbridge.com/courses" />
+    <meta property="og:title" content="Skill Bridge Courses – Learn from Industry Experts" />
+    <meta property="og:description" content="Browse all our courses – from beginner to advanced. Get certified and job‑ready." />
+    <meta property="og:image" content="https://www.skillbridge.com/og-courses.jpg" />
+    <meta property="og:url" content="https://www.skillbridge.com/courses" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Skill Bridge Course Catalog" />
+    <meta name="twitter:description" content="Join thousands of students learning high‑demand tech skills." />
 
     <!-- Schema.org – ItemList (courses) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Skill Bridge Courses",
-      "url": "https://www.skillbridge.com/courses",
-      "numberOfItems": 30
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Skill Bridge Courses",
+            "url": "https://www.skillbridge.com/courses",
+            "numberOfItems": 30
+        }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <style>
-        /* ========== GLOBAL RESET ========== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,
+        body {
             overflow-x: hidden;
             width: 100%;
             max-width: 100%;
@@ -46,75 +51,180 @@
             color: #1e293b;
         }
 
-        /* ========== HERO SECTION ========== */
-        .hero-glow {
-            background: linear-gradient(135deg, #e6f4f5 0%, #d4eef2 50%, #c2e8ef 100%);
+        /* ====== HERO – TEAL/CYAN THEME WITH GRID & PARTICLES ====== */
+        .hero-courses {
+            background: linear-gradient(145deg, #d4eef2, #b2dfe8, #80c4d4);
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .hero-glow::before {
-            content: '';
+        .hero-grid {
+            background-image:
+                repeating-linear-gradient(90deg, rgba(10, 73, 88, 0.12) 0px, rgba(10, 73, 88, 0.12) 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, rgba(10, 73, 88, 0.12) 0px, rgba(10, 73, 88, 0.12) 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+            animation: gridMove 8s linear infinite;
+        }
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        .particle {
             position: absolute;
-            top: -30%;
-            left: -30%;
-            width: 160%;
-            height: 160%;
-            background: radial-gradient(circle, rgba(6,182,212,0.12), transparent 70%);
-            animation: slowPulse 15s infinite alternate;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
             pointer-events: none;
+            animation: floatParticle 6s ease-in-out infinite;
         }
-        @keyframes slowPulse {
-            0% { opacity: 0.3; transform: scale(1);}
-            100% { opacity: 0.8; transform: scale(1.08);}
+        .particle:nth-child(1) {
+            width: 12px;
+            height: 12px;
+            top: 10%;
+            left: 5%;
+            animation-duration: 7s;
         }
-        .brand-grid {
-            background-image: repeating-linear-gradient(90deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 60px),
-                              repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 60px);
-            background-size: 60px 60px;
+        .particle:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            top: 60%;
+            left: 85%;
+            animation-duration: 9s;
+            animation-delay: 1s;
         }
-        .glow-text {
-            text-shadow: 0 4px 20px rgba(6,182,212,0.2);
-            letter-spacing: -0.01em;
+        .particle:nth-child(3) {
+            width: 8px;
+            height: 8px;
+            top: 30%;
+            left: 75%;
+            animation-duration: 5s;
+            animation-delay: 2s;
+        }
+        .particle:nth-child(4) {
+            width: 16px;
+            height: 16px;
+            top: 80%;
+            left: 15%;
+            animation-duration: 8s;
+            animation-delay: 0.5s;
+        }
+        .particle:nth-child(5) {
+            width: 10px;
+            height: 10px;
+            top: 20%;
+            left: 45%;
+            animation-duration: 6.5s;
+            animation-delay: 1.5s;
+        }
+        .particle:nth-child(6) {
+            width: 25px;
+            height: 25px;
+            top: 50%;
+            left: 50%;
+            animation-duration: 10s;
+            animation-delay: 3s;
+            opacity: 0.1;
+        }
+        @keyframes floatParticle {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.4;
+            }
+            25% {
+                transform: translate(30px, -20px) scale(1.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(-10px, -40px) scale(0.9);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translate(20px, -15px) scale(1.05);
+                opacity: 0.7;
+            }
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: pulseOrb 4s ease-in-out infinite;
+        }
+        .glow-orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            right: -50px;
+            background: rgba(6, 182, 212, 0.25);
+            animation-delay: 0s;
+        }
+        .glow-orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -30px;
+            left: 10%;
+            background: rgba(45, 212, 191, 0.3);
+            animation-delay: 2s;
+        }
+        @keyframes pulseOrb {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.9;
+            }
         }
 
-        /* ========== COURSE CARD ========== */
+        /* ====== COURSE CARDS ====== */
         .course-card {
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            background: #ffffff;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-radius: 1rem;
         }
         .course-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 25px 30px -12px rgba(0,0,0,0.12);
-            border-color: rgba(6,182,212,0.3);
+            box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.12);
+            border-color: rgba(6, 182, 212, 0.3);
         }
-
-        /* Feature badges */
         .feature-badge {
             background: #f0f9ff;
             color: #0c4e6e;
-            padding: 4px 10px;
+            padding: 6px 12px;
             font-weight: 600;
             border-radius: 40px;
-            font-size: 11px;
+            font-size: 12px;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+        }
+        .image-container {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 1rem 1rem 0 0;
+        }
+        @media (min-width: 768px) {
+            .image-container {
+                height: 220px;
+            }
+        }
+        @media (max-width: 640px) {
+            .image-container {
+                height: 180px;
+            }
         }
 
-        /* Dropdown */
-        .category-option {
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        .category-option:hover {
-            background: #e2f0f5;
-            transform: translateX(4px);
-        }
-
-        /* ========== MODAL STYLES ========== */
+        /* ====== MODAL ====== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -122,7 +232,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.75);
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(8px);
             z-index: 1000;
             justify-content: center;
@@ -135,12 +245,18 @@
             max-width: 90%;
             width: 500px;
             position: relative;
-            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.3);
             animation: modalFadeIn 0.3s ease;
         }
         @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         .modal-close {
             position: absolute;
@@ -155,353 +271,217 @@
             color: #1f2937;
         }
 
-        /* Filter tags animation */
-        .filter-tag {
-            animation: tagPop 0.2s ease-out;
-        }
-        @keyframes tagPop {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        /* Reduced hero and card heights */
-        .hero-reduced {
-            padding-top: 5rem; /* was pt-28 (7rem) */
-            padding-bottom: 3rem; /* was pb-16 (4rem) */
-        }
-        .card-image {
-            height: 180px; /* was h-52 (208px) */
-        }
-        .card-padding {
-            padding: 1.25rem; /* was p-6 (1.5rem) */
-        }
-        @media (max-width: 640px) {
-            .container { padding-left: 1rem; padding-right: 1rem; }
-            #categoryDropdownMenu { width: calc(100vw - 2rem); max-width: 320px; left: 1rem; right: 1rem; }
-            .course-modal { width: 90%; padding: 1.25rem; }
-            .hero-reduced {
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .hero-courses {
                 padding-top: 4rem;
-                padding-bottom: 2rem;
-            }
-            .card-image {
-                height: 160px;
+                padding-bottom: 3rem;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- nav bar (included via EJS) -->
-<%- include("../../partials/common/navbar.ejs") %>
+    <%- include("../../partials/common/navbar.ejs") %>
 
-<!-- Hero Section (reduced height) -->
-<div class="hero-glow hero-reduced relative">
-    <div class="absolute inset-0 opacity-[0.04] brand-grid pointer-events-none"></div>
-    <div class="absolute top-20 right-10 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-10 left-10 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
-    
-    <div class="container mx-auto px-6 relative z-20">
-        <div class="breadcrumb text-sm mb-3">
-            <a href="/" class="text-teal-700/80 hover:text-teal-900">Home</a>
-            <span class="text-gray-500 mx-2">/</span>
-            <span class="text-gray-800 font-semibold">Courses</span>
-        </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-3 glow-text tracking-tight">All Premium Courses</h1>
-       <br>
-        
-        <div class="max-w-4xl mx-auto mb-5">
-            <div class="flex flex-col sm:flex-row gap-3 items-center justify-center">
-                <div class="relative flex-1 max-w-md">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm"></i>
-                    <input type="text" id="courseSearchInput" placeholder="Search courses by name, category, or skill..." class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white/90 shadow-sm focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 text-gray-800 font-medium">
-                </div>
-                
-                <div class="relative" style="z-index: 100;">
-                    <button id="categoryDropdownBtn" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-gray-200 text-gray-800 font-semibold shadow-sm hover:border-cyan-500 hover:text-cyan-700 transition-all">
-                        <i class="fa-solid fa-filter text-cyan-600"></i>
-                        <span id="selectedCategoryText">All Categories</span>
-                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
-                    </button>
-                </div>
-                
-                <button id="resetFiltersBtn" class="px-5 py-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold transition-all flex items-center gap-2 shadow-sm"><i class="fa-solid fa-rotate-right text-sm"></i> Reset</button>
-            </div>
-            <div id="activeFiltersContainer" class="flex flex-wrap gap-2 justify-center mt-3 min-h-[30px]"></div>
-        </div>
-        <p class="text-gray-700 text-center font-medium" id="resultsCount">Showing 0 courses</p>
-    </div>
-</div>
-
-<!-- Courses Grid Section – 3 cards per row (reduced card size) -->
-<section class="py-12 px-6 md:px-12 bg-transparent">
-    <div class="container mx-auto max-w-7xl px-2 md:px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="coursesGridContainer">
-            <!-- Courses will be dynamically loaded -->
-        </div>
-        <div id="noResultsMessage" class="text-center py-12 hidden">
-            <i class="fa-regular fa-folder-open text-6xl text-gray-400 mb-4"></i>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">No courses found</h3>
-            <p class="text-gray-600">Try adjusting your search or filter criteria</p>
-            <button id="clearAllFiltersBtn" class="mt-4 px-6 py-2.5 bg-cyan-600 text-white rounded-xl text-sm font-bold hover:bg-cyan-700 transition-all shadow-md">Clear all filters</button>
-        </div>
-    </div>
-</section>
-
-<!-- Enrollment Modal (unchanged) -->
-<div id="enrollModal" class="modal-overlay">
-    <div class="course-modal">
-        <div class="modal-close" id="closeEnrollModal">&times;</div>
-        <div class="text-center mb-6">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-700 to-blue-800 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <i class="fa-solid fa-graduation-cap text-white text-2xl"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-900">Start Your Journey</h2>
-            <p class="text-gray-600 text-sm mt-1">Fill the form to get a free counseling session</p>
-        </div>
-        <form id="enrollmentForm" class="space-y-4">
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
-                <input type="text" id="fullName" required class="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 font-medium" placeholder="Enter your full name">
-            </div>
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Email Address *</label>
-                <input type="email" id="email" required class="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:border-cyan-500" placeholder="you@example.com">
-            </div>
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
-                <input type="tel" id="phone" required class="w-full px-4 py-2.5 border border-gray-200 rounded-xl" placeholder="+91 98765 43210">
-            </div>
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Interested Course</label>
-                <select id="courseSelect" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl">
-                    <option value="">Select a course</option>
-                    <option>Web Development</option>
-                    <option>Data Science & AI</option>
-                    <option>Cloud & DevOps</option>
-                    <option>Data Structures & Algorithms</option>
-                    <option>Cybersecurity</option>
-                    <option>Digital Marketing</option>
-                    <option>UI/UX Design</option>
-                    <option>Blockchain Development</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Message (Optional)</label>
-                <textarea id="message" rows="2" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl" placeholder="Any specific questions?"></textarea>
-            </div>
-            <button type="submit" class="w-full bg-gradient-to-r from-cyan-700 to-blue-800 text-white py-3 rounded-xl font-bold text-base transition-all hover:shadow-lg">Submit Application <i class="fa-solid fa-arrow-right ml-2"></i></button>
-        </form>
-        <p class="text-center text-xs text-gray-500 mt-4">We'll contact you within 24 hours. No spam, guaranteed.</p>
-    </div>
-</div>
-
-<%- include("../../partials/common/footer") %>
-
-<script>
-    // ==================== SERVER-PASSED COURSES DATA ====================
-    const allCourses = <%- JSON.stringify(registerCourses) %> || [];
-    let currentCategory = "all";
-    let currentSearchTerm = "";
-
-    const categoryNames = {
-        all: "All Categories",
-        development: "Web Development",
-        data: "Data Science",
-        analyst: "Data Analyst",
-        dsa: "DSA",
-        placement: "Placement Preparation",
-        marketing: "Digital Marketing",
-        design: "UI/UX Design",
-        cloud: "Cloud & DevOps",
-        programming: "Programming Languages",
-        cyber: "Cybersecurity",
-        ai: "Artificial Intelligence",
-        mobile: "Mobile Development",
-        blockchain: "Blockchain"
-    };
-
-    const searchInput = document.getElementById('courseSearchInput');
-    const dropdownBtn = document.getElementById('categoryDropdownBtn');
-    const dropdownMenu = document.getElementById('categoryDropdownMenu');
-    const selectedCategoryText = document.getElementById('selectedCategoryText');
-    const resetBtn = document.getElementById('resetFiltersBtn');
-    const resultsCount = document.getElementById('resultsCount');
-    const activeFiltersContainer = document.getElementById('activeFiltersContainer');
-    const coursesGridContainer = document.getElementById('coursesGridContainer');
-    const noResultsMessage = document.getElementById('noResultsMessage');
-    const clearAllFiltersBtn = document.getElementById('clearAllFiltersBtn');
-
-    function calculateDiscount(price, originalPrice) {
-        if (!originalPrice || originalPrice <= price) return 0;
-        return Math.round(((originalPrice - price) / originalPrice) * 100);
-    }
-
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
-    }
-
-    function renderCourses() {
-        let filtered = [...allCourses];
-        if (currentCategory !== "all") {
-            filtered = filtered.filter(c => c.category === currentCategory);
-        }
-        if (currentSearchTerm.trim()) {
-            const term = currentSearchTerm.toLowerCase();
-            filtered = filtered.filter(c =>
-                (c.courseName?.toLowerCase().includes(term)) ||
-                (categoryNames[c.category]?.toLowerCase().includes(term)) ||
-                (c.level?.toLowerCase().includes(term)) ||
-                (c.courseDescription?.toLowerCase().includes(term))
-            );
-        }
-        resultsCount.textContent = `Showing ${filtered.length} premium courses`;
-        if (filtered.length === 0) {
-            coursesGridContainer.innerHTML = '';
-            noResultsMessage.classList.remove('hidden');
-            return;
-        }
-        noResultsMessage.classList.add('hidden');
-        
-        coursesGridContainer.innerHTML = filtered.map(c => `
-            <div class="course-card bg-white rounded-2xl overflow-hidden flex flex-col h-full">
-                <div class="relative card-image overflow-hidden bg-gray-100">
-                    <img src="${c.image || 'https://via.placeholder.com/600x400?text=No+Image'}" alt="${escapeHtml(c.courseName)}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-                </div>
-                <div class="card-padding flex flex-col flex-grow">
-                    <h3 class="text-lg font-bold text-gray-900 mb-1.5 tracking-tight">${escapeHtml(c.courseName)}</h3>
-                    <p class="text-gray-700 text-sm font-medium mb-3 leading-relaxed line-clamp-2">${escapeHtml(c.courseDescription || c.description || 'No description available')}</p>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="feature-badge"><i class="fa-solid fa-briefcase"></i> Assured Placement</span>
-                        <span class="feature-badge"><i class="fa-solid fa-chart-line"></i> Live Projects</span>
-                        <span class="feature-badge"><i class="fa-regular fa-certificate"></i> Certificate</span>
+        <!-- ========== HERO – TEAL/CYAN THEME WITH ANIMATED GRID & PARTICLES ========== -->
+        <div class="hero-courses pt-24 pb-16 relative">
+            <!-- Animated Grid -->
+            <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+            <!-- Glowing Orbs -->
+            <div class="glow-orb"></div>
+            <div class="glow-orb"></div>
+            <!-- Floating Particles -->
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <div class="breadcrumb text-sm mb-4 text-teal-800/80">
+                        <a href="/" class="text-teal-700/80 hover:text-teal-900">Home</a>
+                        <span class="text-teal-700/40 mx-2">/</span>
+                        <span class="text-teal-800 font-semibold">Courses</span>
                     </div>
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center gap-2 text-xs text-gray-700 font-medium"><i class="fa-regular fa-clock"></i> ${c.duration || 'N/A'} Months</div>
-                        <div class="flex items-center gap-2 text-xs text-gray-700 font-medium"><i class="fa-regular fa-user"></i> ${Math.floor(Math.random() * 5000) + 500}+ students</div>
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <div><span class="text-2xl font-bold text-cyan-700">₹${c.price}</span><span class="text-xs text-gray-400 line-through ml-2">₹${c.originalPrice}</span><span class="text-xs font-semibold text-green-600 ml-2">${calculateDiscount(c.price, c.originalPrice)}% off</span></div>
-                        <span class="text-xs font-semibold bg-gray-200 px-2 py-1 rounded-full text-gray-800">${c.level || 'Beginner'}</span>
-                    </div>
-                    <div class="flex gap-2 mt-auto">
-                        <a href="/viewCourse/${c.courseName}" class="flex-1 bg-gradient-to-r from-cyan-700 to-blue-800 hover:from-cyan-800 hover:to-blue-900 text-white text-center py-2 rounded-xl font-semibold text-sm transition-all shadow-md hover:shadow-lg">View Details</a>
-                        <button onclick="downloadBrochure('${escapeHtml(c.courseName)}')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-xl hover:bg-cyan-50 transition-all font-semibold flex items-center gap-2 text-sm"><i class="fa-regular fa-file-pdf"></i> Brochure</button>
-                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                        All Premium <br />
+                        <span class="text-teal-600">Courses</span>
+                    </h1>
+                    <p class="text-gray-700 text-base md:text-lg max-w-2xl mx-auto mt-4">
+                        Explore our industry‑ready courses, organized by category with multiple learning modes.
+                    </p>
                 </div>
             </div>
-        `).join('');
-    }
+        </div>
 
-    function updateActiveFilters() {
-        activeFiltersContainer.innerHTML = "";
-        if (currentCategory !== "all") {
-            const tag = document.createElement('div');
-            tag.className = "filter-tag inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-100 text-cyan-800 text-sm font-semibold shadow-sm";
-            tag.innerHTML = `<i class="fa-regular fa-filter-circle-xmark text-cyan-700 text-xs"></i> Category: ${categoryNames[currentCategory]} <button class="remove-category-filter ml-1 w-4 h-4 rounded-full hover:bg-cyan-200 flex items-center justify-center"><i class="fa-solid fa-xmark text-[9px]"></i></button>`;
-            tag.querySelector('.remove-category-filter').onclick = () => {
-                currentCategory = "all";
-                selectedCategoryText.textContent = "All Categories";
-                updateActiveFilters();
-                renderCourses();
-            };
-            activeFiltersContainer.appendChild(tag);
-        }
-        if (currentSearchTerm.trim()) {
-            const tag = document.createElement('div');
-            tag.className = "filter-tag inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-100 text-cyan-800 text-sm font-semibold";
-            tag.innerHTML = `<i class="fa-regular fa-filter-circle-xmark text-cyan-700"></i> Search: "${currentSearchTerm.length > 15 ? currentSearchTerm.substring(0,15)+'...' : currentSearchTerm}" <button class="remove-search-filter ml-1 w-4 h-4 rounded-full hover:bg-cyan-200 flex items-center justify-center"><i class="fa-solid fa-xmark text-[9px]"></i></button>`;
-            tag.querySelector('.remove-search-filter').onclick = () => {
-                searchInput.value = "";
-                currentSearchTerm = "";
-                updateActiveFilters();
-                renderCourses();
-            };
-            activeFiltersContainer.appendChild(tag);
-        }
-        if (currentCategory === "all" && !currentSearchTerm.trim()) {
-            const noFiltersDiv = document.createElement('div');
-            noFiltersDiv.className = "text-sm text-gray-500 font-medium";
-            noFiltersDiv.innerHTML = '<i class="fa-regular fa-sliders-up mr-1"></i> No active filters';
-            activeFiltersContainer.appendChild(noFiltersDiv);
-        }
-    }
+        <!-- Courses Grid – Grouped by Category, 3 cards per row (Classroom, Online, Recorded) -->
+        <section class="py-12 px-6 md:px-12 bg-transparent">
+            <div class="container mx-auto max-w-7xl px-2 md:px-4">
+                <%
+                    // Group courses by category
+                    const categories = {};
+                    if (registerCourses && registerCourses.length > 0) {
+                        registerCourses.forEach(course => {
+                            const cat = course.category || 'Uncategorized';
+                            if (!categories[cat]) categories[cat] = [];
+                            categories[cat].push(course);
+                        });
+                    }
+                    // Sort category keys
+                    const sortedCategories = Object.keys(categories).sort();
+                    // If no courses, show fallback message
+                    if (sortedCategories.length === 0) {
+                %>
+                    <div class="text-center py-16">
+                        <i class="fa-regular fa-folder-open text-6xl text-gray-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">No courses found</h3>
+                        <p class="text-gray-600">Please check back later for new courses.</p>
+                    </div>
+                    <%
+                        } else {
+                            // Define display names for categories (matching courseCatogry style)
+                            const categoryDisplayNames = {
+                                'frontend development': 'Frontend Development',
+                                'backend development': 'Backend Development',
+                                'react.js': 'React.js',
+                                'full stack mern': 'Full Stack MERN',
+                                'php': 'PHP',
+                                'java': 'Java',
+                                'python': 'Python',
+                                'wordpress': 'WordPress',
+                                'data science': 'Data Science',
+                                'data analytics': 'Data Analytics',
+                                'ai ml': 'AI/ML',
+                                'digital marketing': 'Digital Marketing',
+                                'dsa': 'DSA'
+                            };
+                            // Loop over each category
+                            sortedCategories.forEach(cat => {
+                                const coursesInCat = categories[cat];
+                                const firstCourse = coursesInCat[0];
+                                const displayName = categoryDisplayNames[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+                                const defaultImg = firstCourse && firstCourse.image ? firstCourse.image : 'https://via.placeholder.com/600x400?text=No+Image';
+                                const defaultName = firstCourse ? firstCourse.courseName : displayName;
+                                const courseId = firstCourse ? firstCourse._id : '';
+                    %>
+                    <!-- Category Row -->
+                    <div class="mb-12">
+                        <!-- Category Heading – centered -->
+                        <div class="text-center mb-6">
+                            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900"><%= displayName %></h2>
+                            <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full inline-block mt-1"><%= coursesInCat.length %> courses</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            <!-- Classroom Card -->
+                            <div class="course-card rounded-xl overflow-hidden border-l-4 border-l-amber-500">
+                                <div class="image-container relative">
+                                    <img src="<%= defaultImg %>" alt="<%= displayName %> Classroom" class="w-full h-full object-cover" />
+                                    <div class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">Classroom</div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2"><%= displayName %> – Classroom</h3>
+                                    <div class="mb-3"><span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Classroom</span></div>
+                                    <p class="text-gray-700 text-sm mb-3 leading-relaxed">Instructor‑led classroom training with hands‑on projects, peer collaboration, and campus placement support.</p>
+                                    <div class="flex flex-col gap-1.5 mb-3">
+                                        <span class="feature-badge"><i class="fa-solid fa-chalkboard-user"></i> On‑Campus</span>
+                                        <span class="feature-badge"><i class="fa-solid fa-users"></i> Group Learning</span>
+                                        <span class="feature-badge"><i class="fa-regular fa-building"></i> Lab Access</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1 mb-3 text-sm text-gray-700">
+                                        <span><i class="fa-regular fa-clock w-4"></i> 6 Months</span>
+                                        <span><i class="fa-regular fa-user w-4"></i> Limited Seats</span>
+                                        <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
+                                    </div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div><span class="text-2xl font-bold text-amber-700">₹45,000</span><span class="text-sm text-gray-400 line-through ml-2">₹65,000</span><span class="text-sm font-semibold text-green-600 ml-2">31% off</span></div>
+                                        <span class="text-xs font-semibold bg-amber-100 px-2 py-1 rounded-full text-amber-800">Classroom</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="/viewClassroom/<%= courseId %>" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md inline-block">View Details</a>
+                                        <button onclick="downloadBrochure('<%= displayName %> Classroom')" class="px-3 py-2 border-2 border-amber-600 text-amber-700 rounded-lg hover:bg-amber-50 transition-all text-sm flex items-center gap-2 font-semibold"><i class="fa-regular fa-file-pdf"></i> Download Brochure</button>
+                                    </div>
+                                </div>
+                            </div>
 
-    // Dropdown toggle
-    dropdownBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        dropdownMenu.classList.toggle('hidden');
-        const chevron = dropdownBtn.querySelector('.fa-chevron-down');
-        chevron.style.transform = dropdownMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-    });
-    document.addEventListener('click', (e) => {
-        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.add('hidden');
-            const chevron = dropdownBtn.querySelector('.fa-chevron-down');
-            chevron.style.transform = 'rotate(0deg)';
-        }
-    });
+                            <!-- Online Live Card -->
+                            <div class="course-card rounded-xl overflow-hidden border-l-4 border-l-cyan-500">
+                                <div class="image-container relative">
+                                    <img src="<%= defaultImg %>" alt="<%= displayName %> Online Live" class="w-full h-full object-cover" />
+                                    <div class="absolute top-3 left-3 bg-cyan-500 text-white text-xs font-bold px-2 py-1 rounded-full">Online Live</div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2"><%= displayName %> – Online Live</h3>
+                                    <div class="mb-3"><span class="inline-block bg-cyan-100 text-cyan-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Online Live</span></div>
+                                    <p class="text-gray-700 text-sm mb-3 leading-relaxed">Live interactive classes from anywhere. Industry mentors, real‑time doubt solving, and recorded sessions.</p>
+                                    <div class="flex flex-col gap-1.5 mb-3">
+                                        <span class="feature-badge"><i class="fa-solid fa-video"></i> Live Classes</span>
+                                        <span class="feature-badge"><i class="fa-regular fa-clock"></i> Flexible Timing</span>
+                                        <span class="feature-badge"><i class="fa-solid fa-cloud-arrow-up"></i> Recorded Backup</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1 mb-3 text-sm text-gray-700">
+                                        <span><i class="fa-regular fa-clock w-4"></i> 6 Months</span>
+                                        <span><i class="fa-regular fa-user w-4"></i> Unlimited Access</span>
+                                        <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
+                                    </div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div><span class="text-2xl font-bold text-cyan-700">₹35,000</span><span class="text-sm text-gray-400 line-through ml-2">₹55,000</span><span class="text-sm font-semibold text-green-600 ml-2">36% off</span></div>
+                                        <span class="text-xs font-semibold bg-cyan-100 px-2 py-1 rounded-full text-cyan-800">Online</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="/viewOnline/<%= courseId %>" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md inline-block">View Details</a>
+                                        <button onclick="downloadBrochure('<%= displayName %> Online Live')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-lg hover:bg-cyan-50 transition-all text-sm flex items-center gap-2 font-semibold"><i class="fa-regular fa-file-pdf"></i> Download Brochure</button>
+                                    </div>
+                                </div>
+                            </div>
 
-    document.querySelectorAll('.category-option').forEach(opt => {
-        opt.addEventListener('click', () => {
-            const category = opt.dataset.category;
-            const displayName = opt.querySelector('span:last-child')?.textContent || categoryNames[category];
-            currentCategory = category;
-            selectedCategoryText.textContent = displayName;
-            dropdownMenu.classList.add('hidden');
-            updateActiveFilters();
-            renderCourses();
-        });
-    });
+                            <!-- Recorded Card -->
+                            <div class="course-card rounded-xl overflow-hidden border-l-4 border-l-purple-500">
+                                <div class="image-container relative">
+                                    <img src="<%= defaultImg %>" alt="<%= displayName %> Recorded" class="w-full h-full object-cover" />
+                                    <div class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">Recorded</div>
+                                </div>
+                                <div class="p-5 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2"><%= displayName %> – Recorded</h3>
+                                    <div class="mb-3"><span class="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Recorded</span></div>
+                                    <p class="text-gray-700 text-sm mb-3 leading-relaxed">Self‑paced recorded lectures with lifetime access. Learn at your own pace with downloadable resources.</p>
+                                    <div class="flex flex-col gap-1.5 mb-3">
+                                        <span class="feature-badge"><i class="fa-regular fa-clock"></i> Self‑Paced</span>
+                                        <span class="feature-badge"><i class="fa-solid fa-cloud-arrow-up"></i> Lifetime Access</span>
+                                        <span class="feature-badge"><i class="fa-regular fa-certificate"></i> Certificate</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1 mb-3 text-sm text-gray-700">
+                                        <span><i class="fa-regular fa-clock w-4"></i> 6 Months</span>
+                                        <span><i class="fa-regular fa-user w-4"></i> Unlimited Access</span>
+                                        <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
+                                    </div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div><span class="text-2xl font-bold text-purple-700">₹25,000</span><span class="text-sm text-gray-400 line-through ml-2">₹45,000</span><span class="text-sm font-semibold text-green-600 ml-2">44% off</span></div>
+                                        <span class="text-xs font-semibold bg-purple-100 px-2 py-1 rounded-full text-purple-800">Recorded</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="/viewCourse/<%= courseId %>" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md inline-block">View Details</a>
+                                        <button onclick="downloadBrochure('<%= displayName %> Recorded')" class="px-3 py-2 border-2 border-purple-600 text-purple-700 rounded-lg hover:bg-purple-50 transition-all text-sm flex items-center gap-2 font-semibold"><i class="fa-regular fa-file-pdf"></i> Download Brochure</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                            });
+                        }
+                    %>
+            </div>
+        </section>
 
-    searchInput.addEventListener('input', (e) => {
-        currentSearchTerm = e.target.value;
-        updateActiveFilters();
-        renderCourses();
-    });
+        <%- include("../../partials/common/footer") %>
 
-    resetBtn.addEventListener('click', () => {
-        currentCategory = "all";
-        currentSearchTerm = "";
-        searchInput.value = "";
-        selectedCategoryText.textContent = "All Categories";
-        updateActiveFilters();
-        renderCourses();
-    });
-
-    if (clearAllFiltersBtn) {
-        clearAllFiltersBtn.addEventListener('click', () => {
-            currentCategory = "all";
-            currentSearchTerm = "";
-            searchInput.value = "";
-            selectedCategoryText.textContent = "All Categories";
-            updateActiveFilters();
-            renderCourses();
-        });
-    }
-
-    window.downloadBrochure = function(courseName) {
-        alert(`📄 Downloading brochure for "${courseName}"\n\nBrochure will be available shortly.`);
-    };
-
-    // Enrollment modal functionality
-    const enrollModal = document.getElementById('enrollModal');
-    const closeEnrollModal = document.getElementById('closeEnrollModal');
-    const enrollmentForm = document.getElementById('enrollmentForm');
-    if (enrollModal) {
-        window.openEnrollModal = function() { enrollModal.style.display = 'flex'; };
-        closeEnrollModal.onclick = () => enrollModal.style.display = 'none';
-        enrollModal.onclick = (e) => { if (e.target === enrollModal) enrollModal.style.display = 'none'; };
-        enrollmentForm.onsubmit = (e) => {
-            e.preventDefault();
-            alert('✅ Thank you! Our counselor will contact you soon.');
-            enrollmentForm.reset();
-            enrollModal.style.display = 'none';
-        };
-    }
-
-    renderCourses();
-    updateActiveFilters();
-</script>
+            <script>
+                // Brochure download function (unchanged)
+                window.downloadBrochure = function(courseName) {
+                    alert(`📄 Downloading brochure for "${courseName}"\n\nBrochure will be available shortly.`);
+                };
+            </script>
 </body>
 </html>

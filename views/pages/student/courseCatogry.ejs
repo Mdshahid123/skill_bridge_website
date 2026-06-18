@@ -46,7 +46,6 @@
                               repeating-linear-gradient(0deg, #1a6f8c 0px, #1a6f8c 1px, transparent 1px, transparent 60px);
             background-size: 60px 60px;
         }
-        /* Improved course card styles – more spacing, larger text */
         .course-card {
             transition: all 0.3s ease;
             background: white;
@@ -104,7 +103,6 @@
             font-size: 1.5rem;
             color: #6b7280;
         }
-        /* Improved image container */
         .image-container { height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; }
         @media (min-width: 768px) { .image-container { height: 220px; } }
         @media (max-width: 640px) {
@@ -148,37 +146,67 @@
 
 <%- include("../../partials/common/navbar.ejs") %>
 
-<!-- Hero Section (reduced height) -->
-<div class="hero-glow pt-20 pb-10 relative">
-    <div  class="absolute inset-0 opacity-[0.04] brand-grid pointer-events-none"></div>
-    <div style="height:200px;" class="container mx-auto px-6 relative z-20">
-        <div class="breadcrumb text-sm mb-3">
-            <a href="/" class="text-teal-700/80 hover:text-teal-900">Home</a>
-            <span class="text-gray-500 mx-2">/</span>
-            <a href="/courseCatogry" class="text-teal-700/80 hover:text-teal-900">Courses</a>
-            <% if (selectedCategory && selectedCategory !== 'all') { %>
-                <span class="text-gray-500 mx-2">/</span>
-                <span class="text-gray-800 font-semibold"><%= decodeURIComponent(selectedCategory).charAt(0).toUpperCase() + decodeURIComponent(selectedCategory).slice(1) %></span>
-            <% } %>
+<!-- ==================== HERO SECTION - PROFESSIONAL (COURSE CATEGORY PAGE) ==================== -->
+<div class="relative overflow-hidden bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 py-16 md:py-24">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-cyan-400 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500 rounded-full blur-3xl opacity-20"></div>
+    </div>
+    <div class="absolute inset-0 opacity-[0.05]"
+        style="background-image: 
+            repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px),
+            repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px);">
+    </div>
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
+            <div class="breadcrumb text-sm mb-4 text-white/70">
+                <a href="/" class="text-teal-300 hover:text-teal-200 transition">Home</a>
+                <span class="text-white/40 mx-2">/</span>
+                <a href="/courseCatogry" class="text-teal-300 hover:text-teal-200 transition">Courses</a>
+                <% if (selectedCategory && selectedCategory !== 'all') { %>
+                    <span class="text-white/40 mx-2">/</span>
+                    <span class="text-white font-semibold"><%= decodeURIComponent(selectedCategory).charAt(0).toUpperCase() + decodeURIComponent(selectedCategory).slice(1) %></span>
+                <% } %>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 animate-fade-up">
+                <% if (selectedCategory && selectedCategory !== 'all') { %>
+                    <span class="bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
+                        <%= decodeURIComponent(selectedCategory).toUpperCase() %>
+                    </span>
+                <% } else { %>
+                    <span class="bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
+                        All Premium Courses
+                    </span>
+                <% } %>
+            </h1>
+            <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-6 animate-fade-up" style="animation-delay: 0.1s;">
+                <% if (selectedCategory && selectedCategory !== 'all') { %>
+                    Choose your learning path – classroom, online live, or recorded – and master <%= decodeURIComponent(selectedCategory).toLowerCase() %> with industry experts.
+                <% } else { %>
+                    Discover a wide range of industry‑ready courses taught by expert mentors.
+                <% } %>
+            </p>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium animate-fade-up" style="animation-delay: 0.2s;">
+                <i class="fa-regular fa-circle-check text-teal-300"></i>
+                <span>100% Placement Assistance • 5000+ Students Trained</span>
+            </div>
         </div>
-        <h1  style=" font-weight: bolder; font-size:50px; margin-top: 30px;"  class="text-4xl md:text-4xl font-bold text-gray-900 text-center mb-2">
-            <% if (selectedCategory && selectedCategory !== 'all') { %>
-                <%= decodeURIComponent(selectedCategory).charAt(0).toUpperCase() + decodeURIComponent(selectedCategory).slice(1) %> Programs
-            <% } else { %>
-                All Premium Courses
-            <% } %>
-        </h1>
-        <p class="text-gray-700 text-center max-w-2xl mx-auto text-base font-medium">
-            <% if (selectedCategory && selectedCategory !== 'all') { %>
-                Choose your learning path – classroom or online live or Recorded – and master <%= decodeURIComponent(selectedCategory).toLowerCase() %> with industry experts.
-            <% } else { %>
-                Discover a wide range of industry‑ready courses taught by expert mentors.
-            <% } %>
-        </p>
     </div>
 </div>
 
-<!-- Courses Grid + Extra Program Cards (improved spacing) -->
+<style>
+    @keyframes fade-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+        animation: fade-up 0.6s ease-out forwards;
+        opacity: 0;
+    }
+</style>
+
+<!-- Courses Grid + Extra Program Cards (Vertical Layout, Lecture Type, Lecture Hours) -->
 <section class="py-12 px-6 md:px-12 bg-transparent">
     <div class="container mx-auto max-w-7xl px-2 md:px-4">
         <% if (errorMessage) { %>
@@ -197,6 +225,10 @@
             const defaultImg = (registerCourses && registerCourses.length > 0 && registerCourses[0].image) 
                 ? registerCourses[0].image 
                 : 'https://via.placeholder.com/600x400?text=No+Image';
+            // Use first course's _id for Classroom and Online links
+            const firstCourseId = (registerCourses && registerCourses.length > 0) 
+                ? registerCourses[0]._id 
+                : '';
         %>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -205,27 +237,34 @@
                 <div class="course-card rounded-xl overflow-hidden border-l-4 border-l-amber-500">
                     <div class="image-container relative">
                         <img src="<%= defaultImg %>" alt="<%= categoryDisplay %> Classroom" class="w-full h-full object-cover">
-                        <div class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">Classroom Program</div>
+                        <div class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">Classroom</div>
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %> – Classroom</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %></h3>
+                        <div class="mb-3">
+                            <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Classroom</span>
+                        </div>
                         <p class="text-gray-700 text-sm mb-3 leading-relaxed">Instructor‑led classroom training with hands‑on projects, peer collaboration, and campus placement support.</p>
-                        <div class="flex flex-wrap gap-2 mb-3">
+                        <div class="flex flex-col gap-1.5 mb-3">
                             <span class="feature-badge"><i class="fa-solid fa-chalkboard-user"></i> On‑Campus</span>
                             <span class="feature-badge"><i class="fa-solid fa-users"></i> Group Learning</span>
                             <span class="feature-badge"><i class="fa-regular fa-building"></i> Lab Access</span>
                         </div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-sm text-gray-700"><i class="fa-regular fa-clock"></i> 6 Months</span>
-                            <span class="text-sm text-gray-700"><i class="fa-regular fa-user"></i> Limited Seats</span>
+                        <div class="flex flex-col gap-1 mb-3 text-sm text-gray-700">
+                            <span><i class="fa-regular fa-clock w-4"></i> 6 Months</span>
+                            <span><i class="fa-regular fa-user w-4"></i> Limited Seats</span>
+                            <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
                         </div>
                         <div class="flex items-center justify-between mb-4">
                             <div><span class="text-2xl font-bold text-amber-700">₹45,000</span><span class="text-sm text-gray-400 line-through ml-2">₹65,000</span><span class="text-sm font-semibold text-green-600 ml-2">31% off</span></div>
                             <span class="text-xs font-semibold bg-amber-100 px-2 py-1 rounded-full text-amber-800">Classroom</span>
                         </div>
                         <div class="flex gap-3 mt-auto">
-                            <button onclick="openEnrollModal('<%= categoryDisplay %> Classroom')" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">Enroll Now</button>
-                            <button onclick="downloadBrochure('<%= categoryDisplay %> Classroom')" class="px-3 py-2 border-2 border-amber-600 text-amber-700 rounded-lg hover:bg-amber-50 transition-all text-sm"><i class="fa-regular fa-file-pdf"></i></button>
+                            <!-- Link to viewClassroom with first course ID -->
+                            <a href="/viewClassroom/<%= firstCourseId %>" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">View Details</a>
+                            <button onclick="downloadBrochure('<%= categoryDisplay %> Classroom')" class="px-3 py-2 border-2 border-amber-600 text-amber-700 rounded-lg hover:bg-amber-50 transition-all text-sm flex items-center gap-2 font-semibold">
+                                <i class="fa-regular fa-file-pdf"></i> Download Brochure
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -239,48 +278,59 @@
                         <div class="absolute top-3 left-3 bg-cyan-500 text-white text-xs font-bold px-2 py-1 rounded-full">Online Live</div>
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %> – Online Live</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %></h3>
+                        <div class="mb-3">
+                            <span class="inline-block bg-cyan-100 text-cyan-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Online Live</span>
+                        </div>
                         <p class="text-gray-700 text-sm mb-3 leading-relaxed">Live interactive classes from anywhere. Industry mentors, real‑time doubt solving, and recorded sessions.</p>
-                        <div class="flex flex-wrap gap-2 mb-3">
+                        <div class="flex flex-col gap-1.5 mb-3">
                             <span class="feature-badge"><i class="fa-solid fa-video"></i> Live Classes</span>
                             <span class="feature-badge"><i class="fa-regular fa-clock"></i> Flexible Timing</span>
                             <span class="feature-badge"><i class="fa-solid fa-cloud-arrow-up"></i> Recorded Backup</span>
                         </div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-sm text-gray-700"><i class="fa-regular fa-clock"></i> 6 Months</span>
-                            <span class="text-sm text-gray-700"><i class="fa-regular fa-user"></i> Unlimited Access</span>
+                        <div class="flex flex-col gap-1 mb-3 text-sm text-gray-700">
+                            <span><i class="fa-regular fa-clock w-4"></i> 6 Months</span>
+                            <span><i class="fa-regular fa-user w-4"></i> Unlimited Access</span>
+                            <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
                         </div>
                         <div class="flex items-center justify-between mb-4">
                             <div><span class="text-2xl font-bold text-cyan-700">₹35,000</span><span class="text-sm text-gray-400 line-through ml-2">₹55,000</span><span class="text-sm font-semibold text-green-600 ml-2">36% off</span></div>
                             <span class="text-xs font-semibold bg-cyan-100 px-2 py-1 rounded-full text-cyan-800">Online</span>
                         </div>
                         <div class="flex gap-3 mt-auto">
-                            <button onclick="openEnrollModal('<%= categoryDisplay %> Online Live')" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">Enroll Now</button>
-                            <button onclick="downloadBrochure('<%= categoryDisplay %> Online Live')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-lg hover:bg-cyan-50 transition-all text-sm"><i class="fa-regular fa-file-pdf"></i></button>
+                            <!-- Link to viewOnline with first course ID -->
+                            <a href="/viewOnline/<%= firstCourseId %>" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">View Details</a>
+                            <button onclick="downloadBrochure('<%= categoryDisplay %> Online Live')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-lg hover:bg-cyan-50 transition-all text-sm flex items-center gap-2 font-semibold">
+                                <i class="fa-regular fa-file-pdf"></i> Download Brochure
+                            </button>
                         </div>
                     </div>
                 </div>
             <% } %>
             
-            <!-- Regular Database Courses (Recorded Program) with improved spacing -->
+            <!-- Regular Database Courses (Recorded) – vertical layout, lecture hours -->
             <% if (registerCourses && registerCourses.length > 0) { %>
                 <% registerCourses.forEach(course => { %>
                     <div class="course-card rounded-xl overflow-hidden">
                         <div class="image-container relative">
-                            <img src="<%= course.image || 'https://via.placeholder.com/600x400?text=No+Image' %>" alt="<%= course.courseName %>" class="w-full h-full object-cover">
-                            <div class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">Recorded Program</div>
+                            <img src="<%= defaultImg %>" alt="<%= categoryDisplay %> Online Live" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">Recorded</div>
                         </div>
                         <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="text-lg font-bold text-gray-900 mb-2"><%= course.courseName %></h3>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %></h3>
+                            <div class="mb-3">
+                                <span class="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Recorded</span>
+                            </div>
                             <p class="text-gray-700 text-sm mb-3 leading-relaxed"><%= course.courseDescription || course.description || 'No description available' %></p>
-                            <div class="flex flex-wrap gap-2 mb-3">
+                            <div class="flex flex-col gap-1.5 mb-3">
                                 <span class="feature-badge"><i class="fa-solid fa-briefcase"></i> Placement</span>
                                 <span class="feature-badge"><i class="fa-solid fa-chart-line"></i> Live Projects</span>
                                 <span class="feature-badge"><i class="fa-regular fa-certificate"></i> Certificate</span>
                             </div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-sm text-gray-700"><i class="fa-regular fa-clock"></i> <%= course.duration || 'N/A' %> Months</span>
-                                <span class="text-sm text-gray-700"><i class="fa-regular fa-user"></i> <%= Math.floor(Math.random() * 5000) + 500 %>+ students</span>
+                            <div class="flex flex-col gap-1 mb-3 text-sm text-gray-700">
+                                <span><i class="fa-regular fa-clock w-4"></i> <%= course.duration || 'N/A' %> Months</span>
+                                <span><i class="fa-regular fa-user w-4"></i> <%= Math.floor(Math.random() * 5000) + 500 %>+ students</span>
+                                <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
                             </div>
                             <div class="flex items-center justify-between mb-4">
                                 <div>
@@ -290,11 +340,13 @@
                                         <%= Math.round(((course.originalPrice - course.price) / course.originalPrice) * 100) %>% off
                                     </span>
                                 </div>
-                                <span class="text-xs font-semibold bg-gray-200 px-2 py-1 rounded-full"><%= course.level || 'Beginner' %></span>
+                                <span class="text-xs font-semibold bg-cyan-100 px-2 py-1 rounded-full text-cyan-800">Recorded</span>
                             </div>
                             <div class="flex gap-3 mt-auto">
-                                <a href="/viewCourse/<%= course.courseName %>" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">View Details</a>
-                                <button onclick="downloadBrochure('<%= course.courseName %>')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-lg hover:bg-cyan-50 transition-all"><i class="fa-regular fa-file-pdf"></i></button>
+                                <a href="/viewCourse/<%= course._id %>" class="flex-1 bg-cyan-700 hover:bg-cyan-800 text-white text-center py-2 rounded-lg font-semibold text-sm transition-all shadow-md">View Details</a>
+                                <button onclick="downloadBrochure('<%= course.courseName %>')" class="px-3 py-2 border-2 border-cyan-600 text-cyan-700 rounded-lg hover:bg-cyan-50 transition-all text-sm flex items-center gap-2 font-semibold">
+                                    <i class="fa-regular fa-file-pdf"></i> Download Brochure
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -311,7 +363,6 @@
 </section>
 
 <!-- ========== THE FOLLOWING SECTIONS (Tools, Testimonials, Partners, FAQ, Modal) REMAIN EXACTLY AS IN YOUR ORIGINAL FILE ========== -->
-<!-- (They are identical to your provided code – I am including them exactly as you had to avoid any changes) -->
 <!-- 1️⃣ Tools & Technologies Covered (Sky/Blue gradient) -->
 <section class="py-20 bg-gradient-to-b from-sky-50 to-blue-50">
     <div class="container mx-auto px-6">
@@ -323,48 +374,266 @@
 
         <div class="flex flex-wrap justify-center gap-6 md:gap-8">
             <% 
-                const toolData = {
-                    'frontend development': [
-                        { icon: 'fab fa-html5', label: 'HTML5', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
-                        { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
-                        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
-                        { icon: 'fab fa-react', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
-                        { icon: 'fab fa-tailwind', label: 'Tailwind', color: 'from-teal-400 to-teal-500', textColor: 'text-teal-600' },
-                        { icon: 'fab fa-figma', label: 'Figma', color: 'from-purple-400 to-purple-500', textColor: 'text-purple-600' }
-                    ],
-                    'backend development': [
-                        { icon: 'fab fa-node-js', label: 'Node.js', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
-                        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
-                        { icon: 'fab fa-java', label: 'Java', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
-                        { icon: 'fas fa-database', label: 'MongoDB', color: 'from-emerald-500 to-emerald-600', textColor: 'text-emerald-600' },
-                        { icon: 'fab fa-php', label: 'PHP', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' },
-                        { icon: 'fas fa-server', label: 'Express', color: 'from-gray-600 to-gray-700', textColor: 'text-gray-700' }
-                    ],
-                    'data science': [
-                        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
-                        { icon: 'fas fa-chart-line', label: 'Pandas', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
-                        { icon: 'fas fa-database', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
-                        { icon: 'fas fa-cloud', label: 'Cloud', color: 'from-cyan-500 to-cyan-600', textColor: 'text-cyan-600' },
-                        { icon: 'fas fa-chart-pie', label: 'Tableau', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
-                        { icon: 'fas fa-brain', label: 'TensorFlow', color: 'from-amber-500 to-amber-600', textColor: 'text-amber-600' }
-                    ],
-                    'full stack mern': [
-                        { icon: 'fab fa-react', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
-                        { icon: 'fab fa-node-js', label: 'Node.js', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
-                        { icon: 'fas fa-database', label: 'MongoDB', color: 'from-emerald-500 to-emerald-600', textColor: 'text-emerald-600' },
-                        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
-                        { icon: 'fab fa-html5', label: 'HTML5', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
-                        { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' }
-                    ],
-                    default: [
-                        { icon: 'fab fa-html5', label: 'HTML5', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
-                        { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
-                        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
-                        { icon: 'fab fa-react', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
-                        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
-                        { icon: 'fas fa-database', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' }
-                    ]
-                };
+               const toolData = {
+    // 1. Digital Marketing with AI
+    'digital marketing': [
+        { icon: 'fas fa-robot', label: 'AI Tools', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fab fa-google', label: 'Google Analytics', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-chart-line', label: 'SEO', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fab fa-facebook', label: 'Meta Ads', color: 'from-blue-600 to-blue-700', textColor: 'text-blue-600' },
+        { icon: 'fas fa-envelope', label: 'Email Marketing', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-pen-fancy', label: 'Content Creation', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' }
+    ],
+
+    // 2. Performance Marketing
+    'performance marketing': [
+        { icon: 'fab fa-google', label: 'Google Ads', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fab fa-facebook', label: 'Meta Ads', color: 'from-blue-600 to-blue-700', textColor: 'text-blue-600' },
+        { icon: 'fab fa-instagram', label: 'Instagram Ads', color: 'from-pink-500 to-pink-600', textColor: 'text-pink-600' },
+        { icon: 'fas fa-chart-line', label: 'Analytics', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-tags', label: 'Retargeting', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-bullseye', label: 'Conversion', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' }
+    ],
+
+    // 3. Full Stack Development with MERN
+    'full stack mern': [
+        { icon: 'fab fa-react', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
+        { icon: 'fab fa-node-js', label: 'Node.js', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-database', label: 'MongoDB', color: 'from-emerald-500 to-emerald-600', textColor: 'text-emerald-600' },
+        { icon: 'fas fa-server', label: 'Express', color: 'from-emerald-500 to-emerald-600', textColor: 'text-emerald-600' },
+        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
+        { icon: 'fab fa-html5', label: 'HTML5', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' }
+    ],
+
+    // 4. Full Stack Development with PHP
+    'full stack php': [
+        { icon: 'fab fa-php', label: 'PHP', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' },
+        { icon: 'fab fa-laravel', label: 'Laravel', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-database', label: 'MySQL', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
+        { icon: 'fab fa-html5', label: 'HTML5', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' }
+    ],
+
+    // 5. Frontend Development
+    'frontend development': [
+        { icon: 'fab fa-html5', label: 'HTML5', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
+        { icon: 'fab fa-react', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
+       { icon: 'fas fa-paint-brush', label: 'Tailwind CSS', color: 'from-teal-400 to-teal-500', textColor: 'text-teal-600' }
+    ],
+
+ 
+
+    'backend development': [
+    { icon: 'fab fa-node-js', label: 'Node.js', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+    { icon: 'fas fa-server', label: 'Express.js', color: 'from-gray-600 to-gray-700', textColor: 'text-gray-700' },
+    { icon: 'fas fa-database', label: 'MongoDB', color: 'from-emerald-500 to-emerald-600', textColor: 'text-emerald-600' },
+    { icon: 'fas fa-database', label: 'MySQL', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+    { icon: 'fas fa-table', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+    { icon: 'fas fa-paw', label: 'Mongoose', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' }
+],
+
+    // 7. Software Testing
+    'software testing': [
+        { icon: 'fas fa-flask', label: 'Selenium', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-code', label: 'JUnit', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-tasks', label: 'TestNG', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-database', label: 'Postman', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-tachometer-alt', label: 'JMeter', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fab fa-jenkins', label: 'Jenkins', color: 'from-gray-500 to-gray-600', textColor: 'text-gray-600' }
+    ],
+
+    // 8. React
+    'react': [
+        { icon: 'fab fa-react', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
+        { icon: 'fas fa-code-branch', label: 'Redux', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-route', label: 'React Router', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
+        { icon: 'fas fa-server', label: 'API Integration', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-mobile-alt', label: 'Hooks', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 9. Data Science
+    'data science': [
+        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-chart-line', label: 'Pandas', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-database', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-cloud', label: 'Cloud', color: 'from-cyan-500 to-cyan-600', textColor: 'text-cyan-600' },
+        { icon: 'fas fa-chart-pie', label: 'Tableau', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-brain', label: 'TensorFlow', color: 'from-amber-500 to-amber-600', textColor: 'text-amber-600' }
+    ],
+
+    // 10. AI/ML
+    'ai ml': [
+        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-brain', label: 'TensorFlow', color: 'from-amber-500 to-amber-600', textColor: 'text-amber-600' },
+        { icon: 'fas fa-fire', label: 'PyTorch', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-chart-line', label: 'Scikit-learn', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-project-diagram', label: 'Neural Networks', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-language', label: 'NLP', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 11. Data Analytics
+    'data analytics': [
+        { icon: 'fas fa-chart-pie', label: 'Power BI', color: 'from-yellow-500 to-yellow-600', textColor: 'text-yellow-600' },
+        { icon: 'fas fa-database', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-chart-line', label: 'Tableau', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-calculator', label: 'Excel', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-code', label: 'R', color: 'from-blue-600 to-blue-700', textColor: 'text-blue-600' }
+    ],
+
+    // 12. Business Analytics
+    'business analytics': [
+        { icon: 'fas fa-chart-pie', label: 'Power BI', color: 'from-yellow-500 to-yellow-600', textColor: 'text-yellow-600' },
+        { icon: 'fas fa-chart-line', label: 'Excel', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-database', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-table', label: 'Tableau', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-calculator', label: 'Financial Modeling', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' },
+        { icon: 'fas fa-bullseye', label: 'KPIs', color: 'from-red-500 to-red-600', textColor: 'text-red-600' }
+    ],
+
+    // 13. Power BI
+    'power bi': [
+        { icon: 'fas fa-chart-pie', label: 'Power BI', color: 'from-yellow-500 to-yellow-600', textColor: 'text-yellow-600' },
+        { icon: 'fas fa-calculator', label: 'DAX', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-database', label: 'Data Modeling', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-chart-bar', label: 'Visualizations', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-table', label: 'Pivot Charts', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-upload', label: 'Power Query', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 14. SQL
+    'sql': [
+        { icon: 'fas fa-database', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-table', label: 'Tables', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-link', label: 'Joins', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-search', label: 'Queries', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-sort', label: 'Window Functions', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-code', label: 'Subqueries', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 15. DSA with C
+    'dsa with c': [
+        { icon: 'fas fa-code', label: 'C Programming', color: 'from-blue-600 to-blue-700', textColor: 'text-blue-600' },
+        { icon: 'fas fa-link', label: 'Linked Lists', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-layer-group', label: 'Stacks & Queues', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-tree', label: 'Trees', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-project-diagram', label: 'Graphs', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-sort', label: 'Sorting', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 16. DSA with C++
+    'dsa with cpp': [
+        { icon: 'fab fa-cuttlefish', label: 'C++', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-link', label: 'Linked Lists', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-layer-group', label: 'STL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-tree', label: 'Trees', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-project-diagram', label: 'Graphs', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-sort', label: 'Algorithms', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 17. DSA with Java
+    'dsa with java': [
+        { icon: 'fab fa-java', label: 'Java', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-link', label: 'Linked Lists', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-layer-group', label: 'Collections', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-tree', label: 'Trees', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-project-diagram', label: 'Graphs', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-sort', label: 'Sorting', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 18. DSA with JavaScript
+    'dsa with js': [
+        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
+        { icon: 'fas fa-link', label: 'Linked Lists', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-layer-group', label: 'Stacks & Queues', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-tree', label: 'Trees', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-project-diagram', label: 'Graphs', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-map', label: 'Map/Set', color: 'from-red-500 to-red-600', textColor: 'text-red-600' }
+    ],
+
+    // 19. DSA with Python
+    'dsa with python': [
+        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-link', label: 'Linked Lists', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-layer-group', label: 'Stacks & Queues', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-tree', label: 'Trees', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-project-diagram', label: 'Graphs', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-sort', label: 'Sorting', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    // 20. Data Structures (Conceptual)
+    'data structure': [
+        { icon: 'fas fa-array', label: 'Arrays', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-link', label: 'Linked Lists', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-layer-group', label: 'Stacks', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-queue', label: 'Queues', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-tree', label: 'Trees', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-project-diagram', label: 'Graphs', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' },
+        { icon: 'fas fa-database', label: 'Hash Tables', color: 'from-pink-500 to-pink-600', textColor: 'text-pink-600' },
+        { icon: 'fas fa-heap', label: 'Heaps', color: 'from-teal-500 to-teal-600', textColor: 'text-teal-600' }
+    ],
+
+    // 21. Programming Languages
+    'c': [
+        { icon: 'fas fa-code', label: 'C Language', color: 'from-blue-600 to-blue-700', textColor: 'text-blue-600' },
+        { icon: 'fas fa-microchip', label: 'Memory Management', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-terminal', label: 'Pointers', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-database', label: 'Structures', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-file-code', label: 'File Handling', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-sort', label: 'Algorithms', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    'cpp': [
+        { icon: 'fab fa-cuttlefish', label: 'C++', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-object-group', label: 'OOP', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-layer-group', label: 'STL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-memory', label: 'Memory Management', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-code', label: 'Templates', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-sort', label: 'Algorithms', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    'java': [
+        { icon: 'fab fa-java', label: 'Java', color: 'from-red-500 to-red-600', textColor: 'text-red-600' },
+        { icon: 'fas fa-object-group', label: 'OOP', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-layer-group', label: 'Collections', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fas fa-code', label: 'Spring', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-database', label: 'JDBC', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' },
+        { icon: 'fas fa-server', label: 'Maven', color: 'from-indigo-500 to-indigo-600', textColor: 'text-indigo-600' }
+    ],
+
+    'javascript': [
+        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
+        { icon: 'fas fa-code', label: 'ES6+', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-server', label: 'Node.js', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-mobile-alt', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
+        { icon: 'fas fa-database', label: 'MongoDB', color: 'from-emerald-500 to-emerald-600', textColor: 'text-emerald-600' },
+        { icon: 'fas fa-project-diagram', label: 'Async/Await', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' }
+    ],
+
+    'python': [
+        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-chart-line', label: 'Pandas', color: 'from-green-500 to-green-600', textColor: 'text-green-600' },
+        { icon: 'fas fa-database', label: 'Django', color: 'from-emerald-500 to-emerald-600', textColor: 'text-emerald-600' },
+        { icon: 'fas fa-brain', label: 'TensorFlow', color: 'from-amber-500 to-amber-600', textColor: 'text-amber-600' },
+        { icon: 'fas fa-code', label: 'Flask', color: 'from-gray-600 to-gray-700', textColor: 'text-gray-700' },
+        { icon: 'fas fa-chart-pie', label: 'Matplotlib', color: 'from-purple-500 to-purple-600', textColor: 'text-purple-600' }
+    ],
+
+    // Default fallback
+    default: [
+        { icon: 'fab fa-html5', label: 'HTML5', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' },
+        { icon: 'fab fa-css3-alt', label: 'CSS3', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fab fa-js', label: 'JavaScript', color: 'from-yellow-400 to-yellow-500', textColor: 'text-yellow-600' },
+        { icon: 'fab fa-react', label: 'React', color: 'from-cyan-400 to-cyan-500', textColor: 'text-cyan-600' },
+        { icon: 'fab fa-python', label: 'Python', color: 'from-blue-500 to-blue-600', textColor: 'text-blue-600' },
+        { icon: 'fas fa-database', label: 'SQL', color: 'from-orange-500 to-orange-600', textColor: 'text-orange-600' }
+    ]
+};
                 let toolsList = toolData.default;
                 if (selectedCategory && selectedCategory !== 'all') {
                     const catKey = decodeURIComponent(selectedCategory).toLowerCase();
@@ -380,6 +649,163 @@
             <% }); %>
         </div>
         <p class="text-center text-gray-500 text-sm mt-12">+ many more frameworks and libraries</p>
+    </div>
+</section>
+
+
+<!-- 3️⃣ Placement Partners (Emerald/Teal gradient) -->
+<section class="py-20 bg-gradient-to-b from-emerald-50 to-teal-50">
+    <div class="container mx-auto px-6 text-center">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-100 text-cyan-700 text-sm font-bold uppercase tracking-wider shadow-sm">Hiring Partners</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 mb-4">Our Placement Partners</h2>
+        <p class="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">500+ companies trust SkillBridge graduates. Here are some of our top recruiters.</p>
+
+        <div class="flex flex-wrap justify-center gap-6 md:gap-8">
+            <div class="group w-32 h-32 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-brands fa-google text-4xl text-blue-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">Google</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-brands fa-microsoft text-4xl text-purple-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">Microsoft</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-brands fa-amazon text-4xl text-amber-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">Amazon</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-brands fa-apple text-4xl text-gray-700"></i>
+                <span class="font-semibold text-gray-700 text-sm">Apple</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-sky-50 to-sky-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-brands fa-meta text-4xl text-sky-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">Meta</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-brands fa-infinity text-4xl text-emerald-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">Infosys</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-solid fa-chart-line text-4xl text-indigo-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">TCS</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-rose-50 to-rose-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-solid fa-laptop-code text-4xl text-rose-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">Wipro</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-solid fa-bullhorn text-4xl text-teal-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">Accenture</span>
+            </div>
+            <div class="group w-32 h-32 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <i class="fa-brands fa-ibm text-4xl text-blue-600"></i>
+                <span class="font-semibold text-gray-700 text-sm">IBM</span>
+            </div>
+        </div>
+        <p class="text-gray-500 text-sm mt-12">+ 490+ more companies actively hiring our graduates</p>
+    </div>
+</section>
+
+<!-- 4️⃣ Frequently Asked Questions (Indigo/Purple gradient - Duration now dynamic) -->
+<section class="py-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 text-sm font-bold uppercase tracking-wider shadow-sm">FAQ</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Frequently Asked Questions</h2>
+            <p class="text-gray-600 text-lg mt-3">Got questions? We have answers.</p>
+        </div>
+
+        <% 
+            // Calculate duration range from all courses in this category
+            let minDuration = 0, maxDuration = 0;
+            if (registerCourses && registerCourses.length > 0) {
+                const durations = registerCourses.map(c => parseFloat(c.duration) || 0).filter(d => d > 0);
+                if (durations.length > 0) {
+                    minDuration = Math.min(...durations);
+                    maxDuration = Math.max(...durations);
+                }
+            }
+            let durationText = "flexible learning options";
+            if (minDuration > 0 && maxDuration > 0) {
+                if (minDuration === maxDuration) {
+                    durationText = minDuration + " months";
+                } else {
+                    durationText = minDuration + " to " + maxDuration + " months";
+                }
+            }
+        %>
+
+        <div class="space-y-4">
+            <!-- FAQ 1: Duration (dynamic) -->
+            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-indigo-400">
+                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-indigo-50 hover:to-transparent transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-regular fa-clock text-indigo-500 text-xl"></i>
+                        <h3 class="font-bold text-gray-800 text-lg">What is the duration of the course?</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-indigo-100 hidden">
+                    The programs in this category range from <strong><%= durationText %></strong>, with flexible learning options and weekend batches available. You also get lifetime access to recorded sessions.
+                </div>
+            </div>
+
+            <!-- FAQ 2: Placement assistance -->
+            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-purple-400">
+                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-briefcase text-purple-500 text-xl"></i>
+                        <h3 class="font-bold text-gray-800 text-lg">Do you provide placement assistance?</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-purple-400 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-purple-100 hidden">
+                    Yes, we offer 100% placement assistance including resume building, mock interviews, and job referrals to our hiring partner network of 500+ companies.
+                </div>
+            </div>
+
+            <!-- FAQ 3: Demo class -->
+            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-fuchsia-400">
+                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-fuchsia-50 hover:to-transparent transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-regular fa-eye text-fuchsia-500 text-xl"></i>
+                        <h3 class="font-bold text-gray-800 text-lg">Can I attend a demo class before enrolling?</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-fuchsia-400 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-fuchsia-100 hidden">
+                    Absolutely! You can request a free demo class by clicking the "Book Demo" button on the navbar. Our team will schedule a live session for you.
+                </div>
+            </div>
+
+            <!-- FAQ 4: Refund policy -->
+            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-rose-400">
+                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-rose-50 hover:to-transparent transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-arrow-rotate-left text-rose-500 text-xl"></i>
+                        <h3 class="font-bold text-gray-800 text-lg">What is the refund policy?</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-rose-400 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-rose-100 hidden">
+                    We offer a 7-day money-back guarantee if you are not satisfied with the course. No questions asked. Refund is processed within 7–10 working days.
+                </div>
+            </div>
+
+            <!-- FAQ 5: Certificate -->
+            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-amber-400">
+                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-amber-50 hover:to-transparent transition-colors">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-regular fa-certificate text-amber-500 text-xl"></i>
+                        <h3 class="font-bold text-gray-800 text-lg">Will I get a certificate after completion?</h3>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-amber-100 hidden">
+                    Yes, you will receive a globally recognised certificate from SkillBridge upon successful completion of the course, which you can share on LinkedIn and include in your resume.
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -526,133 +952,6 @@
         startAutoSlide();
     })();
 </script>
-
-<!-- 3️⃣ Placement Partners (Emerald/Teal gradient) -->
-<section class="py-20 bg-gradient-to-b from-emerald-50 to-teal-50">
-    <div class="container mx-auto px-6 text-center">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-cyan-100 text-cyan-700 text-sm font-bold uppercase tracking-wider shadow-sm">Hiring Partners</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 mb-4">Our Placement Partners</h2>
-        <p class="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">500+ companies trust SkillBridge graduates. Here are some of our top recruiters.</p>
-
-        <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-            <div class="group w-32 h-32 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-brands fa-google text-4xl text-blue-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">Google</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-brands fa-microsoft text-4xl text-purple-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">Microsoft</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-brands fa-amazon text-4xl text-amber-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">Amazon</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-brands fa-apple text-4xl text-gray-700"></i>
-                <span class="font-semibold text-gray-700 text-sm">Apple</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-sky-50 to-sky-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-brands fa-meta text-4xl text-sky-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">Meta</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-brands fa-infinity text-4xl text-emerald-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">Infosys</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-solid fa-chart-line text-4xl text-indigo-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">TCS</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-rose-50 to-rose-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-solid fa-laptop-code text-4xl text-rose-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">Wipro</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-solid fa-bullhorn text-4xl text-teal-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">Accenture</span>
-            </div>
-            <div class="group w-32 h-32 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex flex-col items-center justify-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <i class="fa-brands fa-ibm text-4xl text-blue-600"></i>
-                <span class="font-semibold text-gray-700 text-sm">IBM</span>
-            </div>
-        </div>
-        <p class="text-gray-500 text-sm mt-12">+ 490+ more companies actively hiring our graduates</p>
-    </div>
-</section>
-
-<!-- 4️⃣ Frequently Asked Questions (Indigo/Purple gradient) -->
-<section class="py-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-    <div class="container mx-auto px-6 max-w-4xl">
-        <div class="text-center mb-12">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 text-sm font-bold uppercase tracking-wider shadow-sm">FAQ</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Frequently Asked Questions</h2>
-            <p class="text-gray-600 text-lg mt-3">Got questions? We have answers.</p>
-        </div>
-        <div class="space-y-4">
-            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-indigo-400">
-                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-indigo-50 hover:to-transparent transition-colors">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-regular fa-clock text-indigo-500 text-xl"></i>
-                        <h3 class="font-bold text-gray-800 text-lg">What is the duration of the course?</h3>
-                    </div>
-                    <i class="fa-solid fa-chevron-down text-indigo-400 transition-transform duration-300"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-indigo-100 hidden">
-                    Both Classroom and Online Live programs are 6 months long, with flexible learning options and weekend batches available. You also get lifetime access to recorded sessions.
-                </div>
-            </div>
-            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-purple-400">
-                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-colors">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-briefcase text-purple-500 text-xl"></i>
-                        <h3 class="font-bold text-gray-800 text-lg">Do you provide placement assistance?</h3>
-                    </div>
-                    <i class="fa-solid fa-chevron-down text-purple-400 transition-transform duration-300"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-purple-100 hidden">
-                    Yes, we offer 100% placement assistance including resume building, mock interviews, and job referrals to our hiring partner network of 500+ companies.
-                </div>
-            </div>
-            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-fuchsia-400">
-                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-fuchsia-50 hover:to-transparent transition-colors">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-regular fa-eye text-fuchsia-500 text-xl"></i>
-                        <h3 class="font-bold text-gray-800 text-lg">Can I attend a demo class before enrolling?</h3>
-                    </div>
-                    <i class="fa-solid fa-chevron-down text-fuchsia-400 transition-transform duration-300"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-fuchsia-100 hidden">
-                    Absolutely! You can request a free demo class by clicking the "Book Demo" button on the navbar. Our team will schedule a live session for you.
-                </div>
-            </div>
-            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-rose-400">
-                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-rose-50 hover:to-transparent transition-colors">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-arrow-rotate-left text-rose-500 text-xl"></i>
-                        <h3 class="font-bold text-gray-800 text-lg">What is the refund policy?</h3>
-                    </div>
-                    <i class="fa-solid fa-chevron-down text-rose-400 transition-transform duration-300"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-rose-100 hidden">
-                    We offer a 7-day money-back guarantee if you are not satisfied with the course. No questions asked. Refund is processed within 7–10 working days.
-                </div>
-            </div>
-            <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-l-amber-400">
-                <div class="faq-question flex justify-between items-center p-5 cursor-pointer hover:bg-gradient-to-r hover:from-amber-50 hover:to-transparent transition-colors">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-regular fa-certificate text-amber-500 text-xl"></i>
-                        <h3 class="font-bold text-gray-800 text-lg">Will I get a certificate after completion?</h3>
-                    </div>
-                    <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 pt-2 text-gray-600 text-base border-t border-amber-100 hidden">
-                    Yes, you will receive a globally recognised certificate from SkillBridge upon successful completion of the course, which you can share on LinkedIn and include in your resume.
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <script>
     // FAQ Accordion Logic
     (function() {

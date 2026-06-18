@@ -1,46 +1,30 @@
-<!-- ==================== HERO SECTION - FORM FULLY VISIBLE (NO SCROLL NEEDED) ==================== -->
-<section id="hero" class="relative overflow-hidden flex items-center bg-black py-8 lg:py-12 min-h-[85vh] lg:min-h-[90vh]">
+<!-- ==================== HERO SECTION - DESKTOP LAYOUT UNCHANGED, FULLY RESPONSIVE ==================== -->
+<section id="hero" class="relative overflow-hidden flex items-center bg-black py-8 md:py-12 lg:py-16 min-h-[80vh] md:min-h-[85vh] lg:min-h-screen">
     
-    <!-- ====== ANIMATED BACKGROUND WAVES (unchanged) ====== -->
+    <!-- ====== ANIMATED BACKGROUND WAVES ====== -->
     <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute w-[200%] h-[200%] top-[-50%] left-[-50%] animate-spin-slow opacity-30">
+        <div class="absolute w-[200%] h-[200%] top-[-50%] left-[-50%] animate-spin-slow opacity-20">
             <div class="absolute inset-0 bg-gradient-conic from-cyan-500 via-blue-500 to-purple-500 rounded-full blur-3xl"></div>
         </div>
     </div>
     
-    <!-- ====== PULSING GLOW ORBS ====== -->
-    <div class="absolute inset-0">
-        <div class="absolute top-20 left-[10%] w-80 h-80 bg-cyan-500/30 rounded-full blur-3xl animate-ping-slow"></div>
-        <div class="absolute bottom-20 right-[10%] w-96 h-96 bg-blue-500/30 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 2s;"></div>
-        <div class="absolute top-40 right-[20%] w-60 h-60 bg-teal-400/25 rounded-full blur-3xl animate-bounce-slow"></div>
-    </div>
-     
-    <!-- ====== MOVING GRID LINES ====== -->
-    <div class="absolute inset-0 opacity-[0.12] animate-grid-move"
-        style="background-image: 
-            repeating-linear-gradient(90deg, #22d3ee 0px, #22d3ee 2px, transparent 2px, transparent 60px),
-            repeating-linear-gradient(0deg, #22d3ee 0px, #22d3ee 2px, transparent 2px, transparent 60px);">
-    </div>
+    <!-- ====== ANIMATED GRID PATTERN ====== -->
+    <div class="absolute inset-0 hero-grid pointer-events-none"></div>
     
-    <!-- ====== SECOND MOVING GRID ====== -->
-    <div class="absolute inset-0 opacity-[0.08] animate-grid-move-reverse"
-        style="background-image: 
-            repeating-linear-gradient(90deg, #facc15 0px, #facc15 1px, transparent 1px, transparent 100px),
-            repeating-linear-gradient(0deg, #facc15 0px, #facc15 1px, transparent 1px, transparent 100px);">
-    </div>
+    <!-- ====== GLOW ORBS ====== -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
     
     <!-- ====== FLOATING PARTICLES ====== -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="particle particle-1"></div>
-        <div class="particle particle-2"></div>
-        <div class="particle particle-3"></div>
-        <div class="particle particle-4"></div>
-        <div class="particle particle-5"></div>
-        <div class="particle particle-6"></div>
-        <div class="particle particle-7"></div>
-        <div class="particle particle-8"></div>
-    </div>
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+    <div class="particle p5"></div>
+    <div class="particle p6"></div>
+    <div class="particle p7"></div>
+    <div class="particle p8"></div>
    
     <!-- ====== GLOWING BORDER EFFECTS ====== -->
     <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
@@ -50,136 +34,141 @@
 
     <div class="container mx-auto px-6 lg:px-12 relative z-10">
 
-        <!-- Top Badge with Glow (fully visible) -->
-        <div class="flex justify-center mb-6 lg:mb-8">
-            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-black/60 border border-cyan-500/50 shadow-lg backdrop-blur-sm hover:border-cyan-500/80 transition-all duration-300 animate-slide-down">
-                <div class="w-8 h-8 rounded-full bg-cyan-500/30 flex items-center justify-center animate-pulse-ring">
-                    <i class="fa-solid fa-briefcase text-cyan-400 text-sm"></i>
+        <!-- Top Badge – desktop offset only on large screens -->
+        <div style="position: relative; top: -30px;" class="flex justify-center mb-4 md:mb-6 lg:mb-8 lg:-mt-16">
+            <div class="inline-flex items-center gap-3 px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-black/60 border border-cyan-500/50 shadow-lg backdrop-blur-sm hover:border-cyan-500/80 transition-all duration-300 animate-slide-down">
+                <div class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-cyan-500/30 flex items-center justify-center animate-pulse-ring">
+                    <i class="fa-solid fa-briefcase text-cyan-400 text-xs md:text-sm"></i>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold text-sm">100% Placement Assistance</h4>
-                    <p class="text-cyan-300/80 text-[11px]">Guaranteed Career Support</p>
+                    <h4 class="text-white font-bold text-xs md:text-sm">100% Placement Assistance</h4>
+                    <p class="text-cyan-300/80 text-[10px] md:text-[11px]">Guaranteed Career Support</p>
                 </div>
             </div>
         </div>
 
-        <!-- Main Content - Two Columns, balanced height -->
-        <div class="flex flex-col lg:flex-row gap-6 xl:gap-10 items-start">
+        <!-- Main Content - Refined spacing, desktop offsets only on lg -->
+        <div class="flex flex-col lg:flex-row gap-8 md:gap-10 xl:gap-14 items-center lg:items-start">
             
             <!-- LEFT SIDE - CONTENT -->
-            <div class="flex-1 text-center lg:text-left">
+            <div style="position: relative; top:30px;" class="flex-1 text-center lg:text-left lg:-mt-20">
                 
                 <!-- Small Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/40 mb-4 animate-slide-down backdrop-blur-sm">
-                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse-ring"></span>
-                    <span class="text-cyan-300 text-sm font-medium tracking-wide">
+                <div  class="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/40 mb-3 md:mb-4 animate-slide-down backdrop-blur-sm">
+                    <span class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-cyan-400 animate-pulse-ring"></span>
+                    <span class="text-cyan-300 text-xs md:text-sm font-medium tracking-wide">
                         An Education Division of ASN Immigration Services Pvt. Ltd.
                     </span>
                 </div>
 
                 <!-- Heading -->
-                <h1 class="text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-[1.2] tracking-tight mb-4 animate-fade-up">
+                <h1 style="font-size: 40px;" class="text-3xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.15] tracking-tight mb-3 md:mb-4 animate-fade-up">
                     Bridging Skills with
-                    <span class="text-3xl md:text-4xl bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
+                    <span class="text-2xl md:text-3xl lg:text-4xl bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
                         Career Opportunities
                     </span>
                 </h1>
 
                 <!-- Dynamic Typing -->
-                <div class="mt-4 mb-5 flex flex-wrap items-center justify-center lg:justify-start gap-2 animate-fade-up">
+                <div class="mt-3 md:mt-4 mb-4 md:mb-5 flex flex-wrap items-center justify-center lg:justify-start gap-2 animate-fade-up">
                     <div class="typing-wrapper">
-                        <span class="typing-static text-gray-300 text-2xl md:text-3xl font-bold">Learn</span>
+                        <span class="typing-static text-gray-300 text-xl md:text-2xl lg:text-3xl font-bold">Learn</span>
                         <span class="mx-1"></span>
                         <div class="typing-dynamic-container">
-                            <span id="dynamic-word" class="typing-text text-cyan-400 text-2xl md:text-3xl font-black"></span>
+                            <span style="font-size: 50px;" id="dynamic-word" class="typing-text text-cyan-400 text-xl md:text-2xl lg:text-3xl font-black"></span>
                             <span id="dynamic-cursor" class="typing-cursor ml-0.5"></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Description in Box (slightly reduced padding) -->
-                <div class="bg-white/5 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-4 mb-6 animate-fade-up">
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                        SkillBridge is the education division of ASN Immigration, offering IT skills, tech training, 
+                <!-- Description Box -->
+                <div class="bg-white/5 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-3 md:p-4 mb-4 md:mb-6 animate-fade-up hover:border-cyan-500/40 hover:bg-white/10 transition-all duration-300">
+                    <p class="text-gray-300 text-xs md:text-sm lg:text-base leading-relaxed">
+                        SkillBridge is the education division of ASN Immigration Services Pvt. Ltd., offering IT skills, tech training, 
                         corporate learning, and online degree programs from UGC-approved and NAAC A+ accredited universities.
                     </p>
                 </div>
 
-                <!-- Stats with Animated Counters (more compact) -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto lg:mx-0 animate-fade-up">
-                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
-                        <div class="text-xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
+                <!-- Stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 max-w-2xl mx-auto lg:mx-0 animate-fade-up">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 md:p-2.5 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
+                        <div class="text-lg md:text-xl lg:text-2xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
                             <span class="counter" data-target="5000">0</span><span>+</span>
                         </div>
-                        <p class="text-gray-400 text-xs mt-0.5">Students Trained</p>
+                        <p class="text-gray-400 text-[9px] md:text-[10px] mt-0.5">Students Trained</p>
                     </div>
-                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
-                        <div class="text-xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 md:p-2.5 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
+                        <div class="text-lg md:text-xl lg:text-2xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
                             <span class="counter" data-target="30">0</span><span>+</span>
                         </div>
-                        <p class="text-gray-400 text-xs mt-0.5">Degree Programs</p>
+                        <p class="text-gray-400 text-[9px] md:text-[10px] mt-0.5">Degree Programs</p>
                     </div>
-                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
-                        <div class="text-xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 md:p-2.5 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
+                        <div class="text-lg md:text-xl lg:text-2xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
                             <span class="counter" data-target="98">0</span><span>%</span>
                         </div>
-                        <p class="text-gray-400 text-xs mt-0.5">Placement Rate</p>
+                        <p class="text-gray-400 text-[9px] md:text-[10px] mt-0.5">Placement Rate</p>
                     </div>
-                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
-                        <div class="text-xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-xl p-2 md:p-2.5 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 hover:scale-105 group">
+                        <div class="text-lg md:text-xl lg:text-2xl font-extrabold text-white group-hover:text-cyan-400 transition-colors">
                             <span class="counter" data-target="75">0</span><span>+</span>
                         </div>
-                        <p class="text-gray-400 text-xs mt-0.5">Expert Mentors</p>
+                        <p class="text-gray-400 text-[9px] md:text-[10px] mt-0.5">Expert Mentors</p>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT SIDE - ADMISSION INQUIRY FORM (compact, no overflow) -->
-            <div style="position:relative; margin-top: -90px; margin-right:-40px;" class="flex-1 w-full max-w-md mx-auto lg:mx-0">
-                <div class="bg-gradient-to-br from-gray-900/95 to-gray-900/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-2xl border border-cyan-500/30">
-                    <div class="flex items-center gap-2 mb-3">
-                        <i class="fa-regular fa-pen-to-square text-cyan-400 text-lg animate-pulse"></i>
-                        <h2 class="text-lg sm:text-xl font-bold text-white">Admission <span class="text-cyan-400">Inquiry</span></h2>
-                    </div>
-                
+            <!-- RIGHT SIDE - ADMISSION FORM (desktop offset only on lg) -->
+            <div style="position: relative; top:30px;" class="flex-1 w-full max-w-md mx-auto lg:mx-0 lg:-mt-40 lg:-mr-8">
+                <div class="relative bg-white/5 backdrop-blur-md rounded-2xl p-4 md:p-5 shadow-2xl border border-white/10 hover:border-cyan-500/30 transition-all duration-300">
                     
-                    <!-- Tabs (smaller) -->
-                    <div class="flex gap-2 mb-3">
-                        <button id="heroCoursesTab" class="hero-tab flex-1 px-2 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-xs flex items-center justify-center gap-1 transition-all hover:bg-cyan-500/10 hover:border-cyan-500 active">
-                            <i class="fa-solid fa-laptop-code"></i> <span>Courses</span>
+                    <!-- Decorative top gradient line -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 rounded-t-2xl"></div>
+                    
+                    <div class="flex items-center gap-2 mb-3 md:mb-4">
+                        <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                            <i class="fa-regular fa-pen-to-square text-cyan-400 text-sm md:text-base"></i>
+                        </div>
+                        <h2 class="text-base md:text-lg font-bold text-white">Admission <span class="text-cyan-400">Inquiry</span></h2>
+                    </div>
+               
+                    <!-- Tabs -->
+                    <div class="flex gap-2 mb-3 md:mb-4">
+                        <button id="heroCoursesTab" class="hero-tab flex-1 px-2 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-xs flex items-center justify-center gap-0 transition-all hover:bg-cyan-500/10 hover:border-cyan-500 active">
+                            <i class="fa-solid fa-laptop-code"></i> <span class="hidden sm:inline">Courses</span>
                         </button>
                         <button id="heroDegreeTab" class="hero-tab flex-1 px-2 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-gray-300 font-semibold text-xs flex items-center justify-center gap-1 transition-all hover:bg-cyan-500/10 hover:border-cyan-500">
-                            <i class="fa-solid fa-graduation-cap"></i> <span>Degree Program</span>
+                            <i class="fa-solid fa-graduation-cap"></i> <span class="hidden sm:inline">Degree Program</span>
                         </button>
                     </div>
                     
-                    <form id="heroAdmissionForm" action="/submitEnquery" method="POST" class="space-y-2.5">
+                    <form id="heroAdmissionForm" action="/submitEnquery" method="POST" class="space-y-2 md:space-y-2.5">
                         <div>
                             <label class="text-white text-xs font-semibold mb-0.5 block">Full Name <span class="text-red-500">*</span></label>
                             <input type="text" id="heroFullName" name="name" placeholder="Rahul Kumar" required 
-                                   class="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
+                                   class="w-full px-3 py-1 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                         </div>
                         <div>
                             <label class="text-white text-xs font-semibold mb-0.5 block">Email Address <span class="text-red-500">*</span></label>
                             <input type="email" id="heroEmail" name="email" placeholder="hello@skillbridge.com" required 
-                                   class="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
+                                   class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                         </div>
                         <div>
                             <label class="text-white text-xs font-semibold mb-0.5 block">Phone Number <span class="text-red-500">*</span></label>
                             <input type="tel" id="heroPhone" name="phoneNumber" placeholder="9876543210" required 
-                                   class="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
+                                   class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                         </div>
                         
                         <div id="heroCourseOptions">
                             <label class="text-white text-xs font-semibold mb-0.5 block">Select Course <span class="text-red-500">*</span></label>
-                            <select id="heroCourseSelect" name="course" required class="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
+                            <select id="heroCourseSelect" name="course" required class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                                 <option value="" disabled selected class="text-gray-900 bg-white">Select a course</option>
                                 <option class="text-gray-900 bg-white">Web Development</option>
                                 <option class="text-gray-900 bg-white">Generative AI</option>
                                 <option class="text-gray-900 bg-white">Data Science & AI</option>
                                 <option class="text-gray-900 bg-white">Data Analytics</option>
                                 <option class="text-gray-900 bg-white">Digital Marketing</option>
-                                <option class="text-gray-900 bg-white">Programming Language</option>
+                                <option class="text-gray-900 bg-white">Programming</option>
                                 <option class="text-gray-900 bg-white">UI/UX Design</option>
                                 <option class="text-gray-900 bg-white">Data Structures & Algorithms</option>
                                 <option class="text-gray-900 bg-white">Placement Training</option>
@@ -188,7 +177,7 @@
                         
                         <div id="heroDegreeOptions" class="hidden">
                             <label class="text-white text-xs font-semibold mb-0.5 block">Select Degree Program <span class="text-red-500">*</span></label>
-                            <select id="heroDegreeSelect" name="course" required class="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
+                            <select id="heroDegreeSelect" name="course" required class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                                 <option value="" disabled selected class="text-gray-900 bg-white">Select an online degree program</option>
                                 <option class="text-gray-900 bg-white">MBA</option>
                                 <option class="text-gray-900 bg-white">MCA</option>
@@ -203,38 +192,94 @@
                             </select>
                         </div>
                         
-                        <!-- Message optional -->
                         <div>
                             <label class="text-white text-xs font-semibold mb-0.5 block">Message / Query (Optional)</label>
                             <textarea id="heroMessage" name="message" rows="1" placeholder="I'm interested in...courses, online degrees, career guidance"
-                                      class="w-full px-3 py-1.5 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all resize-none text-sm"></textarea>
+                                      class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all resize-none text-sm"></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 rounded-xl font-semibold transition-all hover:scale-[1.02] flex items-center justify-center gap-2 group text-sm">
+                        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 md:py-2.5 rounded-xl font-semibold transition-all hover:scale-[1.02] flex items-center justify-center gap-2 group text-sm shadow-lg shadow-cyan-500/20">
                             Submit Inquiry <i class="fa-solid fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
                         </button>
                     </form>
-                 
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- ====== STYLES (unchanged, but ensure responsive adjustments) ====== -->
 <style>
-    /* ====== ALL EXISTING ANIMATIONS REMAIN THE SAME (unchanged) ====== */
+    /* ====== GRID PATTERN ====== */
+    .hero-grid {
+        background-image: 
+            repeating-linear-gradient(90deg, rgba(34,211,238,0.08) 0px, rgba(34,211,238,0.08) 1px, transparent 1px, transparent 50px),
+            repeating-linear-gradient(0deg, rgba(34,211,238,0.08) 0px, rgba(34,211,238,0.08) 1px, transparent 1px, transparent 50px);
+        background-size: 50px 50px;
+        animation: gridMove 8s linear infinite;
+    }
+    @keyframes gridMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 50px 50px; }
+    }
+    
+    /* ====== GLOW ORBS ====== */
+    .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+        animation: pulseOrb 4s ease-in-out infinite;
+    }
+    .glow-orb-1 {
+        width: 300px; height: 300px;
+        top: -50px; right: -50px;
+        background: rgba(6,182,212,0.2);
+        animation-delay: 0s;
+    }
+    .glow-orb-2 {
+        width: 200px; height: 200px;
+        bottom: -30px; left: 10%;
+        background: rgba(59,130,246,0.25);
+        animation-delay: 2s;
+    }
+    .glow-orb-3 {
+        width: 150px; height: 150px;
+        top: 40%; right: 20%;
+        background: rgba(139,92,246,0.2);
+        animation-delay: 1.5s;
+    }
+    @keyframes pulseOrb {
+        0%, 100% { transform: scale(1); opacity: 0.6; }
+        50% { transform: scale(1.2); opacity: 0.9; }
+    }
+    
+    /* ====== PARTICLES ====== */
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(34,211,238,0.15);
+        pointer-events: none;
+        animation: floatParticle 8s ease-in-out infinite;
+    }
+    .p1 { width: 8px; height: 8px; top: 15%; left: 8%; animation-duration: 6s; }
+    .p2 { width: 14px; height: 14px; top: 65%; left: 90%; animation-duration: 9s; animation-delay: 1s; }
+    .p3 { width: 6px; height: 6px; top: 30%; left: 80%; animation-duration: 5s; animation-delay: 2s; }
+    .p4 { width: 10px; height: 10px; top: 85%; left: 20%; animation-duration: 7s; animation-delay: 0.5s; }
+    .p5 { width: 7px; height: 7px; top: 20%; left: 50%; animation-duration: 6.5s; animation-delay: 1.5s; }
+    .p6 { width: 12px; height: 12px; top: 50%; left: 60%; animation-duration: 8.5s; animation-delay: 3s; opacity: 0.08; }
+    .p7 { width: 5px; height: 5px; top: 75%; left: 45%; animation-duration: 7.5s; animation-delay: 2.5s; }
+    .p8 { width: 9px; height: 9px; top: 10%; left: 35%; animation-duration: 5.5s; animation-delay: 1.8s; }
+    @keyframes floatParticle {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+        25% { transform: translate(25px, -20px) scale(1.1); opacity: 0.7; }
+        50% { transform: translate(-10px, -35px) scale(0.9); opacity: 0.4; }
+        75% { transform: translate(15px, -10px) scale(1.05); opacity: 0.6; }
+    }
+    
+    /* ====== ALL EXISTING ANIMATIONS ====== */
     @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .animate-spin-slow { animation: spin-slow 15s linear infinite; }
-    @keyframes pulse-glow { 0%, 100% { opacity: 0.15; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.1); } }
-    .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-    @keyframes ping-slow { 0%, 100% { opacity: 0.2; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
-    .animate-ping-slow { animation: ping-slow 2s ease-in-out infinite; }
-    @keyframes bounce-slow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-    .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
-    @keyframes grid-move { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
-    .animate-grid-move { animation: grid-move 10s linear infinite; }
-    @keyframes grid-move-reverse { 0% { background-position: 0 0; } 100% { background-position: -100px 0; } }
-    .animate-grid-move-reverse { animation: grid-move-reverse 15s linear infinite; }
     @keyframes border-glow { 0%, 100% { border-color: rgba(34,211,238,0.3); box-shadow: 0 0 10px rgba(34,211,238,0); } 50% { border-color: rgba(34,211,238,1); box-shadow: 0 0 30px rgba(34,211,238,0.5); } }
     .animate-border-glow { animation: border-glow 2s ease-in-out infinite; }
     .animate-border-glow-delay { animation: border-glow 2.5s ease-in-out infinite 1s; }
@@ -246,21 +291,11 @@
     .animate-gradient-x { background-size: 200% auto; animation: gradient-x 3s ease-in-out infinite; }
     @keyframes pulse-ring { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
     .animate-pulse-ring { animation: pulse-ring 1.5s ease-in-out infinite; }
-    .particle { position: absolute; background: rgba(34,211,238,0.6); border-radius: 50%; animation: float-particle 8s infinite ease-in-out; }
-    .particle-1 { width: 4px; height: 4px; top: 15%; left: 20%; animation-duration: 6s; }
-    .particle-2 { width: 6px; height: 6px; top: 70%; left: 85%; animation-duration: 8s; animation-delay: 1s; }
-    .particle-3 { width: 3px; height: 3px; top: 40%; left: 10%; animation-duration: 5s; animation-delay: 2s; }
-    .particle-4 { width: 5px; height: 5px; top: 80%; left: 30%; animation-duration: 7s; animation-delay: 0.5s; }
-    .particle-5 { width: 4px; height: 4px; top: 25%; left: 75%; animation-duration: 9s; animation-delay: 1.5s; }
-    .particle-6 { width: 6px; height: 6px; top: 55%; left: 50%; animation-duration: 6.5s; animation-delay: 3s; }
-    .particle-7 { width: 3px; height: 3px; top: 10%; left: 45%; animation-duration: 7.5s; animation-delay: 2.5s; }
-    .particle-8 { width: 5px; height: 5px; top: 90%; left: 60%; animation-duration: 5.5s; animation-delay: 1.8s; }
-    @keyframes float-particle { 0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.6; } 25% { transform: translateY(-30px) translateX(15px); opacity: 1; } 50% { transform: translateY(10px) translateX(-10px); opacity: 0.4; } 75% { transform: translateY(-15px) translateX(20px); opacity: 0.8; } }
-    .bg-gradient-conic { background: conic-gradient(from 0deg, #06b6d4, #3b82f6, #8b5cf6, #06b6d4); }
     
     .typing-wrapper { display: inline-flex; align-items: center; gap: 4px; background: transparent; }
     .typing-static { color: #e5e7eb; font-weight: 700; }
-    .typing-dynamic-container { display: inline-flex; align-items: center; position: relative; min-width: 240px; }
+    .typing-dynamic-container { display: inline-flex; align-items: center; position: relative; min-width: 180px; }
+    @media (min-width: 1024px) { .typing-dynamic-container { min-width: 240px; } }
     .typing-text { color: #22d3ee; font-weight: 900; white-space: nowrap; display: inline-block; letter-spacing: 1px; text-shadow: 0 0 8px rgba(34,211,238,0.6); }
     .typing-cursor { display: inline-block; width: 3px; height: 2rem; background-color: #22d3ee; vertical-align: middle; margin-left: 4px; border-radius: 2px; opacity: 1; box-shadow: 0 0 4px #22d3ee; }
     
@@ -272,7 +307,7 @@
         .typing-cursor { height: 1.8rem; }
     }
     @media (max-width: 768px) {
-        .typing-dynamic-container { min-width: 180px; }
+        .typing-dynamic-container { min-width: 160px; }
         .typing-text, .typing-static { font-size: 1.4rem; }
         .typing-cursor { height: 1.5rem; }
         #hero { min-height: auto; padding-bottom: 2rem; }
@@ -309,7 +344,7 @@
         setTimeout(typeEffect, 300);
     })();
 
-    // ==================== COUNTER ANIMATION (IMMEDIATE ON PAGE LOAD) ====================
+    // ==================== COUNTER ANIMATION ====================
     (function() {
         function animateCounter(element, target) {
             let current = 0;
@@ -331,7 +366,7 @@
         });
     })();
 
-    // ==================== HERO FORM TAB LOGIC & SUBMISSION ====================
+    // ==================== HERO FORM TAB LOGIC & SUBMISSION (IMPROVED) ====================
     document.addEventListener('DOMContentLoaded', function() {
         const coursesTab = document.getElementById('heroCoursesTab');
         const degreeTab = document.getElementById('heroDegreeTab');
@@ -361,10 +396,12 @@
         
         activateTab(coursesTab, courseOptions, degreeOptions);
         
+        // --- FORM SUBMISSION WITH ROBUST HANDLING ---
         if (heroForm) {
             heroForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
+                // Gather fields
                 const name = document.getElementById('heroFullName')?.value.trim();
                 const email = document.getElementById('heroEmail')?.value.trim();
                 const phone = document.getElementById('heroPhone')?.value.trim();
@@ -374,18 +411,44 @@
                 let courseValue = '';
                 if (isCourseTab) {
                     const courseSelect = document.getElementById('heroCourseSelect');
-                    courseValue = courseSelect?.value;
+                    courseValue = courseSelect?.value || '';
                 } else {
                     const degreeSelect = document.getElementById('heroDegreeSelect');
-                    courseValue = degreeSelect?.value;
+                    courseValue = degreeSelect?.value || '';
                 }
                 
+                // Validation
                 if (!name || !email || !phone || !courseValue) {
-                    alert('Please fill all required fields.');
+                    alert('⚠️ Please fill all required fields.');
                     return;
                 }
                 
-                const payload = { name, email, phoneNumber: phone, course: courseValue, message };
+                // Phone number length validation (10 digits)
+                if (!/^\d{10}$/.test(phone)) {
+                    alert('⚠️ Phone number must be exactly 10 digits.');
+                    return;
+                }
+                
+                // Email format validation
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    alert('⚠️ Please enter a valid email address.');
+                    return;
+                }
+                
+                // Build payload
+                const payload = { 
+                    name, 
+                    email, 
+                    phoneNumber: phone, 
+                    course: courseValue,
+                    message 
+                };
+                // If degree tab is active, also send 'degree'
+                if (!isCourseTab) {
+                    payload.degree = courseValue; // same as course for degree programs
+                }
+                
+                // Disable button and show spinner
                 const submitBtn = heroForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.disabled = true;
@@ -397,20 +460,36 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    const result = await response.json();
+                    
+                    // Try to parse JSON response, but handle non‑JSON gracefully
+                    let result = null;
+                    let responseText = '';
+                    try {
+                        responseText = await response.text();
+                        result = JSON.parse(responseText);
+                    } catch (parseError) {
+                        // Response is not JSON – maybe HTML error page
+                        console.warn('Server returned non‑JSON:', responseText);
+                        throw new Error('Server returned an unexpected response. Please try again later.');
+                    }
+                    
                     if (response.ok) {
-                        alert('✅ Inquiry sent! You will receive a confirmation email shortly.');
+                        alert('✅ ' + (result.message || 'Inquiry sent successfully! We will contact you soon.'));
                         heroForm.reset();
                         document.getElementById('heroCourseSelect').value = '';
                         document.getElementById('heroDegreeSelect').value = '';
+                        // Switch back to Courses tab
                         activateTab(coursesTab, courseOptions, degreeOptions);
                     } else {
-                        alert('❌ ' + (result.error || 'Submission failed. Please try again.'));
+                        // Server responded with error status (e.g., 400, 500)
+                        const errorMsg = result?.error || result?.message || 'Submission failed. Please try again.';
+                        alert('❌ ' + errorMsg);
                     }
-                } catch(err) {
-                    console.error('Submission error:', err);
-                    alert('❌ Something went wrong. Please try again later.');
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    alert('❌ ' + (error.message || 'Something went wrong. Please check your network and try again.'));
                 } finally {
+                    // Re‑enable button
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
                 }

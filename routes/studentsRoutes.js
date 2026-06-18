@@ -1,6 +1,6 @@
 const express=require("express")
 const path = require('path');
-const {showHomePage,showCourses,viewCourseDetails,storeEnqueryForm,getEnqueryForm,showAboutPage,showContactPage,searchCoursesAPI,getCoursesByCategory}=require("../controllers/studentContollers/studentControllers")
+const {showHomePage,showCourses,viewCourseDetails,storeEnqueryForm,getEnqueryForm,showAboutPage,showContactPage,searchCoursesAPI,getCoursesByCategory,viewClassroomDetails,viewOnlineDetails}=require("../controllers/studentContollers/studentControllers")
 const studentRoutes=express.Router()
 studentRoutes.get("/",showHomePage)
 studentRoutes.get("/courses",showCourses)
@@ -14,9 +14,26 @@ studentRoutes.get('/favicon.ico', (req, res) => {
   console.log("fevicon")
   res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
 });
+
+
+// Classroom program detail page
+studentRoutes.get('/viewClassroom/:courseId', viewClassroomDetails);
+// Online live program detail page
+studentRoutes.get('/viewOnline/:courseId', viewOnlineDetails);
+
+
 // Category page – must be placed before any route with a parameter like /:id
 studentRoutes.get('/courseCatogry', getCoursesByCategory);
 module.exports=studentRoutes
 
+
+studentRoutes.get('/olodl', (req, res) => {
+    res.render('pages/student/olodl', { isLogin: req.session?.isLogin || false, user: req.session?.user || null });
+});
+
+
+studentRoutes.get('/placement-career', (req, res) => {
+    res.render('pages/student/placement-career', { isLogin: req.session?.isLogin || false, user: req.session?.user || null });
+});
 
 
