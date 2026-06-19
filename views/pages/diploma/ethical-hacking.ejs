@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title><%= title || 'Diploma in Ethical Hacking & Cyber Security – SkillBridge' %></title>
+    <meta name="description" content="Become a certified ethical hacker with our 12-month Diploma. Master penetration testing, network security, malware analysis, and cyber forensics with hands-on labs." />
+    <meta name="keywords" content="diploma in ethical hacking, cyber security diploma, ethical hacking course, penetration testing, CEH, OSCP, SkillBridge" />
+    <meta name="author" content="SkillBridge" />
+    <link rel="canonical" href="https://www.skillbridge.com/diploma/ethical-hacking" />
+    <meta property="og:title" content="Diploma in Ethical Hacking & Cyber Security – SkillBridge" />
+    <meta property="og:description" content="Transform your career with our industry-aligned diploma. Master ethical hacking, network security, and cyber forensics with real-world simulations." />
+    <meta property="og:image" content="https://www.skillbridge.com/og-diploma-eh.jpg" />
+    <meta property="og:url" content="https://www.skillbridge.com/diploma/ethical-hacking" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
+
+        /* ====== HERO ====== */
+        .hero-grid-visible {
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+            animation: gridMove 8s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            pointer-events: none;
+            animation: floatParticle 6s ease-in-out infinite;
+        }
+        .particle:nth-child(1) { width: 12px; height: 12px; top: 10%; left: 5%; animation-duration: 7s; }
+        .particle:nth-child(2) { width: 20px; height: 20px; top: 60%; left: 85%; animation-duration: 9s; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 30%; left: 75%; animation-duration: 5s; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 16px; height: 16px; top: 80%; left: 15%; animation-duration: 8s; animation-delay: 0.5s; }
+        .particle:nth-child(5) { width: 10px; height: 10px; top: 20%; left: 45%; animation-duration: 6.5s; animation-delay: 1.5s; }
+        .particle:nth-child(6) { width: 25px; height: 25px; top: 50%; left: 50%; animation-duration: 10s; animation-delay: 3s; opacity: 0.1; }
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            25% { transform: translate(30px, -20px) scale(1.1); opacity: 0.8; }
+            50% { transform: translate(-10px, -40px) scale(0.9); opacity: 0.5; }
+            75% { transform: translate(20px, -15px) scale(1.05); opacity: 0.7; }
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: pulseOrb 4s ease-in-out infinite;
+        }
+        .glow-orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            right: -50px;
+            background: rgba(6,182,212,0.25);
+            animation-delay: 0s;
+        }
+        .glow-orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -30px;
+            left: 10%;
+            background: rgba(45,212,191,0.3);
+            animation-delay: 2s;
+        }
+        @keyframes pulseOrb {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.9; }
+        }
+        .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ====== SIDEBAR / QUICK NAV ====== */
+        .sidebar-sticky {
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+        }
+        .quick-nav-link {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            padding: 0.5rem 0.75rem 0.5rem 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+        }
+        .quick-nav-link:hover {
+            color: #0d9488;
+            background: rgba(13, 148, 136, 0.06);
+        }
+        .quick-nav-link.active {
+            color: #0d9488;
+            background: rgba(13, 148, 136, 0.08);
+            border-left-color: #0d9488;
+        }
+        .quick-nav-link .nav-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: background 0.2s;
+        }
+        .quick-nav-link.active .nav-dot {
+            background: #0d9488;
+            box-shadow: 0 0 8px rgba(13, 148, 136, 0.5);
+        }
+
+        /* ====== MOBILE NAV OVERLAY ====== */
+        #mobileNavOverlay.show {
+            opacity: 1 !important;
+            pointer-events: all !important;
+        }
+        #mobileNavOverlay.show .absolute {
+            transform: scale(1) !important;
+        }
+
+        /* ====== CARD STYLES ====== */
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
+        }
+        .salary-table th {
+            background: #e6f7f5;
+            font-weight: 700;
+        }
+        .salary-table td, .salary-table th {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        /* ====== ACCORDION ====== */
+        .faq-question { cursor: pointer; }
+        .faq-answer { display: none; padding-top: 0.75rem; }
+        .faq-answer.open { display: block; }
+
+        /* ====== STATS BADGE ====== */
+        .stat-badge-large {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .stat-badge-large:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1024px) {
+            .sidebar-sticky { display: none; }
+        }
+        @media (max-width: 768px) {
+            .hero-diploma { padding-top: 4rem; padding-bottom: 3rem; }
+            .salary-table td, .salary-table th { padding: 0.4rem 0.5rem; font-size: 0.8rem; }
+            .stat-badge-large { padding: 0.75rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('../../partials/common/navbar') %>
+
+    <!-- ==================== HERO – DARK THEME, VISIBLE GRID ==================== -->
+    <div class="relative overflow-hidden bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 pt-20 pb-12 md:pt-24 md:pb-16">
+        <div class="absolute inset-0 hero-grid-visible pointer-events-none"></div>
+        <div class="absolute inset-0 opacity-50">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-cyan-400 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500 rounded-full blur-3xl opacity-30"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center max-w-6xl mx-auto">
+                <!-- Left Content -->
+                <div class="flex-1 text-center lg:text-left space-y-4">
+                    <div class="text-sm mb-2 text-white/70 flex items-center justify-center lg:justify-start gap-2">
+                        <a href="/" class="text-teal-300 hover:text-teal-200 transition">Home</a>
+                        <span class="text-white/40">/</span>
+                        <span class="text-white font-semibold">Diploma in Ethical Hacking & Cyber Security</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+                        Diploma in <br />
+                        <span class="bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">Ethical Hacking & Cyber Security</span>
+                    </h1>
+                    <div class="flex items-center gap-3 flex-wrap justify-center lg:justify-start">
+                        <div class="flex items-center gap-1 text-amber-400 text-base">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-white font-bold text-base">4.9 out of 5</span>
+                        <span class="text-gray-300 text-sm">based on 13,557 reviews</span>
+                    </div>
+                    <p class="text-gray-200 text-base max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                        Join the program and get the opportunity to learn under the guidance of a <strong class="text-cyan-300">Diploma In Ethical Hacking & Cyber Security specialist</strong>.
+                    </p>
+                    <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                        <a href="#curriculum" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-sm text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                            <i class="fa-regular fa-file-pdf"></i> DOWNLOAD CURRICULUM
+                        </a>
+                        <a href="#inquiry" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-sm border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-400/10 hover:shadow-md transition-all hover:scale-105">
+                            <i class="fa-regular fa-phone"></i> GET QUICK CALL BACK
+                        </a>
+                        <button onclick="document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-sm text-white bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                            <i class="fa-regular fa-calendar-check"></i> SCHEDULE A DEMO
+                        </button>
+                    </div>
+                </div>
+                <!-- Right Side – Circular Image -->
+                <div class="flex-shrink-0 w-full max-w-xs lg:max-w-sm">
+                    <div class="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto">
+                        <div class="absolute -inset-3 border-2 border-cyan-400/30 rounded-full animate-spin-slow"></div>
+                        <div class="absolute -inset-6 border border-dashed border-cyan-400/20 rounded-full animate-spin-slow" style="animation-direction: reverse; animation-duration: 25s;"></div>
+                        <div class="w-full h-full rounded-full border-4 border-white/20 shadow-2xl overflow-hidden bg-gradient-to-br from-cyan-800/30 to-blue-900/30">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=400&fit=crop&crop=center" alt="Ethical Hacking" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== STATS BAR ==================== -->
+    <div class="bg-cyan-900/5 backdrop-blur-sm border-b border-cyan-100/20 py-6">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="stat-badge-large">
+                    <div class="text-2xl md:text-3xl font-extrabold text-cyan-700">400K+</div>
+                    <p class="text-xs md:text-sm text-gray-600 font-semibold">Professionals Trained</p>
+                </div>
+                <div class="stat-badge-large">
+                    <div class="text-2xl md:text-3xl font-extrabold text-cyan-700">50+</div>
+                    <p class="text-xs md:text-sm text-gray-600 font-semibold">Industry Expert Trainers</p>
+                </div>
+                <div class="stat-badge-large">
+                    <div class="text-2xl md:text-3xl font-extrabold text-cyan-700">10</div>
+                    <p class="text-xs md:text-sm text-gray-600 font-semibold">Branches</p>
+                </div>
+                <div class="stat-badge-large">
+                    <div class="text-2xl md:text-3xl font-extrabold text-cyan-700">2500+</div>
+                    <p class="text-xs md:text-sm text-gray-600 font-semibold">Corporate Served</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT + SIDEBAR ==================== -->
+    <div class="container mx-auto px-6 max-w-7xl py-8 lg:py-12">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            <!-- MAIN CONTENT (left) -->
+            <div class="flex-1 min-w-0">
+
+                <!-- ==================== OVERVIEW ==================== -->
+                <section id="overview" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Overview</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Program <span class="text-teal-600">Overview</span></h2>
+                    </div>
+                    <div class="relative p-8 md:p-10 rounded-2xl bg-white/80 backdrop-blur-sm border border-teal-100 shadow-xl hover:shadow-teal-200/50 transition-all duration-500 group">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-100/30 via-cyan-100/30 to-blue-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <p class="text-gray-700 text-lg md:text-xl leading-relaxed relative z-10">
+                            With the rise in cybercrimes, data breaches, and hacking incidents, organizations worldwide are actively seeking skilled professionals to safeguard digital assets and protect sensitive information. The demand for Ethical Hackers and Cyber Security Experts is higher than ever, making this one of the most lucrative and future-proof career options in IT.
+                            <br /><br />
+                            The Diploma in Ethical Hacking & Cyber Security is designed to equip you with the practical skills, industry certifications, and hands-on experience required to become a cybersecurity professional. You will gain expertise in penetration testing, network security, malware analysis, ethical hacking tools, and cyber forensics.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- ==================== WHY CHOOSE THIS DIPLOMA ==================== -->
+                <section id="why-choose" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Why Choose</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Why This <span class="text-teal-600">Diploma?</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0"><i class="fa-regular fa-shield-halved"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">In-depth cybersecurity & penetration testing</strong> – master ethical hacking techniques.</p></div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0"><i class="fa-regular fa-tools"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Master ethical hacking tools</strong> – Kali Linux, Metasploit, Wireshark, Burp Suite, Nmap, Nessus.</p></div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0"><i class="fa-regular fa-laptop-code"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Hands-on training</strong> – web app security, network penetration, malware analysis, and forensics.</p></div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-50 to-teal-50 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0"><i class="fa-regular fa-user-tie text-teal-600"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Real-world hacking simulations</strong> – security assessments and forensic investigations.</p></div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-200 flex-shrink-0"><i class="fa-regular fa-bullseye text-indigo-600"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">100% placement assistance</strong> – career support and job readiness.</p></div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0"><i class="fa-regular fa-clock text-rose-600"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Flexible learning</strong> – Online, Offline & Hybrid Classes.</p></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== OBJECTIVES (derived) ==================== -->
+                <section id="objectives" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Objectives</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">What You'll <span class="text-teal-600">Achieve</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 mb-4"><i class="fa-regular fa-shield"></i></div>
+                                <p class="text-gray-700 text-sm leading-relaxed">Understand cyber threats, risks, and vulnerabilities; apply ethical hacking techniques.</p>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 mb-4"><i class="fa-regular fa-network-wired"></i></div>
+                                <p class="text-gray-700 text-sm leading-relaxed">Master network security, penetration testing, and vulnerability assessment.</p>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 mb-4"><i class="fa-regular fa-laptop-code"></i></div>
+                                <p class="text-gray-700 text-sm leading-relaxed">Perform web application security testing and exploit OWASP Top 10 vulnerabilities.</p>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 mb-4"><i class="fa-regular fa-magnifying-glass"></i></div>
+                                <p class="text-gray-700 text-sm leading-relaxed">Conduct digital forensics, malware analysis, and incident response investigations.</p>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-200 mb-4"><i class="fa-regular fa-cloud"></i></div>
+                                <p class="text-gray-700 text-sm leading-relaxed">Secure cloud environments (AWS, Azure, GCP) and implement threat intelligence.</p>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 mb-4"><i class="fa-regular fa-users"></i></div>
+                                <p class="text-gray-700 text-sm leading-relaxed">Apply Red Team / Blue Team strategies and simulate real‑world attacks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== WHO SHOULD ATTEND ==================== -->
+                <section id="audience" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Audience</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Who Should <span class="text-teal-600">Attend</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10 flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0"><i class="fa-regular fa-user-graduate"></i></div>
+                                <div><p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">Students & fresh graduates</strong> – looking for a career in cybersecurity.</p></div>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10 flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0"><i class="fa-regular fa-server"></i></div>
+                                <div><p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">IT professionals & network engineers</strong> – wanting to specialize in ethical hacking.</p></div>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10 flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0"><i class="fa-regular fa-briefcase"></i></div>
+                                <div><p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">Job seekers</strong> – aiming for high-paying cybersecurity roles.</p></div>
+                            </div>
+                        </div>
+                        <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-rose-50 to-amber-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10 flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0"><i class="fa-regular fa-building"></i></div>
+                                <div><p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">Entrepreneurs & business owners</strong> – wanting to protect digital assets.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== CURRICULUM ==================== -->
+                <section id="curriculum" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Curriculum</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Module‑wise <span class="text-teal-600">Syllabus</span></h2>
+                        <p class="text-gray-600 text-lg mt-3">8 modules + capstone, built for practical skill building.</p>
+                    </div>
+
+                    <!-- Module 1 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 1</span> Fundamentals of Cyber Security & Ethical Hacking</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">Introduction to Cyber Security & Ethical Hacking, Cyber Threats, Risks & Vulnerabilities, Cyber Laws, Regulations & Compliance Standards, Role of Ethical Hackers in Cyber Defense.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 2</span> Networking & Network Security</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">OSI & TCP/IP Models – Network Protocols, Firewalls, IDS/IPS & VPNs, Wi-Fi Security & Wireless Hacking, Network Monitoring, Packet Sniffing & Encryption.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 3 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 3</span> Ethical Hacking & Penetration Testing</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">Setting Up a Hacking Lab with Kali Linux, Information Gathering & Reconnaissance, Scanning & Enumeration – Identifying Vulnerabilities, Password Cracking, Brute Force Attacks & Exploitation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 4 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 4</span> Web Application Security & Exploitation</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">OWASP Top 10 Web Vulnerabilities – SQL Injection, XSS, CSRF, Secure Coding & Web Application Security Best Practices, Web Server Attacks & API Security, Hands-on Web Penetration Testing.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 5 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 5</span> Digital Forensics & Malware Analysis</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">Computer Forensics & Incident Response, Malware Analysis & Reverse Engineering, Tracking Hackers & Analyzing Cybercrime Evidence, Tools Used in Forensics – Autopsy, FTK, EnCase.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 6 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 6</span> Cloud Security & Cyber Threat Intelligence</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">Cloud Security Best Practices – AWS, Azure, Google Cloud, Securing Virtual Machines & Cloud-Based Applications, Cyber Threat Intelligence & Threat Hunting, SIEM (Security Information & Event Management) Tools.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 7 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 7</span> Red Team & Blue Team Cyber Defense Strategies</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">Red Team vs. Blue Team Cyber Security Drills, Social Engineering Attacks & Phishing Techniques, Advanced Persistent Threats (APT) & Cyber Warfare, AI-Powered Cyber Threat Detection & Risk Mitigation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Module 8 -->
+                    <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+                        <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                            <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 8</span> Final Capstone Project & Certification Preparation</h3>
+                            <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+                        </div>
+                        <div class="module-content p-5 pt-0" style="display: none;">
+                            <p class="text-gray-600 text-sm">Hands-on Ethical Hacking & Cyber Security Project, Case Studies of Real-World Cyber Attacks, Mock Certification Exams for CEH, OSCP, CISSP, Resume Building & Job Interview Preparation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add-ons -->
+                    <div class="mt-6 p-6 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 shadow-md">
+                        <h4 class="font-bold text-gray-800"><i class="fa-regular fa-plus-circle text-purple-600 mr-2"></i> Optional Add‑ons</h4>
+                        <ul class="mt-2 space-y-2 text-gray-600 text-sm">
+                            <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> Free access to our tutorial website for revision and practice labs.</li>
+                            <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> Welcome kit with bag, pen, and notepad.</li>
+                            <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> Interview sprints and portfolio reviews before placement season.</li>
+                            <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> 0% Easy EMI – details shared during counselling.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- ==================== CAREER PATHS & SALARY ==================== -->
+                <section id="careers" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Careers</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Career Paths & <span class="text-teal-600">Salary</span></h2>
+                        <p class="text-gray-600 text-lg mt-3">Indicative ranges – vary by city and domain.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-teal-200 mx-auto mb-4"><i class="fa-regular fa-shield-halved"></i></div>
+                            <h4 class="font-bold text-gray-800">Ethical Hacker / Penetration Tester</h4>
+                            <p class="text-gray-600 text-sm">Identify and exploit vulnerabilities to strengthen security.</p>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-200 mx-auto mb-4"><i class="fa-regular fa-chart-line"></i></div>
+                            <h4 class="font-bold text-gray-800">Cyber Security Analyst</h4>
+                            <p class="text-gray-600 text-sm">Monitor, detect, and respond to security incidents.</p>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-purple-200 mx-auto mb-4"><i class="fa-regular fa-network-wired"></i></div>
+                            <h4 class="font-bold text-gray-800">Network Security Engineer</h4>
+                            <p class="text-gray-600 text-sm">Design and maintain secure network infrastructure.</p>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-rose-200 mx-auto mb-4"><i class="fa-regular fa-magnifying-glass"></i></div>
+                            <h4 class="font-bold text-gray-800">Digital Forensics Investigator</h4>
+                            <p class="text-gray-600 text-sm">Analyze cybercrime evidence and support incident response.</p>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-indigo-200 mx-auto mb-4"><i class="fa-regular fa-cloud"></i></div>
+                            <h4 class="font-bold text-gray-800">Cloud Security Specialist</h4>
+                            <p class="text-gray-600 text-sm">Secure cloud environments and applications.</p>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-teal-200 mx-auto mb-4"><i class="fa-regular fa-headset"></i></div>
+                            <h4 class="font-bold text-gray-800">Incident Response Specialist</h4>
+                            <p class="text-gray-600 text-sm">Lead incident investigation and containment.</p>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto rounded-2xl border border-teal-100 shadow-lg bg-white">
+                        <table class="w-full text-sm">
+                            <thead><tr class="bg-gradient-to-r from-teal-100 to-cyan-100"><th class="px-6 py-4 text-left text-teal-800 font-bold">Role</th><th class="px-6 py-4 text-left text-teal-800 font-bold">Fresher (0–1 yr)</th><th class="px-6 py-4 text-left text-teal-800 font-bold">Experienced (2–5 yrs)</th></tr></thead>
+                            <tbody class="divide-y divide-teal-50">
+                                <tr class="hover:bg-teal-50/50 transition-colors"><td class="px-6 py-4 text-gray-700 font-medium">Ethical Hacker / Penetration Tester</td><td class="px-6 py-4 text-gray-600">₹4–7 LPA</td><td class="px-6 py-4 text-gray-600">₹8–16 LPA</td></tr>
+                                <tr class="hover:bg-teal-50/50 transition-colors"><td class="px-6 py-4 text-gray-700 font-medium">Cyber Security Analyst</td><td class="px-6 py-4 text-gray-600">₹3.5–6 LPA</td><td class="px-6 py-4 text-gray-600">₹7–12 LPA</td></tr>
+                                <tr class="hover:bg-teal-50/50 transition-colors"><td class="px-6 py-4 text-gray-700 font-medium">Network Security Engineer</td><td class="px-6 py-4 text-gray-600">₹3.8–6.5 LPA</td><td class="px-6 py-4 text-gray-600">₹8–14 LPA</td></tr>
+                                <tr class="hover:bg-teal-50/50 transition-colors"><td class="px-6 py-4 text-gray-700 font-medium">Digital Forensics Investigator</td><td class="px-6 py-4 text-gray-600">₹3.5–6 LPA</td><td class="px-6 py-4 text-gray-600">₹7–13 LPA</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ==================== METHODOLOGY ==================== -->
+                <section id="methodology" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Methodology</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Learning & <span class="text-teal-600">Portfolio Approach</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0"><i class="fa-regular fa-arrows-rotate"></i></div>
+                                <div><h4 class="font-bold text-gray-800">Learning Loop</h4><p class="text-gray-600 text-sm mt-1">Explain → Demo → Hack → Reflect. Each lab builds your confidence and portfolio.</p></div>
+                            </div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0"><i class="fa-regular fa-folder-open"></i></div>
+                                <div><h4 class="font-bold text-gray-800">Portfolio</h4><p class="text-gray-600 text-sm mt-1">Graduate with a penetration test report, vulnerability assessment, and forensic case file.</p></div>
+                            </div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0"><i class="fa-regular fa-pen-to-square"></i></div>
+                                <div><h4 class="font-bold text-gray-800">Reflection</h4><p class="text-gray-600 text-sm mt-1">Mentors review your work and provide actionable feedback.</p></div>
+                            </div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0"><i class="fa-regular fa-certificate"></i></div>
+                                <div><h4 class="font-bold text-gray-800">Certification</h4><p class="text-gray-600 text-sm mt-1">Internal certification after completing the capstone and passing a practical exam.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== PLACEMENT SUPPORT ==================== -->
+                <section id="placement" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Placement</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Placement <span class="text-teal-600">Support</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0"><i class="fa-regular fa-bullseye"></i></div>
+                                <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Role mapping</strong> – align your skills with cybersecurity roles.</p></div>
+                            </div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0"><i class="fa-regular fa-file-lines"></i></div>
+                                <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Resume & portfolio</strong> – we help you highlight your ethical hacking projects.</p></div>
+                            </div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0"><i class="fa-regular fa-comments"></i></div>
+                                <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Mock interviews</strong> – practice technical and HR interviews.</p></div>
+                            </div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0"><i class="fa-regular fa-handshake"></i></div>
+                                <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Referrals & job alerts</strong> – we share targeted openings with our hiring partners.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== WHY SKILLBRIDGE ==================== -->
+                <section id="why-skillbridge" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Why Us</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Why Choose <span class="text-teal-600">SkillBridge?</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0"><i class="fa-regular fa-laptop-code"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Hands‑on hacking:</strong> every topic is reinforced with lab exercises and real‑world scenarios.</p></div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0"><i class="fa-regular fa-bullseye"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Industry‑recognized:</strong> prepare for CEH, OSCP, and CISSP certifications.</p></div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0"><i class="fa-regular fa-list-check"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Transparent rubrics:</strong> you know exactly what’s expected to earn your diploma.</p></div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0"><i class="fa-regular fa-folder-open"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Portfolio proof:</strong> you’ll have a GitHub repo with penetration test reports and forensic cases.</p></div>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4 md:col-span-2 max-w-2xl mx-auto">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-200 flex-shrink-0"><i class="fa-regular fa-handshake"></i></div>
+                            <div><p class="text-gray-700 text-sm"><strong class="text-teal-700">Ongoing support & accessible plans:</strong> placement help continues until you land a role, with affordable fees and a welcome kit.</p></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== ADMISSION ==================== -->
+                <section id="admission" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">Admission</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Admission <span class="text-teal-600">Process</span></h2>
+                        <p class="text-gray-600 text-lg mt-3">We set you up to start strong—no trick filters.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-teal-200 mx-auto mb-4">1</div>
+                            <h4 class="font-bold text-gray-800">Counselling call</h4>
+                            <p class="text-gray-600 text-sm">Discuss your goals and background with our experts.</p>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-blue-200 mx-auto mb-4">2</div>
+                            <h4 class="font-bold text-gray-800">Readiness discussion</h4>
+                            <p class="text-gray-600 text-sm">Short, friendly check (no penalty, purely diagnostic).</p>
+                        </div>
+                        <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-purple-200 mx-auto mb-4">3</div>
+                            <h4 class="font-bold text-gray-800">Enrol & onboard</h4>
+                            <p class="text-gray-600 text-sm">Complete enrollment and start your first hacking lab.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== FAQ ==================== -->
+                <section id="faq" class="scroll-mt-20 mb-16">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">FAQ</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">Frequently Asked <span class="text-teal-600">Questions</span></h2>
+                    </div>
+                    <div class="space-y-4">
+                        <% const faqs = [
+                            { q: "Is this diploma recognized?", a: "Yes, the Diploma in Ethical Hacking & Cyber Security is UGC-approved and offered in collaboration with NAAC A+ accredited universities." },
+                            { q: "What is the duration?", a: "The program is 10–12 months long, with flexible batch options." },
+                            { q: "Do I need prior hacking or security experience?", a: "No. We start from the fundamentals and gradually build up to advanced techniques." },
+                            { q: "Is placement assistance guaranteed?", a: "We provide 100% placement assistance. Our dedicated team helps with resume, mock interviews, and referrals until you land a role." },
+                            { q: "What is the learning mode?", a: "Hybrid – you can attend live online classes or join our campus sessions (subject to availability)." },
+                            { q: "Are there scholarships?", a: "Yes, we offer merit‑based and need‑based scholarships. Contact our counsellor for details." },
+                            { q: "What is the fee structure?", a: "Fees are affordable with 0% Easy EMI options. Details are shared during the counselling call." }
+                        ]; %>
+                        <% faqs.forEach((faq, index) => { %>
+                            <div class="bg-white shadow-md rounded-2xl border border-teal-100 p-5 border-l-4 border-l-teal-500 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50">
+                                <div class="faq-question flex justify-between items-center cursor-pointer">
+                                    <h3 class="font-bold text-gray-800 text-sm"><%= faq.q %></h3>
+                                    <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-300"></i>
+                                </div>
+                                <div class="faq-answer text-gray-600 text-sm leading-relaxed"><%= faq.a %></div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </section>
+
+                <!-- ==================== INQUIRY FORM ==================== -->
+                <div id="inquiry">
+                    <%- include('../../partials/common/inquiry-form') %>
+                </div>
+            </div>
+
+            <!-- ==================== SIDEBAR (QUICK NAV) – ON THIS PAGE ==================== -->
+            <aside class="lg:w-64 xl:w-72 flex-shrink-0 hidden lg:block sidebar-sticky">
+                <div class="bg-white rounded-2xl shadow-lg border border-teal-100/80 p-4">
+                    <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+                        <i class="fa-regular fa-list-ul text-teal-600 text-sm"></i>
+                        <span class="font-extrabold text-gray-800 text-sm">On this page</span>
+                    </div>
+                    <nav class="flex flex-col gap-0.5">
+                        <a href="#overview" class="quick-nav-link" data-section="overview">
+                            <span class="nav-dot"></span>
+                            <span>Overview</span>
+                        </a>
+                        <a href="#why-choose" class="quick-nav-link" data-section="why-choose">
+                            <span class="nav-dot"></span>
+                            <span>Why Choose</span>
+                        </a>
+                        <a href="#objectives" class="quick-nav-link" data-section="objectives">
+                            <span class="nav-dot"></span>
+                            <span>Objectives</span>
+                        </a>
+                        <a href="#audience" class="quick-nav-link" data-section="audience">
+                            <span class="nav-dot"></span>
+                            <span>Audience</span>
+                        </a>
+                        <a href="#curriculum" class="quick-nav-link" data-section="curriculum">
+                            <span class="nav-dot"></span>
+                            <span>Curriculum</span>
+                        </a>
+                        <a href="#careers" class="quick-nav-link" data-section="careers">
+                            <span class="nav-dot"></span>
+                            <span>Careers</span>
+                        </a>
+                        <a href="#methodology" class="quick-nav-link" data-section="methodology">
+                            <span class="nav-dot"></span>
+                            <span>Methodology</span>
+                        </a>
+                        <a href="#placement" class="quick-nav-link" data-section="placement">
+                            <span class="nav-dot"></span>
+                            <span>Placement</span>
+                        </a>
+                        <a href="#why-skillbridge" class="quick-nav-link" data-section="why-skillbridge">
+                            <span class="nav-dot"></span>
+                            <span>Why SkillBridge</span>
+                        </a>
+                        <a href="#admission" class="quick-nav-link" data-section="admission">
+                            <span class="nav-dot"></span>
+                            <span>Admission</span>
+                        </a>
+                        <a href="#faq" class="quick-nav-link" data-section="faq">
+                            <span class="nav-dot"></span>
+                            <span>FAQ</span>
+                        </a>
+                        <a href="#inquiry" class="quick-nav-link" data-section="inquiry">
+                            <span class="nav-dot"></span>
+                            <span>Inquiry</span>
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- ==================== MOBILE FLOATING NAV BUTTON ==================== -->
+    <div id="mobileNavToggle" class="lg:hidden fixed bottom-6 right-6 z-50">
+        <button class="w-14 h-14 rounded-full bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-2xl shadow-teal-500/50 hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobileNavOverlay" class="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" style="opacity: 0; pointer-events: none;">
+        <div class="absolute bottom-24 right-6 bg-white rounded-2xl shadow-2xl border border-teal-100 p-4 max-w-xs w-full transform transition-transform duration-300 scale-95" style="transform: scale(0.95);">
+            <div class="flex justify-between items-center mb-3">
+                <span class="font-extrabold text-gray-800 text-sm">Jump to Section</span>
+                <button id="closeMobileNav" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <nav class="flex flex-col gap-1 max-h-80 overflow-y-auto">
+                <a href="#overview" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Overview</a>
+                <a href="#why-choose" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Why Choose</a>
+                <a href="#objectives" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Objectives</a>
+                <a href="#audience" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Audience</a>
+                <a href="#curriculum" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Curriculum</a>
+                <a href="#careers" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Careers</a>
+                <a href="#methodology" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Methodology</a>
+                <a href="#placement" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Placement</a>
+                <a href="#why-skillbridge" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Why SkillBridge</a>
+                <a href="#admission" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Admission</a>
+                <a href="#faq" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">FAQ</a>
+                <a href="#inquiry" class="mobile-nav-link px-4 py-2 rounded-xl text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-all text-sm font-semibold">Inquiry</a>
+            </nav>
+        </div>
+    </div>
+
+    <%- include('../../partials/common/footer') %>
+
+    <script>
+        // ========== TOGGLE MODULE ==========
+        function toggleModule(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.fa-chevron-down');
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.display = 'none';
+                if (icon) icon.style.transform = 'rotate(-90deg)';
+            }
+        }
+
+        // ========== FAQ ACCORDION ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-question');
+            faqItems.forEach((question, idx) => {
+                const container = question.closest('.bg-white');
+                const answer = container.querySelector('.faq-answer');
+                const icon = question.querySelector('.fa-chevron-down');
+                if (idx === 0) {
+                    answer.classList.add('open');
+                    answer.style.display = 'block';
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                } else {
+                    answer.style.display = 'none';
+                }
+                question.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isOpen = answer.classList.contains('open');
+                    document.querySelectorAll('.faq-answer').forEach(el => {
+                        el.classList.remove('open');
+                        el.style.display = 'none';
+                        const ic = el.closest('.bg-white').querySelector('.fa-chevron-down');
+                        if (ic) ic.style.transform = 'rotate(0deg)';
+                    });
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        answer.style.display = 'block';
+                        if (icon) icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // ========== QUICK NAV – ACTIVE LINK ==========
+            const sections = [
+                'overview', 'why-choose', 'objectives', 'audience', 'curriculum', 'careers',
+                'methodology', 'placement', 'why-skillbridge', 'admission', 'faq', 'inquiry'
+            ];
+            const navLinks = document.querySelectorAll('.quick-nav-link');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top <= 120) {
+                            current = id;
+                        }
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.section === current);
+                });
+                mobileNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        closeMobileNav();
+                    }
+                });
+            });
+
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        updateActiveLink();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+            updateActiveLink();
+
+            // ========== MOBILE NAV ==========
+            const mobileToggle = document.getElementById('mobileNavToggle');
+            const mobileOverlay = document.getElementById('mobileNavOverlay');
+            const closeMobileBtn = document.getElementById('closeMobileNav');
+
+            function openMobileNav() {
+                mobileOverlay.classList.remove('hidden');
+                setTimeout(() => { mobileOverlay.classList.add('show'); }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileNav() {
+                mobileOverlay.classList.remove('show');
+                setTimeout(() => {
+                    mobileOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', openMobileNav);
+            }
+            if (closeMobileBtn) {
+                closeMobileBtn.addEventListener('click', closeMobileNav);
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function(e) {
+                    if (e.target === this) closeMobileNav();
+                });
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileOverlay && !mobileOverlay.classList.contains('hidden')) {
+                    closeMobileNav();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

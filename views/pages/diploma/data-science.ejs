@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title><%= title || 'Diploma in Data Science – SkillBridge' %></title>
+    <meta name="description" content="Kickstart your career with our 12-month Diploma in Data Science. Master Python, ML, AI, and analytics with hands-on projects and placement support." />
+    <meta name="keywords" content="diploma in data science, data science diploma, data science course, machine learning, AI, SkillBridge" />
+    <meta name="author" content="SkillBridge" />
+    <link rel="canonical" href="https://www.skillbridge.com/diploma/data-science" />
+    <meta property="og:title" content="Diploma in Data Science – SkillBridge" />
+    <meta property="og:description" content="Transform your career with our industry-aligned Data Science diploma. Learn from experts, work on real projects, and get placed." />
+    <meta property="og:image" content="https://www.skillbridge.com/og-diploma-ds.jpg" />
+    <meta property="og:url" content="https://www.skillbridge.com/diploma/data-science" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
+
+        /* ====== HERO – TEAL THEME ====== */
+        .hero-diploma {
+            background: linear-gradient(145deg, #d4eef2, #b2dfe8, #80c4d4);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(10,73,88,0.12) 0px, rgba(10,73,88,0.12) 1px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, rgba(10,73,88,0.12) 0px, rgba(10,73,88,0.12) 1px, transparent 1px, transparent 50px);
+            background-size: 50px 50px;
+            animation: gridMove 8s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            pointer-events: none;
+            animation: floatParticle 6s ease-in-out infinite;
+        }
+        .particle:nth-child(1) { width: 12px; height: 12px; top: 10%; left: 5%; animation-duration: 7s; }
+        .particle:nth-child(2) { width: 20px; height: 20px; top: 60%; left: 85%; animation-duration: 9s; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 30%; left: 75%; animation-duration: 5s; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 16px; height: 16px; top: 80%; left: 15%; animation-duration: 8s; animation-delay: 0.5s; }
+        .particle:nth-child(5) { width: 10px; height: 10px; top: 20%; left: 45%; animation-duration: 6.5s; animation-delay: 1.5s; }
+        .particle:nth-child(6) { width: 25px; height: 25px; top: 50%; left: 50%; animation-duration: 10s; animation-delay: 3s; opacity: 0.1; }
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            25% { transform: translate(30px, -20px) scale(1.1); opacity: 0.8; }
+            50% { transform: translate(-10px, -40px) scale(0.9); opacity: 0.5; }
+            75% { transform: translate(20px, -15px) scale(1.05); opacity: 0.7; }
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: pulseOrb 4s ease-in-out infinite;
+        }
+        .glow-orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            right: -50px;
+            background: rgba(6,182,212,0.25);
+            animation-delay: 0s;
+        }
+        .glow-orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -30px;
+            left: 10%;
+            background: rgba(45,212,191,0.3);
+            animation-delay: 2s;
+        }
+        @keyframes pulseOrb {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.9; }
+        }
+
+        /* ====== CARD STYLES ====== */
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
+        }
+        .curriculum-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            transition: background 0.2s;
+        }
+        .curriculum-item:hover { background: #f8fafc; }
+        .curriculum-item:last-child { border-bottom: none; }
+        .curriculum-item i { color: #0d9488; width: 1.5rem; margin-top: 0.15rem; }
+
+        .stat-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #e6f7f5;
+            color: #0d5e6b;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .rating-stars {
+            color: #f59e0b;
+        }
+
+        .salary-table th {
+            background: #e6f7f5;
+            font-weight: 700;
+        }
+        .salary-table td, .salary-table th {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        /* ====== ACCORDION ====== */
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 0.75rem;
+        }
+        .faq-answer.open { display: block; }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .hero-diploma { padding-top: 4rem; padding-bottom: 3rem; }
+            .salary-table td, .salary-table th { padding: 0.4rem 0.5rem; font-size: 0.8rem; }
+        }
+
+
+        .hero-grid {
+    background-image: 
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 50px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 50px);
+    background-size: 50px 50px;
+    animation: gridMove 8s linear infinite;
+}
+
+
+
+/* ====== VISIBLE GRID – BRIGHTER LINES ====== */
+.hero-grid-visible {
+    background-image: 
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 50px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 50px);
+    background-size: 50px 50px;
+    animation: gridMove 8s linear infinite;
+}
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+    </style>
+</head>
+<body>
+
+    <%- include('../../partials/common/navbar') %>
+
+    <!-- ==================== HERO – DIPLOMA IN DATA SCIENCE (DARK THEME, VISIBLE GRID) ==================== -->
+<div class="relative overflow-hidden bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 pt-20 pb-12 md:pt-24 md:pb-16">
+    
+    <!-- Animated Grid Overlay (now visible) -->
+    <div class="absolute inset-0 hero-grid-visible pointer-events-none"></div>
+    
+    <!-- Glowing Orbs -->
+    <div class="absolute inset-0 opacity-50">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-cyan-400 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500 rounded-full blur-3xl opacity-30"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Centered Wrapper for Content -->
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center max-w-6xl mx-auto">
+            
+            <!-- LEFT SIDE – Content -->
+            <div class="flex-1 text-center lg:text-left space-y-4">
+                <!-- Breadcrumb -->
+                <div class="text-sm mb-2 text-white/70 flex items-center justify-center lg:justify-start gap-2">
+                    <a href="/" class="text-teal-300 hover:text-teal-200 transition">Home</a>
+                    <span class="text-white/40">/</span>
+                    <span class="text-white font-semibold">Diploma in Data Science</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-4xl md:text-5xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+                    Diploma in <br />
+                    <span class="bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">Data Science</span>
+                </h1>
+
+                <!-- Rating -->
+                <div class="flex items-center gap-3 flex-wrap justify-center lg:justify-start">
+                    <div class="flex items-center gap-1 text-amber-400 text-base">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-white font-bold text-base">4.9 out of 5</span>
+                    <span class="text-gray-300 text-sm">based on 13,644 reviews</span>
+                </div>
+
+                <!-- Description -->
+                <p class="text-gray-200 text-base max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                    Join the program and get the opportunity to learn under the guidance of a <strong class="text-cyan-300">Diploma In Data Science specialist</strong>.
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                    <a href="#curriculum" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-sm text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                        <i class="fa-regular fa-file-pdf"></i> DOWNLOAD CURRICULUM
+                    </a>
+                    <a href="#inquiry" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-sm border-2 border-cyan-400 text-cyan-300 hover:bg-cyan-400/10 hover:shadow-md transition-all hover:scale-105">
+                        <i class="fa-regular fa-phone"></i> GET QUICK CALL BACK
+                    </a>
+                    <button onclick="document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-sm text-white bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                        <i class="fa-regular fa-calendar-check"></i> SCHEDULE A DEMO
+                    </button>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div style="display: none;" class="flex flex-wrap gap-3 justify-center lg:justify-start text-sm">
+                    <span class="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 text-gray-200">
+                        <i class="fa-regular fa-circle-check text-cyan-400 text-xs"></i> UGC Approved
+                    </span>
+                    <span class="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 text-gray-200">
+                        <i class="fa-regular fa-circle-check text-cyan-400 text-xs"></i> 100% Placement
+                    </span>
+                    <span class="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 text-gray-200">
+                        <i class="fa-regular fa-circle-check text-cyan-400 text-xs"></i> Hybrid Learning
+                    </span>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE – Circular Image -->
+            <div class="flex-shrink-0 w-full max-w-xs lg:max-w-sm">
+                <div class="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto">
+                    <!-- Decorative rings -->
+                    <div class="absolute -inset-3 border-2 border-cyan-400/30 rounded-full animate-spin-slow"></div>
+                    <div class="absolute -inset-6 border border-dashed border-cyan-400/20 rounded-full animate-spin-slow" style="animation-direction: reverse; animation-duration: 25s;"></div>
+                    
+                    <!-- Circular Image -->
+                    <div class="w-full h-full rounded-full border-4 border-white/20 shadow-2xl overflow-hidden bg-gradient-to-br from-cyan-800/30 to-blue-900/30">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=400&fit=crop&crop=center" 
+                             alt="Data Science" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ==================== OVERVIEW – GLASS CARD WITH GRADIENT BORDER ==================== -->
+<section class="py-16 bg-gradient-to-b from-teal-50 via-white to-cyan-50 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-teal-200 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Overview
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Program <span class="text-teal-600">Overview</span>
+            </h2>
+        </div>
+        <div class="relative p-8 md:p-10 rounded-2xl bg-white/80 backdrop-blur-sm border border-teal-100 shadow-xl hover:shadow-teal-200/50 transition-all duration-500 group">
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-100/30 via-cyan-100/30 to-blue-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <p class="text-gray-700 text-lg md:text-xl leading-relaxed relative z-10">
+                Data science is more than models—it’s asking sharp questions, cleaning messy data, choosing the simplest method that works, and explaining results clearly. This diploma blends classical data science (statistics, experimentation, modelling, evaluation) with Gen-AI practices (prompt design, retrieval workflows, human-in-the-loop checks). You’ll move from fundamentals to project delivery through short primers, guided demos, and repeatable labs. Every unit ends with an artefact you can reuse: a cleaned dataset, a feature plan, a model report, or an evaluation note. The focus is employability—clear reasoning, measured results, and a portfolio reviewers can trust.
+            </p>
+            <div class="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-br from-teal-300 to-cyan-400 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+            <div class="absolute -bottom-3 -left-3 w-20 h-20 bg-gradient-to-tr from-blue-300 to-purple-300 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== OBJECTIVES – ICON GRID WITH GLOW ==================== -->
+<section class="py-16 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Objectives
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                What You'll <span class="text-teal-600">Achieve</span>
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 mb-4">
+                        <i class="fa-regular fa-bullseye"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">Frame business problems as measurable questions and select the right methods.</p>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 mb-4">
+                        <i class="fa-regular fa-database"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">Clean and organise data; document assumptions so analyses are auditable.</p>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 mb-4">
+                        <i class="fa-regular fa-chart-simple"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">Engineer informative features and compare models using disciplined validation.</p>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 mb-4">
+                        <i class="fa-regular fa-message"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">Communicate results with compact visuals and defensible metrics (not vanity scores).</p>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-200 mb-4">
+                        <i class="fa-regular fa-robot"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">Design Gen-AI workflows that are safe, monitored, and grounded in actual data.</p>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 mb-4">
+                        <i class="fa-regular fa-clipboard-list"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed">Draft lightweight delivery docs—diagrams, checklists, and “next-step” notes hiring teams expect.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHO SHOULD ATTEND – CARDS WITH GRADIENT BORDERS ==================== -->
+<section class="py-16 bg-gradient-to-b from-teal-50 via-white to-cyan-50 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-0 left-0 w-80 h-80 bg-purple-200 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Audience
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Who Should <span class="text-teal-600">Attend</span>
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0">
+                        <i class="fa-regular fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">Students/freshers</strong> aiming for data/analyst roles with proof of work.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0">
+                        <i class="fa-regular fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">Working professionals</strong> in operations, finance, marketing, HR, or IT who need data-driven decisions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0">
+                        <i class="fa-regular fa-arrows-rotate"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">Career switchers</strong> seeking a structured path from spreadsheets to analysis and modelling.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50 hover:-translate-y-1">
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-rose-50 to-amber-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0">
+                        <i class="fa-regular fa-building"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm leading-relaxed"><strong class="text-teal-700">Founders/managers</strong> who want to evaluate and deploy small, reliable data/AI solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CURRICULUM – ACCORDION WITH GRADIENT BADGES ==================== -->
+<section id="curriculum" class="py-16 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Curriculum
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Module‑wise <span class="text-teal-600">Syllabus</span>
+            </h2>
+            <p class="text-gray-600 text-lg mt-3">10 modules + capstone, built for practical skill building.</p>
+        </div>
+
+        <!-- Module 1 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 1</span> Foundations of Analytical Thinking</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Problem framing, metrics that matter, sampling intuition, distributions, confidence, and the pitfalls that distort conclusions.</p>
+            </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 2</span> Data Cleaning & Preparation</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Quality checks, missing-value strategy, categorical handling, deduplication, joins/reshapes, and a tidy data habit that speeds every later step.</p>
+            </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 3</span> Feature Engineering & Selection</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Create informative variables, reduce noise, handle leakage, and build simple baselines to judge whether features help.</p>
+            </div>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 4</span> Supervised Learning</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Classification vs. regression thinking, bias/variance intuition, validation splits, learning curves, and what “good enough” means for a business target.</p>
+            </div>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 5</span> Unsupervised Learning & Segmentation</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Grouping, similarity, and dimensionality ideas; when segmentation clarifies action and when it’s just decoration.</p>
+            </div>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 6</span> Time‑Series & Forecasting Basics</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Stationarity intuition, seasonality, rolling windows, backtesting, and forecast reporting that sets expectations, not illusions.</p>
+            </div>
+        </div>
+
+        <!-- Module 7 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 7</span> Evaluation & Error Analysis</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Choose metrics aligned to goals; inspect false positives/negatives; communicate uncertainty and trade-offs to non-technical stakeholders.</p>
+            </div>
+        </div>
+
+        <!-- Module 8 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 8</span> Gen‑AI Fundamentals for Data Work</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Prompt patterns, grounding answers in your data, red‑teaming prompts, human-in-the-loop checks, and simple guardrails for tone and safety.</p>
+            </div>
+        </div>
+
+        <!-- Module 9 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 9</span> Retrieval & Workflow Design</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">When to retrieve, how to structure context, how to cache results, and where to log decisions so audits are easy.</p>
+            </div>
+        </div>
+
+        <!-- Module 10 -->
+        <div class="bg-white shadow-md rounded-2xl border border-teal-100 mb-4 overflow-hidden hover:border-teal-400 transition-all duration-300">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-50/50 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 text-sm mr-3">Module 10</span> From Notebook to Delivery</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Lightweight packaging, version notes, refresh routines, and a small incident drill so you can recover from bad inputs or drift calmly.</p>
+            </div>
+        </div>
+
+        <!-- Capstone -->
+        <div class="bg-gradient-to-r from-teal-50 to-cyan-50 shadow-md rounded-2xl border border-teal-300 mb-4 overflow-hidden">
+            <div class="section-header p-5 flex justify-between items-center cursor-pointer hover:bg-teal-100/30 transition-colors" onclick="toggleModule(this)">
+                <h3 class="text-lg font-bold text-gray-800"><span class="text-teal-600 mr-3">🎓</span> Capstone — Analyse • Model • Explain</h3>
+                <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-200"></i>
+            </div>
+            <div class="module-content p-5 pt-0" style="display: none;">
+                <p class="text-gray-600 text-sm">Pick a realistic problem, clean and engineer data, compare alternatives, justify the choice, and deliver a compact report; optionally add a Gen‑AI helper with review logs.</p>
+            </div>
+        </div>
+
+        <!-- Optional Add-ons -->
+        <div class="mt-6 p-6 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 shadow-md">
+            <h4 class="font-bold text-gray-800"><i class="fa-regular fa-plus-circle text-purple-600 mr-2"></i> Optional Add‑ons</h4>
+            <ul class="mt-2 space-y-2 text-gray-600 text-sm">
+                <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> Free access to our tutorial website for revision, checklists, and practice datasets.</li>
+                <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> Welcome kit with bag, pen, and notepad to keep notes and experiment logs organised.</li>
+                <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> Interview sprints and portfolio reviews before placement season.</li>
+                <li class="flex items-start gap-3"><i class="fa-regular fa-check-circle text-purple-500 mt-0.5"></i> 0% Easy EMI – details shared during counselling.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CAREER PATHS & SALARY – TABLES WITH GRADIENT HEADERS ==================== -->
+<section class="py-16 bg-gradient-to-b from-teal-50 via-white to-cyan-50 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Careers
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Career Paths & <span class="text-teal-600">Salary</span>
+            </h2>
+            <p class="text-gray-600 text-lg mt-3">Indicative ranges – vary by city and domain.</p>
+        </div>
+
+        <!-- Job Roles -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-teal-200 mx-auto mb-4">
+                    <i class="fa-regular fa-chart-bar"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">Data Analyst (Junior)</h4>
+                <p class="text-gray-600 text-sm">Cleaning, exploration, dashboards, decision notes.</p>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-200 mx-auto mb-4">
+                    <i class="fa-regular fa-briefcase"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">Business/Operations Analyst</h4>
+                <p class="text-gray-600 text-sm">KPI tracking, experiments, weekly reporting.</p>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-purple-200 mx-auto mb-4">
+                    <i class="fa-regular fa-robot"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">Machine Learning Associate</h4>
+                <p class="text-gray-600 text-sm">Feature plans, baselines, evaluation discipline.</p>
+            </div>
+            <div class="md:col-span-3 max-w-md mx-auto group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-rose-200 mx-auto mb-4">
+                    <i class="fa-regular fa-brain"></i>
+                </div>
+                <h4 class="font-bold text-gray-800">Gen‑AI Workflow Associate</h4>
+                <p class="text-gray-600 text-sm">Prompt libraries, retrieval designs, review checklists.</p>
+            </div>
+        </div>
+
+        <!-- Salary Table -->
+        <div class="overflow-x-auto rounded-2xl border border-teal-100 shadow-lg bg-white">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-gradient-to-r from-teal-100 to-cyan-100">
+                        <th class="px-6 py-4 text-left text-teal-800 font-bold">Role</th>
+                        <th class="px-6 py-4 text-left text-teal-800 font-bold">Fresher (0–1 yr)</th>
+                        <th class="px-6 py-4 text-left text-teal-800 font-bold">Experienced (2–5 yrs)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-teal-50">
+                    <tr class="hover:bg-teal-50/50 transition-colors">
+                        <td class="px-6 py-4 text-gray-700 font-medium">Data Analyst</td>
+                        <td class="px-6 py-4 text-gray-600">₹3.2–5.8 LPA</td>
+                        <td class="px-6 py-4 text-gray-600">₹7–12 LPA</td>
+                    </tr>
+                    <tr class="hover:bg-teal-50/50 transition-colors">
+                        <td class="px-6 py-4 text-gray-700 font-medium">Business/Operations Analyst</td>
+                        <td class="px-6 py-4 text-gray-600">₹3.0–5.5 LPA</td>
+                        <td class="px-6 py-4 text-gray-600">₹6.5–12 LPA</td>
+                    </tr>
+                    <tr class="hover:bg-teal-50/50 transition-colors">
+                        <td class="px-6 py-4 text-gray-700 font-medium">ML/AI Associate</td>
+                        <td class="px-6 py-4 text-gray-600">₹3.6–6.5 LPA</td>
+                        <td class="px-6 py-4 text-gray-600">₹8–15 LPA</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== LEARNING METHODOLOGY – CARDS WITH ICONS ==================== -->
+<section class="py-16 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Methodology
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Learning & <span class="text-teal-600">Portfolio Approach</span>
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0">
+                        <i class="fa-regular fa-arrows-rotate"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Learning Loop</h4>
+                        <p class="text-gray-600 text-sm mt-1">Explain → Demo → Do → Reflect. Each unit ends with a reusable artefact.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0">
+                        <i class="fa-regular fa-folder-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Portfolio</h4>
+                        <p class="text-gray-600 text-sm mt-1">Graduate with: cleaned dataset + dictionary, feature plan, evaluation report, decision note, and optional Gen‑AI helper.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Decision Log</h4>
+                        <p class="text-gray-600 text-sm mt-1">Keep a short log (assumptions, choices, results, next step) – doubles as interview material.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0">
+                        <i class="fa-regular fa-certificate"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Certification</h4>
+                        <p class="text-gray-600 text-sm mt-1">Earned through labs, a midterm mini‑project, and a capstone – assessed with clear rubrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PLACEMENT SUPPORT – ICON CARDS ==================== -->
+<section class="py-16 bg-gradient-to-b from-teal-50 via-white to-cyan-50 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-cyan-200 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Placement
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Placement <span class="text-teal-600">Support</span>
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0">
+                        <i class="fa-regular fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm"><strong class="text-teal-700">Role mapping</strong> so your applications align with your strengths and portfolio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0">
+                        <i class="fa-regular fa-file-lines"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm"><strong class="text-teal-700">Resume/profile edits</strong> that emphasise measurable outcomes (not tool lists).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0">
+                        <i class="fa-regular fa-comments"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm"><strong class="text-teal-700">Mock interviews</strong> with feedback you can act on immediately.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0">
+                        <i class="fa-regular fa-handshake"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-700 text-sm"><strong class="text-teal-700">Targeted referrals</strong> and guidance that continue until you land a role.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHY SKILLBRIDGE – REPLACES "WHY DUCAT" (removed branches) ==================== -->
+<section class="py-16 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-teal-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Why Us
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Why Choose <span class="text-teal-600">SkillBridge?</span>
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl shadow-lg shadow-teal-200 flex-shrink-0">
+                    <i class="fa-regular fa-laptop-code"></i>
+                </div>
+                <div>
+                    <p class="text-gray-700 text-sm"><strong class="text-teal-700">Hands‑on first:</strong> every topic ends with a lab; each lab feeds your portfolio.</p>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-200 flex-shrink-0">
+                    <i class="fa-regular fa-bullseye"></i>
+                </div>
+                <div>
+                    <p class="text-gray-700 text-sm"><strong class="text-teal-700">Decision‑focused:</strong> we teach why a method fits a target, not just how to run it.</p>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-200 flex-shrink-0">
+                    <i class="fa-regular fa-list-check"></i>
+                </div>
+                <div>
+                    <p class="text-gray-700 text-sm"><strong class="text-teal-700">Transparent rubrics:</strong> scoring criteria are shared upfront; expectations are concrete.</p>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-xl shadow-lg shadow-rose-200 flex-shrink-0">
+                    <i class="fa-regular fa-folder-open"></i>
+                </div>
+                <div>
+                    <p class="text-gray-700 text-sm"><strong class="text-teal-700">Portfolio proof:</strong> you leave with artefacts that hiring teams can verify in minutes.</p>
+                </div>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50 flex items-start gap-4 md:col-span-2 max-w-2xl mx-auto">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-200 flex-shrink-0">
+                    <i class="fa-regular fa-handshake"></i>
+                </div>
+                <div>
+                    <p class="text-gray-700 text-sm"><strong class="text-teal-700">Ongoing support & accessible plans:</strong> placement help continues until you land a role, with affordable fees, tutorial access, and a welcome kit on day one.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ADMISSION PROCESS – STEPS WITH GRADIENT NUMBERS ==================== -->
+<section class="py-16 bg-gradient-to-b from-teal-50 via-white to-cyan-50 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-0 left-0 w-80 h-80 bg-teal-200 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                Admission
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Admission <span class="text-teal-600">Process</span>
+            </h2>
+            <p class="text-gray-600 text-lg mt-3">We set you up to start strong—no trick filters.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-teal-200 mx-auto mb-4">1</div>
+                <h4 class="font-bold text-gray-800">Counselling call</h4>
+                <p class="text-gray-600 text-sm">Align goals, background, weekly capacity, and target roles.</p>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-blue-200 mx-auto mb-4">2</div>
+                <h4 class="font-bold text-gray-800">Readiness discussion</h4>
+                <p class="text-gray-600 text-sm">Short, friendly check of quantitative basics – to personalise your start.</p>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-purple-200 mx-auto mb-4">3</div>
+                <h4 class="font-bold text-gray-800">Enrollment & onboarding</h4>
+                <p class="text-gray-600 text-sm">Paperwork, portal access, orientation checklist, and first practice dataset.</p>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-rose-200 mx-auto mb-4">4</div>
+                <h4 class="font-bold text-gray-800">Orientation week</h4>
+                <p class="text-gray-600 text-sm">Build a clean analysis template, log assumptions, run a tiny baseline.</p>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-teal-200 mx-auto mb-4">5</div>
+                <h4 class="font-bold text-gray-800">Milestone plan</h4>
+                <p class="text-gray-600 text-sm">Month‑by‑month map with quality bars and “meets/exceeds” examples.</p>
+            </div>
+            <div class="group p-6 rounded-2xl bg-white shadow-md border border-teal-100 text-center hover:border-teal-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-100/50">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-2xl font-extrabold shadow-lg shadow-indigo-200 mx-auto mb-4">6</div>
+                <h4 class="font-bold text-gray-800">Placement readiness</h4>
+                <p class="text-gray-600 text-sm">Once capstone and artefacts meet rubrics, start interview sprints and role‑matching.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FAQ – ACCORDION WITH TEAL ACCENTS ==================== -->
+<section class="py-16 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-200 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 max-w-3xl relative z-10">
+        <div class="text-center mb-12">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 border border-teal-300/40 text-teal-700 text-sm font-bold uppercase tracking-wider">
+                FAQ
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mt-4">
+                Frequently Asked <span class="text-teal-600">Questions</span>
+            </h2>
+        </div>
+        <div class="space-y-4">
+            <% 
+                const faqs = [
+                    { q: "Is this diploma recognized?", a: "Yes, the Diploma in Data Science is UGC-approved and offered in collaboration with NAAC A+ accredited universities." },
+                    { q: "What is the duration?", a: "The program is 12 months long, divided into 3 semesters of 4 months each." },
+                    { q: "Do I need a technical background?", a: "No strict prerequisites. Comfort with basic maths and spreadsheets helps. We teach from first principles." },
+                    { q: "Is placement assistance guaranteed?", a: "We provide 100% placement assistance. Our dedicated team helps with resume, mock interviews, and referrals until you land a role." },
+                    { q: "What is the learning mode?", a: "Hybrid – you can attend live online classes or join our campus sessions (subject to availability)." },
+                    { q: "Are there scholarships?", a: "Yes, we offer merit‑based and need‑based scholarships. Contact our counsellor for details." },
+                    { q: "What is the fee structure?", a: "Fees are affordable with 0% Easy EMI options. Details are shared during the counselling call." }
+                ]; 
+            %>
+            <% faqs.forEach((faq, index) => { %>
+                <div class="bg-white shadow-md rounded-2xl border border-teal-100 p-5 border-l-4 border-l-teal-500 hover:border-teal-400 transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/50">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="font-bold text-gray-800 text-sm"><%= faq.q %></h3>
+                        <i class="fa-solid fa-chevron-down text-teal-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer text-gray-600 text-sm leading-relaxed"><%= faq.a %></div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== INQUIRY FORM (Partial) ==================== -->
+<div id="inquiry">
+    <%- include('../../partials/common/inquiry-form') %>
+</div>
+
+<%- include('../../partials/common/footer') %>
+
+<script>
+    // ========== TOGGLE MODULE ==========
+    function toggleModule(header) {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('.fa-chevron-down');
+        if (content.style.display === 'none' || !content.style.display) {
+            content.style.display = 'block';
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        } else {
+            content.style.display = 'none';
+            if (icon) icon.style.transform = 'rotate(-90deg)';
+        }
+    }
+
+    // ========== FAQ ACCORDION ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-question');
+        faqItems.forEach((question, idx) => {
+            const container = question.closest('.bg-white');
+            const answer = container.querySelector('.faq-answer');
+            const icon = question.querySelector('.fa-chevron-down');
+            if (idx === 0) {
+                answer.classList.add('open');
+                answer.style.display = 'block';
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.style.display = 'none';
+            }
+            question.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = answer.classList.contains('open');
+                // Close all others
+                document.querySelectorAll('.faq-answer').forEach(el => {
+                    el.classList.remove('open');
+                    el.style.display = 'none';
+                    const ic = el.closest('.bg-white').querySelector('.fa-chevron-down');
+                    if (ic) ic.style.transform = 'rotate(0deg)';
+                });
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    answer.style.display = 'block';
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

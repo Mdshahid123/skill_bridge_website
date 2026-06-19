@@ -115,7 +115,7 @@
                 <a href="/about" class="category-link text-gray-900 font-bold text-sm md:text-base">About</a>
 
                 <!-- Digital Marketing -->
-                <div class="relative dropdown-container">
+                <div style="cursor: pointer;" class="relative dropdown-container">
                     <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Digital Marketing <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
@@ -129,8 +129,8 @@
                 </div>
 
                 <!-- Web Development -->
-                <div class="relative dropdown-container">
-                    <a href="/courseCatogry?category=development" class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
+                <div  style="cursor: pointer;" class="relative dropdown-container">
+                    <a  class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Web Development <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
                     <div class="dropdown-menu">
@@ -148,21 +148,21 @@
                 </div>
 
                 <!-- Data Science -->
-                <div class="relative dropdown-container">
-                    <a href="/courseCatogry?category=data%20science" class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
+                <div style="cursor: pointer;" class="relative dropdown-container">
+                    <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Data Science <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
                     <div class="dropdown-menu">
                         <div class="py-2">
                             <a href="/courseCatogry?category=data%20science"><i class="fa-solid fa-chart-line w-5 text-teal-600"></i> Data Science Pro</a>
-                            <a href="/courseCatogry?category=ai%20ml"><i class="fa-solid fa-robot w-5 text-teal-600"></i> AI/ML</a>
+                            <a href="/courseCatogry?category=AI /%20ML"><i class="fa-solid fa-robot w-5 text-teal-600"></i> AI/ML</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Data Analytics -->
-                <div class="relative dropdown-container">
-                    <a href="/courseCatogry?category=data%20science" class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
+                <div style="cursor: pointer;" class="relative dropdown-container">
+                    <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Data Analytics <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
                     <div class="dropdown-menu">
@@ -175,22 +175,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- Contact – now matches gray-900 -->
-                <!-- <a href="/contact"
-                   class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1 hover:text-[#1a6f8c] transition-colors">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>Contact</span>
-                </a> -->
+
+
+               
+               
 
                 <!-- Programming -->
-                <div class="relative dropdown-container">
-                    <a href="/courseCatogry?category=programming" class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
+                <div style="cursor: pointer;" class="relative dropdown-container">
+                    <a  class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Programming <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
                     <div class="dropdown-menu">
                         <div class="py-2">
                             <a href="/courseCatogry?category=c%20language">C</a>
-                            <a href="/courseCatogry?category=c++%20language">C++</a>
+                            <a href="/courseCatogry?category=CPP%20Language">C++</a>
                             <a href="/courseCatogry?category=java%20language">Java</a>
                             <a href="/courseCatogry?category=javascript%20language">JavaScript</a>
                             <a href="/courseCatogry?category=python%20language">Python</a>
@@ -200,7 +198,7 @@
                 </div>
 
                 <!-- DSA -->
-                <div style="cursor: pointer;" class="relative dropdown-container">
+                <div  style="cursor: pointer;" class="relative dropdown-container">
                     <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         DSA <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
@@ -221,15 +219,16 @@
                     <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Diploma Programs <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
-                    <div class="dropdown-menu">
-                        <div class="py-2">
-                            <a>Diploma in Software Engineering</a>
-                            <a>Diploma in Data Science</a>
-                            <a>Diploma in Digital Marketing with AI</a>
-                            <a>Diploma in Cloud Computing and Cyber Security</a>
-                            <a>Diploma in Ethical Hacking and Cyber Security</a>
-                            <a>Diploma in Computer Network and Cyber Security</a>
-                            <a>Diploma in Computer Network, Cloud Computing & AI</a>
+                    <div  class="dropdown-menu">
+                        <div  class="dropdown-menu">
+                        <div  class="py-2 ">
+                            <a href="/diploma/web-development">Diploma in Software Engineering</a>
+                            <a href="/diploma/data-science">Diploma in Data Science</a>
+                            <a href="/diploma/digital-marketing">Diploma in Digital Marketing with AI</a>
+                            <a href="/diploma/cloud-security">Diploma in Cloud Computing and Cyber Security</a>
+                            <a href="/diploma/ethical-hacking">Diploma in Ethical Hacking and Cyber Security</a>
+                            <a href="/diploma/networking-security">Diploma in Computer Network and Cyber Security</a>
+                            <a href="/diploma/networking-cloud-ai">Diploma in Computer Network, Cloud Computing & AI</a>
                         </div>
                     </div>
                 </div>
@@ -323,7 +322,7 @@
     .dropdown-menu {
         position: absolute;
         top: 100%;
-        left: 0;
+        left:-30px;
         margin-top: 0.75rem;
         width: 260px;
         background: white;
