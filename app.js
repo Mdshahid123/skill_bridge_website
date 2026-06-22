@@ -56,11 +56,3 @@ mongoose.connect(db_path).then(()=>{
 }).catch((error)=>{
       console.log(error)
 })
-
-
-
-
-
-
-
-
