@@ -46,7 +46,7 @@ app.use(adminRoutes)
 //middleware 2:matching the reuqested routes in authroutes otherwise call the next
 
 //server and mongodb connection
-const db_path =process.env.mongodb_cloud
+const db_path =process.env.MONGODB_CLOUD
 const port=process.env.PORT || 3000
 mongoose.connect(db_path).then(()=>{
      console.log("mongodb connected successfully")
