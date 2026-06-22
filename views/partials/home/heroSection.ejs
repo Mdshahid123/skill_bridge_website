@@ -75,7 +75,7 @@
                         <span class="typing-static text-gray-300 text-xl md:text-2xl lg:text-3xl font-bold">Learn</span>
                         <span class="mx-1"></span>
                         <div class="typing-dynamic-container">
-                            <span style="font-size: 50px;" id="dynamic-word" class="typing-text text-cyan-400 text-xl md:text-2xl lg:text-3xl font-black"></span>
+                            <span style="font-size:30px;" id="dynamic-word" class="typing-text text-cyan-400 text-xl md:text-2xl lg:text-3xl font-black"></span>
                             <span id="dynamic-cursor" class="typing-cursor ml-0.5"></span>
                         </div>
                     </div>
@@ -164,15 +164,40 @@
                             <label class="text-white text-xs font-semibold mb-0.5 block">Select Course <span class="text-red-500">*</span></label>
                             <select id="heroCourseSelect" name="course" class="w-full px-3 py-1.5 md:py-2 rounded-xl bg-white/10 border border-gray-600 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all text-sm">
                                 <option value="" disabled selected class="text-gray-900 bg-white">Select a course</option>
-                                <option class="text-gray-900 bg-white">Web Development</option>
-                                <option class="text-gray-900 bg-white">Generative AI</option>
-                                <option class="text-gray-900 bg-white">Data Science & AI</option>
-                                <option class="text-gray-900 bg-white">Data Analytics</option>
-                                <option class="text-gray-900 bg-white">Digital Marketing</option>
-                                <option class="text-gray-900 bg-white">Programming</option>
-                                <option class="text-gray-900 bg-white">UI/UX Design</option>
-                                <option class="text-gray-900 bg-white">Data Structures & Algorithms</option>
-                                <option class="text-gray-900 bg-white">Placement Training</option>
+                                  <option class="text-gray-900 bg-white">Digital Marketing with AI</option>
+                                  <option class="text-gray-900 bg-white">Performance Marketing</option>
+                                  <option class="text-gray-900 bg-white">Web Development Mern</option>
+                                  <option class="text-gray-900 bg-white">Web Development Php</option>
+                                  <option class="text-gray-900 bg-white">Frontend Development</option>
+                                  <option class="text-gray-900 bg-white">Backend Development</option>
+                                  <option class="text-gray-900 bg-white">Q/A Testing</option>
+                                  <option class="text-gray-900 bg-white">React</option>
+                                  <option class="text-gray-900 bg-white">Data Science Pro</option>
+                                  <option class="text-gray-900 bg-white">AI/ML</option>
+                                  <option class="text-gray-900 bg-white">Data Analytics pro</option>
+                                  <option class="text-gray-900 bg-white">Business Analytics </option>
+                                  <option class="text-gray-900 bg-white">Advance Excel </option>
+                                  <option class="text-gray-900 bg-white">Power BI </option>
+                                  <option class="text-gray-900 bg-white">SQL </option>
+                                  <option class="text-gray-900 bg-white">C Language </option>
+                                  <option class="text-gray-900 bg-white">C++ Language </option>
+                                  <option class="text-gray-900 bg-white">Java Language </option>
+                                  <option class="text-gray-900 bg-white">Java Script Language </option>
+                                  <option class="text-gray-900 bg-white">Python Language </option>
+                                  <option class="text-gray-900 bg-white">SQL Language </option>
+                                  <option class="text-gray-900 bg-white">DSA with C </option>
+                                  <option class="text-gray-900 bg-white">DSA with C++ </option>
+                                  <option class="text-gray-900 bg-white">DSA with java </option>
+                                  <option class="text-gray-900 bg-white">DSA with java Script</option>
+                                  <option class="text-gray-900 bg-white">DSA with Python</option>
+                                  <option class="text-gray-900 bg-white">Diploma in Webdevelopment</option>
+                                  <option class="text-gray-900 bg-white">Diploma in Data Science </option>
+                                  <option class="text-gray-900 bg-white">Diploma in Data Science </option>
+                                  <option class="text-gray-900 bg-white">Diploma in Digital Mrketing with AI </option>
+                                  <option class="text-gray-900 bg-white">Diploma in Cloud Computing & Cyber Security </option>
+                                  <option class="text-gray-900 bg-white">Diploma in Ethical Hacking & Cyber Security </option>
+                                  <option class="text-gray-900 bg-white">Diploma in Computer Network & Cyber Security </option>
+                                  <option class="text-gray-900 bg-white">Diploma in Computer Network ,Cloud Computing & AI</option>
                             </select>
                         </div>
                         
@@ -318,7 +343,7 @@
 <script>
     // ==================== DYNAMIC TYPING ANIMATION ====================
     (function() {
-        const words = ["Web Development ", "Data Science ", "DSA ", "Data Analytics ", "Digital Marketing ", "Programming Languages ", "UI/UX Design ", "Placement Training "];
+        const words = ["Web Development ", "Data Science ", "DSA ", "Data Analytics ", "Digital Marketing ", "Programming Languages ", "UI/UX Design "];
         let wordIndex = 0, charIndex = 0, isDeleting = false, isWaiting = false, timeoutId = null;
         const textElement = document.getElementById('dynamic-word');
         if (!textElement) return;

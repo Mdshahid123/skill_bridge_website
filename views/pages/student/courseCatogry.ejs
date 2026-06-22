@@ -146,6 +146,17 @@
 
 <%- include("../../partials/common/navbar.ejs") %>
 
+<% 
+    function toTitleCase(str) {
+        if (!str) return '';
+        return str
+            .toLowerCase()
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+%>
+
 <!-- ==================== HERO SECTION - PROFESSIONAL (COURSE CATEGORY PAGE) ==================== -->
 <div class="relative overflow-hidden bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 py-16 md:py-24">
     <div class="absolute inset-0 opacity-30">
@@ -240,7 +251,7 @@
                         <div class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">Classroom</div>
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %></h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">  <%= toTitleCase(categoryDisplay) %></h3>
                         <div class="mb-3">
                             <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Classroom</span>
                         </div>
@@ -256,7 +267,7 @@
                             <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
                         </div>
                         <div class="flex items-center justify-between mb-4">
-                            <div><span class="text-2xl font-bold text-amber-700">₹45,000</span><span class="text-sm text-gray-400 line-through ml-2">₹65,000</span><span class="text-sm font-semibold text-green-600 ml-2">31% off</span></div>
+                            <!-- <div><span class="text-2xl font-bold text-amber-700">₹45,000</span><span class="text-sm text-gray-400 line-through ml-2">₹65,000</span><span class="text-sm font-semibold text-green-600 ml-2">31% off</span></div> -->
                             <span class="text-xs font-semibold bg-amber-100 px-2 py-1 rounded-full text-amber-800">Classroom</span>
                         </div>
                         <div class="flex gap-3 mt-auto">
@@ -278,7 +289,10 @@
                         <div class="absolute top-3 left-3 bg-cyan-500 text-white text-xs font-bold px-2 py-1 rounded-full">Online Live</div>
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %></h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2"><h3 class="text-xl font-bold text-gray-900 mb-2">
+                            <%= toTitleCase(categoryDisplay) %>
+                        </h3>
+                    </h3>
                         <div class="mb-3">
                             <span class="inline-block bg-cyan-100 text-cyan-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Online Live</span>
                         </div>
@@ -294,7 +308,7 @@
                             <span><i class="fa-regular fa-hourglass-half w-4"></i> 120+ Learning Hours</span>
                         </div>
                         <div class="flex items-center justify-between mb-4">
-                            <div><span class="text-2xl font-bold text-cyan-700">₹35,000</span><span class="text-sm text-gray-400 line-through ml-2">₹55,000</span><span class="text-sm font-semibold text-green-600 ml-2">36% off</span></div>
+                            <!-- <div><span class="text-2xl font-bold text-cyan-700">₹35,000</span><span class="text-sm text-gray-400 line-through ml-2">₹55,000</span><span class="text-sm font-semibold text-green-600 ml-2">36% off</span></div> -->
                             <span class="text-xs font-semibold bg-cyan-100 px-2 py-1 rounded-full text-cyan-800">Online</span>
                         </div>
                         <div class="flex gap-3 mt-auto">
@@ -317,7 +331,7 @@
                             <div class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">Recorded</div>
                         </div>
                         <div class="p-5 flex flex-col flex-grow">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2"><%= categoryDisplay %></h3>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">  <%= toTitleCase(categoryDisplay) %></h3>
                             <div class="mb-3">
                                 <span class="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-2 py-0.5 rounded-full">Lecture Type: Recorded</span>
                             </div>

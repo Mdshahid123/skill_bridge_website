@@ -1,4 +1,4 @@
-<!-- ======================== FINAL NAVBAR (PREMIUM HORIZONTAL MODAL – IMPROVED FORM LAYOUT) ======================== -->
+<!-- ======================== FINAL NAVBAR (PREMIUM HORIZONTAL MODAL – FULLY RESPONSIVE) ======================== -->
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md border-b border-gray-100" id="mainNav">
     <!-- FIRST ROW -->
@@ -28,17 +28,14 @@
                 </div>
             </div>
 
-              
-              <!-- Contact – now matches gray-900 -->
-                <a href="/contact"
-                   class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1 hover:text-[#1a6f8c] transition-colors">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>Contact</span>
-                </a>
+            <!-- Contact (desktop) -->
+            <a href="/contact"
+               class="hidden md:flex category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1 hover:text-[#1a6f8c] transition-colors">
+                <i class="fa-regular fa-envelope"></i>
+                <span>Contact</span>
+            </a>
 
-
-            <!-- ====== CRYSTAL CLEAR GRAY NAV ITEMS – PREMIUM & IMPRESSIVE ====== -->
-            <!-- Career & Placement -->
+            <!-- Desktop Nav Items -->
             <a href="/placement-career"
                class="hidden md:flex items-center gap-2 font-semibold text-sm text-gray-900 hover:text-[#1a6f8c] hover:bg-white/5 px-3 py-1.5 rounded-lg transition-all duration-300 relative group">
                 <i class="fas fa-briefcase"></i>
@@ -46,7 +43,6 @@
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-3/4"></span>
             </a>
 
-            <!-- Online & Distance Programs -->
             <button
                class="hidden md:flex items-center gap-2 font-semibold text-sm text-gray-900 hover:text-[#1a6f8c] hover:bg-white/5 px-3 py-1.5 rounded-lg transition-all duration-300 bg-transparent border-none relative group">
                 <i class="fas fa-graduation-cap"></i>
@@ -54,7 +50,6 @@
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-3/4"></span>
             </button>
 
-            <!-- All Courses -->
             <a href="/courses"
                class="hidden md:flex items-center gap-2 font-semibold text-sm text-gray-900 hover:text-[#1a6f8c] hover:bg-white/5 px-3 py-1.5 rounded-lg transition-all duration-300 bg-transparent border-none relative group">
                 <i class="fas fa-book-open"></i>
@@ -62,10 +57,10 @@
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gray-400 transition-all duration-300 group-hover:w-3/4"></span>
             </a>
 
-            <!-- Right buttons – CONDITIONAL: Login/Signup OR Profile -->
+            <!-- Right buttons – Conditional Login/Signup or Profile -->
             <div class="flex items-center gap-3 md:gap-4 flex-shrink-0">
                 <% if (isLogin) { %>
-                    <!-- ===== LOGGED IN: Profile Dropdown ===== -->
+                    <!-- Logged in: Profile Dropdown -->
                     <div class="hidden sm:flex items-center gap-2 relative">
                         <div class="flex items-center gap-2 cursor-pointer" id="profileDropdownToggle">
                             <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#1a6f8c] to-[#0a2b3e] flex items-center justify-center text-white font-bold text-sm">
@@ -76,13 +71,13 @@
                         </div>
                         <!-- Dropdown menu -->
                         <div id="profileDropdown" class="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 py-2 hidden z-50">
-                            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                            <a style="cursor: pointer;" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                                 <i class="fa-regular fa-user mr-2"></i> My Profile
                             </a>
-                            <a href="/my-courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                            <a style="cursor: pointer;" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                                 <i class="fa-regular fa-bookmark mr-2"></i> My Courses
                             </a>
-                            <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                            <a style="cursor: pointer;" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                                 <i class="fa-regular fa-gear mr-2"></i> Settings
                             </a>
                             <div class="border-t border-gray-100 my-1"></div>
@@ -92,13 +87,13 @@
                         </div>
                     </div>
                 <% } else { %>
-                    <!-- ===== NOT LOGGED IN: Login & Signup ===== -->
+                    <!-- Not logged in: Login & Signup -->
                     <div class="hidden sm:flex items-center gap-2">
                         <a href="/login" class="px-4 py-1.5 text-sm font-bold text-black border border-gray-300 rounded-md hover:bg-gray-50 hover:border-[#1a6f8c] transition-all">Login</a>
                         <a href="/signup" class="px-4 py-1.5 text-sm font-bold bg-black text-white rounded-md hover:bg-gray-800 transition-all shadow-sm">Sign Up</a>
                     </div>
                 <% } %>
-                <!-- Mobile Menu Toggle (always visible on small screens) -->
+                <!-- Mobile Menu Toggle -->
                 <button id="menuBtn" class="md:hidden w-9 h-9 rounded-full bg-gray-100 hover:bg-[#1a6f8c] transition-all flex items-center justify-center">
                     <i class="fa-solid fa-bars text-gray-700 hover:text-white text-base"></i>
                 </button>
@@ -106,11 +101,10 @@
         </div>
     </div>
 
-    <!-- ====== SECOND ROW: Course categories (desktop only) – UPDATED: gray-900, better spacing ====== -->
+    <!-- ====== SECOND ROW: Course categories (desktop only) ====== -->
     <div class="hidden md:block bg-white border-b border-gray-100 w-[100vw]">
         <div class="px-6 sm:px-8 lg:px-12">
             <div class="flex items-center justify-center gap-8 py-3 flex-wrap">
-                <!-- All links now use text-gray-900 and consistent font-bold -->
                 <a href="/" class="category-link text-gray-900 font-bold text-sm md:text-base">Home</a>
                 <a href="/about" class="category-link text-gray-900 font-bold text-sm md:text-base">About</a>
 
@@ -129,8 +123,8 @@
                 </div>
 
                 <!-- Web Development -->
-                <div  style="cursor: pointer;" class="relative dropdown-container">
-                    <a  class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
+                <div style="cursor: pointer;" class="relative dropdown-container">
+                    <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Web Development <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
                     <div class="dropdown-menu">
@@ -142,7 +136,6 @@
                             <a href="/courseCatogry?category=backend%20development">Backend Development</a>
                             <a href="/courseCatogry?category=software%20testing">QA Testing</a>
                             <a href="/courseCatogry?category=react">React</a>
-                            <a href="/courseCatogry?category=react.js">React.js</a>
                         </div>
                     </div>
                 </div>
@@ -155,7 +148,7 @@
                     <div class="dropdown-menu">
                         <div class="py-2">
                             <a href="/courseCatogry?category=data%20science"><i class="fa-solid fa-chart-line w-5 text-teal-600"></i> Data Science Pro</a>
-                            <a href="/courseCatogry?category=AI /%20ML"><i class="fa-solid fa-robot w-5 text-teal-600"></i> AI/ML</a>
+                            <a href="/courseCatogry?category=AI%20ML"><i class="fa-solid fa-robot w-5 text-teal-600"></i> AI/ML</a>
                         </div>
                     </div>
                 </div>
@@ -176,13 +169,9 @@
                     </div>
                 </div>
 
-
-               
-               
-
                 <!-- Programming -->
                 <div style="cursor: pointer;" class="relative dropdown-container">
-                    <a  class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
+                    <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Programming <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
                     <div class="dropdown-menu">
@@ -198,7 +187,7 @@
                 </div>
 
                 <!-- DSA -->
-                <div  style="cursor: pointer;" class="relative dropdown-container">
+                <div style="cursor: pointer;" class="relative dropdown-container">
                     <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         DSA <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
@@ -219,9 +208,8 @@
                     <a class="category-link text-gray-900 font-bold text-sm md:text-base flex items-center gap-1">
                         Diploma Programs <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
                     </a>
-                    <div  class="dropdown-menu">
-                        <div  class="dropdown-menu">
-                        <div  class="py-2 ">
+                    <div class="dropdown-menu">
+                        <div class="py-2">
                             <a href="/diploma/web-development">Diploma in Software Engineering</a>
                             <a href="/diploma/data-science">Diploma in Data Science</a>
                             <a href="/diploma/digital-marketing">Diploma in Digital Marketing with AI</a>
@@ -232,12 +220,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <!-- MOBILE MENU – CONDITIONAL: Login/Signup OR Profile actions -->
+    <!-- ====== MOBILE MENU – FULLY RESPONSIVE WITH COLLAPSIBLE SECTIONS ====== -->
     <div id="mobileMenu" class="fixed inset-0 bg-black/50 z-50 hidden md:hidden">
         <div id="mobileMenuPanel" class="absolute top-0 right-0 w-80 sm:w-96 h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col">
             <div class="p-5 border-b border-gray-100 flex justify-between items-center">
@@ -245,6 +232,7 @@
                 <button id="closeMenu" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200"><i class="fa-solid fa-xmark text-gray-600"></i></button>
             </div>
             <div class="flex-1 overflow-y-auto p-5 space-y-6">
+                <!-- Search Bar -->
                 <div class="relative">
                     <input type="text" id="mobileSearchInput" placeholder="Search courses..." 
                            class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1a6f8c]/40 text-sm"
@@ -252,16 +240,130 @@
                     <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
                     <div id="mobileSuggestions" class="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl shadow-xl border border-gray-200 z-50 hidden max-h-60 overflow-y-auto"></div>
                 </div>
+
+                <!-- Book Demo -->
                 <button id="bookDemoBtnMobile" class="w-full py-3 bg-gradient-to-r from-[#1a6f8c] to-[#0066b3] text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2">
                     <i class="fa-regular fa-calendar-check"></i> Book Free Demo
                 </button>
-                <div class="space-y-5">
-                    <div><div class="font-extrabold">Development</div><div class="grid grid-cols-2 gap-2 pl-2"><a href="/courseCatogry?category=frontend%20development" class="text-gray-600 text-sm">Frontend</a><a href="/courseCatogry?category=backend%20development" class="text-gray-600 text-sm">Backend</a><a href="/courseCatogry?category=react.js" class="text-gray-600 text-sm">React.js</a><a href="/courseCatogry?category=full%20stack%20mern" class="text-gray-600 text-sm">MERN</a><a href="/courseCatogry?category=full%20stack%20development%20with%20php" class="text-gray-600 text-sm">PHP Stack</a><a href="/courseCatogry?category=full%20stack%20development%20with%20java" class="text-gray-600 text-sm">Java Stack</a><a href="/courseCatogry?category=full%20stack%20development%20with%20python" class="text-gray-600 text-sm">Python Stack</a><a href="/courseCatogry?category=wordpress%20development" class="text-gray-600 text-sm">WordPress</a><a href="/courseCatogry?category=full%20stack%20development%20expert" class="text-gray-600 text-sm">Expert</a></div></div>
-                    <div><div class="font-extrabold">Data Science</div><div class="pl-2 space-y-2"><a href="/courseCatogry?category=data%20science" class="block text-gray-600 text-sm">Data Science</a><a href="/courseCatogry?category=data%20analytics" class="block text-gray-600 text-sm">Data Analytics</a><a href="/courseCatogry?category=ai%20ml" class="block text-gray-600 text-sm">AI/ML</a></div></div>
-                    <div><div class="font-extrabold">Programming</div><div class="grid grid-cols-2 gap-2 pl-2"><a href="/courseCatogry?category=python" class="text-gray-600 text-sm">Python</a><a href="/courseCatogry?category=java" class="text-gray-600 text-sm">Java</a><a href="/courseCatogry?category=javascript" class="text-gray-600 text-sm">JavaScript</a><a href="/courseCatogry?category=c" class="text-gray-600 text-sm">C</a><a href="/courseCatogry?category=cpp" class="text-gray-600 text-sm">C++</a></div></div>
-                    <div class="pt-2"><a href="/courseCatogry?category=digital%20marketing" class="block font-bold py-2 border-b">Digital Marketing</a><a href="/courseCatogry?category=dsa" class="block font-bold py-2 border-b">DSA</a><a href="/courses" class="block font-bold py-2 border-b">All Courses</a><a href="/contact" class="block font-bold py-2 border-b">Contact</a><a href="/about" class="block font-bold py-2 border-b">About</a></div>
+
+                <!-- Main Nav Links -->
+                <div class="space-y-2">
+                    <a href="/" class="block font-bold text-gray-800 py-2 border-b border-gray-100">Home</a>
+                    <a href="/about" class="block font-bold text-gray-800 py-2 border-b border-gray-100">About</a>
+                    <a href="/placement-career" class="block font-bold text-gray-800 py-2 border-b border-gray-100">Career & Placement</a>
+                    <button class="block font-bold text-gray-800 py-2 border-b border-gray-100 w-full text-left">Online & Distance Programs</button>
+                    <a href="/courses" class="block font-bold text-gray-800 py-2 border-b border-gray-100">All Courses</a>
+                    <a href="/contact" class="block font-bold text-gray-800 py-2 border-b border-gray-100">Contact</a>
                 </div>
-                <!-- MOBILE MENU BOTTOM – CONDITIONAL -->
+
+                <!-- Collapsible Category Sections -->
+                <div class="space-y-3">
+                    <!-- Digital Marketing -->
+                    <div class="mobile-category">
+                        <div class="flex justify-between items-center cursor-pointer py-1 border-b border-gray-100" onclick="toggleMobileCategory(this)">
+                            <span class="font-extrabold text-gray-800">Digital Marketing</span>
+                            <i class="fa-solid fa-chevron-down text-gray-500 text-xs transition-transform"></i>
+                        </div>
+                        <div class="mobile-submenu pl-2 space-y-1 mt-1 hidden">
+                            <a href="/courseCatogry?category=digital%20marketing" class="block text-gray-600 text-sm">Digital Marketing with AI</a>
+                            <a href="/courseCatogry?category=performance%20marketing" class="block text-gray-600 text-sm">Performance Marketing</a>
+                        </div>
+                    </div>
+
+                    <!-- Web Development -->
+                    <div class="mobile-category">
+                        <div class="flex justify-between items-center cursor-pointer py-1 border-b border-gray-100" onclick="toggleMobileCategory(this)">
+                            <span class="font-extrabold text-gray-800">Web Development</span>
+                            <i class="fa-solid fa-chevron-down text-gray-500 text-xs transition-transform"></i>
+                        </div>
+                        <div class="mobile-submenu grid grid-cols-2 gap-1 pl-2 mt-1 hidden">
+                            <a href="/courseCatogry?category=full%20stack%20mern" class="text-gray-600 text-sm">MERN</a>
+                            <a href="/courseCatogry?category=full%20stack%20development%20with%20php" class="text-gray-600 text-sm">PHP Stack</a>
+                            <a href="/courseCatogry?category=frontend%20development" class="text-gray-600 text-sm">Frontend</a>
+                            <a href="/courseCatogry?category=backend%20development" class="text-gray-600 text-sm">Backend</a>
+                            <a href="/courseCatogry?category=react" class="text-gray-600 text-sm">React</a>
+                            <a href="/courseCatogry?category=software%20testing" class="text-gray-600 text-sm">QA Testing</a>
+                        </div>
+                    </div>
+
+                    <!-- Data Science -->
+                    <div class="mobile-category">
+                        <div class="flex justify-between items-center cursor-pointer py-1 border-b border-gray-100" onclick="toggleMobileCategory(this)">
+                            <span class="font-extrabold text-gray-800">Data Science</span>
+                            <i class="fa-solid fa-chevron-down text-gray-500 text-xs transition-transform"></i>
+                        </div>
+                        <div class="mobile-submenu pl-2 space-y-1 mt-1 hidden">
+                            <a href="/courseCatogry?category=data%20science" class="block text-gray-600 text-sm">Data Science Pro</a>
+                            <a href="/courseCatogry?category=AI%20ML" class="block text-gray-600 text-sm">AI/ML</a>
+                        </div>
+                    </div>
+
+                    <!-- Data Analytics -->
+                    <div class="mobile-category">
+                        <div class="flex justify-between items-center cursor-pointer py-1 border-b border-gray-100" onclick="toggleMobileCategory(this)">
+                            <span class="font-extrabold text-gray-800">Data Analytics</span>
+                            <i class="fa-solid fa-chevron-down text-gray-500 text-xs transition-transform"></i>
+                        </div>
+                        <div class="mobile-submenu pl-2 space-y-1 mt-1 hidden">
+                            <a href="/courseCatogry?category=data%20analytics" class="block text-gray-600 text-sm">Data Analytics Pro</a>
+                            <a href="/courseCatogry?category=data%20analytics" class="block text-gray-600 text-sm">Business Analytics</a>
+                            <a href="/courseCatogry?category=advance%20excel" class="block text-gray-600 text-sm">Advance Excel</a>
+                            <a href="/courseCatogry?category=power%20bi" class="block text-gray-600 text-sm">Power BI</a>
+                            <a href="/courseCatogry?category=sql" class="block text-gray-600 text-sm">SQL</a>
+                        </div>
+                    </div>
+
+                    <!-- Programming -->
+                    <div class="mobile-category">
+                        <div class="flex justify-between items-center cursor-pointer py-1 border-b border-gray-100" onclick="toggleMobileCategory(this)">
+                            <span class="font-extrabold text-gray-800">Programming</span>
+                            <i class="fa-solid fa-chevron-down text-gray-500 text-xs transition-transform"></i>
+                        </div>
+                        <div class="mobile-submenu grid grid-cols-2 gap-1 pl-2 mt-1 hidden">
+                            <a href="/courseCatogry?category=c%20language" class="text-gray-600 text-sm">C</a>
+                            <a href="/courseCatogry?category=CPP%20Language" class="text-gray-600 text-sm">C++</a>
+                            <a href="/courseCatogry?category=java%20language" class="text-gray-600 text-sm">Java</a>
+                            <a href="/courseCatogry?category=javascript%20language" class="text-gray-600 text-sm">JavaScript</a>
+                            <a href="/courseCatogry?category=python%20language" class="text-gray-600 text-sm">Python</a>
+                            <a href="/courseCatogry?category=sql%20language" class="text-gray-600 text-sm">SQL</a>
+                        </div>
+                    </div>
+
+                    <!-- DSA -->
+                    <div class="mobile-category">
+                        <div class="flex justify-between items-center cursor-pointer py-1 border-b border-gray-100" onclick="toggleMobileCategory(this)">
+                            <span class="font-extrabold text-gray-800">DSA</span>
+                            <i class="fa-solid fa-chevron-down text-gray-500 text-xs transition-transform"></i>
+                        </div>
+                        <div class="mobile-submenu grid grid-cols-2 gap-1 pl-2 mt-1 hidden">
+                            <a href="/courseCatogry?category=dsa%20with%20c" class="text-gray-600 text-sm">DSA with C</a>
+                            <a href="/courseCatogry?category=dsa%20with%20cpp" class="text-gray-600 text-sm">DSA with C++</a>
+                            <a href="/courseCatogry?category=dsa%20with%20java" class="text-gray-600 text-sm">DSA with Java</a>
+                            <a href="/courseCatogry?category=dsa%20with%20java%20script" class="text-gray-600 text-sm">DSA with JS</a>
+                            <a href="/courseCatogry?category=dsa%20with%20python" class="text-gray-600 text-sm">DSA with Python</a>
+                            <a href="/courseCatogry?category=data%20structure" class="text-gray-600 text-sm">Data Structure</a>
+                        </div>
+                    </div>
+
+                    <!-- Diploma Programs -->
+                    <div class="mobile-category">
+                        <div class="flex justify-between items-center cursor-pointer py-1 border-b border-gray-100" onclick="toggleMobileCategory(this)">
+                            <span class="font-extrabold text-gray-800">🎓 Diploma Programs</span>
+                            <i class="fa-solid fa-chevron-down text-gray-500 text-xs transition-transform"></i>
+                        </div>
+                        <div class="mobile-submenu pl-2 space-y-1 mt-1 hidden">
+                            <a href="/diploma/web-development" class="block text-gray-600 text-sm">Software Engineering</a>
+                            <a href="/diploma/data-science" class="block text-gray-600 text-sm">Data Science</a>
+                            <a href="/diploma/digital-marketing" class="block text-gray-600 text-sm">Digital Marketing with AI</a>
+                            <a href="/diploma/cloud-security" class="block text-gray-600 text-sm">Cloud & Cyber Security</a>
+                            <a href="/diploma/ethical-hacking" class="block text-gray-600 text-sm">Ethical Hacking</a>
+                            <a href="/diploma/networking-security" class="block text-gray-600 text-sm">Computer Network & Cyber Security</a>
+                            <a href="/diploma/networking-cloud-ai" class="block text-gray-600 text-sm">Network, Cloud & AI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login/Profile Section (unchanged) -->
                 <% if (isLogin) { %>
                     <div class="flex flex-col gap-2 mt-6">
                         <a href="/profile" class="flex items-center gap-2 justify-center py-2 border border-gray-300 rounded-xl font-bold text-sm text-gray-700">
@@ -291,13 +393,13 @@
 <div class="pt-[68px] md:pt-[116px]"></div>
 
 <style>
-    /* Category link and dropdown styles – unchanged, now all .category-link use text-gray-900 by default */
+    /* Category link and dropdown styles – unchanged */
     .category-link {
         position: relative;
         padding-bottom: 4px;
         transition: color 0.2s;
         font-weight: 700 !important;
-        color: #1f2937 !important; /* gray-900 */
+        color: #1f2937 !important;
     }
     .category-link::after {
         content: '';
@@ -562,32 +664,53 @@
             return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
         }
 
-        // Scroll shadow
+        // ========== SCROLL SHADOW ==========
         const mainNav = document.getElementById('mainNav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) mainNav.classList.add('scrolled', 'shadow-lg');
             else mainNav.classList.remove('scrolled', 'shadow-lg');
         });
 
-        // Mobile menu
+        // ========== MOBILE MENU TOGGLE ==========
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobilePanel = document.getElementById('mobileMenuPanel');
         const closeMenu = document.getElementById('closeMenu');
+
         function openMobileMenu() {
+            if (!mobileMenu || !mobilePanel) return;
             mobileMenu.classList.remove('hidden');
-            setTimeout(() => mobilePanel.classList.add('open'), 10);
+            // Use requestAnimationFrame for smooth opening
+            requestAnimationFrame(() => {
+                mobilePanel.classList.add('open');
+            });
             document.body.style.overflow = 'hidden';
         }
-        function closeMobileMenu() {
-            mobilePanel.classList.remove('open');
-            setTimeout(() => { mobileMenu.classList.add('hidden'); document.body.style.overflow = ''; }, 300);
-        }
-        if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
-        if (closeMenu) closeMenu.addEventListener('click', closeMobileMenu);
-        if (mobileMenu) mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
 
-        // Profile dropdown toggle
+        function closeMobileMenu() {
+            if (!mobilePanel) return;
+            mobilePanel.classList.remove('open');
+            setTimeout(() => {
+                if (mobileMenu) mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', openMobileMenu);
+        } else {
+            console.warn('⚠️ menuBtn not found!');
+        }
+        if (closeMenu) {
+            closeMenu.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) closeMobileMenu();
+            });
+        }
+
+        // ========== PROFILE DROPDOWN ==========
         const profileToggle = document.getElementById('profileDropdownToggle');
         const profileDropdown = document.getElementById('profileDropdown');
         if (profileToggle && profileDropdown) {
@@ -595,7 +718,6 @@
                 e.stopPropagation();
                 profileDropdown.classList.toggle('hidden');
             });
-            // Close dropdown when clicking outside
             document.addEventListener('click', (e) => {
                 if (!profileToggle.contains(e.target) && !profileDropdown.contains(e.target)) {
                     profileDropdown.classList.add('hidden');
@@ -603,8 +725,9 @@
             });
         }
 
-        // Shared suggestion fetch
+        // ========== SEARCH SUGGESTIONS (FIXED) ==========
         let debounceTimer;
+
         async function fetchAndShowSuggestions(inputElement, suggestionsContainer) {
             const query = inputElement.value.trim();
             clearTimeout(debounceTimer);
@@ -617,24 +740,37 @@
                     const res = await fetch(`/api/courses/search?q=${encodeURIComponent(query)}`);
                     const courses = await res.json();
                     if (courses && courses.length) {
-                        suggestionsContainer.innerHTML = courses.map(c => `
-                            <div class="suggestion-item p-3 border-b border-gray-100" data-course="${escapeHtml(c.courseName)}">
-                                <div class="font-semibold">${escapeHtml(c.courseName)}</div>
-                                <div class="text-xs text-gray-500">${escapeHtml((c.courseDescription || '').substring(0, 80))}...</div>
-                            </div>
-                        `).join('');
+                        suggestionsContainer.innerHTML = courses.map(c => {
+                            const category = c.category || c.courseName || '';
+                            return `
+                                <div class="suggestion-item p-3 border-b border-gray-100" data-category="${escapeHtml(category)}">
+                                    <div class="font-semibold">${escapeHtml(c.courseName)}</div>
+                                    <div class="text-xs text-gray-500">${escapeHtml((c.courseDescription || '').substring(0, 80))}...</div>
+                                    <div class="text-xs text-teal-600 font-medium mt-0.5">${escapeHtml(category)}</div>
+                                </div>
+                            `;
+                        }).join('');
                         suggestionsContainer.classList.remove('hidden');
+
+                        // Attach click handlers
                         document.querySelectorAll(`#${suggestionsContainer.id} .suggestion-item`).forEach(el => {
-                            el.addEventListener('click', () => {
-                                const courseName = el.getAttribute('data-course');
-                                if (courseName) window.location.href = `/viewCourse/${encodeURIComponent(courseName)}`;
+                            el.addEventListener('click', function() {
+                                const category = this.getAttribute('data-category');
+                                if (category) {
+                                    window.location.href = `/courseCatogry?category=${encodeURIComponent(category)}`;
+                                } else {
+                                    const courseName = this.querySelector('.font-semibold')?.textContent || '';
+                                    if (courseName) {
+                                        window.location.href = `/courseCatogry?courseName=${encodeURIComponent(courseName)}`;
+                                    }
+                                }
                             });
                         });
                     } else {
                         suggestionsContainer.classList.add('hidden');
                     }
                 } catch (err) {
-                    console.error(err);
+                    console.error('Search error:', err);
                     suggestionsContainer.classList.add('hidden');
                 }
             }, 300);
@@ -679,7 +815,19 @@
             });
         }
 
-        // ========== PREMIUM BOOK DEMO MODAL (improved right side) ==========
+        // ========== MOBILE CATEGORY TOGGLE ==========
+        window.toggleMobileCategory = function(header) {
+            const parent = header.closest('.mobile-category');
+            if (!parent) return;
+            const submenu = parent.querySelector('.mobile-submenu');
+            const icon = header.querySelector('.fa-chevron-down');
+            if (submenu) {
+                submenu.classList.toggle('hidden');
+                if (icon) icon.classList.toggle('rotate-180');
+            }
+        };
+
+        // ========== BOOK DEMO MODAL ==========
         let demoModal = document.getElementById('demoModal');
         if (!demoModal) {
             demoModal = document.createElement('div');
@@ -739,14 +887,18 @@
             `;
             document.body.appendChild(demoModal);
         }
+
         const bookDemoBtns = [document.getElementById('bookDemoBtnDesktop'), document.getElementById('bookDemoBtnMobile')];
         const closeDemo = document.getElementById('closeDemoModal');
         const demoForm = document.getElementById('demoForm');
+
         bookDemoBtns.forEach(btn => {
             if (btn) btn.addEventListener('click', () => demoModal.style.display = 'flex');
         });
         if (closeDemo) closeDemo.addEventListener('click', () => demoModal.style.display = 'none');
-        if (demoModal) demoModal.addEventListener('click', (e) => { if (e.target === demoModal) demoModal.style.display = 'none'; });
+        if (demoModal) demoModal.addEventListener('click', (e) => {
+            if (e.target === demoModal) demoModal.style.display = 'none';
+        });
         if (demoForm) demoForm.addEventListener('submit', (e) => {
             e.preventDefault();
             alert('✅ Demo request sent! Our team will contact you within 24 hours.');
@@ -754,5 +906,6 @@
             demoModal.style.display = 'none';
             closeMobileMenu();
         });
+
     })();
 </script>

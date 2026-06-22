@@ -1,7 +1,7 @@
 <!-- Footer - Professional Modern Design (Fully Responsive) -->
 <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300 pt-14 pb-6 px-4 md:px-6 relative overflow-hidden">
     
-    <!-- Animated Background Elements -->
+    <!-- Animated Background -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 3s;"></div>
@@ -10,10 +10,10 @@
     
     <div class="container mx-auto max-w-7xl relative z-10">
         
-        <!-- Main Footer Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+        <!-- ===== 4-COLUMN GRID ===== -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             
-            <!-- Column 1 - Brand Info -->
+            <!-- ===== COLUMN 1 – Brand + Contact + Social + Quick Links ===== -->
             <div class="text-center sm:text-left">
                 <a href="/" class="inline-flex items-center gap-2 group mb-4">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-300">
@@ -26,12 +26,12 @@
                         <span class="text-[9px] uppercase tracking-wider text-gray-500 mt-0.5">Build Skill, Forge Future</span>
                     </div>
                 </a>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">Elevate your skills! Seamlessly blend the worlds of technology & business together for a future full of endless possibilities.</p>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4 max-w-xs mx-auto sm:mx-0">Elevate your skills! Blending technology & business for a future of endless possibilities.</p>
                 
-                <!-- Contact Info -->
+                <!-- Contact -->
                 <div class="space-y-2">
                     <div class="flex items-center justify-center sm:justify-start gap-3 group">
-                        <div class="w-8 h-8 rounded-lg bg-gray-800 group-hover:bg-cyan-500/20 flex items-center justify-center transition-all duration-300">
+                        <div class="w-8 h-8 rounded-lg bg-gray-800 group-hover:bg-cyan-500/20 flex items-center justify-center transition-all duration-300 flex-shrink-0">
                             <i class="fa-solid fa-phone-alt text-cyan-400 text-sm"></i>
                         </div>
                         <span class="text-gray-300 text-sm group-hover:text-white transition-colors">+91 99114 66118</span>
@@ -40,97 +40,138 @@
                         <div class="w-8 h-8 rounded-lg bg-gray-800 group-hover:bg-cyan-500/20 flex items-center justify-center transition-all duration-300 mt-0.5 flex-shrink-0">
                             <i class="fa-solid fa-location-dot text-cyan-400 text-sm"></i>
                         </div>
-                        <span class="text-gray-300 text-sm group-hover:text-white transition-colors">First Floor, U-197, Vikas Marg, Laxmi Nagar, Delhi, 110092</span>
+                        <span class="text-gray-300 text-sm group-hover:text-white transition-colors">U-197, Vikas Marg, Laxmi Nagar, Delhi, 110092</span>
+                    </div>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
+                    <a href="https://www.linkedin.com/company/skillbrskillbridge/" target="_blank" class="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 flex items-center justify-center transition-all hover:scale-110 hover:bg-cyan-500/10">
+                        <i class="fa-brands fa-linkedin text-[#0077b5] text-sm"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@learnwithskillbridge01" target="_blank" class="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 flex items-center justify-center transition-all hover:scale-110 hover:bg-cyan-500/10">
+                        <i class="fa-brands fa-youtube text-red-500 text-sm"></i>
+                    </a>
+                    <a href="https://www.instagram.com/learnwithskillbridge" target="_blank" class="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 flex items-center justify-center transition-all hover:scale-110 hover:bg-cyan-500/10">
+                        <i class="fa-brands fa-instagram text-pink-500 text-sm"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61587421982978" target="_blank" class="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 flex items-center justify-center transition-all hover:scale-110 hover:bg-cyan-500/10">
+                        <i class="fa-brands fa-facebook text-blue-500 text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Quick Links (integrated at bottom of column) -->
+                <div class="mt-5 pt-4 border-t border-gray-700/50">
+                    <h4 class="text-white font-semibold text-sm mb-2">Quick Links</h4>
+                    <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+                        <a href="/about" class="text-gray-400 hover:text-white text-xs transition-colors duration-300">About</a>
+                        <span class="text-gray-600 text-xs">|</span>
+                        <a href="/contact" class="text-gray-400 hover:text-white text-xs transition-colors duration-300">Contact</a>
+                        <span class="text-gray-600 text-xs">|</span>
+                        <a href="#" class="text-gray-400 hover:text-white text-xs transition-colors duration-300">FAQ</a>
+                        <span class="text-gray-600 text-xs">|</span>
+                        <a href="#" class="text-gray-400 hover:text-white text-xs transition-colors duration-300">Blog</a>
+                        <span class="text-gray-600 text-xs">|</span>
+                        <a href="#" class="text-gray-400 hover:text-white text-xs transition-colors duration-300">Careers</a>
                     </div>
                 </div>
             </div>
             
-            <!-- Column 2 - Quick Links -->
+            <!-- ===== COLUMN 2 – Digital Marketing + Web Development ===== -->
             <div class="text-center sm:text-left">
                 <h3 class="text-white font-bold text-lg mb-4 relative inline-block sm:inline-block">
-                    Quick Links
+                    Digital Marketing
                     <span class="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
                 </h3>
-                <ul class="space-y-2 mt-5">
-                    <li><a href="/about" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> About Us</a></li>
-                    <li><a href="/contact" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> Contact Us</a></li>
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> FAQ</a></li>
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> Blog</a></li>
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> Careers</a></li>
+                <ul class="space-y-1.5 mt-4">
+                    <li><a href="/courseCatogry?category=digital%20marketing" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Digital Marketing with AI</a></li>
+                    <li><a href="/courseCatogry?category=performance%20marketing" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Performance Marketing</a></li>
+                </ul>
+
+                <h3 class="text-white font-bold text-lg mt-6 mb-4 relative inline-block sm:inline-block">
+                    Web Development
+                    <span class="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
+                </h3>
+                <ul class="space-y-1.5 mt-4">
+                    <li><a href="/courseCatogry?category=full%20stack%20mern" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Full Stack MERN</a></li>
+                    <li><a style="cursor: pointer;" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Full Stack with PHP</a></li>
+                    <li><a href="/courseCatogry?category=frontend%20development" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Frontend Development</a></li>
+                    <li><a href="/courseCatogry?category=backend%20development" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Backend Development</a></li>
+                    <li><a href="/courseCatogry?category=react" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> React</a></li>
+                    <li><a href="/courseCatogry?category=software%20testing" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> QA Testing</a></li>
                 </ul>
             </div>
             
-            <!-- Column 3 - Categories -->
+            <!-- ===== COLUMN 3 – Data Science + Data Analytics + DSA ===== -->
             <div class="text-center sm:text-left">
                 <h3 class="text-white font-bold text-lg mb-4 relative inline-block sm:inline-block">
-                    Categories
+                    Data Science
                     <span class="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
                 </h3>
-                <ul class="space-y-2 mt-5">
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> Web Development</a></li>
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> Data Science</a></li>
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> Cloud & DevOps</a></li>
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> Digital Marketing</a></li>
-                    <li><a href="#" class="footer-link inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-angle-right text-cyan-400 text-xs"></i> UI/UX Design</a></li>
+                <ul class="space-y-1.5 mt-4">
+                    <li><a href="/courseCatogry?category=data%20science" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Data Science Pro</a></li>
+                    <li><a href="/courseCatogry?category=ai%20ml" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> AI/ML</a></li>
+                </ul>
+
+                <h3 class="text-white font-bold text-lg mt-6 mb-4 relative inline-block sm:inline-block">
+                    Data Analytics
+                    <span class="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
+                </h3>
+                <ul class="space-y-1.5 mt-4">
+                    <li><a href="/courseCatogry?category=data%20analytics" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Data Analytics Pro</a></li>
+                    <li><a href="/courseCatogry?category=data%20analytics" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Business Analytics</a></li>
+                    <li><a href="/courseCatogry?category=advance%20excel" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Advance Excel</a></li>
+                    <li><a href="/courseCatogry?category=power%20bi" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Power BI</a></li>
+                    <li><a href="/courseCatogry?category=sql" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> SQL</a></li>
+                </ul>
+
+                <h3 class="text-white font-bold text-lg mt-6 mb-4 relative inline-block sm:inline-block">
+                    DSA
+                    <span class="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
+                </h3>
+                <ul class="space-y-1.5 mt-4">
+                    <li><a href="/courseCatogry?category=dsa%20with%20c" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> DSA with C</a></li>
+                    <li><a href="/courseCatogry?category=dsa%20with%20cpp" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> DSA with C++</a></li>
+                    <li><a href="/courseCatogry?category=dsa%20with%20java" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> DSA with Java</a></li>
+                    <li><a href="/courseCatogry?category=dsa%20with%20java%20script" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> DSA with JavaScript</a></li>
+                    <li><a href="/courseCatogry?category=dsa%20with%20python" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> DSA with Python</a></li>
+                    <li><a href="/courseCatogry?category=data%20structure" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Data Structure</a></li>
                 </ul>
             </div>
             
-            <!-- Column 4 - Social Media -->
+            <!-- ===== COLUMN 4 – Programming + Diploma Programs ===== -->
             <div class="text-center sm:text-left">
                 <h3 class="text-white font-bold text-lg mb-4 relative inline-block sm:inline-block">
-                    Follow Us
+                    Programming
                     <span class="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
                 </h3>
-                <div class="space-y-2 mt-5">
-                    <a href="#" class="social-card flex items-center gap-3 p-2.5 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 group">
-                        <div class="w-9 h-9 rounded-lg bg-[#0077b5]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <i class="fa-brands fa-linkedin text-[#0077b5] text-lg"></i>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-white font-semibold text-sm">LinkedIn</p>
-                            <p class="text-gray-500 text-xs">Connect with us</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all text-xs"></i>
-                    </a>
-                    
-                    <a href="https://www.youtube.com/@learnwithskillbridge01" target="_blank" class="social-card flex items-center gap-3 p-2.5 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 group">
-                        <div class="w-9 h-9 rounded-lg bg-red-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <i class="fa-brands fa-youtube text-red-500 text-lg"></i>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-white font-semibold text-sm">YouTube</p>
-                            <p class="text-gray-500 text-xs">Watch tutorials</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all text-xs"></i>
-                    </a>
-                    
-                    <a href="https://www.instagram.com/learnwithskillbridge" target="_blank" class="social-card flex items-center gap-3 p-2.5 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 group">
-                        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <i class="fa-brands fa-instagram text-white text-lg"></i>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-white font-semibold text-sm">Instagram</p>
-                            <p class="text-gray-500 text-xs">Daily updates</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all text-xs"></i>
-                    </a>
-                    
-                    <a href="#" class="social-card flex items-center gap-3 p-2.5 rounded-xl bg-gray-800/30 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 group">
-                        <div class="w-9 h-9 rounded-lg bg-blue-600/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <i class="fa-brands fa-facebook text-blue-500 text-lg"></i>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-white font-semibold text-sm">Facebook</p>
-                            <p class="text-gray-500 text-xs">Join community</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all text-xs"></i>
-                    </a>
-                </div>
+                <ul class="space-y-1.5 mt-4">
+                    <li><a href="/courseCatogry?category=c%20language" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> C</a></li>
+                    <li><a href="/courseCatogry?category=c++%20language" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> C++</a></li>
+                    <li><a href="/courseCatogry?category=java%20language" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Java</a></li>
+                    <li><a href="/courseCatogry?category=javascript%20language" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> JavaScript</a></li>
+                    <li><a href="/courseCatogry?category=python%20language" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> Python</a></li>
+                    <li><a href="/courseCatogry?category=sql%20language" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i> SQL</a></li>
+                </ul>
+
+                <h3 class="text-white font-bold text-lg mt-6 mb-4 relative inline-block sm:inline-block">
+                    🎓 Diploma Programs
+                    <span class="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
+                </h3>
+                <ul class="space-y-1.5 mt-4">
+                    <li><a href="/diploma/data-science" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i>Diploma in Data Science</a></li>
+                    <li><a href="/diploma/web-development" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i>Diploma in  Web Development</a></li>
+                    <li><a href="/diploma/digital-marketing" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i>Diploma in Digital Marketing with AI</a></li>
+                    <li><a href="/diploma/cloud-security" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i>Diploma in Cloud & Security</a></li>
+                    <li><a href="/diploma/ethical-hacking" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i>Diploma in Ethical Hacking</a></li>
+                    <li><a href="/diploma/networking-security" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i>Diploma in Networking & Security</a></li>
+                    <li><a href="/diploma/networking-cloud-ai" class="footer-link text-gray-400 hover:text-white text-sm transition-all duration-300"><i class="fa-solid fa-chevron-right text-cyan-400 text-[10px] mr-2"></i>Diploma in  Networking & Cloud AI</a></li>
+                </ul>
             </div>
         </div>
         
-        <!-- Bottom Bar -->
-        <div class="relative mt-10 pt-6 text-center">
+        <!-- ===== BOTTOM BAR (copyright, policies, back to top) ===== -->
+        <div class="relative mt-12 pt-6 text-center">
             <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
             
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -144,7 +185,6 @@
                     <a href="#" class="text-gray-500 text-xs hover:text-cyan-400 transition-colors duration-300">Refund Policy</a>
                 </div>
                 
-                <!-- Back to Top Button -->
                 <button id="backToTop" class="group flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105">
                     <span class="text-gray-400 text-xs group-hover:text-cyan-400 transition-colors">Back to Top</span>
                     <i class="fa-solid fa-arrow-up text-gray-400 group-hover:text-cyan-400 group-hover:-translate-y-1 transition-all text-xs"></i>
@@ -158,9 +198,9 @@
     /* Footer Link Styles */
     .footer-link {
         transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        position: relative;
         display: inline-flex;
         align-items: center;
+        white-space: nowrap;
     }
     
     .footer-link i {
@@ -168,135 +208,45 @@
     }
     
     .footer-link:hover {
-        transform: translateX(6px);
+        color: #ffffff;
     }
     
     .footer-link:hover i {
         transform: translateX(3px);
     }
     
-    /* Social Card Styles */
-    .social-card {
-        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        position: relative;
-        overflow: hidden;
+    /* Back to Top */
+    #backToTop {
+        transition: all 0.3s ease;
+        cursor: pointer;
     }
     
-    .social-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(34,211,238, 0.08), transparent);
-        transition: left 0.6s ease;
+    #backToTop:hover {
+        background: rgba(34, 211, 238, 0.1);
+        border-color: #22d3ee;
     }
     
-    .social-card:hover::before {
-        left: 100%;
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .grid-cols-4 {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
     }
     
-    .social-card:hover {
-        transform: translateX(5px);
-        background: rgba(34, 211, 238, 0.05);
-    }
-    
-    /* Icon Floating Animation */
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-4px); }
-    }
-    
-    .social-card .fa-brands {
-        animation: float 3s ease-in-out infinite;
-    }
-    
-    .social-card:nth-child(2) .fa-brands {
-        animation-delay: 0.75s;
-    }
-    .social-card:nth-child(3) .fa-brands {
-        animation-delay: 1.5s;
-    }
-    .social-card:nth-child(4) .fa-brands {
-        animation-delay: 2.25s;
-    }
-    
-    /* Pulse Animation for Background */
-    @keyframes pulse {
-        0%, 100% { opacity: 0.03; transform: scale(1); }
-        50% { opacity: 0.08; transform: scale(1.1); }
-    }
-    
-    .animate-pulse {
-        animation: pulse 6s ease-in-out infinite;
-    }
-    
-    /* Responsive Adjustments */
     @media (max-width: 640px) {
-        .social-card {
-            padding: 0.6rem;
+        .grid-cols-1.sm\:grid-cols-2 {
+            grid-template-columns: 1fr !important;
         }
-        
-        .social-card .w-9.h-9 {
-            width: 2rem;
-            height: 2rem;
-        }
-        
-        .social-card p.text-sm {
-            font-size: 0.75rem;
-        }
-    }
-    
-    /* Newsletter Input Focus */
-    #newsletterEmail:focus {
-        outline: none;
     }
 </style>
 
 <script>
     (function() {
-        // Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         if (backToTopBtn) {
             backToTopBtn.addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
-        
-        // Newsletter Subscription
-        const subscribeBtn = document.getElementById('subscribeBtn');
-        const newsletterEmail = document.getElementById('newsletterEmail');
-        
-        if (subscribeBtn && newsletterEmail) {
-            subscribeBtn.addEventListener('click', function() {
-                const email = newsletterEmail.value.trim();
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
-                if (!email) {
-                    alert('📧 Please enter your email address to subscribe.');
-                    newsletterEmail.focus();
-                } else if (!emailRegex.test(email)) {
-                    alert('⚠️ Please enter a valid email address.');
-                    newsletterEmail.focus();
-                } else {
-                    alert('🎉 Thank you for subscribing! You\'ll receive updates from Skill Bridge.');
-                    newsletterEmail.value = '';
-                }
-            });
-        }
-        
-        // Back to Top Button Visibility
-        window.addEventListener('scroll', function() {
-            if (backToTopBtn) {
-                if (window.scrollY > 300) {
-                    backToTopBtn.style.opacity = '1';
-                    backToTopBtn.style.visibility = 'visible';
-                } else {
-                    backToTopBtn.style.opacity = '0.8';
-                    backToTopBtn.style.visibility = 'visible';
-                }
-            }
-        });
     })();
 </script>

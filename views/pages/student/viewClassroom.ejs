@@ -390,7 +390,7 @@
                     <div class="flex items-center gap-3 p-3 border-b border-gray-50 last:border-0">
                         <i class="fa-regular fa-calendar-check text-amber-500 w-5"></i>
                         <span class="flex-1 text-gray-800 font-medium">${escapeHtml(lecture.lectureTitle)}</span>
-                        <span class="text-xs text-gray-500">${lecture.videoDuration || 'In-Person'}</span>
+                       
                     </div>
                 `).join('');
                 return `
@@ -401,7 +401,7 @@
                                 <span class="font-extrabold text-gray-800">${escapeHtml(module.moduleTitle)}</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <span class="text-xs text-gray-600 font-medium">${module.lectures.length} sessions</span>
+                              
                                 <i class="fa-solid fa-chevron-down text-gray-400 text-xs transition-transform duration-300"></i>
                             </div>
                         </div>
