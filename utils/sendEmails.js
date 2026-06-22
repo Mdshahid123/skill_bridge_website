@@ -6,8 +6,8 @@ async function sendInquiryEmail(formData) {
     
     // Email to Admin (you)
     const adminMailOptions = {
-        from: 'shahiddelhi989@gmail.com',
-        to: 'shahiddelhi989@gmail.com', // Your admin email
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER, // Your admin email
         subject: `New Admission Inquiry from ${name}`,
         html: `
             <!DOCTYPE html>
@@ -65,7 +65,7 @@ async function sendInquiryEmail(formData) {
     
     // Auto-reply to Student
     const studentMailOptions = {
-        from: 'shahiddelhi989@gmail.com',
+        from:  process.env.EMAIL_USER,
         to: email, // Send to the student who filled the form
         subject: 'Thank you for your inquiry - Skill Bridge',
         html: `
