@@ -17,7 +17,7 @@ const app=express()
 app.set("view engine","ejs")
 app.set("views",path.join(__dirname,"views"))
 const store=new mongodbStore({
-     uri:process.env.mongodb_cloud,
+     uri:process.env.MONGODB_CLOUD,
      collection:"sessions"
 })
 
