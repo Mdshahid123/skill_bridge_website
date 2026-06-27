@@ -4,7 +4,9 @@
 <section class="py-16 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-10">
+           
             <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">What Our Students Say</h2>
+           
         </div>
 
         <div class="carousel-wrapper">
@@ -15,33 +17,14 @@
     </div>
 </section>
 
-<!-- ====== TESTIMONIAL CAROUSEL STYLES (included once) ====== -->
+<!-- ====== TESTIMONIAL CAROUSEL STYLES ====== -->
 <style>
-    /* These styles are already in your global CSS, but included here for safety */
     .carousel-wrapper {
         overflow: hidden;
         position: relative;
-        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     }
-    .carousel-wrapper::before,
-    .carousel-wrapper::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 40px;
-        z-index: 2;
-        pointer-events: none;
-    }
-    .carousel-wrapper::before {
-        left: 0;
-        background: linear-gradient(to right, #ffffff, transparent);
-    }
-    .carousel-wrapper::after {
-        right: 0;
-        background: linear-gradient(to left, #ffffff, transparent);
-    }
+    
+    /* ====== NO FADE/BLUR EFFECTS ====== */
     .carousel-track {
         display: flex;
         gap: 1.25rem;
@@ -58,36 +41,98 @@
     .testimonial-card {
         background: white;
         border-radius: 1rem;
-        padding: 1.2rem 1.5rem;
+        overflow: hidden;
         border: 1px solid rgba(0, 0, 0, 0.04);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
         transition: all 0.3s;
         flex: 0 0 auto;
-        width: 340px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
     .testimonial-card:hover {
         transform: translateY(-4px) scale(1.02);
         box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
     }
+    .testimonial-card .card-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        background: #f1f5f9;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .testimonial-card .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit:fit;
+        transition: transform 0.4s ease;
+        background: #f8fafc;
+    }
+    .testimonial-card:hover .card-image img {
+        transform: scale(1.05);
+    }
+    .testimonial-card .card-body {
+        padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .testimonial-card .stars {
+        display: flex;
+        justify-content: center;
+        gap: 0.25rem;
+        margin-bottom: 0.5rem;
+        color: #f59e0b;
+        font-size: 0.9rem;
+    }
+    .testimonial-card .testimonial-text {
+        color: #475569;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 0.75rem;
+    }
+    .testimonial-card .student-name {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #1e293b;
+    }
+    .testimonial-card .student-role {
+        font-size: 0.8rem;
+        color: #64748b;
+    }
     @media (max-width: 768px) {
         .testimonial-card {
-            width: 280px;
+            width: 260px;
+        }
+        .testimonial-card .card-image {
+            height: 160px;
+        }
+        .testimonial-card .card-body {
             padding: 1rem;
         }
-        .testimonial-card p {
+        .testimonial-card .testimonial-text {
             font-size: 0.85rem;
+            -webkit-line-clamp: 3;
         }
         .carousel-track {
             gap: 0.8rem;
         }
-        .carousel-wrapper::before,
-        .carousel-wrapper::after {
-            width: 20px;
-        }
     }
     @media (max-width: 480px) {
         .testimonial-card {
-            width: 240px;
+            width: 220px;
+        }
+        .testimonial-card .card-image {
+            height: 140px;
         }
         .carousel-track {
             gap: 0.6rem;
@@ -95,36 +140,59 @@
     }
 </style>
 
-<!-- ====== TESTIMONIALS JAVASCRIPT (idempotent) ====== -->
+<!-- ====== TESTIMONIALS JAVASCRIPT ====== -->
 <script>
     (function() {
         // Prevent duplicate initialization
         if (window._testimonialsInitialized) return;
         window._testimonialsInitialized = true;
 
-        // Testimonial Data
-        const testimonialsData = [
-            { name: "Ayush", role: "Web Designer", initials: "AJ", gradient: "from-sky-500 to-blue-500",
-              text: "The Web Designing course was pivotal for my career. The placement support helped me secure a great position at a top firm." },
-            { name: "Vishal", role: "Java Developer", initials: "VC", gradient: "from-blue-500 to-indigo-500",
-              text: "The Java course was transformative. Placement support helped me secure a position at a top MNC with an excellent package." },
-            { name: "Priya", role: "Data Analyst", initials: "PS", gradient: "from-emerald-500 to-teal-500",
-              text: "The Data Science program gave me real-world skills. The mock interviews and resume workshops were incredibly helpful." },
-            { name: "Rahul", role: "Full Stack Dev", initials: "RV", gradient: "from-rose-500 to-pink-500",
-              text: "I got placed at Infosys with a great package. The placement team's support throughout the process was outstanding." },
-            { name: "Sneha", role: "UI/UX Designer", initials: "SP", gradient: "from-violet-500 to-purple-500",
-              text: "The design portfolio reviews and interview practice boosted my confidence. I landed my dream role at Amazon." },
-            { name: "Vikram", role: "DevOps Engineer", initials: "VS", gradient: "from-cyan-500 to-blue-500",
-              text: "The DevOps training was top-notch. The placement assistance helped me get into Microsoft with a competitive salary." },
-            { name: "Ananya", role: "ML Engineer", initials: "AR", gradient: "from-fuchsia-500 to-pink-500",
-              text: "The AI/ML curriculum was rigorous and industry-relevant. I secured a role at Google thanks to the placement support." },
-            { name: "Arjun", role: "Cloud Architect", initials: "AN", gradient: "from-slate-500 to-gray-500",
-              text: "The cloud computing course and placement preparation were excellent. I'm now working at IBM as a Cloud Architect." },
-            { name: "Meera", role: "Product Manager", initials: "MK", gradient: "from-orange-500 to-amber-500",
-              text: "The career counseling and placement support helped me transition into product management. The mock interviews were invaluable." },
-            { name: "Karan", role: "Cybersecurity Analyst", initials: "KS", gradient: "from-red-500 to-rose-500",
-              text: "The cybersecurity program was comprehensive. The placement team connected me with top companies and I got hired quickly." }
-        ];
+        // Testimonial Data with Student Images
+
+const testimonialsData = [
+    {
+        name: "Tannu Bhati",
+        role: "Digital Marketing",
+        text: "The Digital Marketing course transformed my career. The practical SEO and social media strategies I learned helped me secure a role at a top marketing agency.",
+        image: "/tannu.png"
+    },
+    {
+        name: "Divya Sahu",
+        role: "Data Analyst",
+        text: "The Data Analytics program was a game-changer. I learned Power BI, SQL, and Python – skills that helped me crack an interview at a leading MNC.",
+        image: "/divya.png"
+    },
+    {
+        name: "Molisha Sahu",
+        role: "Data Analyst",
+        text: "The Data Analyst program gave me real-world skills. The hands-on projects and placement support were incredible – I landed my dream role.",
+        image: "/molisha.png"
+    },
+    {
+        name: "Gaurav Pal",
+        role: "Digital Marketing",
+        text: "The Digital Marketing with AI course was exceptional. I learned SEO, Google Ads, and content marketing. The placement team connected me with top companies.",
+        image: "/gaurav.png"
+    },
+    {
+        name: "Ankita",
+        role: "Data Analyst",
+        text: "The Data Analytics course was comprehensive. The mock interviews, resume workshops, and placement support helped me secure a great position at Amazon.",
+        image: "/ankita.jpg"
+    },
+    {
+        name: "Ekta",
+        role: "Data Analyst",
+        text: "The Data Analyst program was transformative. The placement team supported me throughout the process – from resume building to final interviews.",
+        image: "/ekta.png"
+    },
+    {
+        name: "Mukul Pal",
+        role: "Digital Marketing",
+        text: "The Digital Marketing with AI curriculum was industry-relevant. I mastered AI-powered marketing tools and secured a role at a top firm.",
+        image: "/mukul.jpg"
+    }
+];
 
         function renderTestimonials() {
             const track = document.getElementById('testimonialTrackPartial');
@@ -133,19 +201,21 @@
             const all = [...testimonialsData, ...testimonialsData];
             track.innerHTML = all.map(t => `
                 <div class="testimonial-card">
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fa-solid fa-star text-yellow-400"></i>
-                        <i class="fa-solid fa-star text-yellow-400"></i>
-                        <i class="fa-solid fa-star text-yellow-400"></i>
-                        <i class="fa-solid fa-star text-yellow-400"></i>
-                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    <div class="card-image">
+                        <img src="${t.image}" alt="${t.name}" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&size=200&background=0ea5e9&color=fff'">
                     </div>
-                    <p class="text-gray-600 text-sm leading-relaxed">"${t.text}"</p>
-                    <div class="flex items-center gap-3 mt-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br ${t.gradient} text-white flex items-center justify-center font-bold text-sm">${t.initials}</div>
+                    <div class="card-body">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"${t.text}"</p>
                         <div>
-                            <p class="font-bold text-gray-800 text-sm">${t.name}</p>
-                            <p class="text-xs text-gray-500">${t.role}</p>
+                            <p class="student-name">${t.name}</p>
+                            <p style="font-weight:bold;" class="student-role">${t.role}</p>
                         </div>
                     </div>
                 </div>
