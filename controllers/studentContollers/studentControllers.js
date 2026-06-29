@@ -308,6 +308,19 @@ async function viewOnlineDetails(req, res) {
         res.status(500).send('Unable to load online live program details');
     }
 }
+
+
+
+// get degree programm controller
+function getDegreeProgram(req,res)
+{
+   res.render("pages/online_distance/online_distance_learning",{
+        isLogin: req.session?.isLogin || false,
+        user: req.session?.user || null,
+        title: 'Online & Distance Learning – SkillBridge'
+    })
+}
+
 module.exports = {
     viewCourseDetails,
     showHomePage,
@@ -320,4 +333,5 @@ module.exports = {
     getCoursesByCategory,
     viewClassroomDetails,   
     viewOnlineDetails, 
+    getDegreeProgram
 }

@@ -1,6 +1,6 @@
 const express=require("express")
 const path = require('path');
-const {showHomePage,showCourses,viewCourseDetails,storeEnqueryForm,getEnqueryForm,showAboutPage,showContactPage,searchCoursesAPI,getCoursesByCategory,viewClassroomDetails,viewOnlineDetails}=require("../controllers/studentContollers/studentControllers")
+const {showHomePage,showCourses,viewCourseDetails,storeEnqueryForm,getEnqueryForm,showAboutPage,showContactPage,searchCoursesAPI,getCoursesByCategory,viewClassroomDetails,viewOnlineDetails,getDegreeProgram}=require("../controllers/studentContollers/studentControllers")
 const studentRoutes=express.Router()
 
 
@@ -107,3 +107,9 @@ studentRoutes.get('/diploma/networking-cloud-ai', (req, res) => {
         title: 'Diploma in Networking and Cloud AI – SkillBridge'
     });
 });
+
+// online distance learning routes
+studentRoutes.get('/onlineDegreePrograms', getDegreeProgram)
+
+
+

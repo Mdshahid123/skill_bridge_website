@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Online & Distance Learning – SkillBridge</title>
+    <meta name="description" content="Explore UGC-approved online and distance degree programs. Online BBA, BCA, BA, B.Sc, MBA, MCA, M.Sc, MA, and PGDM with 100% flexible learning." />
+    <meta name="keywords" content="online degree, distance learning, online MBA, online BBA, online MCA, UGC approved, distance education" />
+    <meta name="author" content="SkillBridge" />
+    <link rel="canonical" href="https://www.skillbridge.com/online-distance" />
+
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <style>
+        :root {
+            --ink: #101B30;
+            --ink-soft: #1B2A47;
+            --paper: #F7F3EA;
+            --paper-deep: #EFE8D8;
+            --gold: #C8932B;
+            --gold-light: #E9C674;
+            --teal: #2E6F66;
+            --teal-deep: #163F38;
+            --teal-pale: #E7F0EC;
+            --line: rgba(16, 27, 48, 0.12);
+            --line-soft: rgba(16, 27, 48, 0.07);
+            --card: #FFFFFF;
+            --muted: #5C6478;
+            --radius: 16px;
+            --shadow-sm: 0 1px 2px rgba(16, 27, 48, 0.06);
+            --shadow-md: 0 18px 40px -22px rgba(16, 27, 48, 0.28);
+            --shadow-lg: 0 30px 60px -28px rgba(16, 27, 48, 0.38);
+        }
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        .display {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            letter-spacing: -0.012em;
+            margin: 0;
+            color: var(--ink);
+        }
+        a {
+            color: inherit;
+        }
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--teal-deep);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: inline-block;
+        }
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .muted {
+            color: var(--muted);
+        }
+        svg {
+            display: block;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            background: var(--ink);
+            color: var(--paper);
+            overflow: hidden;
+            padding: 46px 0 34px;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+            background-size: 42px 42px;
+            -webkit-mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, #000 50%, transparent 100%);
+            mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, #000 50%, transparent 100%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 88% 0%, rgba(200, 147, 43, 0.22), transparent 55%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .hero-grid>div:first-child {
+            max-width: 620px;
+        }
+        .hero h1 {
+            font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+            line-height: 1.14;
+            margin-top: 12px;
+            color: #ffffff;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--gold-light);
+            font-family: inherit;
+        }
+        .hero p.lede {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #CBD2E2;
+            max-width: 480px;
+            margin-top: 12px;
+        }
+        .hero-cta-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--ink);
+            border: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 12px 22px;
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: transform .15s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+        .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 12px 20px;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+        .btn-ghost:hover {
+            border-color: #fff;
+        }
+        .hero-stats {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 0;
+            flex-shrink: 0;
+        }
+        .hero-stats .stat {
+            padding: 0 26px;
+            border-right: 1px solid rgba(255, 255, 255, 0.14);
+            text-align: center;
+        }
+        .hero-stats .stat:last-child {
+            border-right: none;
+        }
+        .hero-stats .num {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            color: #fff;
+        }
+        .hero-stats .lab {
+            font-size: 0.72rem;
+            color: #9AA3BD;
+            margin-top: 3px;
+            max-width: 110px;
+        }
+
+        /* ===== STICKY LEVEL TOGGLE ===== */
+        .level-bar {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: rgba(247, 243, 234, 0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+        .level-bar .wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            overflow-x: auto;
+        }
+        .level-btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink);
+            padding: 9px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all .15s ease;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .level-btn svg {
+            width: 14px;
+            height: 14px;
+            opacity: .6;
+        }
+        .level-btn:hover {
+            border-color: var(--teal);
+            box-shadow: var(--shadow-sm);
+        }
+        .level-btn.active {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+        .level-btn.active svg {
+            opacity: 1;
+        }
+
+        /* ===== Section wrappers ===== */
+        section.block {
+            padding: 64px 0;
+        }
+        .block+.block {
+            border-top: 1px solid var(--line);
+        }
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+            margin-bottom: 34px;
+            flex-wrap: wrap;
+        }
+        .section-head h2 {
+            font-size: clamp(1.55rem, 2.6vw, 2.15rem);
+        }
+        .section-head .sub {
+            color: var(--muted);
+            font-size: 0.96rem;
+            max-width: 480px;
+            line-height: 1.55;
+            margin-top: 8px;
+        }
+        .section-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: .1em;
+            font-weight: 700;
+        }
+
+        /* ===== Program cards grid ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(46, 111, 102, 0.35);
+        }
+        .card-top {
+            padding: 22px 24px 18px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: linear-gradient(180deg, var(--teal-pale), rgba(231, 240, 236, 0));
+        }
+        .card-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 11px;
+            background: var(--teal-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .card-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        .card-top .titleblock {
+            flex: 1;
+        }
+        .card .tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.66rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .card h3 {
+            font-size: 1.16rem;
+            margin-top: 5px;
+        }
+        .card-body {
+            padding: 18px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex: 1;
+        }
+        .card .meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.8rem;
+            color: var(--muted);
+            border-top: 1px solid var(--line-soft);
+            border-bottom: 1px solid var(--line-soft);
+            padding: 11px 0;
+            flex-wrap: wrap;
+        }
+        .card .meta span b {
+            color: var(--ink);
+            font-weight: 700;
+        }
+        .card .meta .duration-icon {
+            color: var(--teal);
+            margin-right: 4px;
+        }
+        .card ul.chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .card ul.chips li {
+            font-size: 0.73rem;
+            background: #F1ECDF;
+            color: var(--teal-deep);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-weight: 600;
+        }
+        .card .overview-text {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .card-foot {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-foot button {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: var(--teal-deep);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .card-foot button svg {
+            width: 14px;
+            height: 14px;
+            transition: transform .2s ease;
+        }
+        .card.open .card-foot button svg {
+            transform: rotate(180deg);
+        }
+        .card .details {
+            display: none;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--muted);
+            padding-top: 6px;
+            border-top: 1px dashed var(--line);
+        }
+        .card.open .details {
+            display: block;
+        }
+        .card .details h4 {
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--ink);
+            margin: 12px 0 6px;
+            font-weight: 700;
+        }
+        .card .details ul {
+            margin: 0 0 0 16px;
+            padding: 0;
+        }
+        .card .details li {
+            margin-bottom: 3px;
+        }
+
+        /* ===== University table ===== */
+        .uni-table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        table.uni {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 780px;
+        }
+        table.uni th {
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.66rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--line);
+            background: var(--paper-deep);
+            font-weight: 700;
+        }
+        table.uni td {
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--line-soft);
+            font-size: 0.9rem;
+            vertical-align: middle;
+        }
+        table.uni tr:last-child td {
+            border-bottom: none;
+        }
+        table.uni tbody tr {
+            transition: background .15s ease;
+        }
+        table.uni tbody tr:hover {
+            background: var(--teal-pale);
+        }
+        .uname-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .uni-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: var(--ink-soft);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            font-size: 0.92rem;
+            flex-shrink: 0;
+        }
+        table.uni .uname {
+            font-weight: 700;
+        }
+        table.uni .accred {
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+        .rating {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .fee {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .cta-mini {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--teal-deep);
+            border: 1px solid var(--teal);
+            border-radius: 7px;
+            padding: 7px 14px;
+            background: none;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+        .cta-mini:hover {
+            background: var(--teal);
+            color: #fff;
+        }
+        .table-foot-note {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 14px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        /* ===== Why trust strip ===== */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+        .trust-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 26px;
+            transition: box-shadow .2s ease, transform .2s ease;
+        }
+        .trust-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .trust-card .ico {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            background: var(--teal);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+        .trust-card .ico svg {
+            width: 21px;
+            height: 21px;
+        }
+        .trust-card h4 {
+            font-size: 1.02rem;
+            margin-bottom: 7px;
+        }
+        .trust-card p {
+            font-size: 0.87rem;
+            color: var(--muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* ===== Admission steps ===== */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        .step {
+            padding: 26px 22px;
+            border-right: 1px solid var(--line);
+            position: relative;
+        }
+        .step:last-child {
+            border-right: none;
+        }
+        .step .n {
+            font-family: 'Fraunces', serif;
+            font-size: 1.7rem;
+            color: var(--gold);
+        }
+        .step h5 {
+            font-size: 0.92rem;
+            margin: 10px 0 5px;
+        }
+        .step p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.45;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-wrap {
+            max-width: 820px;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--line);
+        }
+        .faq-q {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Fraunces', serif;
+            font-size: 1.04rem;
+            color: var(--ink);
+            gap: 16px;
+        }
+        .faq-q .plus {
+            font-size: 1rem;
+            color: var(--gold);
+            transition: transform .2s ease;
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .faq-item.open .plus {
+            transform: rotate(45deg);
+            border-color: var(--gold);
+        }
+        .faq-a {
+            display: none;
+            padding: 0 0 20px;
+            color: var(--muted);
+            font-size: 0.93rem;
+            line-height: 1.65;
+            max-width: 760px;
+        }
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        /* ===== Final CTA ===== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--teal-deep), var(--ink));
+            color: #fff;
+            border-radius: 22px;
+            padding: 54px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 0%, rgba(200, 147, 43, 0.25), transparent 55%);
+        }
+        .final-cta * {
+            position: relative;
+            z-index: 1;
+        }
+        .final-cta .eyebrow {
+            color: var(--gold-light);
+            justify-content: center;
+        }
+        .final-cta h2 {
+            color: #fff;
+            font-size: clamp(1.5rem, 3vw, 2.1rem);
+            margin-top: 10px;
+        }
+        .final-cta p {
+            color: #CBD2E0;
+            margin: 12px auto 26px;
+            max-width: 480px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+            .step {
+                border-bottom: 1px solid var(--line);
+            }
+        }
+        @media (max-width: 640px) {
+            .hero {
+                padding: 36px 0 28px;
+            }
+            .hero-grid>div:first-child {
+                max-width: 100%;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .wrap {
+                padding: 0 16px;
+            }
+            .card .meta {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('../../partials/common/navbar') %>
+
+    <header class="hero">
+        <div class="wrap hero-grid">
+            <div>
+                <div class="eyebrow" style="color: #E9C674;">Online &amp; Distance Learning</div>
+                <h1>A recognized degree, built around <em>the life you already have.</em></h1>
+                <p class="lede">Compare UGC‑approved Online &amp; Distance UG and PG programs, see real fee ranges and career outcomes, and get free counselling before you commit to a university.</p>
+                <div class="hero-cta-row">
+                    <button class="btn-primary">Explore Programs</button>
+                    <button class="btn-ghost">Talk to a Counsellor</button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="num">12+</div>
+                    <div class="lab">Degree programs</div>
+                </div>
+                <div class="stat">
+                    <div class="num">100+</div>
+                    <div class="lab">Partner universities</div>
+                </div>
+                <div class="stat">
+                    <div class="num">UGC‑DEB</div>
+                    <div class="lab">Approved &amp; valid in India</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="level-bar">
+        <div class="wrap">
+            <button class="level-btn active" data-level="ug">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zm4 2v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg>
+                Undergraduate
+            </button>
+            <button class="level-btn" data-level="pg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zm4 2v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg>
+                Postgraduate
+            </button>
+            <button class="level-btn" data-level="universities">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
+                Top Universities
+            </button>
+            <button class="level-btn" data-level="trust">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+                HR Acceptance
+            </button>
+            <button class="level-btn" data-level="admission">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Admission Process
+            </button>
+            <button class="level-btn" data-level="faq">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4.5M12 17.5h.01"/></svg>
+                FAQs
+            </button>
+        </div>
+    </nav>
+
+    <main class="wrap">
+
+        <!-- ===================== UG ===================== -->
+        <section class="block" id="ug" data-section>
+            <div class="section-head">
+                <div>
+                    <div class="section-num">01 / Undergraduate</div>
+                    <h2 style="margin-top:6px;">Undergraduate Programs</h2>
+                    <p class="sub">Three-year online degrees for students moving straight from 10+2 into a flexible, career-aligned bachelor's program.</p>
+                </div>
+            </div>
+            <div class="grid">
+
+                <!-- BBA -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">3 Years · Open Entry</span>
+                            <h3>Online BBA</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2</span>
+                        </div>
+                        <p class="overview-text">The Online BBA is a foundational undergraduate management program designed for students aspiring to build careers in business, management, entrepreneurship, and corporate leadership. The program offers a strong understanding of business operations, marketing strategies, financial systems, and organizational behavior—all through flexible online learning.</p>
+                        <ul class="chips">
+                            <li>Marketing Management</li>
+                            <li>Finance Management</li>
+                            <li>Human Resource Management</li>
+                            <li>International Business</li>
+                            <li>Digital Marketing</li>
+                            <li>Entrepreneurship</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Business Executive</b> – ₹3–8 LPA</li>
+                                <li><b>Marketing Coordinator</b> – ₹3–7 LPA</li>
+                                <li><b>HR Executive</b> – ₹2.5–6 LPA</li>
+                                <li><b>Sales Analyst</b> – ₹3.5–7.5 LPA</li>
+                                <li><b>Startup Founder</b> – Variable</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">Management</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BCA -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">3 Years · Tech Track</span>
+                            <h3>Online BCA</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2 (Maths preferred)</span>
+                        </div>
+                        <p class="overview-text">The Online BCA program is designed for students aiming to enter the IT & software industry. It covers programming, web development, databases, cloud computing, and emerging technologies, preparing learners for technical careers in the digital economy.</p>
+                        <ul class="chips">
+                            <li>Programming (C, Java, Python)</li>
+                            <li>Web Development</li>
+                            <li>Data Structures</li>
+                            <li>Cloud Computing</li>
+                            <li>Cybersecurity Basics</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Software Developer</b> – ₹4–9 LPA</li>
+                                <li><b>Web Developer</b> – ₹3.5–8 LPA</li>
+                                <li><b>IT Support Engineer</b> – ₹2.5–5.5 LPA</li>
+                                <li><b>System Analyst</b> – ₹4.5–9 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">IT</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BA -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">3 Years · Humanities</span>
+                            <h3>Online BA</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2</span>
+                        </div>
+                        <p class="overview-text">The Online BA offers flexibility and academic depth across humanities and social sciences. Ideal for students seeking careers in public service, media, education, content, and administration.</p>
+                        <ul class="chips">
+                            <li>English</li>
+                            <li>Political Science</li>
+                            <li>Sociology</li>
+                            <li>Psychology</li>
+                            <li>Economics</li>
+                            <li>History</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Content Writer</b> – ₹2.5–6 LPA</li>
+                                <li><b>Civil Services Aspirant</b> – Variable</li>
+                                <li><b>Journalist</b> – ₹3–7 LPA</li>
+                                <li><b>Social Researcher</b> – ₹3–6 LPA</li>
+                                <li><b>Public Relations Executive</b> – ₹3.5–8 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">Arts</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B.Sc -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6v4l4 9a2 2 0 0 1-2 3H7a2 2 0 0 1-2-3l4-9V3z"/><path d="M9 3h6"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">3 Years · Analytical</span>
+                            <h3>Online B.Sc</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2 (Science)</span>
+                        </div>
+                        <p class="overview-text">The Online B.Sc program provides scientific knowledge combined with analytical skills in various disciplines. Suitable for students interested in research, analytics, IT, or higher studies.</p>
+                        <ul class="chips">
+                            <li>Mathematics</li>
+                            <li>Computer Science</li>
+                            <li>Data Science</li>
+                            <li>Physics</li>
+                            <li>Statistics</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Data Analyst</b> – ₹3.5–8 LPA</li>
+                                <li><b>Research Assistant</b> – ₹3–6 LPA</li>
+                                <li><b>Lab Technician</b> – ₹2.5–5 LPA</li>
+                                <li><b>Academic Assistant</b> – ₹2.5–4.5 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">Science</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== PG ===================== -->
+        <section class="block" id="pg" data-section style="display:none;">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">02 / Postgraduate</div>
+                    <h2 style="margin-top:6px;">Postgraduate Programs</h2>
+                    <p class="sub">Advance into leadership, technical, or research-focused careers while you keep working — no campus required.</p>
+                </div>
+            </div>
+            <div class="grid">
+
+                <!-- MBA -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">2 Years · Management</span>
+                            <h3>Online MBA</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Bachelor's degree</span>
+                            <span><i class="fa-regular fa-indian-rupee-sign duration-icon"></i> <b>Fees:</b> ₹1L–14L+</span>
+                        </div>
+                        <p class="overview-text">The Online MBA is a flexible yet high-impact postgraduate management degree designed for professionals and recent graduates who want to gain advanced business skills, leadership capabilities, and strategic insights without attending on-campus classes.</p>
+                        <ul class="chips">
+                            <li>Marketing Management</li>
+                            <li>Finance & Accounting</li>
+                            <li>Human Resource Management</li>
+                            <li>Business Analytics & Data Science</li>
+                            <li>International Business</li>
+                            <li>Operations & Supply Chain</li>
+                            <li>Digital Marketing & E-Commerce</li>
+                            <li>Healthcare Management</li>
+                            <li>Project Management</li>
+                            <li>IT & Systems Management</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities (Salary Range)</h4>
+                            <ul>
+                                <li><b>Business Development Manager</b> – ₹3.1–15.8 LPA</li>
+                                <li><b>Project Manager</b> – ₹5–30 LPA</li>
+                                <li><b>Marketing Manager</b> – ₹2.2–25.5 LPA</li>
+                                <li><b>Financial Analyst</b> – ₹3–10.9 LPA</li>
+                                <li><b>Management Consultant</b> – ₹4.6–37.5 LPA</li>
+                                <li><b>Operations Manager</b> – ₹4–31.5 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">Management</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCA -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">2 Years · Tech &amp; AI</span>
+                            <h3>Online MCA</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Bachelor's with Maths/IT</span>
+                        </div>
+                        <p class="overview-text">The Online MCA is a postgraduate IT program aimed at professionals and graduates seeking advanced expertise in software development, AI, data science, and cloud technologies.</p>
+                        <ul class="chips">
+                            <li>Advanced Programming</li>
+                            <li>AI &amp; Machine Learning</li>
+                            <li>Cloud Computing</li>
+                            <li>Big Data</li>
+                            <li>DevOps</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Software Engineer</b> – ₹5–12 LPA</li>
+                                <li><b>Data Scientist</b> – ₹6–15 LPA</li>
+                                <li><b>Cloud Architect</b> – ₹8–20 LPA</li>
+                                <li><b>AI Engineer</b> – ₹6–18 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">IT</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- M.Sc -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">2 Years · Research</span>
+                            <h3>Online M.Sc</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Relevant Bachelor's</span>
+                        </div>
+                        <p class="overview-text">The Online M.Sc program focuses on advanced scientific and analytical knowledge for students aiming for research, analytics, teaching, or technical leadership roles.</p>
+                        <ul class="chips">
+                            <li>Data Science</li>
+                            <li>Mathematics</li>
+                            <li>Computer Science</li>
+                            <li>Applied Statistics</li>
+                            <li>Physics</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Data Scientist</b> – ₹6–15 LPA</li>
+                                <li><b>Research Analyst</b> – ₹4–9 LPA</li>
+                                <li><b>Academic Lecturer</b> – ₹4–8 LPA</li>
+                                <li><b>Statistical Consultant</b> – ₹5–12 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">Science</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MA -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">2 Years · Humanities</span>
+                            <h3>Online MA</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Relevant Bachelor's</span>
+                        </div>
+                        <p class="overview-text">The Online MA is ideal for students seeking specialization in humanities, education, public administration, and social sciences with complete learning flexibility.</p>
+                        <ul class="chips">
+                            <li>English</li>
+                            <li>Political Science</li>
+                            <li>Psychology</li>
+                            <li>Sociology</li>
+                            <li>Economics</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Educator</b> – ₹3–8 LPA</li>
+                                <li><b>Policy Analyst</b> – ₹4–10 LPA</li>
+                                <li><b>Content Strategist</b> – ₹4–9 LPA</li>
+                                <li><b>Research Consultant</b> – ₹4–11 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">Arts</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PGDM -->
+                <div class="card" data-card>
+                    <div class="card-top">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zm4 2v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg></div>
+                        <div class="titleblock">
+                            <span class="tag">1–2 Years · Industry Diploma</span>
+                            <h3>Online PGDM</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 1–2 Years</span>
+                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Bachelor's degree</span>
+                        </div>
+                        <p class="overview-text">The Online PGDM is an industry-oriented management diploma focusing on practical skills, leadership, and corporate readiness.</p>
+                        <ul class="chips">
+                            <li>Marketing</li>
+                            <li>HR Management</li>
+                            <li>Finance</li>
+                            <li>Business Analytics</li>
+                            <li>Operations</li>
+                        </ul>
+                        <div class="details">
+                            <h4>Career Opportunities</h4>
+                            <ul>
+                                <li><b>Business Manager</b> – ₹4–12 LPA</li>
+                                <li><b>Marketing Strategist</b> – ₹4–11 LPA</li>
+                                <li><b>Operations Head</b> – ₹5–14 LPA</li>
+                                <li><b>HR Consultant</b> – ₹3.5–10 LPA</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <span class="eyebrow" style="color:var(--muted)">Diploma</span>
+                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== UNIVERSITIES ===================== -->
+        <section class="block" id="universities" data-section style="display:none;">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">03 / Universities</div>
+                    <h2 style="margin-top:6px;">Top Universities for Online MBA</h2>
+                    <p class="sub">A snapshot of leading UGC-approved universities, their accreditation and indicative fees — reference: College Vidya.</p>
+                </div>
+            </div>
+            <div class="uni-table-wrap">
+                <table class="uni">
+                    <thead>
+                        <tr><th>University</th><th>Accreditation</th><th>Rating</th><th>Indicative Fee</th><th></th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div class="uname-row"><div class="uni-avatar">A</div><span class="uname">Amity University Online</span></div></td>
+                            <td class="accred">UGC-DEB, AICTE, NIRF, WES, QS Rankings, DEC</td>
+                            <td class="rating">★ 4.7</td>
+                            <td class="fee">₹2,25,000</td>
+                            <td><button class="cta-mini">Compare</button></td>
+                        </tr>
+                        <tr>
+                            <td><div class="uname-row"><div class="uni-avatar">D</div><span class="uname">DY Patil University Online</span></div></td>
+                            <td class="accred">UGC-DEB, AICTE, AIU, NIRF, WES, NAAC A++, ISO</td>
+                            <td class="rating">★ 4.7</td>
+                            <td class="fee">₹1,89,400</td>
+                            <td><button class="cta-mini">Compare</button></td>
+                        </tr>
+                        <tr>
+                            <td><div class="uname-row"><div class="uni-avatar">L</div><span class="uname">Liverpool John Moores University</span></div></td>
+                            <td class="accred">WES, AACSB, Privy Council Accredited</td>
+                            <td class="rating">★ 4.3</td>
+                            <td class="fee">₹4,85,000</td>
+                            <td><button class="cta-mini">Compare</button></td>
+                        </tr>
+                        <tr>
+                            <td><div class="uname-row"><div class="uni-avatar">G</div><span class="uname">GLA University Online</span></div></td>
+                            <td class="accred">UGC, AICTE, AIU, NAAC A+, NIRF, QS Rankings</td>
+                            <td class="rating">★ 4.4</td>
+                            <td class="fee">₹1,05,300</td>
+                            <td><button class="cta-mini">Compare</button></td>
+                        </tr>
+                        <tr>
+                            <td><div class="uname-row"><div class="uni-avatar">G</div><span class="uname">Golden Gate University</span></div></td>
+                            <td class="accred">AIU, WES, AACSB, WSCUC</td>
+                            <td class="rating">★ 4.7</td>
+                            <td class="fee">₹4,30,000</td>
+                            <td><button class="cta-mini">Compare</button></td>
+                        </tr>
+                        <tr>
+                            <td><div class="uname-row"><div class="uni-avatar">N</div><span class="uname">NMIMS Online</span></div></td>
+                            <td class="accred">NAAC A++</td>
+                            <td class="rating">★ 4.7</td>
+                            <td class="fee">₹2,20,000</td>
+                            <td><button class="cta-mini">Compare</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-foot-note">Fees and ratings are indicative and sourced for reference; always confirm current figures with the university or your SkillBridge counsellor before enrolling.</p>
+        </section>
+
+        <!-- ===================== TRUST / HR ACCEPTANCE ===================== -->
+        <section class="block" id="trust" data-section style="display:none;">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">04 / Recognition</div>
+                    <h2 style="margin-top:6px;">Are Online &amp; Distance Degrees Accepted by HRs?</h2>
+                    <p class="sub">Yes — when earned from UGC-approved, accredited universities, these degrees are widely accepted across India and globally.</p>
+                </div>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
+                    <h4>UGC &amp; Government Recognition</h4>
+                    <p>Recognized by UGC, valid under AICTE / DEB guidelines, and equivalent to regular degrees for private-sector and many government roles.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M22 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
+                    <h4>What HRs Actually Look For</h4>
+                    <p>University accreditation, skill relevance, practical exposure, certifications/internships, and communication ability.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg></div>
+                    <h4>Accepted Across Industries</h4>
+                    <p>IT, Banking &amp; Finance, Marketing, HR, Consulting, Analytics, and Startups all actively hire online degree holders.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    <h4>SkillBridge Guidance Promise</h4>
+                    <p>We help you choose HR-accepted universities, career-aligned specializations, and avoid unrecognized programs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== ADMISSION ===================== -->
+        <section class="block" id="admission" data-section style="display:none;">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">05 / Process</div>
+                    <h2 style="margin-top:6px;">Admission Process</h2>
+                    <p class="sub">The typical path from choosing a program to receiving your admission confirmation.</p>
+                </div>
+            </div>
+            <div class="steps">
+                <div class="step"><div class="n">01</div><h5>Program Selection</h5><p>Choose your specialization and university.</p></div>
+                <div class="step"><div class="n">02</div><h5>Eligibility Check</h5><p>Verify minimum academic criteria.</p></div>
+                <div class="step"><div class="n">03</div><h5>Application</h5><p>Complete the online form on the university portal.</p></div>
+                <div class="step"><div class="n">04</div><h5>Document Upload</h5><p>Submit required educational documents.</p></div>
+                <div class="step"><div class="n">05</div><h5>Fee Payment</h5><p>Pay directly to the university via secure options.</p></div>
+                <div class="step"><div class="n">06</div><h5>Confirmation</h5><p>Receive admission confirmation by email/SMS.</p></div>
+            </div>
+            <p class="table-foot-note">SkillBridge supports you through each step with guidance and clarity.</p>
+        </section>
+
+        <!-- ===================== FAQ ===================== -->
+        <section class="block" id="faq" data-section style="display:none;">
+            <div class="section-head">
+                <div>
+                    <div class="section-num">06 / FAQs</div>
+                    <h2 style="margin-top:6px;">Frequently Asked Questions</h2>
+                    <p class="sub">Quick answers on validity, recognition, and choosing the right program.</p>
+                </div>
+            </div>
+            <div class="faq-wrap" id="faqList">
+                <div class="faq-item">
+                    <button class="faq-q">Are online and distance degrees valid in India? <span class="plus">+</span></button>
+                    <div class="faq-a">Yes. They are valid and legally recognized in India when offered by UGC-approved universities as per UGC–DEB guidelines.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Are online degrees accepted by HRs and companies? <span class="plus">+</span></button>
+                    <div class="faq-a">Most private companies, MNCs, startups and corporate organizations accept online degrees, provided they're from a recognized, reputed university.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Are online degrees equivalent to regular degrees? <span class="plus">+</span></button>
+                    <div class="faq-a">Yes. As per UGC norms, online and distance degrees are equivalent to regular degrees in curriculum, credit structure and certification.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Can I get a job after completing an online degree? <span class="plus">+</span></button>
+                    <div class="faq-a">Absolutely. Holders are employed across IT, Banking &amp; Finance, Marketing, HR, and Data &amp; Analytics — outcomes depend on skills, specialization, internships and project experience.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Are online degrees accepted for government jobs? <span class="plus">+</span></button>
+                    <div class="faq-a">Degrees from UGC-approved universities are accepted for many government jobs, subject to the specific recruitment authority's eligibility criteria.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Can I pursue higher studies after an online degree? <span class="plus">+</span></button>
+                    <div class="faq-a">Yes — Master's programs after UG, PhD programs after PG, and professional certifications in India or abroad, subject to university admission criteria.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Do online degrees mention "online" on the certificate? <span class="plus">+</span></button>
+                    <div class="faq-a">No. Most universities issue the same degree certificate as regular programs, without mentioning the mode of study.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Who should opt for online or distance education? <span class="plus">+</span></button>
+                    <div class="faq-a">Working professionals, fresh graduates, career switchers, entrepreneurs, and students preparing for competitive exams.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">How do HRs verify online degrees? <span class="plus">+</span></button>
+                    <div class="faq-a">Through university enrollment numbers, UGC-approved university databases, digital verification portals, and transcripts/marksheets.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Are online degrees accepted abroad? <span class="plus">+</span></button>
+                    <div class="faq-a">Many international employers and universities accept online degrees from reputed Indian universities, though acceptance varies by country and institution.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Are online programs easier than regular programs? <span class="plus">+</span></button>
+                    <div class="faq-a">No. Online programs follow the same academic standards, assessments and examinations as regular programs.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">How does SkillBridge help students choose the right program? <span class="plus">+</span></button>
+                    <div class="faq-a">SkillBridge provides unbiased counselling to help students choose UGC-approved universities, select career-oriented specializations, and avoid unrecognized institutions.</div>
+                </div>
+            </div>
+        </section>
+
+
+
+         <%- include('../../partials/common/inquiry-form') %>
+
+        <!-- <section class="block" style="border-top:none; padding-top:0;">
+            <div class="final-cta">
+                <div class="eyebrow">Get Started</div>
+                <h2>Not sure which program fits your goals?</h2>
+                <p>Get free, unbiased counselling from SkillBridge — we'll help you pick an HR-accepted university and the right specialization.</p>
+                <button class="btn-primary" id="ctaTalk">Talk to a Counsellor</button>
+            </div>
+        </section> -->
+
+    </main>
+
+    <%- include('../../partials/common/footer') %>
+
+    <script>
+        const levelBtns = document.querySelectorAll('.level-btn');
+        const sections = document.querySelectorAll('[data-section]');
+        levelBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                levelBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const target = btn.dataset.level;
+                sections.forEach(sec => { sec.style.display = (sec.id === target) ? '' : 'none'; });
+                document.querySelector('.level-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        document.querySelectorAll('[data-card]').forEach(card => {
+            const btn = card.querySelector('[data-toggle]');
+            btn.addEventListener('click', () => card.classList.toggle('open'));
+        });
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-q').addEventListener('click', () => {
+                const wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+
+        document.getElementById('ctaTalk').addEventListener('click', () => {
+            alert('Thanks! Our counselling team will reach out shortly. (Hook this button up to your enquiry form/modal.)');
+        });
+    </script>
+
+</body>
+</html>
