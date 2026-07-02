@@ -1,768 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Online & Distance Learning – SkillBridge</title>
-    <meta name="description" content="Explore UGC-approved online and distance degree programs. Online BBA, BCA, BA, B.Sc, MBA, MCA, M.Sc, MA, and PGDM with 100% flexible learning." />
-    <meta name="keywords" content="online degree, distance learning, online MBA, online BBA, online MCA, UGC approved, distance education" />
-    <meta name="author" content="SkillBridge" />
-    <link rel="canonical" href="https://www.skillbridge.com/online-distance" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Distance Degree Programs</title>
 
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- ✅ Page-specific styles -->
     <style>
-        :root {
-            --ink: #101B30;
-            --ink-soft: #1B2A47;
-            --paper: #F7F3EA;
-            --paper-deep: #EFE8D8;
-            --gold: #C8932B;
-            --gold-light: #E9C674;
-            --teal: #2E6F66;
-            --teal-deep: #163F38;
-            --teal-pale: #E7F0EC;
-            --line: rgba(16, 27, 48, 0.12);
-            --line-soft: rgba(16, 27, 48, 0.07);
-            --card: #FFFFFF;
-            --muted: #5C6478;
-            --radius: 16px;
-            --shadow-sm: 0 1px 2px rgba(16, 27, 48, 0.06);
-            --shadow-md: 0 18px 40px -22px rgba(16, 27, 48, 0.28);
-            --shadow-lg: 0 30px 60px -28px rgba(16, 27, 48, 0.38);
-        }
+        /* ─── Page Specific Styles ─── */
         * {
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        html,
-        body {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
+
         body {
-            background: var(--paper);
-            color: var(--ink);
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        h1,
-        h2,
-        h3,
-        h4,
-        .display {
-            font-family: 'Fraunces', serif;
-            font-weight: 600;
-            letter-spacing: -0.012em;
-            margin: 0;
-            color: var(--ink);
-        }
-        a {
-            color: inherit;
-        }
-        .eyebrow {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--teal-deep);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-        }
-        .eyebrow::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold);
-            display: inline-block;
-        }
-        .wrap {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-        .muted {
-            color: var(--muted);
-        }
-        svg {
-            display: block;
+            background: #f8fafc;
         }
 
-        /* ===== HERO ===== */
-        .hero {
+        /* ─── HERO ─── */
+        .hero-section {
             position: relative;
-            background: var(--ink);
-            color: var(--paper);
+            height: 80vh;
+            min-height: 520px;
+            max-height: 720px;
             overflow: hidden;
-            padding: 46px 0 34px;
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-            background-size: 42px 42px;
-            -webkit-mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, #000 50%, transparent 100%);
-            mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, #000 50%, transparent 100%);
-            pointer-events: none;
-        }
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 88% 0%, rgba(200, 147, 43, 0.22), transparent 55%);
-            pointer-events: none;
-        }
-        .hero-grid {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-        .hero-grid>div:first-child {
-            max-width: 620px;
-        }
-        .hero h1 {
-            font-size: clamp(1.8rem, 3.2vw, 2.7rem);
-            line-height: 1.14;
-            margin-top: 12px;
-            color: #ffffff;
-        }
-        .hero h1 em {
-            font-style: normal;
-            color: var(--gold-light);
-            font-family: inherit;
-        }
-        .hero p.lede {
-            font-size: 0.98rem;
-            line-height: 1.6;
-            color: #CBD2E2;
-            max-width: 480px;
-            margin-top: 12px;
-        }
-        .hero-cta-row {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: var(--gold);
-            color: var(--ink);
-            border: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            padding: 12px 22px;
-            border-radius: 999px;
-            cursor: pointer;
-            box-shadow: var(--shadow-md);
-            transition: transform .15s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-        }
-        .btn-ghost {
-            background: transparent;
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 12px 20px;
-            border-radius: 999px;
-            cursor: pointer;
-        }
-        .btn-ghost:hover {
-            border-color: #fff;
-        }
-        .hero-stats {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            gap: 0;
-            flex-shrink: 0;
-        }
-        .hero-stats .stat {
-            padding: 0 26px;
-            border-right: 1px solid rgba(255, 255, 255, 0.14);
-            text-align: center;
-        }
-        .hero-stats .stat:last-child {
-            border-right: none;
-        }
-        .hero-stats .num {
-            font-family: 'Fraunces', serif;
-            font-size: 1.6rem;
-            color: #fff;
-        }
-        .hero-stats .lab {
-            font-size: 0.72rem;
-            color: #9AA3BD;
-            margin-top: 3px;
-            max-width: 110px;
+            margin-top:20px;
         }
 
-        /* ===== STICKY LEVEL TOGGLE ===== */
-        .level-bar {
-            position: sticky;
-            top: 0;
-            z-index: 30;
-            background: rgba(247, 243, 234, 0.94);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--line);
+        .slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
-        .level-bar .wrap {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            overflow-x: auto;
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: 1s ease;
         }
-        .level-btn {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border: 1px solid var(--line);
-            background: #fff;
-            color: var(--ink);
-            padding: 9px 18px;
-            border-radius: 999px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all .15s ease;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-        .level-btn svg {
-            width: 14px;
-            height: 14px;
-            opacity: .6;
-        }
-        .level-btn:hover {
-            border-color: var(--teal);
-            box-shadow: var(--shadow-sm);
-        }
-        .level-btn.active {
-            background: var(--ink);
-            color: var(--paper);
-            border-color: var(--ink);
-        }
-        .level-btn.active svg {
+
+        .slide.active {
             opacity: 1;
         }
 
-        /* ===== Section wrappers ===== */
-        section.block {
-            padding: 64px 0;
-        }
-        .block+.block {
-            border-top: 1px solid var(--line);
-        }
-        .section-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 24px;
-            margin-bottom: 34px;
-            flex-wrap: wrap;
-        }
-        .section-head h2 {
-            font-size: clamp(1.55rem, 2.6vw, 2.15rem);
-        }
-        .section-head .sub {
-            color: var(--muted);
-            font-size: 0.96rem;
-            max-width: 480px;
-            line-height: 1.55;
-            margin-top: 8px;
-        }
-        .section-num {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            color: var(--gold);
-            letter-spacing: .1em;
-            font-weight: 700;
-        }
-
-        /* ===== Program cards grid ===== */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
-        }
-        .card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: rgba(46, 111, 102, 0.35);
-        }
-        .card-top {
-            padding: 22px 24px 18px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-            background: linear-gradient(180deg, var(--teal-pale), rgba(231, 240, 236, 0));
-        }
-        .card-icon {
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            border-radius: 11px;
-            background: var(--teal-deep);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-        .card-icon svg {
-            width: 22px;
-            height: 22px;
-        }
-        .card-top .titleblock {
-            flex: 1;
-        }
-        .card .tag {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.66rem;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 700;
-        }
-        .card h3 {
-            font-size: 1.16rem;
-            margin-top: 5px;
-        }
-        .card-body {
-            padding: 18px 24px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            flex: 1;
-        }
-        .card .meta {
-            display: flex;
-            gap: 20px;
-            font-size: 0.8rem;
-            color: var(--muted);
-            border-top: 1px solid var(--line-soft);
-            border-bottom: 1px solid var(--line-soft);
-            padding: 11px 0;
-            flex-wrap: wrap;
-        }
-        .card .meta span b {
-            color: var(--ink);
-            font-weight: 700;
-        }
-        .card .meta .duration-icon {
-            color: var(--teal);
-            margin-right: 4px;
-        }
-        .card ul.chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .card ul.chips li {
-            font-size: 0.73rem;
-            background: #F1ECDF;
-            color: var(--teal-deep);
-            border-radius: 6px;
-            padding: 5px 10px;
-            font-weight: 600;
-        }
-        .card .overview-text {
-            font-size: 0.85rem;
-            color: var(--muted);
-            line-height: 1.6;
-            margin: 0;
-        }
-        .card-foot {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .card-foot button {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 0.82rem;
-            color: var(--teal-deep);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .card-foot button svg {
-            width: 14px;
-            height: 14px;
-            transition: transform .2s ease;
-        }
-        .card.open .card-foot button svg {
-            transform: rotate(180deg);
-        }
-        .card .details {
-            display: none;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: var(--muted);
-            padding-top: 6px;
-            border-top: 1px dashed var(--line);
-        }
-        .card.open .details {
-            display: block;
-        }
-        .card .details h4 {
-            font-size: 0.74rem;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-            color: var(--ink);
-            margin: 12px 0 6px;
-            font-weight: 700;
-        }
-        .card .details ul {
-            margin: 0 0 0 16px;
-            padding: 0;
-        }
-        .card .details li {
-            margin-bottom: 3px;
-        }
-
-        /* ===== University table ===== */
-        .uni-table-wrap {
-            overflow-x: auto;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            background: #fff;
-            box-shadow: var(--shadow-sm);
-        }
-        table.uni {
+        .slide img {
             width: 100%;
-            border-collapse: collapse;
-            min-width: 780px;
-        }
-        table.uni th {
-            text-align: left;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.66rem;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--muted);
-            padding: 16px 18px;
-            border-bottom: 1px solid var(--line);
-            background: var(--paper-deep);
-            font-weight: 700;
-        }
-        table.uni td {
-            padding: 16px 18px;
-            border-bottom: 1px solid var(--line-soft);
-            font-size: 0.9rem;
-            vertical-align: middle;
-        }
-        table.uni tr:last-child td {
-            border-bottom: none;
-        }
-        table.uni tbody tr {
-            transition: background .15s ease;
-        }
-        table.uni tbody tr:hover {
-            background: var(--teal-pale);
-        }
-        .uname-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .uni-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: var(--ink-soft);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Fraunces', serif;
-            font-weight: 700;
-            font-size: 0.92rem;
-            flex-shrink: 0;
-        }
-        table.uni .uname {
-            font-weight: 700;
-        }
-        table.uni .accred {
-            color: var(--muted);
-            font-size: 0.78rem;
-        }
-        .rating {
-            color: var(--gold);
-            font-weight: 700;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .fee {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
-        .cta-mini {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--teal-deep);
-            border: 1px solid var(--teal);
-            border-radius: 7px;
-            padding: 7px 14px;
-            background: none;
-            cursor: pointer;
-            transition: all .15s ease;
-        }
-        .cta-mini:hover {
-            background: var(--teal);
-            color: #fff;
-        }
-        .table-foot-note {
-            font-size: 0.78rem;
-            color: var(--muted);
-            margin-top: 14px;
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* ===== Why trust strip ===== */
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, .85),
+                    rgba(0, 0, 0, .45),
+                    rgba(0, 0, 0, .15));
         }
-        .trust-card {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 26px;
-            transition: box-shadow .2s ease, transform .2s ease;
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            max-width: 700px;
+            color: white;
+            z-index: 10;
         }
-        .trust-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, .12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, .2);
+            margin-bottom: 16px;
+            font-weight: 500;
+            font-size: 0.85rem;
         }
-        .trust-card .ico {
-            width: 42px;
-            height: 42px;
-            border-radius: 11px;
-            background: var(--teal);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .content h1 {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .content h2 {
+            color: #14b8a6;
+            font-size: 1.6rem;
             margin-bottom: 14px;
         }
-        .trust-card .ico svg {
-            width: 21px;
-            height: 21px;
-        }
-        .trust-card h4 {
-            font-size: 1.02rem;
-            margin-bottom: 7px;
-        }
-        .trust-card p {
-            font-size: 0.87rem;
-            color: var(--muted);
-            line-height: 1.55;
-            margin: 0;
+
+        .content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 22px;
+            color: #e2e8f0;
+            max-width: 550px;
         }
 
-        /* ===== Admission steps ===== */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 0;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: #fff;
-            box-shadow: var(--shadow-sm);
-        }
-        .step {
-            padding: 26px 22px;
-            border-right: 1px solid var(--line);
-            position: relative;
-        }
-        .step:last-child {
-            border-right: none;
-        }
-        .step .n {
-            font-family: 'Fraunces', serif;
-            font-size: 1.7rem;
-            color: var(--gold);
-        }
-        .step h5 {
-            font-size: 0.92rem;
-            margin: 10px 0 5px;
-        }
-        .step p {
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin: 0;
-            line-height: 1.45;
-        }
-
-        /* ===== FAQ ===== */
-        .faq-wrap {
-            max-width: 820px;
-        }
-        .faq-item {
-            border-bottom: 1px solid var(--line);
-        }
-        .faq-q {
-            width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 20px 0;
+        .features {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .features div {
+            background: rgba(255, 255, 255, .1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, .15);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: .4s;
+            font-size: 0.95rem;
+        }
+
+        .primary {
+            background: #14b8a6;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #0f766e;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .secondary:hover {
+            background: white;
+            color: #111;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            background: rgba(255, 255, 255, .15);
+            color: white;
+            backdrop-filter: blur(10px);
+            z-index: 20;
+            transition: .3s;
+            display: flex;
             align-items: center;
-            font-family: 'Fraunces', serif;
-            font-size: 1.04rem;
-            color: var(--ink);
+            justify-content: center;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: #14b8a6;
+        }
+
+        .prev {
+            left: 16px;
+        }
+
+        .next {
+            right: 16px;
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: white;
+            opacity: .4;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .dot.active {
+            opacity: 1;
+            background: #14b8a6;
+            transform: scale(1.2);
+        }
+
+        /* ─── STATS ─── */
+        .stats {
+            width: 90%;
+            max-width: 1300px;
+            margin: -40px auto 0;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+            padding: 24px 30px;
+            position: relative;
+            z-index: 50;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 16px;
         }
-        .faq-q .plus {
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 1.7rem;
+            color: #0f172a;
+        }
+
+        .stat p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ─── UNIVERSITIES SECTION ─── */
+        .universities {
+            padding: 60px 20px 80px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 span {
+            color: #EE2C3C;
+        }
+
+        .section-header p {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ─── Filter Label ─── */
+        .filter-label {
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-label i {
+            color: #EE2C3C;
+            margin-right: 6px;
+        }
+
+        /* ─── Filter Buttons ─── */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 24px;
+            border-radius: 50px;
+            border: 2px solid #e2e8f0;
+            background: transparent;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #475569;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover {
+            border-color: #EE2C3C;
+            color: #EE2C3C;
+        }
+
+        .filter-btn.active {
+            background: #EE2C3C;
+            color: #fff;
+            border-color: #EE2C3C;
+        }
+
+        /* ─── University Grid – 4 cards per row ─── */
+        .uni-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .uni-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px 16px 18px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .uni-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+            border-color: #EE2C3C;
+        }
+
+        /* ─── Filter & View Toggle Classes ─── */
+        .uni-card.filter-hidden {
+            display: none !important;
+        }
+
+        .uni-card.view-hidden {
+            display: none !important;
+        }
+
+        .uni-region {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #EE2C3C;
+            background: #FEF2F2;
+            padding: 2px 14px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .uni-logo {
+            width: 120px;
+            height: 60px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .uni-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .uni-courses {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .uni-courses span {
+            background: #f1f5f9;
+            padding: 2px 10px;
+            border-radius: 50px;
+            margin: 0 4px;
+            font-weight: 500;
+            color: #0f172a;
+        }
+
+        .uni-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .uni-location {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .uni-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .uni-tags .tag {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .uni-tags .tag.approved {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .uni-tags .tag.popular {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .uni-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            color: #EE2C3C;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .uni-link:hover {
+            gap: 10px;
+            color: #b91c1c;
+        }
+
+        /* ─── Toggle Button ─── */
+        .view-toggle-wrapper {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .view-toggle-btn {
+            display: inline-block;
+            padding: 14px 48px;
+            border-radius: 50px;
+            background: #EE2C3C;
+            color: #fff;
+            border: none;
+            font-weight: 600;
             font-size: 1rem;
-            color: var(--gold);
-            transition: transform .2s ease;
-            flex-shrink: 0;
-            width: 28px;
-            height: 28px;
-            border: 1px solid var(--line);
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .view-toggle-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(238, 44, 60, 0.3);
+        }
+
+        .view-toggle-btn.view-all {
+            background: transparent;
+            color: #EE2C3C;
+            border: 2px solid #EE2C3C;
+        }
+
+        .view-toggle-btn.view-all:hover {
+            background: #EE2C3C;
+            color: #fff;
+        }
+
+        .view-toggle-btn.view-less {
+            background: #EE2C3C;
+            color: #fff;
+            border: none;
+        }
+
+        .view-toggle-btn.view-less:hover {
+            background: #b91c1c;
+        }
+
+        /* ─── COURSES SECTION ─── */
+        .courses-section {
+            padding: 60px 20px 80px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px 20px 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            min-height: 180px;
+            justify-content: center;
+        }
+
+        .course-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+            border-color: #EE2C3C;
+        }
+
+        .course-card .course-icon {
+            width: 60px;
+            height: 60px;
+            background: #FEF2F2;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .faq-item.open .plus {
-            transform: rotate(45deg);
-            border-color: var(--gold);
-        }
-        .faq-a {
-            display: none;
-            padding: 0 0 20px;
-            color: var(--muted);
-            font-size: 0.93rem;
-            line-height: 1.65;
-            max-width: 760px;
-        }
-        .faq-item.open .faq-a {
-            display: block;
+            font-size: 1.5rem;
+            color: #EE2C3C;
+            margin-bottom: 12px;
+            transition: 0.3s;
         }
 
-        /* ===== Final CTA ===== */
-        .final-cta {
-            background: linear-gradient(135deg, var(--teal-deep), var(--ink));
+        .course-card:hover .course-icon {
+            background: #EE2C3C;
             color: #fff;
-            border-radius: 22px;
-            padding: 54px;
-            text-align: center;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        .final-cta::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 80% 0%, rgba(200, 147, 43, 0.25), transparent 55%);
-        }
-        .final-cta * {
-            position: relative;
-            z-index: 1;
-        }
-        .final-cta .eyebrow {
-            color: var(--gold-light);
-            justify-content: center;
-        }
-        .final-cta h2 {
-            color: #fff;
-            font-size: clamp(1.5rem, 3vw, 2.1rem);
-            margin-top: 10px;
-        }
-        .final-cta p {
-            color: #CBD2E0;
-            margin: 12px auto 26px;
-            max-width: 480px;
         }
 
-        @media (max-width: 900px) {
-            .hero-grid {
-                flex-direction: column;
-                align-items: flex-start;
+        .course-card .course-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .course-card .course-duration {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .course-card .course-duration i {
+            margin-right: 4px;
+        }
+
+        /* ─── Filter & Toggle Classes for Courses ─── */
+        .course-card.filter-hidden {
+            display: none !important;
+        }
+
+        .course-card.view-hidden {
+            display: none !important;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media(max-width: 992px) {
+            .content h1 {
+                font-size: 3rem;
             }
-            .hero-stats {
-                flex-wrap: wrap;
-                gap: 14px;
+            .content h2 {
+                font-size: 1.4rem;
             }
-            .steps {
-                grid-template-columns: 1fr 1fr;
+            .hero-section {
+                height: 75vh;
+                min-height: 480px;
+                max-height: 650px;
             }
-            .step {
-                border-bottom: 1px solid var(--line);
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .uni-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            .course-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
         }
-        @media (max-width: 640px) {
-            .hero {
-                padding: 36px 0 28px;
+
+        @media(max-width: 768px) {
+            .hero-section {
+                height: 72vh;
+                min-height: 440px;
+                max-height: 600px;
+                margin-top: 60px;
             }
-            .hero-grid>div:first-child {
+
+            .content {
+                left: 5%;
+                right: 5%;
                 max-width: 100%;
             }
-            .hero h1 {
+
+            .content h1 {
+                font-size: 2.2rem;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+
+            .content p {
+                font-size: 0.9rem;
+                max-width: 100%;
+            }
+
+            .features {
+                gap: 8px;
+            }
+
+            .features div {
+                font-size: .8rem;
+                padding: 6px 12px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                text-align: center;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .prev,
+            .next {
+                display: none;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                padding: 18px 16px;
+                margin-top: -30px;
+                gap: 12px;
+            }
+
+            .stat h3 {
+                font-size: 1.3rem;
+            }
+            .stat p {
+                font-size: 0.8rem;
+            }
+
+            .universities {
+                padding: 40px 16px 60px;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            .section-header p {
+                font-size: 0.95rem;
+            }
+            .uni-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .uni-card {
+                padding: 16px 12px;
+            }
+            .uni-logo {
+                width: 100px;
+                height: 50px;
+            }
+            .uni-name {
+                font-size: 0.95rem;
+            }
+            .uni-location {
+                font-size: 0.8rem;
+            }
+            .filter-btn {
+                padding: 6px 16px;
+                font-size: 0.8rem;
+            }
+            .view-toggle-btn {
+                padding: 12px 32px;
+                font-size: 0.9rem;
+            }
+
+            .courses-section {
+                padding: 40px 16px 60px;
+            }
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .course-card {
+                padding: 24px 14px 20px;
+                min-height: 150px;
+            }
+            .course-card .course-name {
+                font-size: 0.95rem;
+            }
+            .course-card .course-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media(max-width: 480px) {
+            .hero-section {
+                height: 68vh;
+                min-height: 400px;
+                max-height: 520px;
+            }
+
+            .content h1 {
+                font-size: 1.8rem;
+            }
+            .content h2 {
+                font-size: 1rem;
+            }
+            .badge {
+                font-size: 0.7rem;
+                padding: 5px 12px;
+            }
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                padding: 14px 12px;
+            }
+            .stat h3 {
+                font-size: 1.1rem;
+            }
+            .uni-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .uni-card {
+                padding: 14px 10px;
+            }
+            .uni-logo {
+                width: 80px;
+                height: 40px;
+            }
+            .uni-name {
+                font-size: 0.85rem;
+            }
+            .uni-location {
+                font-size: 0.7rem;
+            }
+            .uni-courses {
+                font-size: 0.7rem;
+            }
+            .uni-tags .tag {
+                font-size: 0.6rem;
+                padding: 2px 8px;
+            }
+            .uni-link {
+                font-size: 0.75rem;
+            }
+            .section-header h2 {
                 font-size: 1.5rem;
             }
-            .wrap {
-                padding: 0 16px;
-            }
-            .card .meta {
-                flex-direction: column;
+            .filter-bar {
                 gap: 6px;
             }
-            .grid {
+            .filter-btn {
+                padding: 4px 12px;
+                font-size: 0.7rem;
+                border-width: 1.5px;
+            }
+            .view-toggle-btn {
+                padding: 10px 24px;
+                font-size: 0.8rem;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .course-card {
+                padding: 18px 10px 16px;
+                min-height: 130px;
+            }
+            .course-card .course-name {
+                font-size: 0.85rem;
+            }
+            .course-card .course-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+            .course-card .course-duration {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media(max-width: 400px) {
+            .uni-grid {
                 grid-template-columns: 1fr;
             }
-            .steps {
+            .course-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -770,673 +840,805 @@
 </head>
 <body>
 
-    <%- include('../../partials/common/navbar') %>
+    <!-- nav bar -->
+      <%- include("../../partials/common/navbar.ejs") %>
+<!-- ====== MAIN CONTENT WRAPPER ====== -->
+<div class="course-content-wrapper">
+    <main>
 
-    <header class="hero">
-        <div class="wrap hero-grid">
-            <div>
-                <div class="eyebrow" style="color: #E9C674;">Online &amp; Distance Learning</div>
-                <h1>A recognized degree, built around <em>the life you already have.</em></h1>
-                <p class="lede">Compare UGC‑approved Online &amp; Distance UG and PG programs, see real fee ranges and career outcomes, and get free counselling before you commit to a university.</p>
-                <div class="hero-cta-row">
-                    <button class="btn-primary">Explore Programs</button>
-                    <button class="btn-ghost">Talk to a Counsellor</button>
-                </div>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="num">12+</div>
-                    <div class="lab">Degree programs</div>
-                </div>
-                <div class="stat">
-                    <div class="num">100+</div>
-                    <div class="lab">Partner universities</div>
-                </div>
-                <div class="stat">
-                    <div class="num">UGC‑DEB</div>
-                    <div class="lab">Approved &amp; valid in India</div>
-                </div>
-            </div>
-        </div>
-    </header>
+        <!-- ─── HERO SECTION ─── -->
+        <section class="hero-section" style="height: 65vh; min-height: 440px; max-height: 580px;">
 
-    <nav class="level-bar">
-        <div class="wrap">
-            <button class="level-btn active" data-level="ug">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zm4 2v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg>
-                Undergraduate
-            </button>
-            <button class="level-btn" data-level="pg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zm4 2v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg>
-                Postgraduate
-            </button>
-            <button class="level-btn" data-level="universities">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
-                Top Universities
-            </button>
-            <button class="level-btn" data-level="trust">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-                HR Acceptance
-            </button>
-            <button class="level-btn" data-level="admission">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                Admission Process
-            </button>
-            <button class="level-btn" data-level="faq">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4.5M12 17.5h.01"/></svg>
-                FAQs
-            </button>
-        </div>
-    </nav>
+            <div class="slider">
 
-    <main class="wrap">
-
-        <!-- ===================== UG ===================== -->
-        <section class="block" id="ug" data-section>
-            <div class="section-head">
-                <div>
-                    <div class="section-num">01 / Undergraduate</div>
-                    <h2 style="margin-top:6px;">Undergraduate Programs</h2>
-                    <p class="sub">Three-year online degrees for students moving straight from 10+2 into a flexible, career-aligned bachelor's program.</p>
-                </div>
-            </div>
-            <div class="grid">
-
-                <!-- BBA -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">3 Years · Open Entry</span>
-                            <h3>Online BBA</h3>
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <img src="https://images.unsplash.com/photo-1661693758705-4fa65572bced?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Online Degree">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span  class="badge">UGC & AICTE Approved Programs</span>
+                        <h1 style="font-size: 3rem;">Online & Distance <br>Degree Programs</h1>
+                        <h2 style="font-size: 1.3rem;">Learn Anytime, Anywhere</h2>
+                        <div class="features" style="gap: 8px; margin-bottom: 18px;">
+                            <div style="padding: 6px 14px; font-size: 0.8rem;"> UGC Approved</div>
+                            <div style="padding: 6px 14px; font-size: 0.8rem;"> Flexible Learning</div>
+                            <div style="padding: 6px 14px; font-size: 0.8rem;"> Career Focused</div>
+                            <div style="padding: 6px 14px; font-size: 0.8rem;"> Affordable Fees</div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2</span>
-                        </div>
-                        <p class="overview-text">The Online BBA is a foundational undergraduate management program designed for students aspiring to build careers in business, management, entrepreneurship, and corporate leadership. The program offers a strong understanding of business operations, marketing strategies, financial systems, and organizational behavior—all through flexible online learning.</p>
-                        <ul class="chips">
-                            <li>Marketing Management</li>
-                            <li>Finance Management</li>
-                            <li>Human Resource Management</li>
-                            <li>International Business</li>
-                            <li>Digital Marketing</li>
-                            <li>Entrepreneurship</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Business Executive</b> – ₹3–8 LPA</li>
-                                <li><b>Marketing Coordinator</b> – ₹3–7 LPA</li>
-                                <li><b>HR Executive</b> – ₹2.5–6 LPA</li>
-                                <li><b>Sales Analyst</b> – ₹3.5–7.5 LPA</li>
-                                <li><b>Startup Founder</b> – Variable</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">Management</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        <div class="buttons">
+                            <a href="#" class="btn primary" style="padding: 10px 24px; font-size: 0.85rem;">Explore Programs</a>
+                            <a href="#" class="btn secondary" style="padding: 10px 24px; font-size: 0.85rem;">Find Your Program</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- BCA -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">3 Years · Tech Track</span>
-                            <h3>Online BCA</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2 (Maths preferred)</span>
-                        </div>
-                        <p class="overview-text">The Online BCA program is designed for students aiming to enter the IT & software industry. It covers programming, web development, databases, cloud computing, and emerging technologies, preparing learners for technical careers in the digital economy.</p>
-                        <ul class="chips">
-                            <li>Programming (C, Java, Python)</li>
-                            <li>Web Development</li>
-                            <li>Data Structures</li>
-                            <li>Cloud Computing</li>
-                            <li>Cybersecurity Basics</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Software Developer</b> – ₹4–9 LPA</li>
-                                <li><b>Web Developer</b> – ₹3.5–8 LPA</li>
-                                <li><b>IT Support Engineer</b> – ₹2.5–5.5 LPA</li>
-                                <li><b>System Analyst</b> – ₹4.5–9 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">IT</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img style="object-fit:cover;" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655" alt="MBA">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span style="position: relative; top: -30px" class="badge">Top Online MBA Programs</span>
+                        <h1 style="font-size: 3rem;">Advance Your <br>Career with MBA</h1>
+                        <h2 style="font-size: 1.3rem;">Study From Top Universities</h2>
+                        <p style="font-size: 0.95rem; margin-bottom: 18px;">Build leadership, management and business skills through flexible online MBA programs.</p>
+                        <div class="buttons">
+                            <a href="#" class="btn primary" style="padding: 10px 24px; font-size: 0.85rem;">Apply Now</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- BA -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">3 Years · Humanities</span>
-                            <h3>Online BA</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2</span>
-                        </div>
-                        <p class="overview-text">The Online BA offers flexibility and academic depth across humanities and social sciences. Ideal for students seeking careers in public service, media, education, content, and administration.</p>
-                        <ul class="chips">
-                            <li>English</li>
-                            <li>Political Science</li>
-                            <li>Sociology</li>
-                            <li>Psychology</li>
-                            <li>Economics</li>
-                            <li>History</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Content Writer</b> – ₹2.5–6 LPA</li>
-                                <li><b>Civil Services Aspirant</b> – Variable</li>
-                                <li><b>Journalist</b> – ₹3–7 LPA</li>
-                                <li><b>Social Researcher</b> – ₹3–6 LPA</li>
-                                <li><b>Public Relations Executive</b> – ₹3.5–8 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">Arts</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- B.Sc -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6v4l4 9a2 2 0 0 1-2 3H7a2 2 0 0 1-2-3l4-9V3z"/><path d="M9 3h6"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">3 Years · Analytical</span>
-                            <h3>Online B.Sc</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 3 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> 10+2 (Science)</span>
-                        </div>
-                        <p class="overview-text">The Online B.Sc program provides scientific knowledge combined with analytical skills in various disciplines. Suitable for students interested in research, analytics, IT, or higher studies.</p>
-                        <ul class="chips">
-                            <li>Mathematics</li>
-                            <li>Computer Science</li>
-                            <li>Data Science</li>
-                            <li>Physics</li>
-                            <li>Statistics</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Data Analyst</b> – ₹3.5–8 LPA</li>
-                                <li><b>Research Assistant</b> – ₹3–6 LPA</li>
-                                <li><b>Lab Technician</b> – ₹2.5–5 LPA</li>
-                                <li><b>Academic Assistant</b> – ₹2.5–4.5 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">Science</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img style="object-fit:cover;" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN0dWRlbnR8ZW58MHx8MHx8fDA%3D" alt="BCA">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <span style="position: relative; top: -30px" class="badge"> Future Ready Programs</span>
+                        <h1 style="font-size: 3rem;">Online BCA & MCA <br>Programs</h1>
+                        <h2 style="font-size: 1.3rem;">Build Your Tech Career</h2>
+                        <p style="font-size: 0.95rem; margin-bottom: 18px;">Learn AI, Cloud Computing, Programming, Data Science and Software Development.</p>
+                        <div class="buttons">
+                            <a href="#" class="btn primary" style="padding: 10px 24px; font-size: 0.85rem;">View Programs</a>
                         </div>
                     </div>
                 </div>
 
             </div>
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
         </section>
 
-        <!-- ===================== PG ===================== -->
-        <section class="block" id="pg" data-section style="display:none;">
-            <div class="section-head">
-                <div>
-                    <div class="section-num">02 / Postgraduate</div>
-                    <h2 style="margin-top:6px;">Postgraduate Programs</h2>
-                    <p class="sub">Advance into leadership, technical, or research-focused careers while you keep working — no campus required.</p>
-                </div>
+        <!-- ─── STATS ─── -->
+        <section class="stats" style="margin-top: -30px; padding: 18px 24px;">
+            <div class="stat">
+                <h3 style="font-size: 1.4rem;">50,000+</h3>
+                <p style="font-size: 0.8rem;">Students Enrolled</p>
             </div>
-            <div class="grid">
-
-                <!-- MBA -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">2 Years · Management</span>
-                            <h3>Online MBA</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Bachelor's degree</span>
-                            <span><i class="fa-regular fa-indian-rupee-sign duration-icon"></i> <b>Fees:</b> ₹1L–14L+</span>
-                        </div>
-                        <p class="overview-text">The Online MBA is a flexible yet high-impact postgraduate management degree designed for professionals and recent graduates who want to gain advanced business skills, leadership capabilities, and strategic insights without attending on-campus classes.</p>
-                        <ul class="chips">
-                            <li>Marketing Management</li>
-                            <li>Finance & Accounting</li>
-                            <li>Human Resource Management</li>
-                            <li>Business Analytics & Data Science</li>
-                            <li>International Business</li>
-                            <li>Operations & Supply Chain</li>
-                            <li>Digital Marketing & E-Commerce</li>
-                            <li>Healthcare Management</li>
-                            <li>Project Management</li>
-                            <li>IT & Systems Management</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities (Salary Range)</h4>
-                            <ul>
-                                <li><b>Business Development Manager</b> – ₹3.1–15.8 LPA</li>
-                                <li><b>Project Manager</b> – ₹5–30 LPA</li>
-                                <li><b>Marketing Manager</b> – ₹2.2–25.5 LPA</li>
-                                <li><b>Financial Analyst</b> – ₹3–10.9 LPA</li>
-                                <li><b>Management Consultant</b> – ₹4.6–37.5 LPA</li>
-                                <li><b>Operations Manager</b> – ₹4–31.5 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">Management</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MCA -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">2 Years · Tech &amp; AI</span>
-                            <h3>Online MCA</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Bachelor's with Maths/IT</span>
-                        </div>
-                        <p class="overview-text">The Online MCA is a postgraduate IT program aimed at professionals and graduates seeking advanced expertise in software development, AI, data science, and cloud technologies.</p>
-                        <ul class="chips">
-                            <li>Advanced Programming</li>
-                            <li>AI &amp; Machine Learning</li>
-                            <li>Cloud Computing</li>
-                            <li>Big Data</li>
-                            <li>DevOps</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Software Engineer</b> – ₹5–12 LPA</li>
-                                <li><b>Data Scientist</b> – ₹6–15 LPA</li>
-                                <li><b>Cloud Architect</b> – ₹8–20 LPA</li>
-                                <li><b>AI Engineer</b> – ₹6–18 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">IT</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- M.Sc -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">2 Years · Research</span>
-                            <h3>Online M.Sc</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Relevant Bachelor's</span>
-                        </div>
-                        <p class="overview-text">The Online M.Sc program focuses on advanced scientific and analytical knowledge for students aiming for research, analytics, teaching, or technical leadership roles.</p>
-                        <ul class="chips">
-                            <li>Data Science</li>
-                            <li>Mathematics</li>
-                            <li>Computer Science</li>
-                            <li>Applied Statistics</li>
-                            <li>Physics</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Data Scientist</b> – ₹6–15 LPA</li>
-                                <li><b>Research Analyst</b> – ₹4–9 LPA</li>
-                                <li><b>Academic Lecturer</b> – ₹4–8 LPA</li>
-                                <li><b>Statistical Consultant</b> – ₹5–12 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">Science</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MA -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">2 Years · Humanities</span>
-                            <h3>Online MA</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 2 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Relevant Bachelor's</span>
-                        </div>
-                        <p class="overview-text">The Online MA is ideal for students seeking specialization in humanities, education, public administration, and social sciences with complete learning flexibility.</p>
-                        <ul class="chips">
-                            <li>English</li>
-                            <li>Political Science</li>
-                            <li>Psychology</li>
-                            <li>Sociology</li>
-                            <li>Economics</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Educator</b> – ₹3–8 LPA</li>
-                                <li><b>Policy Analyst</b> – ₹4–10 LPA</li>
-                                <li><b>Content Strategist</b> – ₹4–9 LPA</li>
-                                <li><b>Research Consultant</b> – ₹4–11 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">Arts</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PGDM -->
-                <div class="card" data-card>
-                    <div class="card-top">
-                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zm4 2v5c0 1 4 3 6 3s6-2 6-3v-5"/></svg></div>
-                        <div class="titleblock">
-                            <span class="tag">1–2 Years · Industry Diploma</span>
-                            <h3>Online PGDM</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="meta">
-                            <span><i class="fa-regular fa-clock duration-icon"></i> <b>Duration:</b> 1–2 Years</span>
-                            <span><i class="fa-regular fa-user-graduate duration-icon"></i> <b>Eligibility:</b> Bachelor's degree</span>
-                        </div>
-                        <p class="overview-text">The Online PGDM is an industry-oriented management diploma focusing on practical skills, leadership, and corporate readiness.</p>
-                        <ul class="chips">
-                            <li>Marketing</li>
-                            <li>HR Management</li>
-                            <li>Finance</li>
-                            <li>Business Analytics</li>
-                            <li>Operations</li>
-                        </ul>
-                        <div class="details">
-                            <h4>Career Opportunities</h4>
-                            <ul>
-                                <li><b>Business Manager</b> – ₹4–12 LPA</li>
-                                <li><b>Marketing Strategist</b> – ₹4–11 LPA</li>
-                                <li><b>Operations Head</b> – ₹5–14 LPA</li>
-                                <li><b>HR Consultant</b> – ₹3.5–10 LPA</li>
-                            </ul>
-                        </div>
-                        <div class="card-foot">
-                            <span class="eyebrow" style="color:var(--muted)">Diploma</span>
-                            <button data-toggle>Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="stat">
+                <h3 style="font-size: 1.4rem;">50+</h3>
+                <p style="font-size: 0.8rem;">Top Universities</p>
+            </div>
+            <div class="stat">
+                <h3 style="font-size: 1.4rem;">200+</h3>
+                <p style="font-size: 0.8rem;">Degree Programs</p>
+            </div>
+            <div class="stat">
+                <h3 style="font-size: 1.4rem;">100%</h3>
+                <p style="font-size: 0.8rem;">UGC Approved</p>
+            </div>
+            <div class="stat">
+                <h3 style="font-size: 1.4rem;">24×7</h3>
+                <p style="font-size: 0.8rem;">Student Support</p>
             </div>
         </section>
+   
+        <!-- ─── UNIVERSITIES SECTION ─── -->
+        <section class="universities" id="universities">
+            <div class="section-header">
+                <h2>Approved Online &amp; Distance <span>Education Universities</span></h2>
+           
+            </div>
 
-        <!-- ===================== UNIVERSITIES ===================== -->
-        <section class="block" id="universities" data-section style="display:none;">
-            <div class="section-head">
-                <div>
-                    <div class="section-num">03 / Universities</div>
-                    <h2 style="margin-top:6px;">Top Universities for Online MBA</h2>
-                    <p class="sub">A snapshot of leading UGC-approved universities, their accreditation and indicative fees — reference: College Vidya.</p>
+            <!-- Filter by region label -->
+            <div class="filter-label">
+                <i class="fas fa-sliders-h"></i> Filter by region
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-region="all">All</button>
+                <button class="filter-btn" data-region="north">North India</button>
+                <button class="filter-btn" data-region="south">South India</button>
+                <button class="filter-btn" data-region="northeast">North-East India</button>
+                <button class="filter-btn" data-region="central">Central India</button>
+                <button class="filter-btn" data-region="west">West India</button>
+                <button class="filter-btn" data-region="international">International</button>
+            </div>
+
+            <div class="uni-grid">
+
+                <!-- University 1 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2025/11/amity-online-university-logo.webp" alt="Amity University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>17 UG</span> <span>20 PG</span>
+                    </div>
+                    <div class="uni-name">Amity University</div>
+                    <div class="uni-location">Noida, Uttar Pradesh</div>
                 </div>
+
+                <!-- University 2 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/Chandigarh-University-logo-1.webp" alt="Chandigarh University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>5 UG</span> <span>13 PG</span>
+                    </div>
+                    <div class="uni-name">Chandigarh University</div>
+                    <div class="uni-location">Chandigarh</div>
+                </div>
+
+                <!-- University 3 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/sharda-ONLINE.webp" alt="Sharda University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>18 PG</span>
+                    </div>
+                    <div class="uni-name">Sharda University</div>
+                    <div class="uni-location">Noida, Uttar Pradesh</div>
+                </div>
+
+                <!-- University 4 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/gla-1.webp" alt="GLA University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>5 UG</span> <span>11 PG</span>
+                    </div>
+                    <div class="uni-name">GLA University</div>
+                    <div class="uni-location">Mathura, Uttar Pradesh</div>
+                </div>
+
+                <!-- University 5 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2025/11/MUJ-Logo-625x196-1.webp" alt="Manipal University Jaipur">
+                    </div>
+                    <div class="uni-courses">
+                        <span>3 UG</span> <span>4 PG</span>
+                    </div>
+                    <div class="uni-name">Manipal University Jaipur</div>
+                    <div class="uni-location">Jaipur, Rajasthan</div>
+                </div>
+
+                <!-- University 6 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/online-uttranchal.webp" alt="Uttaranchal University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>3 UG</span> <span>10 PG</span>
+                    </div>
+                    <div class="uni-name">Uttaranchal University</div>
+                    <div class="uni-location">Dehradun, Uttarakhand</div>
+                </div>
+
+                <!-- University 7 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/shoolini.webp" alt="Shoolini University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>3 UG</span> <span>19 PG</span>
+                    </div>
+                    <div class="uni-name">Shoolini University</div>
+                    <div class="uni-location">Bajhol, Himachal Pradesh</div>
+                </div>
+
+                <!-- University 8 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/galgotias-university-logo-png_seeklogo-389692-1.webp" alt="Galgotias University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>6 UG</span> <span>11 PG</span>
+                    </div>
+                    <div class="uni-name">Galgotias University</div>
+                    <div class="uni-location">Noida, Uttar Pradesh</div>
+                </div>
+
+                <!-- University 9 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/01/bits-pillani-2-1.webp" alt="BITS Pilani WILP">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">BITS Pilani WILP</div>
+                    <div class="uni-location">Rajasthan</div>
+                </div>
+
+                <!-- University 10 - North -->
+                <div class="uni-card" data-region="north">
+                    <span class="uni-region">North India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/logo-1-1-2.webp" alt="NIILM University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">NIILM University WILP</div>
+                    <div class="uni-location">Haryana</div>
+                </div>
+
+                <!-- University 11 - South -->
+                <div class="uni-card" data-region="south">
+                    <span class="uni-region">South India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2025/11/Jain-University-logo.webp" alt="Jain University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>9 UG</span> <span>23 PG</span>
+                    </div>
+                    <div class="uni-name">Jain University</div>
+                    <div class="uni-location">Bengaluru, Karnataka</div>
+                </div>
+
+                <!-- University 12 - South -->
+                <div class="uni-card" data-region="south">
+                    <span class="uni-region">South India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/onlinemanipal-1-1.webp" alt="Online Manipal University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>3 UG</span> <span>4 PG</span>
+                    </div>
+                    <div class="uni-name">Online Manipal University</div>
+                    <div class="uni-location">Manipal, Karnataka</div>
+                </div>
+
+                <!-- University 13 - South -->
+                <div class="uni-card" data-region="south">
+                    <span class="uni-region">South India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/andra-university.webp" alt="Andhra University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>2 UG</span> <span>6 PG</span>
+                    </div>
+                    <div class="uni-name">Andhra University</div>
+                    <div class="uni-location">Visakhapatnam, AP</div>
+                </div>
+
+                <!-- University 14 - Northeast -->
+                <div class="uni-card" data-region="northeast">
+                    <span class="uni-region">North-East India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/Untitled-292-x-119-px-1.webp" alt="Sikkim Manipal University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>2 UG</span> <span>6 PG</span>
+                    </div>
+                    <div class="uni-name">Sikkim Manipal University</div>
+                    <div class="uni-location">Sikkim</div>
+                </div>
+
+                <!-- University 15 - West -->
+                <div class="uni-card" data-region="west">
+                    <span class="uni-region">West India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2025/11/dy-patil.webp" alt="DY Patil Vidyapeeth">
+                    </div>
+                    <div class="uni-courses">
+                        <span>8 UG</span> <span>9 PG</span>
+                    </div>
+                    <div class="uni-name">DY Patil Vidyapeeth</div>
+                    <div class="uni-location">Pune, Maharashtra</div>
+                </div>
+
+                <!-- University 16 - Central -->
+                <div class="uni-card" data-region="central">
+                    <span class="uni-region">Central India</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/logo-1.webp" alt="MATS University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">MATS University</div>
+                    <div class="uni-location">Raipur, Chhattisgarh</div>
+                </div>
+
+                <!-- University 17 - International -->
+                <div class="uni-card" data-region="international">
+                    <span class="uni-region">International</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/01/rushford.webp" alt="Rushford Business School">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">Rushford Business School</div>
+                    <div class="uni-location">Switzerland</div>
+                </div>
+
+                <!-- University 18 - International -->
+                <div class="uni-card" data-region="international">
+                    <span class="uni-region">International</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/Edgewood_University_logo.svg-2.webp" alt="Edgewood University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">Edgewood University</div>
+                    <div class="uni-location">Madison, USA</div>
+                </div>
+
+                <!-- University 19 - International -->
+                <div class="uni-card" data-region="international">
+                    <span class="uni-region">International</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/01/esgci-logo-1.webp" alt="ESGCI">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">ESGCI</div>
+                    <div class="uni-location">France</div>
+                </div>
+
+                <!-- University 20 - International -->
+                <div class="uni-card" data-region="international">
+                    <span class="uni-region">International</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/SSBM-1000x350-1-300x75-1.webp" alt="SSBM Geneva">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">SSBM Geneva</div>
+                    <div class="uni-location">Switzerland</div>
+                </div>
+
+                <!-- University 21 - International -->
+                <div class="uni-card" data-region="international">
+                    <span class="uni-region">International</span>
+                    <div class="uni-logo">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/01/golden-gate-university.webp" alt="Golden Gate University">
+                    </div>
+                    <div class="uni-courses">
+                        <span>4 UG</span> <span>2 PG</span>
+                    </div>
+                    <div class="uni-name">Golden Gate University</div>
+                    <div class="uni-location">California, USA</div>
+                </div>
+
             </div>
-            <div class="uni-table-wrap">
-                <table class="uni">
-                    <thead>
-                        <tr><th>University</th><th>Accreditation</th><th>Rating</th><th>Indicative Fee</th><th></th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><div class="uname-row"><div class="uni-avatar">A</div><span class="uname">Amity University Online</span></div></td>
-                            <td class="accred">UGC-DEB, AICTE, NIRF, WES, QS Rankings, DEC</td>
-                            <td class="rating">★ 4.7</td>
-                            <td class="fee">₹2,25,000</td>
-                            <td><button class="cta-mini">Compare</button></td>
-                        </tr>
-                        <tr>
-                            <td><div class="uname-row"><div class="uni-avatar">D</div><span class="uname">DY Patil University Online</span></div></td>
-                            <td class="accred">UGC-DEB, AICTE, AIU, NIRF, WES, NAAC A++, ISO</td>
-                            <td class="rating">★ 4.7</td>
-                            <td class="fee">₹1,89,400</td>
-                            <td><button class="cta-mini">Compare</button></td>
-                        </tr>
-                        <tr>
-                            <td><div class="uname-row"><div class="uni-avatar">L</div><span class="uname">Liverpool John Moores University</span></div></td>
-                            <td class="accred">WES, AACSB, Privy Council Accredited</td>
-                            <td class="rating">★ 4.3</td>
-                            <td class="fee">₹4,85,000</td>
-                            <td><button class="cta-mini">Compare</button></td>
-                        </tr>
-                        <tr>
-                            <td><div class="uname-row"><div class="uni-avatar">G</div><span class="uname">GLA University Online</span></div></td>
-                            <td class="accred">UGC, AICTE, AIU, NAAC A+, NIRF, QS Rankings</td>
-                            <td class="rating">★ 4.4</td>
-                            <td class="fee">₹1,05,300</td>
-                            <td><button class="cta-mini">Compare</button></td>
-                        </tr>
-                        <tr>
-                            <td><div class="uname-row"><div class="uni-avatar">G</div><span class="uname">Golden Gate University</span></div></td>
-                            <td class="accred">AIU, WES, AACSB, WSCUC</td>
-                            <td class="rating">★ 4.7</td>
-                            <td class="fee">₹4,30,000</td>
-                            <td><button class="cta-mini">Compare</button></td>
-                        </tr>
-                        <tr>
-                            <td><div class="uname-row"><div class="uni-avatar">N</div><span class="uname">NMIMS Online</span></div></td>
-                            <td class="accred">NAAC A++</td>
-                            <td class="rating">★ 4.7</td>
-                            <td class="fee">₹2,20,000</td>
-                            <td><button class="cta-mini">Compare</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <!-- Toggle Button -->
+            <div class="view-toggle-wrapper">
+                <button class="view-toggle-btn view-all" id="viewToggleBtn">
+                    View All Universities <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 6px;"></i>
+                </button>
             </div>
-            <p class="table-foot-note">Fees and ratings are indicative and sourced for reference; always confirm current figures with the university or your SkillBridge counsellor before enrolling.</p>
+
         </section>
 
-        <!-- ===================== TRUST / HR ACCEPTANCE ===================== -->
-        <section class="block" id="trust" data-section style="display:none;">
-            <div class="section-head">
-                <div>
-                    <div class="section-num">04 / Recognition</div>
-                    <h2 style="margin-top:6px;">Are Online &amp; Distance Degrees Accepted by HRs?</h2>
-                    <p class="sub">Yes — when earned from UGC-approved, accredited universities, these degrees are widely accepted across India and globally.</p>
-                </div>
+        <!-- ─── COURSES SECTION ─── -->
+        <section class="courses-section" id="courses">
+            <div class="section-header">
+                <h2>Explore Our <span>Online Courses</span></h2>
+              
             </div>
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
-                    <h4>UGC &amp; Government Recognition</h4>
-                    <p>Recognized by UGC, valid under AICTE / DEB guidelines, and equivalent to regular degrees for private-sector and many government roles.</p>
+
+            <!-- Filter Label -->
+            <div class="filter-label">
+                <i class="fas fa-sliders-h"></i> Filter by category
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <button class="filter-btn course-filter active" data-category="all">All</button>
+                <button class="filter-btn course-filter" data-category="management">Management</button>
+                <button class="filter-btn course-filter" data-category="technology">Technology</button>
+                <button class="filter-btn course-filter" data-category="commerce">Commerce</button>
+                <button class="filter-btn course-filter" data-category="science">Science</button>
+                <button class="filter-btn course-filter" data-category="arts">Arts & Humanities</button>
+            </div>
+
+            <div class="course-grid">
+
+                <!-- Course 1 - MBA -->
+                <div class="course-card" data-category="management">
+                    <div class="course-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="course-name">Master of Business Administration (MBA)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
                 </div>
-                <div class="trust-card">
-                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M22 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
-                    <h4>What HRs Actually Look For</h4>
-                    <p>University accreditation, skill relevance, practical exposure, certifications/internships, and communication ability.</p>
+
+                <!-- Course 2 - BCA -->
+                <div class="course-card" data-category="technology">
+                    <div class="course-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="course-name">Bachelor of Computer Applications (BCA)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
                 </div>
-                <div class="trust-card">
-                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg></div>
-                    <h4>Accepted Across Industries</h4>
-                    <p>IT, Banking &amp; Finance, Marketing, HR, Consulting, Analytics, and Startups all actively hire online degree holders.</p>
+
+                <!-- Course 3 - BBA -->
+                <div class="course-card" data-category="management">
+                    <div class="course-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="course-name">Bachelor of Business Administration (BBA)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
                 </div>
-                <div class="trust-card">
-                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                    <h4>SkillBridge Guidance Promise</h4>
-                    <p>We help you choose HR-accepted universities, career-aligned specializations, and avoid unrecognized programs.</p>
+
+                <!-- Course 4 - MCA -->
+                <div class="course-card" data-category="technology">
+                    <div class="course-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="course-name">Master of Computer Applications (MCA)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
                 </div>
+
+                <!-- Course 5 - B.Com -->
+                <div class="course-card" data-category="commerce">
+                    <div class="course-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="course-name">Bachelor of Commerce (B.Com)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+                </div>
+
+                <!-- Course 6 - B.Sc IT -->
+                <div class="course-card" data-category="science">
+                    <div class="course-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="course-name">Bachelor of Science (B.Sc IT)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+                </div>
+
+                <!-- Course 7 - BA Psychology -->
+                <div class="course-card" data-category="arts">
+                    <div class="course-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="course-name">Bachelor of Arts (BA Psychology)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+                </div>
+
+                <!-- Course 8 - M.Sc Data Science -->
+                <div class="course-card" data-category="science">
+                    <div class="course-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="course-name">M.Sc in Data Science</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+                <!-- Course 9 - M.Com -->
+                <div class="course-card" data-category="commerce">
+                    <div class="course-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="course-name">Master of Commerce (M.Com)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+                <!-- Course 10 - MBA Digital Marketing -->
+                <div class="course-card" data-category="management">
+                    <div class="course-icon">
+                        <i class="fas fa-digital-tiling"></i>
+                    </div>
+                    <div class="course-name">MBA in Digital Marketing</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+                <!-- Course 11 - B.Ed -->
+                <div class="course-card" data-category="arts">
+                    <div class="course-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="course-name">Bachelor of Education (B.Ed)</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+                <!-- Course 12 - M.Tech -->
+                <div class="course-card" data-category="technology">
+                    <div class="course-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="course-name">M.Tech in Computer Science</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+                <!-- Course 13 - BA Economics -->
+                <div class="course-card" data-category="arts">
+                    <div class="course-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="course-name">BA in Economics</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+                </div>
+
+                <!-- Course 14 - B.Com Accounting -->
+                <div class="course-card" data-category="commerce">
+                    <div class="course-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="course-name">B.Com in Accounting & Finance</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+                </div>
+
+                <!-- Course 15 - MBA Finance -->
+                <div class="course-card" data-category="management">
+                    <div class="course-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="course-name">MBA in Finance</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+                <!-- Course 16 - M.A English -->
+                <div class="course-card" data-category="arts">
+                    <div class="course-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="course-name">M.A in English Literature</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+                <!-- Course 17 - B.Sc Mathematics -->
+                <div class="course-card" data-category="science">
+                    <div class="course-icon">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <div class="course-name">B.Sc in Mathematics</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+                </div>
+
+                <!-- Course 18 - M.Sc Psychology -->
+                <div class="course-card" data-category="science">
+                    <div class="course-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="course-name">M.Sc in Psychology</div>
+                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+                </div>
+
+            </div>
+
+            <!-- Toggle Button -->
+            <div class="view-toggle-wrapper">
+                <button class="view-toggle-btn view-all" id="courseToggleBtn">
+                    View All Courses <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 6px;"></i>
+                </button>
             </div>
         </section>
-
-        <!-- ===================== ADMISSION ===================== -->
-        <section class="block" id="admission" data-section style="display:none;">
-            <div class="section-head">
-                <div>
-                    <div class="section-num">05 / Process</div>
-                    <h2 style="margin-top:6px;">Admission Process</h2>
-                    <p class="sub">The typical path from choosing a program to receiving your admission confirmation.</p>
-                </div>
-            </div>
-            <div class="steps">
-                <div class="step"><div class="n">01</div><h5>Program Selection</h5><p>Choose your specialization and university.</p></div>
-                <div class="step"><div class="n">02</div><h5>Eligibility Check</h5><p>Verify minimum academic criteria.</p></div>
-                <div class="step"><div class="n">03</div><h5>Application</h5><p>Complete the online form on the university portal.</p></div>
-                <div class="step"><div class="n">04</div><h5>Document Upload</h5><p>Submit required educational documents.</p></div>
-                <div class="step"><div class="n">05</div><h5>Fee Payment</h5><p>Pay directly to the university via secure options.</p></div>
-                <div class="step"><div class="n">06</div><h5>Confirmation</h5><p>Receive admission confirmation by email/SMS.</p></div>
-            </div>
-            <p class="table-foot-note">SkillBridge supports you through each step with guidance and clarity.</p>
-        </section>
-
-        <!-- ===================== FAQ ===================== -->
-        <section class="block" id="faq" data-section style="display:none;">
-            <div class="section-head">
-                <div>
-                    <div class="section-num">06 / FAQs</div>
-                    <h2 style="margin-top:6px;">Frequently Asked Questions</h2>
-                    <p class="sub">Quick answers on validity, recognition, and choosing the right program.</p>
-                </div>
-            </div>
-            <div class="faq-wrap" id="faqList">
-                <div class="faq-item">
-                    <button class="faq-q">Are online and distance degrees valid in India? <span class="plus">+</span></button>
-                    <div class="faq-a">Yes. They are valid and legally recognized in India when offered by UGC-approved universities as per UGC–DEB guidelines.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Are online degrees accepted by HRs and companies? <span class="plus">+</span></button>
-                    <div class="faq-a">Most private companies, MNCs, startups and corporate organizations accept online degrees, provided they're from a recognized, reputed university.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Are online degrees equivalent to regular degrees? <span class="plus">+</span></button>
-                    <div class="faq-a">Yes. As per UGC norms, online and distance degrees are equivalent to regular degrees in curriculum, credit structure and certification.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Can I get a job after completing an online degree? <span class="plus">+</span></button>
-                    <div class="faq-a">Absolutely. Holders are employed across IT, Banking &amp; Finance, Marketing, HR, and Data &amp; Analytics — outcomes depend on skills, specialization, internships and project experience.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Are online degrees accepted for government jobs? <span class="plus">+</span></button>
-                    <div class="faq-a">Degrees from UGC-approved universities are accepted for many government jobs, subject to the specific recruitment authority's eligibility criteria.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Can I pursue higher studies after an online degree? <span class="plus">+</span></button>
-                    <div class="faq-a">Yes — Master's programs after UG, PhD programs after PG, and professional certifications in India or abroad, subject to university admission criteria.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Do online degrees mention "online" on the certificate? <span class="plus">+</span></button>
-                    <div class="faq-a">No. Most universities issue the same degree certificate as regular programs, without mentioning the mode of study.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Who should opt for online or distance education? <span class="plus">+</span></button>
-                    <div class="faq-a">Working professionals, fresh graduates, career switchers, entrepreneurs, and students preparing for competitive exams.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">How do HRs verify online degrees? <span class="plus">+</span></button>
-                    <div class="faq-a">Through university enrollment numbers, UGC-approved university databases, digital verification portals, and transcripts/marksheets.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Are online degrees accepted abroad? <span class="plus">+</span></button>
-                    <div class="faq-a">Many international employers and universities accept online degrees from reputed Indian universities, though acceptance varies by country and institution.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">Are online programs easier than regular programs? <span class="plus">+</span></button>
-                    <div class="faq-a">No. Online programs follow the same academic standards, assessments and examinations as regular programs.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-q">How does SkillBridge help students choose the right program? <span class="plus">+</span></button>
-                    <div class="faq-a">SkillBridge provides unbiased counselling to help students choose UGC-approved universities, select career-oriented specializations, and avoid unrecognized institutions.</div>
-                </div>
-            </div>
-        </section>
-
-
-
-         <%- include('../../partials/common/inquiry-form') %>
-
-        <!-- <section class="block" style="border-top:none; padding-top:0;">
-            <div class="final-cta">
-                <div class="eyebrow">Get Started</div>
-                <h2>Not sure which program fits your goals?</h2>
-                <p>Get free, unbiased counselling from SkillBridge — we'll help you pick an HR-accepted university and the right specialization.</p>
-                <button class="btn-primary" id="ctaTalk">Talk to a Counsellor</button>
-            </div>
-        </section> -->
 
     </main>
+</div>
 
-    <%- include('../../partials/common/footer') %>
+<!-- ✅ FOOTER PARTIAL -->
+<%- include("../../partials/common/footer") %>
 
-    <script>
-        const levelBtns = document.querySelectorAll('.level-btn');
-        const sections = document.querySelectorAll('[data-section]');
-        levelBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                levelBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const target = btn.dataset.level;
-                sections.forEach(sec => { sec.style.display = (sec.id === target) ? '' : 'none'; });
-                document.querySelector('.level-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+<!-- ─── Page-specific JavaScript ─── -->
+<script>
+    // ─── Slider ───
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+    let current = 0;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+    }
+
+    if (document.querySelector(".next")) {
+        document.querySelector(".next").addEventListener("click", () => {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        });
+    }
+
+    if (document.querySelector(".prev")) {
+        document.querySelector(".prev").addEventListener("click", () => {
+            current = (current - 1 + slides.length) % slides.length;
+            showSlide(current);
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            current = index;
+            showSlide(current);
+        });
+    });
+
+    setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    }, 5000);
+
+    // ─── Shared Toggle Logic ───
+    function setupToggle(containerSelector, toggleBtnId, initialLimit = 8, viewAllText, viewLessText) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
+        const cards = container.querySelectorAll('.uni-card, .course-card'); // works for both
+        const btn = document.getElementById(toggleBtnId);
+        if (!btn) return;
+
+        let isExpanded = false; // false = showing limited, true = showing all
+
+        // Helper: get currently visible cards (not filter-hidden)
+        function getVisibleCards() {
+            const visible = [];
+            cards.forEach(card => {
+                if (!card.classList.contains('filter-hidden')) {
+                    visible.push(card);
+                }
             });
-        });
+            return visible;
+        }
 
-        document.querySelectorAll('[data-card]').forEach(card => {
-            const btn = card.querySelector('[data-toggle]');
-            btn.addEventListener('click', () => card.classList.toggle('open'));
-        });
-
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.querySelector('.faq-q').addEventListener('click', () => {
-                const wasOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-                if (!wasOpen) item.classList.add('open');
+        // Helper: show limited number of cards
+        function showLimited() {
+            const visible = getVisibleCards();
+            visible.forEach((card, index) => {
+                if (index < initialLimit) {
+                    card.classList.remove('view-hidden');
+                } else {
+                    card.classList.add('view-hidden');
+                }
             });
+            isExpanded = false;
+            updateButton();
+        }
+
+        // Helper: show all visible cards
+        function showAll() {
+            const visible = getVisibleCards();
+            visible.forEach(card => {
+                card.classList.remove('view-hidden');
+            });
+            isExpanded = true;
+            updateButton();
+        }
+
+        // Update button text and class
+        function updateButton() {
+            const visible = getVisibleCards();
+            if (visible.length <= initialLimit) {
+                btn.style.display = 'none';
+                return;
+            }
+            btn.style.display = 'inline-block';
+            if (isExpanded) {
+                btn.textContent = viewLessText;
+                btn.className = 'view-toggle-btn view-less';
+                btn.innerHTML = viewLessText + ' <i class="fas fa-chevron-up" style="font-size: 12px; margin-left: 6px;"></i>';
+            } else {
+                btn.textContent = viewAllText;
+                btn.className = 'view-toggle-btn view-all';
+                btn.innerHTML = viewAllText + ' <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 6px;"></i>';
+            }
+        }
+
+        // Toggle
+        btn.addEventListener('click', function() {
+            if (isExpanded) {
+                showLimited();
+            } else {
+                showAll();
+            }
         });
 
-        document.getElementById('ctaTalk').addEventListener('click', () => {
-            alert('Thanks! Our counselling team will reach out shortly. (Hook this button up to your enquiry form/modal.)');
+        // Expose a reset function for filters
+        function resetToggle() {
+            showLimited();
+        }
+
+        return { resetToggle, getVisibleCards };
+    }
+
+    // ─── Universities Section ───
+    const uniToggle = setupToggle(
+        '.uni-grid',
+        'viewToggleBtn',
+        8,
+        'View All Universities',
+        'View Less'
+    );
+
+    // ─── Universities Filter ───
+    const uniFilterBtns = document.querySelectorAll('.filter-btn:not(.course-filter)');
+    const uniCards = document.querySelectorAll('.uni-card');
+
+    uniFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            uniFilterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const region = this.dataset.region;
+            uniCards.forEach(card => {
+                if (region === 'all' || card.dataset.region === region) {
+                    card.classList.remove('filter-hidden');
+                } else {
+                    card.classList.add('filter-hidden');
+                }
+            });
+            // Reset toggle after filter
+            if (uniToggle) uniToggle.resetToggle();
         });
-    </script>
+    });
+
+    // ─── Courses Section ───
+    const courseToggle = setupToggle(
+        '.course-grid',
+        'courseToggleBtn',
+        8,
+        'View All Courses',
+        'View Less'
+    );
+
+    // ─── Courses Filter ───
+    const courseFilterBtns = document.querySelectorAll('.course-filter');
+    const courseCards = document.querySelectorAll('.course-card');
+
+    courseFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            courseFilterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const category = this.dataset.category;
+            courseCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('filter-hidden');
+                } else {
+                    card.classList.add('filter-hidden');
+                }
+            });
+            // Reset toggle after filter
+            if (courseToggle) courseToggle.resetToggle();
+        });
+    });
+
+    // ─── Initial state ───
+    // Universities: show first 8
+    if (uniToggle) uniToggle.resetToggle();
+    // Courses: show first 8
+    if (courseToggle) courseToggle.resetToggle();
+</script>
 
 </body>
 </html>
