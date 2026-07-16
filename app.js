@@ -28,10 +28,16 @@ app.use(express.json())//for parsing json data sent in request body and make it 
 //middleware 1:serving a static files(css,js,images) from the public folder
 app.use(express.static(path.join(__dirname, 'public')));//it also validate the requested file path
 app.use(session({
-     secret: "shahid-akhtar",
+     secret:process.env.SESSION_SECRET,
      resave: false,
      saveUninitialized:false,
-     store:store
+     store:store,
+      cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+      httpOnly: true,
+      secure: true,
+      sameSite: "lax",
+    }
 }))
 
 //Serve static files
