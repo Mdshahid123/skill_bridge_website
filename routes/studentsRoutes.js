@@ -12,9 +12,10 @@ studentRoutes.post("/submitEnquery",storeEnqueryForm)
 studentRoutes.get("/about",showAboutPage)
 studentRoutes.get("/contact",showContactPage)
 studentRoutes.get('/api/courses/search', searchCoursesAPI);
+
 studentRoutes.get('/favicon.ico', (req, res) => {
-  console.log("fevicon")
-  res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
+console.log("fevicon")
+  res.sendFile(path.join(__dirname, 'public'));
 });
 
 
