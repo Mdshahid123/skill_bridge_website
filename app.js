@@ -40,6 +40,12 @@ app.use(session({
     }
 }))
 
+app.use((req, res, next) => {
+    res.locals.isLogin = req.session.isLogin || false;
+    res.locals.user = req.session.user || null;
+    next();
+});
+
 //Serve static files
 app.use('/uploads', express.static('uploads'));
 
