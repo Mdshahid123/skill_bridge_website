@@ -11,6 +11,7 @@ const studentAuthRoutes=require("./routes/studentAuthRoutes")
 const ondRoutes=require("./routes/onlineDistanceRoutes.js")
 const { default: mongoose } = require("mongoose")
 const session=require("express-session")
+const ondCoursesRoutes=require("./routes/onlineCourses.js")
 const mongodbStore=require("connect-mongodb-session")(session)
 const app=express()
 
@@ -52,6 +53,7 @@ app.use('/uploads', express.static('uploads'));
 
 //middleware 2:matching the reuqested routes in studentroutes otherwise call the next
 app.use(ondRoutes)
+app.use(ondCoursesRoutes)
 app.use(studentRoutes)
 app.use(studentAuthRoutes)
 app.use(adminAuthRoutes)
