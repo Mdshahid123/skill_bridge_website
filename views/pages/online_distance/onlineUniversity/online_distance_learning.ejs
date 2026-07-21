@@ -843,7 +843,7 @@
 <body>
 
     <!-- nav bar -->
-  <%- include("../../partials/common/navbar.ejs") %>
+  <%- include("../../../partials/common/navbar.ejs") %>
   
 <!-- ====== MAIN CONTENT WRAPPER ====== -->
 <div class="course-content-wrapper">
@@ -2296,71 +2296,6 @@
                     </div>
                 </a>
 
-                <!-- University 17 - International -->
-                <div class="uni-card" data-region="international">
-                    <span class="uni-region">International</span>
-                    <div class="uni-logo">
-                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/01/rushford.webp" alt="Rushford Business School">
-                    </div>
-                    <div class="uni-courses">
-                        <span>4 UG</span> <span>2 PG</span>
-                    </div>
-                    <div class="uni-name">Rushford Business School</div>
-                    <div class="uni-location">Switzerland</div>
-                </div>
-
-                <!-- University 18 - International -->
-                <div class="uni-card" data-region="international">
-                    <span class="uni-region">International</span>
-                    <div class="uni-logo">
-                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/Edgewood_University_logo.svg-2.webp" alt="Edgewood University">
-                    </div>
-                    <div class="uni-courses">
-                        <span>4 UG</span> <span>2 PG</span>
-                    </div>
-                    <div class="uni-name">Edgewood University</div>
-                    <div class="uni-location">Madison, USA</div>
-                </div>
-
-                <!-- University 19 - International -->
-                <div class="uni-card" data-region="international">
-                    <span class="uni-region">International</span>
-                    <div class="uni-logo">
-                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/01/esgci-logo-1.webp" alt="ESGCI">
-                    </div>
-                    <div class="uni-courses">
-                        <span>4 UG</span> <span>2 PG</span>
-                    </div>
-                    <div class="uni-name">ESGCI</div>
-                    <div class="uni-location">France</div>
-                </div>
-
-                <!-- University 20 - International -->
-                <div class="uni-card" data-region="international">
-                    <span class="uni-region">International</span>
-                    <div class="uni-logo">
-                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/04/SSBM-1000x350-1-300x75-1.webp" alt="SSBM Geneva">
-                    </div>
-                    <div class="uni-courses">
-                        <span>4 UG</span> <span>2 PG</span>
-                    </div>
-                    <div class="uni-name">SSBM Geneva</div>
-                    <div class="uni-location">Switzerland</div>
-                </div>
-
-                <!-- University 21 - International -->
-                <div class="uni-card" data-region="international">
-                    <span class="uni-region">International</span>
-                    <div class="uni-logo">
-                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/01/golden-gate-university.webp" alt="Golden Gate University">
-                    </div>
-                    <div class="uni-courses">
-                        <span>4 UG</span> <span>2 PG</span>
-                    </div>
-                    <div class="uni-name">Golden Gate University</div>
-                    <div class="uni-location">California, USA</div>
-                </div>
-
             </div>
 
             <!-- Toggle Button -->
@@ -2396,41 +2331,55 @@
 
             <div class="course-grid">
 
-                <!-- Course 1 - MBA -->
-                <div class="course-card" data-category="management">
-                    <div class="course-icon">
-                        <i class="fas fa-briefcase"></i>
+                <a href="/onlineMba">
+                    <!-- Course 1 - MBA -->
+                    <div class="course-card" data-category="management">
+                        <div class="course-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="course-name">Master of Business Administration (MBA)</div>
+                        <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
                     </div>
-                    <div class="course-name">Master of Business Administration (MBA)</div>
-                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
-                </div>
+                </a>
 
-                <!-- Course 2 - BCA -->
-                <div class="course-card" data-category="technology">
-                    <div class="course-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="course-name">Bachelor of Computer Applications (BCA)</div>
-                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
-                </div>
+     <!-- Course 2 - BCA -->
+      <a href="/onlineBca">
+          <div class="course-card" data-category="technology">
+              <div class="course-icon">
+                  <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="course-name">Bachelor of Computer Applications (BCA)</div>
+              <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+          </div>
 
-                <!-- Course 3 - BBA -->
-                <div class="course-card" data-category="management">
-                    <div class="course-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="course-name">Bachelor of Business Administration (BBA)</div>
-                    <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
-                </div>
+      </a>
 
-                <!-- Course 4 - MCA -->
-                <div class="course-card" data-category="technology">
-                    <div class="course-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="course-name">Master of Computer Applications (MCA)</div>
-                    <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
-                </div>
+      <a href="/onlineBba">
+          <!-- Course 3 - BBA -->
+          <div class="course-card" data-category="management">
+              <div class="course-icon">
+                  <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="course-name">Bachelor of Business Administration (BBA)</div>
+              <div class="course-duration"><i class="far fa-clock"></i> 3 Years</div>
+          </div>
+      </a>
+
+
+
+      <a href="/onlineMca">
+
+         <!-- Course 4 - MCA -->
+              <div class="course-card" data-category="technology">
+                  <div class="course-icon">
+                      <i class="fas fa-code"></i>
+                  </div>
+                  <div class="course-name">Master of Computer Applications (MCA)</div>
+                  <div class="course-duration"><i class="far fa-clock"></i> 2 Years</div>
+              </div>
+    </a>
+            
+        
 
                 <!-- Course 5 - B.Com -->
                 <div class="course-card" data-category="commerce">
@@ -3921,7 +3870,7 @@
 
 
 <!-- ✅ FOOTER PARTIAL -->
-<%- include("../../partials/common/footer") %>
+<%- include("../../../partials/common/footer") %>
 
 <!-- ─── Page-specific JavaScript ─── -->
 <script>

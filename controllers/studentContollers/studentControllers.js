@@ -314,7 +314,7 @@ async function viewOnlineDetails(req, res) {
 // get degree programm controller
 function getDegreeProgram(req,res)
 {
-   res.render("pages/online_distance/online_distance_learning",{
+   res.render("pages/online_distance/onlineUniversity/online_distance_learning",{
         isLogin: req.session?.isLogin || false,
         user: req.session?.user || null,
         title: 'Online & Distance Learning – SkillBridge'

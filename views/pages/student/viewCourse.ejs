@@ -131,50 +131,64 @@
             </div>
         </div>
     </div>
-
+<!-- url('https://picsum.photos/seed/<%= encodeURIComponent(course.courseName) %>/1600/900'); -->
     <div class="course-content-wrapper">
         <main>
-            <!-- Hero Section (reduced height) -->
-            <div class="hero-glow pt-20 pb-10 relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.08] brand-grid"></div>
-                <div class="container mx-auto px-6 relative z-10">
-                    <div class="flex flex-col lg:flex-row gap-6 items-start">
-                        <div class="flex-1 fade-up">
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 backdrop-blur-sm border border-teal-200 mb-3">
-                                <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                                <span class="text-teal-700 text-xs font-extrabold tracking-wide">Most Popular Course</span>
-                            </div>
-                            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3"><%= course.courseName.replaceAll("-", " ") %></h1>
-                            <p class="text-gray-700 text-base max-w-2xl font-medium"><%= course.courseDescription %></p>
-                            <div class="flex flex-wrap gap-3 mt-4">
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-100">
-                                    <i class="fa-regular fa-star text-teal-500"></i>
-                                    <span class="text-xs font-bold text-gray-700">4.9 ★ (2.5k+ ratings)</span>
-                                </div>
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-100">
-                                    <i class="fa-regular fa-user text-teal-500"></i>
-                                    <span class="text-xs font-bold text-gray-700">15k+ students enrolled</span>
-                                </div>
-                                <div class="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-100">
-                                    <i class="fa-regular fa-clock text-teal-500"></i>
-                                    <span class="text-xs font-bold text-gray-700">Updated monthly</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Instructor Card -->
-                        <div class="instructor-card bg-white shadow-md mx-auto lg:mx-0 fade-up">
-                            <div class="instructor-image-container">
-                                <img style="object-fit:cover;" src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-                            </div>
-                            <div class="instructor-info">
-                                <h3 class="instructor-name"><%= course.instructor.name %></h3>
-                                <p class="instructor-bio"><%= course.instructor.bio %></p>
-                            </div>
-                        </div>
+
+           <!-- Hero Section (reduced height) with course image from database -->
+<div class="hero-glow pt-20 pb-10 relative overflow-hidden">
+
+    <!-- Course image – fills the entire hero area -->
+    <img style="object-fit:cover;"
+         src="<%= course.image %>"
+         alt="<%= course.courseName %>"
+         class="absolute inset-0 w-full h-full object-cover">
+
+    <!-- Dark gradient overlay for text readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-teal-900/75 via-teal-800/50 to-teal-600/30"></div>
+
+    <!-- Subtle accent texture (no grid) -->
+    <div class="absolute inset-0 opacity-[0.04]"
+         style="background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-6 items-start">
+            <div class="flex-1 fade-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-sm border border-teal-200/60 mb-3 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                    <span class="text-teal-700 text-xs font-extrabold tracking-wide">Most Popular Course</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white drop-shadow-lg mb-3"><%= course.courseName.replaceAll("-", " ") %></h1>
+                <p class="text-white/90 text-base max-w-2xl font-medium drop-shadow"><%= course.courseDescription %></p>
+                <div class="flex flex-wrap gap-3 mt-4">
+                    <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-200/60 shadow-sm">
+                        <i class="fa-regular fa-star text-teal-500"></i>
+                        <span class="text-xs font-bold text-gray-800">4.9 ★ (2.5k+ ratings)</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-200/60 shadow-sm">
+                        <i class="fa-regular fa-user text-teal-500"></i>
+                        <span class="text-xs font-bold text-gray-800">15k+ students enrolled</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-teal-200/60 shadow-sm">
+                        <i class="fa-regular fa-clock text-teal-500"></i>
+                        <span class="text-xs font-bold text-gray-800">Updated monthly</span>
                     </div>
                 </div>
             </div>
-
+            <!-- Instructor Card -->
+            <div class="instructor-card bg-white/95 backdrop-blur-md shadow-xl mx-auto lg:mx-0 fade-up border border-white/30">
+                <div class="instructor-image-container">
+                    <img style="object-fit:cover;" src="<%= course.instructor.profilePicture || '/default-avatar.png' %>" alt="<%= course.instructor.name %>" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                </div>
+                <div class="instructor-info">
+                    <h3 class="instructor-name"><%= course.instructor.name %></h3>
+                    <p class="instructor-bio"><%= course.instructor.bio %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
             <!-- Main Content -->
             <div class="container mx-auto px-6 py-10 max-w-8xl">
                 <div class="grid lg:grid-cols-3 gap-8">
@@ -341,6 +355,10 @@
                         </div>
                     </div>
                 </div>
+
+
+                  <!-- ========== TESTIMONIALS – AUTO SCROLLING CAROUSEL (PARTIAL) ========== -->
+                <%- include("../../partials/common/testinomial") %>
 
                 <!-- ========== NEED HELP SECTION ========== -->
                 <div class="mt-16 fade-up">
