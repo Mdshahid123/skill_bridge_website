@@ -20,7 +20,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="icon" type="image/png" sizes="96x96"   href="/favicon.ico.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico.png">
     <style>
         * {
             margin: 0;
@@ -33,133 +33,279 @@
             color: #1e293b;
         }
 
-        /* ====== HERO – SKY BLUE THEME ====== */
+        /* ====== HERO – SLIDING BACKGROUND IMAGES ====== */
         .hero-placement {
-            background: linear-gradient(145deg, #e0f2fe, #bae6fd, #38bdf8);
             position: relative;
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            overflow: hidden;
+            background: #0f172a;
+        }
+
+        /* Slideshow container */
+        .hero-slideshow {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
             overflow: hidden;
         }
-        .hero-grid {
-            background-image:
-                repeating-linear-gradient(90deg, rgba(2, 132, 199, 0.12) 0px, rgba(2, 132, 199, 0.12) 1px, transparent 1px, transparent 50px),
-                repeating-linear-gradient(0deg, rgba(2, 132, 199, 0.12) 0px, rgba(2, 132, 199, 0.12) 1px, transparent 1px, transparent 50px);
-            background-size: 50px 50px;
-            animation: gridMove 8s linear infinite;
-        }
-        @keyframes gridMove {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 50px 50px;
-            }
-        }
-        .particle {
+
+        .hero-slideshow .slide {
             position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            pointer-events: none;
-            animation: floatParticle 6s ease-in-out infinite;
+            inset: 0;
+            background-size:cover;
+            background-position: center;
+            opacity:1;
+            animation: slideFade 20s infinite;
+            transform: scale(1.05);
+            transition: transform 8s ease;
         }
-        .particle:nth-child(1) {
-            width: 12px;
-            height: 12px;
-            top: 10%;
-            left: 5%;
-            animation-duration: 7s;
+
+        .hero-slideshow .slide:nth-child(1) {
+            animation-delay: 0s;
+            background-image: url('https://images.unsplash.com/photo-1698047682091-782b1e5c6536?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
         }
-        .particle:nth-child(2) {
-            width: 20px;
-            height: 20px;
-            top: 60%;
-            left: 85%;
-            animation-duration: 9s;
-            animation-delay: 1s;
+        .hero-slideshow .slide:nth-child(2) {
+            animation-delay: 5s;
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1400&q=80');
         }
-        .particle:nth-child(3) {
-            width: 8px;
-            height: 8px;
-            top: 30%;
-            left: 75%;
-            animation-duration: 5s;
-            animation-delay: 2s;
+        .hero-slideshow .slide:nth-child(3) {
+            animation-delay: 10s;
+            background-image: url('https://atdcindia.co.in/wp-content/uploads/2023/03/Placemenet_header-min-1024x577.png');
         }
-        .particle:nth-child(4) {
-            width: 16px;
-            height: 16px;
-            top: 80%;
-            left: 15%;
-            animation-duration: 8s;
-            animation-delay: 0.5s;
+        .hero-slideshow .slide:nth-child(4) {
+            animation-delay: 15s;
+            background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
         }
-        .particle:nth-child(5) {
-            width: 10px;
-            height: 10px;
-            top: 20%;
-            left: 45%;
-            animation-duration: 6.5s;
-            animation-delay: 1.5s;
-        }
-        .particle:nth-child(6) {
-            width: 25px;
-            height: 25px;
-            top: 50%;
-            left: 50%;
-            animation-duration: 10s;
-            animation-delay: 3s;
-            opacity: 0.1;
-        }
-        @keyframes floatParticle {
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.4;
+
+        @keyframes slideFade {
+            0% {
+                opacity: 0;
+                transform: scale(1.08);
+            }
+            8% {
+                opacity: 1;
+                transform: scale(1);
             }
             25% {
-                transform: translate(30px, -20px) scale(1.1);
-                opacity: 0.8;
+                opacity: 1;
+                transform: scale(1);
             }
-            50% {
-                transform: translate(-10px, -40px) scale(0.9);
-                opacity: 0.5;
+            33% {
+                opacity: 0;
+                transform: scale(1.08);
             }
-            75% {
-                transform: translate(20px, -15px) scale(1.05);
-                opacity: 0.7;
+            100% {
+                opacity: 0;
+                transform: scale(1.08);
             }
         }
-        .glow-orb {
+
+        /* Dark overlay for readability */
+        .hero-overlay {
             position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            animation: pulseOrb 4s ease-in-out infinite;
+            inset: 0;
+            z-index: 1;
+            background: rgba(15, 23, 42, 0.65);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.80) 0%, rgba(15, 23, 42, 0.50) 50%, rgba(15, 23, 42, 0.70) 100%);
         }
-        .glow-orb:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: -50px;
-            right: -50px;
-            background: rgba(14, 165, 233, 0.25);
+
+        /* Hero content */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #93c5fd;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-content h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 6px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        /* Slide indicator dots */
+        .slide-dots {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 10px;
+        }
+        .slide-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            display: block;
+            transition: background 0.3s;
+            animation: dotPulse 20s infinite;
+        }
+        .slide-dots span:nth-child(1) {
             animation-delay: 0s;
         }
-        .glow-orb:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            bottom: -30px;
-            left: 10%;
-            background: rgba(186, 230, 253, 0.30);
-            animation-delay: 2s;
+        .slide-dots span:nth-child(2) {
+            animation-delay: 5s;
         }
-        @keyframes pulseOrb {
+        .slide-dots span:nth-child(3) {
+            animation-delay: 10s;
+        }
+        .slide-dots span:nth-child(4) {
+            animation-delay: 15s;
+        }
+
+        @keyframes dotPulse {
             0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.6;
+            8% {
+                background: #60a5fa;
+                transform: scale(1.3);
             }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.9;
+            9%,
+            100% {
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-placement {
+                min-height: 70vh;
+                padding: 30px 16px;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+            .hero-stats {
+                gap: 30px;
+            }
+            .stat-item h3 {
+                font-size: 26px;
+            }
+            .slide-dots {
+                bottom: 16px;
+                gap: 8px;
+            }
+            .slide-dots span {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 26px;
+            }
+            .hero-badge {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            .hero-stats {
+                gap: 20px;
+            }
+            .stat-item h3 {
+                font-size: 22px;
             }
         }
 
@@ -392,12 +538,7 @@
             }
         }
 
-        /* ====== RESPONSIVE ====== */
         @media (max-width: 768px) {
-            .hero-placement {
-                padding-top: 4rem;
-                padding-bottom: 3rem;
-            }
             .student-card {
                 width: 170px;
             }
@@ -421,164 +562,6 @@
                 gap: 0.6rem;
             }
         }
-
-
-        /* hero section */
- * { margin: 0; padding: 0; box-sizing: border-box; }
- 
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-  }
- 
-  .hero {
-    position: relative;
-    background: #0f172a;
-    color: #ffffff;
-    min-height: 55vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    text-align: center;
-    overflow: hidden;
-  }
- 
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(96, 165, 250, 0.15) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(96, 165, 250, 0.15) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: gridMove 6s linear infinite;
-    z-index: 0;
-  }
- 
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 40%, rgba(37, 99, 235, 0.35), transparent 60%),
-                linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-    z-index: 0;
-  }
- 
-  @keyframes gridMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 40px 40px; }
-  }
- 
-  .hero-content {
-    position: relative;
-    z-index: 1;
-  }
- 
-  .hero-content {
-    max-width: 800px;
-  }
- 
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #93c5fd;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 24px;
-    letter-spacing: 0.5px;
-  }
- 
-  .hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
- 
-  .hero h1 span {
-    color: #60a5fa;
-  }
- 
-  .hero p {
-    font-size: 18px;
-    color: #cbd5e1;
-    margin-bottom: 36px;
-    line-height: 0.6;
-  }
- 
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-  }
- 
-  .btn {
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-  }
- 
-  .btn-primary {
-    background: #2563eb;
-    color: #ffffff;
-  }
- 
-  .btn-primary:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-  }
- 
-  .btn-secondary {
-    background: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-  }
- 
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-  }
- 
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-  }
- 
-  .stat-item h3 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #60a5fa;
-    margin-bottom: 6px;
-  }
- 
-  .stat-item p {
-    font-size: 14px;
-    color: #94a3b8;
-    margin: 0;
-  }
- 
-  @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 32px;
-    }
-    .hero p {
-      font-size: 16px;
-    }
-    .hero-stats {
-      gap: 30px;
-    }
-  }
     </style>
 </head>
 <body>
@@ -600,41 +583,55 @@
             </div>
         </div>
 
-
-     
-
         <div class="course-content-wrapper">
             <main>
-              
-  <section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-content">
-      <span class="hero-badge">Campus Placement Cell</span>
-      <h1>Launch Your Career With <span>Top Recruiters</span></h1>
-      <p>
-        Connecting talented students with leading companies. Get access to
-        internships, full-time <br> <br>placements, and career guidance — all in one place.
-      </p>
-      <div class="hero-buttons">
-        <a href="#apply" class="btn btn-primary">Get Started</a>
-        <a href="#companies" class="btn btn-secondary">View Companies</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <h3>5000+</h3>
-          <p>Students Placed</p>
-        </div>
-        <div class="stat-item">
-          <h3>500+</h3>
-          <p>Recruiting Companies</p>
-        </div>
-        <div class="stat-item">
-          <h3>98%</h3>
-          <p>Placement Rate</p>
-        </div>
-      </div>
-    </div>
-  </section>
+
+                <!-- ========== NEW HERO – SLIDING BACKGROUND IMAGES ========== -->
+                <section class="hero-placement">
+                    <!-- Slideshow -->
+                    <div class="hero-slideshow">
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                    <!-- Overlay -->
+                    <div class="hero-overlay"></div>
+                    <!-- Dots -->
+                    <div class="slide-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <!-- Content -->
+                    <div class="hero-content">
+                        <span class="hero-badge">Campus Placement Cell</span>
+                        <h1>Launch Your Career With <span>Top Recruiters</span></h1>
+                        <p>
+                            Connecting talented students with leading companies. Get access to
+                            internships, full-time placements, and career guidance — all in one place.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#apply" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Get Started</a>
+                            <a href="#companies" class="btn btn-secondary"><i class="fa-regular fa-building"></i> View Companies</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <h3>5000+</h3>
+                                <p>Students Placed</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>500+</h3>
+                                <p>Recruiting Companies</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>98%</h3>
+                                <p>Placement Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- ========== TOP RECRUITERS ========== -->
                 <section id="companies" class="py-16 bg-white">
@@ -644,7 +641,7 @@
                             <p class="text-gray-600 text-lg mt-3">500+ companies actively hiring our graduates</p>
                         </div>
                         <div class="flex flex-wrap justify-center gap-4 md:gap-6 max-w-5xl mx-auto">
-                            
+
                             <div class="recruiter-item"><i class="fa-brands fa-microsoft text-purple-600"></i><span class="font-semibold text-gray-700 text-sm">Microsoft</span></div>
                             <div class="recruiter-item"><i class="fa-brands fa-amazon text-amber-500"></i><span class="font-semibold text-gray-700 text-sm">Amazon</span></div>
                             <div class="recruiter-item"><i class="fa-solid fa-chart-line text-indigo-600"></i><span class="font-semibold text-gray-700 text-sm">TCS</span></div>
@@ -727,23 +724,6 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- ========== SUCCESS STORIES – AUTO SCROLLING CAROUSEL ========== -->
-                <!-- <section class="py-16 bg-gray-50">
-                    <div class="container mx-auto px-6">
-                        <div class="text-center max-w-3xl mx-auto mb-10">
-                            <span class="text-sky-600 text-sm font-bold uppercase tracking-wider bg-sky-50 px-4 py-1.5 rounded-full">Success Stories</span>
-                            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">Our Placed Students</h2>
-                            <p class="text-gray-600 text-lg mt-3">Real students who secured their dream jobs with SkillBridge.</p>
-                        </div>
-
-                        <div class="carousel-wrapper">
-                            <div class="carousel-track" id="studentTrack">
-                                Student cards – will be populated by JS -->
-                            <!-- </div>
-                        </div>
-                    </div>
-                </section> -->
 
                 <!-- ========== TESTIMONIALS – AUTO SCROLLING CAROUSEL (PARTIAL) ========== -->
                 <%- include("../../partials/common/testinomial") %>
@@ -944,16 +924,16 @@
                 if (!track) return;
                 const allStudents = [...students, ...students];
                 track.innerHTML = allStudents.map(s => `
-                    <div class="student-card">
-                        <div class="student-avatar bg-gradient-to-br ${s.gradient}">${s.initials}</div>
-                        <div class="student-info">
-                            <p class="font-bold text-gray-800 text-sm">${s.name}</p>
-                            <p class="text-xs text-gray-500">${s.role}</p>
-                            <p class="text-sky-600 font-bold text-sm">${s.package}</p>
-                            <p class="text-xs text-gray-400">${s.company}</p>
+                        <div class="student-card">
+                            <div class="student-avatar bg-gradient-to-br ${s.gradient}">${s.initials}</div>
+                            <div class="student-info">
+                                <p class="font-bold text-gray-800 text-sm">${s.name}</p>
+                                <p class="text-xs text-gray-500">${s.role}</p>
+                                <p class="text-sky-600 font-bold text-sm">${s.package}</p>
+                                <p class="text-xs text-gray-400">${s.company}</p>
+                            </div>
                         </div>
-                    </div>
-                `).join('');
+                    `).join('');
             }
 
             // ========== INIT ==========

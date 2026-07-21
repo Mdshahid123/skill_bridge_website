@@ -13,6 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" type="image/png" sizes="96x96"   href="/favicon.ico.png">
     <style>
         /* ============================================================
                    RESET & BASE
@@ -176,11 +183,11 @@
         }
 
         /* ============================================================
-                   STICKY SUBMENU
-                   ============================================================ */
+                                      STICKY SUBMENU
+         ============================================================ */
         .sticky-submenu {
             position: sticky;
-            top: 0;
+            top: 65px;
             background: #fff;
             border-bottom: 1px solid #e9edf2;
             z-index: 100;
@@ -541,7 +548,7 @@
             gap: 24px;
             margin-top: 20px;
             padding: 30px 20px;
-            background: #c41e2b;
+         
             border-radius: 16px;
         }
         .recognition-card {
@@ -1276,13 +1283,17 @@
 </head>
 <body>
 
+    
+     <%- include("../../partials/common/navbar.ejs") %>
+
+
     <!-- ============================================================
     HERO
     ============================================================ -->
     <section class="hero" id="about">
         <div class="container hero-grid">
             <div>
-                <div class="hero-ai-badge"><i class="fas fa-robot"></i> AI Overview</div>
+               
                 <h1 class="hero-title"><span>Chandigarh University</span> Online</h1>
                 <p class="hero-desc">Enroll for Chandigarh University Online UG &amp; PG Programs. Apply for UGC Entitled CU Online MBA, BBA, BCA &amp; many more.</p>
                 <div class="hero-badges">
@@ -1307,7 +1318,6 @@
             <div class="submenu-scroll">
                 <a href="#about" class="active">About</a>
                 <a href="#programs">Courses</a>
-                <a href="#specializations">Specializations</a>
                 <a href="#eligibility">Eligibility & Fees</a>
                 <a href="#certificate">Sample Certificate</a>
                 <a href="#admission">Admission Process</a>
