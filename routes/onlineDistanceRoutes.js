@@ -109,6 +109,44 @@ ondRoutes.get("/onlineMca",(req,res)=>{
       res.render('pages/online_distance/OnLineCourses/onlineMca', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
         
 })
+ondRoutes.get("/onlineBcom",(req,res)=>{
+    
+      res.render('pages/online_distance/OnLineCourses/onlineBcom', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
+        
+})
+
+ondRoutes.get("/onlineBsc",(req,res)=>{
+    
+      res.render('pages/online_distance/OnLineCourses/onlineBsc', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
+        
+})
+
+ondRoutes.get("/onlineBA",(req,res)=>{
+    
+      res.render('pages/online_distance/OnLineCourses/onlineBA', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
+        
+})
+ondRoutes.get("/onlineMsc",(req,res)=>{
+    
+      res.render('pages/online_distance/OnLineCourses/onlineMsc', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
+        
+})
+
+ondRoutes.get("/onlineMcom",(req,res)=>{
+    
+      res.render('pages/online_distance/OnLineCourses/onlineMcom', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
+        
+})
+ondRoutes.get("/onlineBEd",(req,res)=>{
+    
+      res.render('pages/online_distance/OnLineCourses/onlineBEd', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
+        
+})
+ondRoutes.get("/onlineMA",(req,res)=>{
+    
+      res.render('pages/online_distance/OnLineCourses/onlineMA', { isLogin: req.session?.isLogin || false, user: req.session?.user || null }); 
+        
+})
 
 module.exports=ondRoutes
 

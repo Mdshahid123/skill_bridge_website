@@ -1,6 +1,7 @@
 const express = require("express");
 const adminRoutes = express.Router();
 const upload = require("../middleware/upload");
+
 const {
     adminDashboard,
     storeCourses,
@@ -10,6 +11,7 @@ const {
     updateCourse,
     getAddCourseForm,
 } = require("../controllers/adminContollers/adminControllers");
+
 
 const { isAdmin } = require('../middleware/adminAuth'); // we'll create this next
 

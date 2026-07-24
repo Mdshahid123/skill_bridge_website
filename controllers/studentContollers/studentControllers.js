@@ -87,6 +87,7 @@ function showContactPage(req, res) {
 // store enquery form
 function storeEnqueryForm(req, res) {
      
+    console.log("shahid")
     // print the form data 
      console.log("Received form data:", req.body);
 
@@ -121,10 +122,6 @@ function storeEnqueryForm(req, res) {
     });
 
  }
-
-
-
-
 
 
 

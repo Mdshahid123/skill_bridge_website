@@ -56,8 +56,8 @@ app.use(ondRoutes)
 app.use(ondCoursesRoutes)
 app.use(studentRoutes)
 app.use(studentAuthRoutes)
-app.use(adminAuthRoutes)
-app.use(adminRoutes)
+// app.use(adminAuthRoutes)
+// app.use(adminRoutes)
 
 //middleware 2:matching the reuqested routes in authroutes otherwise call the next
 
