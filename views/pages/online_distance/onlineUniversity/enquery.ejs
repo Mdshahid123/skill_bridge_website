@@ -1,0 +1,364 @@
+    <section id="enquery" class="enquiry-section">
+                <div class="container enquiry-container">
+
+                    <div class="enquiry-header">
+                        <h2>Have Questions? <span>Let's Talk</span></h2>
+                        <p>Fill in your details &amp; our academic experts will assist you.</p>
+                    </div>
+
+                    <div class="hero-form-wrapper">
+
+                        <div id="formMessage" style="display: none; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-weight: 500; text-align: center; font-size: 15px;"></div>
+
+                        <form class="hero-form" id="enquiryForm" onsubmit="return submitEnquiryForm(event)" novalidate>
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Full Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phoneNumber" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <select name="course">
+                                    <option value="">Select Program</option>
+                                    <option value="mba">Online MBA</option>
+                                    <option value="bba">Online BBA</option>
+                                    <option value="mca">Online MCA</option>
+                                    <option value="bca">Online BCA</option>
+                                    <option value="mcom">Online M.Com</option>
+                                    <option value="bcom">Online B.Com</option>
+                                    <option value="ba">Online BA</option>
+                                    <option value="ma">Online MA</option>
+                                    <option value="bsc">Online B.Sc</option>
+                                    <option value="msc">Online M.Sc</option>
+                                    <option value="bed">Online B.Ed</option>
+                                </select>
+                                <input type="hidden" name="degree" id="degreeHidden" value="">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Your message (optional)" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <select name="callbackTime">
+                                    <option value="">Preferred Callback Time (optional)</option>
+                                    <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+                                    <option value="Afternoon (12 PM - 5 PM)">Afternoon (12 PM - 5 PM)</option>
+                                    <option value="Evening (5 PM - 8 PM)">Evening (5 PM - 8 PM)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary">Submit Application <i class="fas fa-arrow-right"></i></button>
+                            <p class="form-disclaimer">By submitting, you agree to our <a href="#">Privacy Policy</a>.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+
+            <style>
+                .enquiry-section {
+                    padding: 70px 20px 60px;
+                    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+                    border-top: 1px solid #f1f5f9;
+                }
+                .enquiry-container {
+                    max-width: 820px;
+                    margin: 0 auto;
+                }
+                .enquiry-header {
+                    text-align: center;
+                    margin-bottom: 36px;
+                }
+                .enquiry-header h2 {
+                    font-size: 2.4rem;
+                    font-weight: 800;
+                    color: #0f172a;
+                    letter-spacing: -0.02em;
+                    margin-bottom: 6px;
+                }
+                .enquiry-header h2 span {
+                    color: #EE2C3C;
+                }
+                .enquiry-header p {
+                    color: #64748b;
+                    font-size: 1.05rem;
+                    line-height: 1.6;
+                }
+                .enquiry-section .hero-form-wrapper {
+                    background: #ffffff;
+                    padding: 36px 32px 28px;
+                    border-radius: 20px;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+                    border: 1px solid #e2e8f0;
+                    transition: box-shadow 0.3s ease;
+                }
+                .enquiry-section .hero-form-wrapper:hover {
+                    box-shadow: 0 12px 44px rgba(0, 0, 0, 0.08);
+                }
+                .enquiry-section .hero-form-wrapper h3 {
+                    display: none;
+                }
+                .enquiry-section .hero-form-wrapper>p:first-of-type {
+                    display: none;
+                }
+
+                /* ─── FIX: Select dropdown red outline/wave pattern issue ─── */
+                .hero-form select,
+                .hero-form select:focus,
+                .hero-form select:focus-visible {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    border: 1.5px solid #e2e8f0 !important;
+                    -webkit-appearance: none;
+                    appearance: none;
+                }
+
+                .hero-form select:focus {
+                    border-color: #EE2C3C !important;
+                }
+
+                .hero-form input:focus,
+                .hero-form textarea:focus {
+                    outline: none !important;
+                    border-color: #EE2C3C;
+                }
+
+                /* Remove any red glow/wave effect */
+                .hero-form select::-webkit-select-focus-ring,
+                .hero-form select::-moz-focus-inner,
+                .hero-form select::-ms-expand {
+                    outline: none !important;
+                    border: none !important;
+                }
+
+                .hero-form .form-group {
+                    margin-bottom: 16px;
+                }
+                .hero-form input,
+                .hero-form select,
+                .hero-form textarea {
+                    width: 100%;
+                    padding: 13px 16px;
+                    border-radius: 10px;
+                    border: 1.5px solid #e2e8f0;
+                    font-size: 15px;
+                    font-family: 'Inter', sans-serif;
+                    transition: all 0.3s ease;
+                    background: #fff;
+                    color: #0f172a;
+                    -webkit-appearance: none;
+                    appearance: none;
+                }
+                .hero-form textarea {
+                    min-height: 70px;
+                    resize: vertical;
+                    font-family: 'Inter', sans-serif;
+                }
+                .hero-form input::placeholder,
+                .hero-form textarea::placeholder {
+                    color: #94a3b8;
+                    font-weight: 400;
+                }
+                .hero-form input:hover,
+                .hero-form select:hover,
+                .hero-form textarea:hover {
+                    border-color: #b3c9f0;
+                }
+                .hero-form select {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23475569' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-position: right 16px center;
+                    background-size: 14px 10px;
+                    padding-right: 44px;
+                    cursor: pointer;
+                }
+                .hero-form select:focus {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 7l5-5 5 5' stroke='%23EE2C3C' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                }
+                .hero-form .btn-primary {
+                    width: 100%;
+                    padding: 14px 24px;
+                    font-size: 17px;
+                    font-weight: 600;
+                    margin-top: 4px;
+                    border: none;
+                    border-radius: 40px;
+                    cursor: pointer;
+                    background: #EE2C3C;
+                    color: #fff;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 14px rgba(238, 44, 60, 0.3);
+                    letter-spacing: 0.3px;
+                    font-family: 'Inter', sans-serif;
+                }
+                .hero-form .btn-primary:hover {
+                    background: #b91c1c;
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 24px rgba(238, 44, 60, 0.4);
+                }
+                .hero-form .btn-primary:active {
+                    transform: translateY(0);
+                    box-shadow: 0 4px 12px rgba(238, 44, 60, 0.3);
+                }
+                .hero-form .btn-primary i {
+                    transition: transform 0.3s ease;
+                }
+                .hero-form .btn-primary:hover i {
+                    transform: translateX(4px);
+                }
+                .hero-form .form-disclaimer {
+                    font-size: 12px;
+                    color: #64748b;
+                    text-align: center;
+                    margin-top: 16px;
+                    margin-bottom: 0;
+                }
+                .hero-form .form-disclaimer a {
+                    color: #EE2C3C;
+                    text-decoration: underline;
+                    font-weight: 500;
+                    transition: color 0.2s;
+                }
+                .hero-form .form-disclaimer a:hover {
+                    color: #b91c1c;
+                }
+                @media(max-width: 768px) {
+                    .enquiry-section {
+                        padding: 50px 16px 40px;
+                    }
+                    .enquiry-header h2 {
+                        font-size: 1.8rem;
+                    }
+                    .enquiry-header p {
+                        font-size: 0.95rem;
+                    }
+                    .enquiry-section .hero-form-wrapper {
+                        padding: 24px 18px 20px;
+                    }
+                    .hero-form input,
+                    .hero-form select,
+                    .hero-form textarea {
+                        padding: 11px 14px;
+                        font-size: 14px;
+                    }
+                    .hero-form .btn-primary {
+                        padding: 13px 20px;
+                        font-size: 16px;
+                    }
+                }
+                @media(max-width: 480px) {
+                    .enquiry-section {
+                        padding: 40px 12px 30px;
+                    }
+                    .enquiry-header h2 {
+                        font-size: 1.5rem;
+                    }
+                    .enquiry-section .hero-form-wrapper {
+                        padding: 18px 12px 16px;
+                        border-radius: 16px;
+                    }
+                    .hero-form input,
+                    .hero-form select,
+                    .hero-form textarea {
+                        padding: 10px 12px;
+                        font-size: 13px;
+                        border-radius: 8px;
+                    }
+                    .hero-form .form-group {
+                        margin-bottom: 12px;
+                    }
+                    .hero-form .btn-primary {
+                        padding: 12px 16px;
+                        font-size: 15px;
+                        border-radius: 30px;
+                    }
+                    .hero-form select {
+                        background-position: right 12px center;
+                        padding-right: 36px;
+                    }
+                }
+            </style>
+
+            <script>
+                function showFormMessage(message, type) {
+                    const msgDiv = document.getElementById('formMessage');
+                    if (!msgDiv) return;
+                    msgDiv.textContent = message;
+                    msgDiv.style.display = 'block';
+                    if (type === 'success') {
+                        msgDiv.style.background = '#f0fdf4';
+                        msgDiv.style.color = '#166534';
+                        msgDiv.style.border = '1px solid #86efac';
+                    } else {
+                        msgDiv.style.background = '#fef2f2';
+                        msgDiv.style.color = '#991b1b';
+                        msgDiv.style.border = '1px solid #fca5a5';
+                    }
+                    clearTimeout(window.messageTimer);
+                    window.messageTimer = setTimeout(() => {
+                        msgDiv.style.display = 'none';
+                    }, 6000);
+                }
+
+                window.submitEnquiryForm = function(event) {
+                    event.preventDefault();
+                    const form = document.getElementById('enquiryForm');
+                    if (!form) { alert('Form not found!'); return false; }
+
+                    const name = form.querySelector('input[name="name"]').value.trim();
+                    const email = form.querySelector('input[name="email"]').value.trim();
+                    const phone = form.querySelector('input[name="phoneNumber"]').value.trim();
+                    const course = form.querySelector('select[name="course"]').value;
+                    const message = form.querySelector('textarea[name="message"]').value.trim();
+                    const callbackTime = form.querySelector('select[name="callbackTime"]').value;
+                    const degree = document.getElementById('degreeHidden').value;
+
+                    const payload = { name, email, phoneNumber: phone, course, degree, message, callbackTime };
+                    const endpoint = window.location.origin + '/submitEnquery';
+
+                    showFormMessage('Submitting...', 'success');
+
+                    fetch(endpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload),
+                        })
+                        .then(res => {
+                            return res.json().then(data => {
+                                return { status: res.status, data };
+                            }).catch(() => {
+                                return { status: res.status, data: { error: 'Server error' } };
+                            });
+                        })
+                        .then(({ status, data }) => {
+                            if (data.success) {
+                                showFormMessage(data.message, 'success');
+                                form.reset();
+                                document.getElementById('degreeHidden').value = '';
+                            } else {
+                                showFormMessage(data.error || 'Submission failed.', 'error');
+                            }
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            showFormMessage('Network error. Please try again.', 'error');
+                        });
+
+                    return false;
+                };
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    const courseSelect = document.querySelector('select[name="course"]');
+                    const degreeHidden = document.getElementById('degreeHidden');
+                    if (courseSelect && degreeHidden) {
+                        courseSelect.addEventListener('change', function() {
+                            degreeHidden.value = this.value;
+                        });
+                    }
+                });
+            </script>
