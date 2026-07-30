@@ -1617,7 +1617,10 @@
                 </div>
                 <div class="hero-buttons">
                     <a href="#enquery" class="btn-primary"><i class="fas fa-location-arrow"></i> Apply Now</a>
-                    <a href="#" class="btn-outline"><i class="fas fa-download"></i> Download Brochure</a>
+                    <a class="btn-outline"  class="fas fa-download" href="/brochures/BCA Brochure.pdf" download 
+   onclick="gtag('event', 'download', {'event_category': 'brochure'});">
+    Download Brochure
+</a>
                 </div>
             </div>
             <div class="hero-video">
@@ -1664,166 +1667,228 @@
     PROGRAMS (TABS)
     ============================================================ -->
     <section class="programs-section" id="programs">
-        <div class="container">
-            <h2 class="section-title text-center">Amity Online <span>Programs</span></h2>
+    <div class="container">
+        <h2 class="section-title text-center">Amity Online <span>Programs</span></h2>
 
-            <div class="tabs-wrapper">
-                <!-- Tab Headers -->
-                <div class="tab-headers">
-                    <button class="tab-btn active" data-tab="ug">UG Courses</button>
-                    <button class="tab-btn" data-tab="pg">PG Courses</button>
-                    <button class="tab-btn" data-tab="spec">Top Specializations</button>
-                </div>
+        <div class="tabs-wrapper">
+            <!-- Tab Headers -->
+            <div class="tab-headers">
+                <button class="tab-btn active" data-tab="ug">UG Courses</button>
+                <button class="tab-btn" data-tab="pg">PG Courses</button>
+                <button class="tab-btn" data-tab="spec">Top Specializations</button>
+            </div>
 
-                <!-- ===== UG TAB ===== -->
-                <div class="tab-content active" id="ug">
-                    <div class="program-grid">
-                        <!-- BBA -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/Untitled-design-92-1-1.webp" alt="BBA">
-                            <h4>BBA (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 4</li>
-                                <li><i class="fas fa-clock"></i> Duration: 36 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,65,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹4,583/mo*</li>
-                            </ul>
+            <!-- ===== UG TAB ===== -->
+            <div class="tab-content active" id="ug">
+                <div class="program-grid">
+                    <!-- BBA -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/Untitled-design-92-1-1.webp" alt="BBA">
+                        <h4>BBA (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 4</li>
+                            <li><i class="fas fa-clock"></i> Duration: 36 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,65,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹4,583/mo*</li>
+                        </ul>
+                        <div class="card-actions">
                             <a href="/onlineBba" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/BBA.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'BBA'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
                         </div>
-                        <!-- B.Com -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/Untitled-design-93-1.webp" alt="B.Com">
-                            <h4>B.Com (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 3</li>
-                                <li><i class="fas fa-clock"></i> Duration: 36 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹99,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹2,750/mo*</li>
-                            </ul>
+                    </div>
+
+                    <!-- B.Com -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/Untitled-design-93-1.webp" alt="B.Com">
+                        <h4>B.Com (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 3</li>
+                            <li><i class="fas fa-clock"></i> Duration: 36 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹99,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹2,750/mo*</li>
+                        </ul>
+                        <div class="card-actions">
                             <a href="/onlineBcom" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/BCom-Brochure.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'B.Com'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
                         </div>
-                        <!-- BCA -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/Untitled-design-94-1.webp" alt="BCA">
-                            <h4>BCA (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 3</li>
-                                <li><i class="fas fa-clock"></i> Duration: 36 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,50,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹4,166/mo*</li>
-                            </ul>
+                    </div>
+
+                    <!-- BCA -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/Untitled-design-94-1.webp" alt="BCA">
+                        <h4>BCA (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 3</li>
+                            <li><i class="fas fa-clock"></i> Duration: 36 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,50,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹4,166/mo*</li>
+                        </ul>
+                        <div class="card-actions">
                             <a href="/onlineBca" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <!-- BA -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-73-1.webp" alt="BA">
-                            <h4>BA (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 6</li>
-                                <li><i class="fas fa-clock"></i> Duration: 36 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹85,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹3,431/mo*</li>
-                            </ul>
-                            <a href="onlineBA" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/BCA Brochure.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'BCA'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
                         </div>
                     </div>
-                </div>
 
-                <!-- ===== PG TAB ===== -->
-                <div class="tab-content" id="pg">
-                    <div class="program-grid">
-                        <!-- MBA -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-61-1.webp" alt="MBA">
-                            <h4>MBA (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 24</li>
-                                <li><i class="fas fa-clock"></i> Duration: 24 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,99,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹8,291/mo*</li>
-                            </ul>
-                            <a href="/onlineMba" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                    <!-- BA -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-73-1.webp" alt="BA">
+                        <h4>BA (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 6</li>
+                            <li><i class="fas fa-clock"></i> Duration: 36 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹85,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹3,431/mo*</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/onlineBA" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/BA-Brochure.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'BA'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
                         </div>
-                        <!-- MCA -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-63-1.webp" alt="MCA">
-                            <h4>MCA (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 6</li>
-                                <li><i class="fas fa-clock"></i> Duration: 24 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,70,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹7,083/mo*</li>
-                            </ul>
-                            <a href="/onlineMca" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <!-- M.Com -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-54-1.webp" alt="M.Com">
-                            <h4>M.Com (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 3</li>
-                                <li><i class="fas fa-clock"></i> Duration: 24 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹90,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹3,750/mo*</li>
-                            </ul>
-                            <a href="/onlineMcom" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <!-- MA -->
-                        <div class="program-card">
-                            <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-51-1.webp" alt="MA">
-                            <h4>MA (Amity Online)</h4>
-                            <div class="rating"><i class="fas fa-star"></i> 4.7</div>
-                            <ul>
-                                <li><i class="fas fa-book"></i> Specializations: 2</li>
-                                <li><i class="fas fa-clock"></i> Duration: 24 months</li>
-                                <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,70,000</li>
-                                <li><i class="fas fa-credit-card"></i> EMI: ₹7,083/mo*</li>
-                            </ul>
-                            <a href="/onlineMA" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ===== SPECIALIZATIONS TAB ===== -->
-                <div class="tab-content" id="spec">
-                    <div class="spec-description">
-                        <p>Amity university online degree programs support both academic and professional growth. Students can easily select courses aligned with their career goals and study from anywhere. The learning platform ensures a supportive and engaging experience focused on real-world success. With admissions for the 2026 session now open, the updated course fees and durations below will help you make an informed choice.</p>
-                    </div>
-
-                    <div class="table-wrap">
-                        <table id="specTable">
-                            <thead>
-                                <tr>
-                                    <th>Course</th>
-                                    <th>Specializations</th>
-                                    <th>Duration</th>
-                                    <th>Fees</th>
-                                    <th>EMI Option</th>
-                                    <th>Brochure</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <!-- Rows rendered by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="pagination-controls" id="paginationControls">
-                        <button class="page-btn" id="prevPage" disabled>‹</button>
-                        <div id="pageNumbers" class="page-numbers"></div>
-                        <button class="page-btn" id="nextPage">›</button>
                     </div>
                 </div>
             </div>
+
+            <!-- ===== PG TAB ===== -->
+            <div class="tab-content" id="pg">
+                <div class="program-grid">
+                    <!-- MBA -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-61-1.webp" alt="MBA">
+                        <h4>MBA (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 24</li>
+                            <li><i class="fas fa-clock"></i> Duration: 24 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,99,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹8,291/mo*</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/onlineMba" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/MBA-Healthcare.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'MBA'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MCA -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-63-1.webp" alt="MCA">
+                        <h4>MCA (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 6</li>
+                            <li><i class="fas fa-clock"></i> Duration: 24 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,70,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹7,083/mo*</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/onlineMca" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/Amity MCA.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'MCA'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- M.Com -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-54-1.webp" alt="M.Com">
+                        <h4>M.Com (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 3</li>
+                            <li><i class="fas fa-clock"></i> Duration: 24 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹90,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹3,750/mo*</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/onlineMcom" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/MCom-Brochure.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'M.Com'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MA -->
+                    <div class="program-card">
+                        <img src="https://ecampusapp.b-cdn.net/wp-content/uploads/2026/02/ecampus-51-1.webp" alt="MA">
+                        <h4>MA (Amity Online)</h4>
+                        <div class="rating"><i class="fas fa-star"></i> 4.7</div>
+                        <ul>
+                            <li><i class="fas fa-book"></i> Specializations: 2</li>
+                            <li><i class="fas fa-clock"></i> Duration: 24 months</li>
+                            <li><i class="fas fa-rupee-sign"></i> Total Fees: ₹1,70,000</li>
+                            <li><i class="fas fa-credit-card"></i> EMI: ₹7,083/mo*</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="/onlineMA" class="explore-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                            <a href="/brochures/MA-Brochure.pdf" download 
+                               onclick="gtag('event', 'download', {'event_category': 'brochure', 'event_label': 'MA'});"
+                               class="download-btn">
+                                <i class="fas fa-file-pdf"></i> Brochure
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SPECIALIZATIONS TAB ===== -->
+            <div class="tab-content" id="spec">
+                <div class="spec-description">
+                    <p>Amity university online degree programs support both academic and professional growth. Students can easily select courses aligned with their career goals and study from anywhere. The learning platform ensures a supportive and engaging experience focused on real-world success. With admissions for the 2026 session now open, the updated course fees and durations below will help you make an informed choice.</p>
+                </div>
+
+                <div class="table-wrap">
+                    <table id="specTable">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Specializations</th>
+                                <th>Duration</th>
+                                <th>Fees</th>
+                                <th>EMI Option</th>
+                                <th>Brochure</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Rows rendered by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-controls" id="paginationControls">
+                    <button class="page-btn" id="prevPage" disabled>‹</button>
+                    <div id="pageNumbers" class="page-numbers"></div>
+                    <button class="page-btn" id="nextPage">›</button>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ============================================================
     RECOGNITION & APPROVALS
