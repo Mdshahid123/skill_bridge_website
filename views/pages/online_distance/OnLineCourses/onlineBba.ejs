@@ -1572,6 +1572,396 @@
         </div>
     </section>
 
+
+<style>
+    /* ============================================================
+       ROOT VARIABLES (fallback if not defined globally)
+       ============================================================ */
+    :root {
+        --brand-primary: #1D4ED8;
+        --brand-hover: #1E3A8A;
+        --brand-light: #EFF6FF;
+        --brand-dark: #1e2b4f;
+        --text-dark: #0f172a;
+        --text-muted: #475569;
+        --border-light: #e2e8f0;
+        --bg-light: #f8fafc;
+    }
+
+    /* ============================================================
+       BASE CONTAINER & UTILITY
+       ============================================================ */
+    .curriculum-container {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    .text-center {
+        text-align: center;
+    }
+
+    /* ============================================================
+       CURRICULUM SECTION
+       ============================================================ */
+    .curriculum-section {
+        padding: 80px 0;
+        background: var(--bg-light);
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
+    }
+
+    .curriculum-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    .curriculum-header .curriculum-badge {
+        display: inline-block;
+        background: var(--brand-primary);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 4px 18px;
+        border-radius: 30px;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+    }
+    .curriculum-header h2 {
+        font-size: 38px;
+        font-weight: 700;
+        color: var(--text-dark);
+        letter-spacing: -0.5px;
+        margin: 0 0 8px;
+    }
+    .curriculum-header h2 span {
+        color: var(--brand-primary);
+    }
+    .curriculum-header p {
+        font-size: 18px;
+        color: var(--text-muted);
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    /* ---------- TABS ---------- */
+    .curriculum-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    .curriculum-tab {
+        padding: 10px 24px;
+        border-radius: 40px;
+        border: 2px solid var(--border-light);
+        background: #fff;
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: 'Inter', sans-serif;
+    }
+    .curriculum-tab:hover {
+        border-color: var(--brand-primary);
+        color: var(--brand-primary);
+    }
+    .curriculum-tab.active {
+        background: var(--brand-primary);
+        color: #fff;
+        border-color: var(--brand-primary);
+    }
+
+    /* ---------- PANELS ---------- */
+    .semester-panel {
+        display: none;
+        background: #fff;
+        border-radius: 20px;
+        padding: 36px 40px;
+        border: 1px solid var(--border-light);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+    .semester-panel.active {
+        display: block;
+    }
+
+    .semester-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--bg-light);
+    }
+    .semester-header h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin: 0;
+    }
+    .semester-credits {
+        background: var(--brand-light);
+        color: var(--brand-primary);
+        padding: 4px 16px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* ---------- SUBJECT LIST ---------- */
+    .subject-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 30px;
+    }
+    .subject-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 0;
+        color: var(--text-dark);
+        font-size: 15px;
+        border-bottom: 1px solid var(--bg-light);
+    }
+    .subject-list li i {
+        color: var(--brand-primary);
+        width: 20px;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    /* ---------- DOWNLOAD BUTTON ---------- */
+    .curriculum-cta {
+        text-align: center;
+        margin-top: 40px;
+    }
+    .btn-download-curriculum {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--brand-primary);
+        color: #fff;
+        padding: 14px 36px;
+        border-radius: 40px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+    }
+    .btn-download-curriculum:hover {
+        background: var(--brand-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(29, 78, 216, 0.3);
+    }
+    .btn-download-curriculum i {
+        font-size: 18px;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+        .curriculum-section {
+            padding: 50px 0;
+        }
+        .curriculum-container {
+            padding: 0 16px;
+        }
+        .curriculum-header h2 {
+            font-size: 28px;
+        }
+        .curriculum-tab {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        .semester-panel {
+            padding: 24px 20px;
+        }
+        .semester-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .semester-header h3 {
+            font-size: 20px;
+        }
+        .subject-list {
+            grid-template-columns: 1fr;
+            gap: 6px 0;
+        }
+        .subject-list li {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .curriculum-tabs {
+            gap: 6px;
+        }
+        .curriculum-tab {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        .btn-download-curriculum {
+            padding: 12px 24px;
+            font-size: 14px;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+
+<!-- ============================================================
+     HTML STRUCTURE – BBA CURRICULUM
+     ============================================================ -->
+<section class="curriculum-section" id="curriculum">
+    <div class="curriculum-container">
+        <div class="curriculum-header">
+           
+            <h2>BBA <span>Course Structure</span></h2>
+            <p>Semester-wise breakdown of the Online BBA program curriculum.</p>
+        </div>
+
+        <!-- Semester Tabs -->
+        <div class="curriculum-tabs">
+            <button class="curriculum-tab active" data-semester="1">Semester 1</button>
+            <button class="curriculum-tab" data-semester="2">Semester 2</button>
+            <button class="curriculum-tab" data-semester="3">Semester 3</button>
+            <button class="curriculum-tab" data-semester="4">Semester 4</button>
+            <button class="curriculum-tab" data-semester="5">Semester 5</button>
+        </div>
+
+        <!-- Semester Content -->
+        <div class="curriculum-content">
+
+            <!-- ======= Semester 1 ======= -->
+            <div class="semester-panel active" data-semester="1">
+                <div class="semester-header">
+                    <h3>Semester 1</h3>
+                    <span class="semester-credits">Credits: 24</span>
+                </div>
+                <ul class="subject-list">
+                    <li><i class="fas fa-calculator"></i> Accounting Fundamentals</li>
+                    <li><i class="fas fa-bullhorn"></i> Principles of Marketing</li>
+                    <li><i class="fas fa-building"></i> Management Foundation</li>
+                    <li><i class="fas fa-chart-bar"></i> Business Statistics</li>
+                    <li><i class="fas fa-comments"></i> Business Communication</li>
+                    <li><i class="fas fa-coins"></i> Fundamentals of Financial Management</li>
+                </ul>
+            </div>
+
+            <!-- ======= Semester 2 ======= -->
+            <div class="semester-panel" data-semester="2">
+                <div class="semester-header">
+                    <h3>Semester 2</h3>
+                    <span class="semester-credits">Credits: 24</span>
+                </div>
+                <ul class="subject-list">
+                    <li><i class="fas fa-leaf"></i> Environmental Studies</li>
+                    <li><i class="fas fa-users"></i> Fundamentals of Human Resource Management</li>
+                    <li><i class="fas fa-laptop"></i> IT Applications in Business</li>
+                    <li><i class="fas fa-handshake"></i> Individual Excellence and Social Dynamic</li>
+                    <li><i class="fas fa-industry"></i> Essentials of Production and Operations Management</li>
+                    <li><i class="fas fa-user-friends"></i> Principles of Organizational Behaviour</li>
+                </ul>
+            </div>
+
+            <!-- ======= Semester 3 ======= -->
+            <div class="semester-panel" data-semester="3">
+                <div class="semester-header">
+                    <h3>Semester 3</h3>
+                    <span class="semester-credits">Credits: 24</span>
+                </div>
+                <ul class="subject-list">
+                    <li><i class="fas fa-flask"></i> Research Methods for Managers</li>
+                    <li><i class="fas fa-globe-americas"></i> Cross Cultural Management</li>
+                    <li><i class="fas fa-chart-line"></i> Financial Markets and Services</li>
+                    <li><i class="fas fa-truck"></i> Sales and Distribution Management</li>
+                    <li><i class="fas fa-tasks"></i> Fundamentals of Project Management</li>
+                    <li><i class="fas fa-lightbulb"></i> Fundamentals of Entrepreneurship</li>
+                </ul>
+            </div>
+
+            <!-- ======= Semester 4 ======= -->
+            <div class="semester-panel" data-semester="4">
+                <div class="semester-header">
+                    <h3>Semester 4</h3>
+                    <span class="semester-credits">Credits: 24</span>
+                </div>
+                <ul class="subject-list">
+                    <li><i class="fas fa-shopping-cart"></i> Principles of Consumer Behaviour</li>
+                    <li><i class="fas fa-cogs"></i> Operations Research</li>
+                    <li><i class="fas fa-chess-queen"></i> Business Strategy</li>
+                    <li><i class="fas fa-ad"></i> Marketing in Digital Age</li>
+                    <li><i class="fas fa-heart"></i> Managing Customer Relationships</li>
+                    <li><i class="fas fa-wallet"></i> Financial Planning</li>
+                </ul>
+            </div>
+
+            <!-- ======= Semester 5 ======= -->
+            <div class="semester-panel" data-semester="5">
+                <div class="semester-header">
+                    <h3>Semester 5</h3>
+                    <span class="semester-credits">Credits: 24</span>
+                </div>
+                <ul class="subject-list">
+                    <li><i class="fas fa-check-circle"></i> Quality Management</li>
+                    <li><i class="fas fa-gavel"></i> Professional Ethics</li>
+                    <li><i class="fas fa-tag"></i> Brand Management</li>
+                    <li><i class="fas fa-globe"></i> Fundamentals of International Human Resource Management</li>
+                    <li><i class="fas fa-store"></i> Fundamentals of Retailing</li>
+                    <li><i class="fas fa-file-alt"></i> Dissertation</li>
+                </ul>
+            </div>
+
+        </div><!-- /curriculum-content -->
+
+    </div>
+</section>
+
+<!-- ============================================================
+     JAVASCRIPT – Tab Switching
+     ============================================================ -->
+<script>
+    (function() {
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTabs);
+        } else {
+            initTabs();
+        }
+
+        function initTabs() {
+            const tabs = document.querySelectorAll('.curriculum-tab');
+            const panels = document.querySelectorAll('.semester-panel');
+
+            if (!tabs.length || !panels.length) return;
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Hide all panels
+                    panels.forEach(p => p.classList.remove('active'));
+
+                    // Show the selected panel
+                    const semester = this.dataset.semester;
+                    document.querySelector(`.semester-panel[data-semester="${semester}"]`)
+                        ?.classList.add('active');
+                });
+            });
+        }
+    })();
+</script>
+
     <!-- ============================================================
     ADMISSION PROCESS
     ============================================================ -->
